@@ -5,6 +5,8 @@
  */
 package pacificbattleship;
 
+import byui.cit260.pacificBattleship.model.Game;
+
 /**
  *
  * @author ort09
@@ -15,6 +17,15 @@ public class PacificBattleship {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-    }
+        Game gameOne = new Game();
+        
+        gameOne.setName("Nathan");
+        gameOne.setScrapAmount(2.00);
+        gameOne.setNumOfUnusedPrisoners(5.00);
+        gameOne.setNumOfUsedPrisoners(7.00);
+        
+        String gameInfo = gameOne.toString();
+        System.out.println(gameInfo);
+        
+    }   
 }
