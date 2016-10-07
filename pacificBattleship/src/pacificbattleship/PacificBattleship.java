@@ -6,6 +6,7 @@
 package pacificbattleship;
 
 import byui.cit260.pacificBattleship.model.Game;
+import byui.cit260.pacificBattleship.model.Character;
 
 /**
  *
