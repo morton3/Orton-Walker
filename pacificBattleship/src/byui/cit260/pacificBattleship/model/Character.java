@@ -5,13 +5,14 @@
  */
 package byui.cit260.pacificBattleship.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author ort09
  */
-public class Character {
+public class Character implements Serializable {
     
     private double rank;
     private String name;
