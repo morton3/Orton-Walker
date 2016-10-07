@@ -6,12 +6,13 @@
 package byui.cit260.pacificBattleship.model;
 
 import com.sun.xml.internal.ws.developer.Serialization;
-
+    import java.util.Objects;
 /**
  *
  * @author Nathan
  */
 public class Map implements Serialization{
+    
     
     private int rowCount;
     private int columnCount;
