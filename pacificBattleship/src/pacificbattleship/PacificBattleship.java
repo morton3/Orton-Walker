@@ -17,6 +17,11 @@ public class PacificBattleship {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        /********************************************************
+         * GAME
+         ********************************************************/
+        
         Game gameOne = new Game();
         
         gameOne.setName("Nathan");
