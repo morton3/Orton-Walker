@@ -18,6 +18,8 @@ public class Character implements Serializable {
     private double rank;
     private String name;
 
+    
+    
     public Character() {
     }
     
@@ -48,6 +50,11 @@ public class Character implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return "Character{" + "rank=" + rank + ", name=" + name + '}';
+    }
+    
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -68,10 +75,6 @@ public class Character implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Character{" + "rank=" + rank + ", name=" + name + '}';
-    }
     
     
     
