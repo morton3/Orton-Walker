@@ -32,6 +32,9 @@ public class Character {
         this.name = name;
     }
 
+    public Character() {
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
