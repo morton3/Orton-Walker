@@ -29,6 +29,9 @@ public class PacificBattleship {
         gameOne.setNumOfUnusedPrisoners(5.00);
         gameOne.setNumOfUsedPrisoners(7.00);
         
+        
+        //Testing conflect
+        
         String gameInfo = gameOne.toString();
         System.out.println(gameInfo);
         
