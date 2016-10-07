@@ -32,5 +32,18 @@ public class PacificBattleship {
         String gameInfo = gameOne.toString();
         System.out.println(gameInfo);
         
+                
+        /********************************************************
+         * Character
+         ********************************************************/
+        
+        Character characterOne = new Character();
+        
+        characterOne.setRank(1);
+        characterOne.setName("Matthew");
+        
+        String characterInfo = characterOne.toString();
+        System.out.println(characterInfo);
+        
     }   
 }
