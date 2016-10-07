@@ -14,9 +14,15 @@ import java.util.Objects;
  */
 public class Character implements Serializable {
     
+    // classes instance variables
     private double rank;
     private String name;
 
+    public Character() {
+    }
+    
+    
+    
     public double getRank() {
         return rank;
     }
@@ -31,9 +37,6 @@ public class Character implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Character() {
     }
 
     @Override
