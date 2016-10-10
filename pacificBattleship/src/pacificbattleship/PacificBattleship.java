@@ -6,6 +6,7 @@
 package pacificbattleship;
 
 import byui.cit260.pacificBattleship.model.Game;
+
 import byui.cit260.pacificBattleship.model.Character;
 import byui.cit260.pacificBattleship.model.Player;
 import byui.cit260.pacificBattleship.model.Upgrade;
@@ -17,6 +18,7 @@ import byui.cit260.pacificBattleship.model.ShipAbility;
 import byui.cit260.pacificBattleship.model.Map;
 
 
+import byui.cit260.pacificBattleship.model.Map;
 /**
  *
  * @author ort09
