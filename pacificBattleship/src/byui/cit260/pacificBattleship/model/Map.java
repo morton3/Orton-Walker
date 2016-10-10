@@ -5,13 +5,12 @@
  */
 package byui.cit260.pacificBattleship.model;
 
-import com.sun.xml.internal.ws.developer.Serialization;
-    import java.util.Objects;
+
+import java.io.Serializable;
 /**
  *
  * @author Nathan
- */
-public class Map implements Serialization{
+ */public class Map implements Serializable{
     
     
     private int rowCount;
