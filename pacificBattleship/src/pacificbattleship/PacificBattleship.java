@@ -18,7 +18,7 @@ import byui.cit260.pacificBattleship.model.ShipAbility;
 import byui.cit260.pacificBattleship.model.Map;
 
 
-import byui.cit260.pacificBattleship.model.Map;
+import byui.cit260.pacificBattleship.model.Location;
 /**
  *
  * @author ort09
@@ -151,6 +151,17 @@ public class PacificBattleship {
         
         String shipAbilityInfo = aircraftCarrier.toString();
         System.out.println(shipAbilityInfo);
-
+        
+          /********************************************************
+         * Location
+         ********************************************************/
+        
+        Location l00 = new Location();
+        
+        l00.setRow(0);
+       
+        
+        String locationInfo = l00.toString();
+        System.out.println(locationInfo);
     }   
 }
