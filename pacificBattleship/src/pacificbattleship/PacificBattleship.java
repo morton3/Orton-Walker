@@ -6,7 +6,9 @@
 package pacificbattleship;
 
 import byui.cit260.pacificBattleship.model.Game;
+//<editor-fold defaultstate="collapsed" desc="comment">
 import byui.cit260.pacificBattleship.model.Map;
+
 
 /**
  *

@@ -5,17 +5,26 @@
  */
 package byui.cit260.pacificBattleship.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author ort09
  */
-public class Character {
+public class Character implements Serializable {
     
+    // classes instance variables
     private double rank;
     private String name;
 
+    
+    
+    public Character() {
+    }
+    
+    
+    
     public double getRank() {
         return rank;
     }
@@ -41,6 +50,11 @@ public class Character {
     }
 
     @Override
+    public String toString() {
+        return "Character{" + "rank=" + rank + ", name=" + name + '}';
+    }
+    
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -61,10 +75,6 @@ public class Character {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Character{" + "rank=" + rank + ", name=" + name + '}';
-    }
     
     
     
