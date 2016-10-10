@@ -5,11 +5,13 @@
  */
 package byui.cit260.pacificBattleship.model;
 
+
+import java.io.Serializable;
 /**
  *
  * @author Nathan
- */
-public class Map {
+ */public class Map implements Serializable{
+    
     
     private int rowCount;
     private int columnCount;
@@ -68,7 +70,4 @@ public class Map {
     }
     
     
-    
-            
-    
-}
+    }

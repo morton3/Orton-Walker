@@ -6,6 +6,7 @@
 package pacificbattleship;
 
 import byui.cit260.pacificBattleship.model.Game;
+
 import byui.cit260.pacificBattleship.model.Character;
 import byui.cit260.pacificBattleship.model.Player;
 import byui.cit260.pacificBattleship.model.Upgrade;
@@ -13,7 +14,11 @@ import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.Transport;
 import byui.cit260.pacificBattleship.model.AttackShip;
 import byui.cit260.pacificBattleship.model.ShipAbility;
+//<editor-fold defaultstate="collapsed" desc="comment">
+import byui.cit260.pacificBattleship.model.Map;
 
+
+import byui.cit260.pacificBattleship.model.Map;
 /**
  *
  * @author ort09
@@ -36,8 +41,8 @@ public class PacificBattleship {
         gameOne.setNumOfUnusedPrisoners(5.00);
         gameOne.setNumOfUsedPrisoners(7.00);
         
-        
-        //Testing conflect
+ 
+      
         
         String gameInfo = gameOne.toString();
         System.out.println(gameInfo);
