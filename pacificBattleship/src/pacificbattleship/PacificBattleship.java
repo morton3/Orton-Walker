@@ -89,20 +89,21 @@ public class PacificBattleship {
         Ship battleship0 = new Ship();
         
         battleship0.setName("USS Tennessee");
-        battleship0.setDescription("The lead ship of her class of battleship,"
-                + " was the third ship of the United States Navy named in honor"
-                + " of the 16th US state.[5] During World War II in the Pacific"
-                + " Theater, she was damaged during the attack on Pearl Harbor"
-                + " in December 1941 but was repaired and modernized. She"
-                + " participated in shore bombardments at the Aleutian Islands,"
-                + " Tarawa, the Marshall Islands, the Marianas, the"
-                + " Philippines, Iwo Jima, Okinawa among others. She was also"
-                + " involved in the Battle of Surigao Strait, the final"
-                + " battleship vs. battleship conflict ever.\n"
+        battleship0.setDescription("The lead ship of her class of battleship,\n"
+                + " was the third ship of the United States Navy named in\n"
+                + " honor of the 16th US state.[5] During World War II in the\n"
+                + " Pacific Theater, she was damaged during the attack on\n"
+                + " Pearl Harbor in December 1941 but was repaired and\n"
+                + " modernized. She participated in shore bombardments at the\n"
+                + " Aleutian Islands, Tarawa, the Marshall Islands, the\n"
+                + " Marianas, the Philippines, Iwo Jima, Okinawa among\n"
+                + " others. She was also involved in the Battle of Surigao\n"
+                + " Strait, the final battleship vs. battleship conflict\n"
+                + " ever.\n"
                 + "\n"
-                + "After the end of World War II, Tennessee was placed on"
-                + " reserve in the \"mothball fleet\" for nearly 15 years"
-                + " before finally being scrapped in 1959. - Wikipedia");
+                + "After the end of World War II, Tennessee was placed on\n"
+                + " reserve in the \"mothball fleet\" for nearly 15 years\n"
+                + " before finally being scrapped in 1959. - Wikipedia\n");
         battleship0.setShipType("battleship");
         battleship0.setShipSunk(false);
         battleship0.setMapSymbol("ƃ");
