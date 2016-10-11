@@ -11,19 +11,19 @@ import java.util.Objects;
  * @author Nathan
  */
 public class TrapSceneType {
-    private int trapName;
+    private String trapName;
     private int damage;
-    private int trapUncovered;
-    private int trapActive;
+    private boolean trapUncovered;
+    private boolean trapActive;
 
     public TrapSceneType() {
     }
 
-    public int getTrapName() {
+    public String getTrapName() {
         return trapName;
     }
 
-    public void setTrapName(int trapName) {
+    public void setTrapName(String trapName) {
         this.trapName = trapName;
     }
 
@@ -35,31 +35,33 @@ public class TrapSceneType {
         this.damage = damage;
     }
 
-    public int getTrapUncovered() {
+    public boolean getTrapUncovered() {
         return trapUncovered;
     }
 
-    public void setTrapUncovered(int trapUncovered) {
+    public void setTrapUncovered(boolean trapUncovered) {
         this.trapUncovered = trapUncovered;
     }
 
-    public int getTrapActive() {
+    public boolean getTrapActive() {
         return trapActive;
     }
 
-    public void setTrapActive(int trapActive) {
+    public void setTrapActive(boolean trapActive) {
         this.trapActive = trapActive;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 23 * hash + this.trapName;
+        hash = 23 * hash + Objects.hashCode(this.trapName);
         hash = 23 * hash + this.damage;
-        hash = 23 * hash + this.trapUncovered;
-        hash = 23 * hash + this.trapActive;
+        hash = 23 * hash + (this.trapUncovered ? 1 : 0);
+        hash = 23 * hash + (this.trapActive ? 1 : 0);
         return hash;
     }
+
+   
 
     @Override
     public boolean equals(Object obj) {

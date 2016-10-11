@@ -212,7 +212,22 @@ public class PacificBattleship {
           String scene = sceneInfo.toString();
         System.out.println(scene);
         
+         /********************************************************
+         * TrapSceneType
+         ********************************************************/
        
+         TrapSceneType trapInfo = new TrapSceneType();
+         trapInfo.setTrapName("mine");
+        trapInfo.setDamage(5);
+        trapInfo.setTrapUncovered(true);
+        trapInfo.setTrapActive(false);
+        
+         String TrapSceneType = trapInfo.toString();
+        System.out.println(TrapSceneType);
+        
+        /********************************************************
+         * IslandSceneType
+         ********************************************************/
         
         
     }   
