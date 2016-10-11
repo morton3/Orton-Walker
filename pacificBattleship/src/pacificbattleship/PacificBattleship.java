@@ -16,11 +16,10 @@ import byui.cit260.pacificBattleship.model.AttackShip;
 import byui.cit260.pacificBattleship.model.ShipAbility;
 //<editor-fold defaultstate="collapsed" desc="comment">
 import byui.cit260.pacificBattleship.model.Map;
-
-
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.nuclearMisslePart;
 import byui.cit260.pacificBattleship.model.Scene;
+import byui.cit260.pacificBattleship.model.TrapSceneType;
 /**
  *
  * @author ort09
