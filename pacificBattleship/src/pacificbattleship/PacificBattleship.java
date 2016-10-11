@@ -19,6 +19,8 @@ import byui.cit260.pacificBattleship.model.Map;
 
 
 import byui.cit260.pacificBattleship.model.Location;
+import byui.cit260.pacificBattleship.model.nuclearMisslePart;
+import byui.cit260.pacificBattleship.model.Scene;
 /**
  *
  * @author ort09
@@ -164,5 +166,23 @@ public class PacificBattleship {
         
         String locationInfo = l00.toString();
         System.out.println(locationInfo);
+        
+         /********************************************************
+         * nuclearMisslePart
+         ********************************************************/
+        
+        nuclearMisslePart 5.00 = new nuclearMisslePart();
+        
+        nuclearMisslePart.setPieceNum(5.00);
+        nuclearMisslePart.setPieceReceiver(2.00);
+        nuclearMisslePart.setPieceRemaining(3.00); 
+        
+        String nuclearMisslePart = nuclearMisslePart.toString();
+        System.out.println(nuclearMisslePart);
+        
+        
+        
+        
+        
     }   
 }

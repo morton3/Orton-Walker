@@ -5,40 +5,40 @@
  */
 package byui.cit260.pacificBattleship.model;
 import java.io.Serializable;
-
+import java.util.Objects;
 /**
  *
  * @author Nathan
- */public class Map implements Serializable{
+ */
+public class Scene implements Serializable{
     
-    
-    private int rowCount;
-    private int columnCount;
+    private int description;
+    private int mapSymbol;
 
-    public int getRowCount() {
-        return rowCount;
+    public Scene() {
     }
 
-    public void setRowCount(int rowCount) {
-        this.rowCount = rowCount;
+    public int getDescription() {
+        return description;
     }
 
-    public int getColumnCount() {
-        return columnCount;
+    public void setDescription(int description) {
+        this.description = description;
     }
 
-    public void setColumnCount(int columnCount) {
-        this.columnCount = columnCount;
+    public int getMapSymbol() {
+        return mapSymbol;
     }
 
-    public Map() {
+    public void setMapSymbol(int mapSymbol) {
+        this.mapSymbol = mapSymbol;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 61 * hash + this.rowCount;
-        hash = 61 * hash + this.columnCount;
+        hash = 17 * hash + this.description;
+        hash = 17 * hash + this.mapSymbol;
         return hash;
     }
 
@@ -53,11 +53,11 @@ import java.io.Serializable;
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Map other = (Map) obj;
-        if (this.rowCount != other.rowCount) {
+        final Scene other = (Scene) obj;
+        if (this.description != other.description) {
             return false;
         }
-        if (this.columnCount != other.columnCount) {
+        if (this.mapSymbol != other.mapSymbol) {
             return false;
         }
         return true;
@@ -65,8 +65,9 @@ import java.io.Serializable;
 
     @Override
     public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
+        return "Scene{" + "description=" + description + ", mapSymbol=" + mapSymbol + '}';
     }
     
     
-    }
+    
+}
