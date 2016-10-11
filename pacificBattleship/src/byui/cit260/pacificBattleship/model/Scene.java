@@ -12,33 +12,32 @@ import java.util.Objects;
  */
 public class Scene implements Serializable{
     
-    private int description;
-    private int mapSymbol;
+    private String description;
+    private String mapSymbol;
 
     public Scene() {
     }
 
-    public int getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(int description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public int getMapSymbol() {
+    public String getMapSymbol() {
         return mapSymbol;
     }
 
-    public void setMapSymbol(int mapSymbol) {
+    public void setMapSymbol(String mapSymbol) {
         this.mapSymbol = mapSymbol;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + this.description;
-        hash = 17 * hash + this.mapSymbol;
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -54,15 +53,13 @@ public class Scene implements Serializable{
             return false;
         }
         final Scene other = (Scene) obj;
-        if (this.description != other.description) {
-            return false;
-        }
-        if (this.mapSymbol != other.mapSymbol) {
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         return true;
     }
 
+  
     @Override
     public String toString() {
         return "Scene{" + "description=" + description + ", mapSymbol=" + mapSymbol + '}';
