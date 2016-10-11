@@ -229,6 +229,15 @@ public class PacificBattleship {
          * IslandSceneType
          ********************************************************/
         
-        
+           IslandSceneType islandInfo = new IslandSceneType();
+           islandInfo.setUnitDestoryed(4);
+           islandInfo.setStrength(10);
+           islandInfo.setNumOdTroops(50);
+           
+           String IslandSceneType = islandInfo.toString();
+        System.out.println(IslandSceneType);
+           
+           
+           
     }   
 }
