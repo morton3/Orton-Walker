@@ -20,6 +20,7 @@ import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.nuclearMisslePart;
 import byui.cit260.pacificBattleship.model.Scene;
 import byui.cit260.pacificBattleship.model.TrapSceneType;
+import byui.cit260.pacificBattleship.model.IslandSceneType;
 /**
  *
  * @author ort09
