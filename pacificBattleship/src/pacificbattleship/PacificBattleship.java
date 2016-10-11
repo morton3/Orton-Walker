@@ -205,9 +205,12 @@ public class PacificBattleship {
          /********************************************************
          * Scene
          ********************************************************/
-        Scene Island = new Scene();
-        island.description(5);
-        island.mapSymbol(3);
+        Scene sceneInfo = new Scene();
+        description.setDescriptionType(ocean,island);
+        mapSymbol.setMapSymbol(6);
+        
+          String scene = sceneInfo.toString();
+        System.out.println(scene);
         
        
         
