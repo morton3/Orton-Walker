@@ -162,6 +162,10 @@ public class PacificBattleship {
         Location l00 = new Location();
         
         l00.setRow(0);
+        l00.setColumn(0);
+        l00.setVisited(false);
+        l00.setRank("captain");
+        l00.setTurrain("openSea");
        
         
         String locationInfo = l00.toString();
@@ -171,15 +175,32 @@ public class PacificBattleship {
          * nuclearMisslePart
          ********************************************************/
         
-        nuclearMisslePart 5.00 = new nuclearMisslePart();
+        nuclearMisslePart oneOfFifteen = new nuclearMisslePart();
         
-        nuclearMisslePart.setPieceNum(5.00);
-        nuclearMisslePart.setPieceReceiver(2.00);
-        nuclearMisslePart.setPieceRemaining(3.00); 
+        oneOfFifteen.setPieceNum(5);
+        oneOfFifteen.setPieceReceiver(2);
+        oneOfFifteen.setPieceRemaining(3);
         
-        String nuclearMisslePart = nuclearMisslePart.toString();
-        System.out.println(nuclearMisslePart);
+        String nuclearMisslePartInfo = oneOfFifteen.toString();
+        System.out.println(nuclearMisslePartInfo);
         
+        /********************************************************
+         * TEMPLATE FOR NEW CLASSES
+         ********************************************************/
+        
+        /********************************************************
+        
+        NameOfClass variableName = new NameOFClass();
+        
+        variableName.setNameOfStringAttribute("Name in Quotes");
+        variableName.setNameOfIntAttribute(2);
+        variableName.setNameOfDoubleAttribute(2.00); 
+        variableName.setNameOfBooleanAttribute(true); 
+        
+        String nameOfClassInfo = variableName.toString();
+        System.out.println(nameOfClassInfo);
+        
+         ********************************************************/
         
         
         
