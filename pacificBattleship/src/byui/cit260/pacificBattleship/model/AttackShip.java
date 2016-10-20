@@ -84,5 +84,4 @@ public class AttackShip implements Serializable{
     }
     
     
-    
 }
