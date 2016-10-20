@@ -19,6 +19,7 @@ public class Upgrade implements Serializable{
     private int upgradeCurrentLevel;
     private int upgradeMaxLevel;
     private double upgradeCurrency;
+    private String upGradeShip;
 
     public Upgrade() {
     }
@@ -63,14 +64,23 @@ public class Upgrade implements Serializable{
         this.upgradeCurrency = upgradeCurrency;
     }
 
+    public String getUpGradeShip() {
+        return upGradeShip;
+    }
+
+    public void setUpGradeShip(String upGradeShip) {
+        this.upGradeShip = upGradeShip;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 31 * hash + Objects.hashCode(this.upgradeName);
-        hash = 31 * hash + Objects.hashCode(this.upgradeType);
-        hash = 31 * hash + this.upgradeCurrentLevel;
-        hash = 31 * hash + this.upgradeMaxLevel;
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.upgradeCurrency) ^ (Double.doubleToLongBits(this.upgradeCurrency) >>> 32));
+        hash = 89 * hash + Objects.hashCode(this.upgradeName);
+        hash = 89 * hash + Objects.hashCode(this.upgradeType);
+        hash = 89 * hash + this.upgradeCurrentLevel;
+        hash = 89 * hash + this.upgradeMaxLevel;
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.upgradeCurrency) ^ (Double.doubleToLongBits(this.upgradeCurrency) >>> 32));
+        hash = 89 * hash + Objects.hashCode(this.upGradeShip);
         return hash;
     }
 
@@ -101,13 +111,17 @@ public class Upgrade implements Serializable{
         if (!Objects.equals(this.upgradeType, other.upgradeType)) {
             return false;
         }
+        if (!Objects.equals(this.upGradeShip, other.upGradeShip)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Upgrade{" + "upgradeName=" + upgradeName + ", upgradeType=" + upgradeType + ", upgradeCurrentLevel=" + upgradeCurrentLevel + ", upgradeMaxLevel=" + upgradeMaxLevel + ", upgradeCurrency=" + upgradeCurrency + '}';
+        return "Upgrade{" + "upgradeName=" + upgradeName + ", upgradeType=" + upgradeType + ", upgradeCurrentLevel=" + upgradeCurrentLevel + ", upgradeMaxLevel=" + upgradeMaxLevel + ", upgradeCurrency=" + upgradeCurrency + ", upGradeShip=" + upGradeShip + '}';
     }
+
     
     
     

@@ -81,7 +81,8 @@ public class PacificBattleship {
         Upgrade battleshipAttack = new Upgrade();
         
         battleshipAttack.setUpgradeName("Extra Battleship Gun");
-        battleshipAttack.setUpgradeType("scrap");
+        battleshipAttack.setUpgradeType("attack");
+        battleshipAttack.setUpGradeShip("battleship");
         battleshipAttack.setUpgradeCurrentLevel(0);
         battleshipAttack.setUpgradeMaxLevel(3);
         battleshipAttack.setUpgradeCurrency(1);
