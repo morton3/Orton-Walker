@@ -20,7 +20,7 @@ public class BattleControlTest {
 
     /**
      * Test of hitOrMiss method, of class BattleControl.
-     
+     */
     @Test
     public void testHitOrMiss() {
         System.out.println("hitOrMiss");
@@ -32,7 +32,7 @@ public class BattleControlTest {
         assertEquals(expResult, result);
 
     }
-*/
+
     /**
      * Test of calculateAttackBonus method, of class BattleControl.
      */
@@ -150,5 +150,12 @@ public class BattleControlTest {
         assertEquals(expResult, result);
         
     }
+
+    /**
+     * Test of hitOrMiss method, of class BattleControl.
+     */
+    
+    
+    
     
 }
