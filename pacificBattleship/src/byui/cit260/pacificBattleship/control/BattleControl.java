@@ -53,6 +53,10 @@ public class BattleControl {
 	if(eShip == null) {
 		return -2;
 	}
+        
+        if(totalAttack < 0 || totalAttack > 30) {
+            return -3;
+        }
 
 	int attack = totalAttack * 2;
         
