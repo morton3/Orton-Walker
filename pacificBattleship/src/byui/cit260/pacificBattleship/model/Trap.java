@@ -10,37 +10,11 @@ import java.util.Objects;
  *
  * @author Nathan
  */
-public class Location implements Serializable{
-    private int row;
-    private int column;
-    private int rank;
+public class Trap {
     private String type;
+    private int damage;
 
-    public Location() {
-    }
-
-    public int getRow() {
-        return row;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public int getColumn() {
-        return column;
-    }
-
-    public void setColumn(int column) {
-        this.column = column;
-    }
-
-    public int getRank() {
-        return rank;
-    }
-
-    public void setRank(int rank) {
-        this.rank = rank;
+    public Trap() {
     }
 
     public String getType() {
@@ -51,13 +25,19 @@ public class Location implements Serializable{
         this.type = type;
     }
 
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + this.row;
-        hash = 89 * hash + this.column;
-        hash = 89 * hash + this.rank;
-        hash = 89 * hash + Objects.hashCode(this.type);
+        hash = 97 * hash + Objects.hashCode(this.type);
+        hash = 97 * hash + this.damage;
         return hash;
     }
 
@@ -72,14 +52,8 @@ public class Location implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Location other = (Location) obj;
-        if (this.row != other.row) {
-            return false;
-        }
-        if (this.column != other.column) {
-            return false;
-        }
-        if (this.rank != other.rank) {
+        final Trap other = (Trap) obj;
+        if (this.damage != other.damage) {
             return false;
         }
         if (!Objects.equals(this.type, other.type)) {
@@ -90,9 +64,8 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", rank=" + rank + ", type=" + type + '}';
+        return "Trap{" + "type=" + type + ", damage=" + damage + '}';
     }
 
-    
     
 }

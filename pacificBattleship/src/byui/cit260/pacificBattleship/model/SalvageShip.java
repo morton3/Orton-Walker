@@ -4,19 +4,20 @@
  * and open the template in the editor.
  */
 package byui.cit260.pacificBattleship.model;
+
 import java.io.Serializable;
 import java.util.Objects;
+
 /**
  *
- * @author Nathan
+ * @author ort09
  */
-public class Scene implements Serializable{
+public class SalvageShip implements Serializable{
     
     private String type;
-    private String name;
-    private boolean active;
+    private int spawnCoordinate;
 
-    public Scene() {
+    public SalvageShip() {
     }
 
     public String getType() {
@@ -27,28 +28,19 @@ public class Scene implements Serializable{
         this.type = type;
     }
 
-    public String getName() {
-        return name;
+    public int getSpawnCoordinate() {
+        return spawnCoordinate;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setSpawnCoordinate(int spawnCoordinate) {
+        this.spawnCoordinate = spawnCoordinate;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 23 * hash + Objects.hashCode(this.type);
-        hash = 23 * hash + Objects.hashCode(this.name);
-        hash = 23 * hash + (this.active ? 1 : 0);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.type);
+        hash = 97 * hash + this.spawnCoordinate;
         return hash;
     }
 
@@ -63,14 +55,11 @@ public class Scene implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Scene other = (Scene) obj;
-        if (this.active != other.active) {
+        final SalvageShip other = (SalvageShip) obj;
+        if (this.spawnCoordinate != other.spawnCoordinate) {
             return false;
         }
         if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         return true;
@@ -78,7 +67,7 @@ public class Scene implements Serializable{
 
     @Override
     public String toString() {
-        return "Scene{" + "type=" + type + ", name=" + name + ", active=" + active + '}';
+        return "SalvageShip{" + "type=" + type + ", spawnCoordinate=" + spawnCoordinate + '}';
     }
 
     

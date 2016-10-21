@@ -12,13 +12,11 @@ import java.util.Objects;
  *
  * @author ort09
  */
-public class AttackShip implements Serializable{
+public class Schematic implements Serializable{
     
     private String shipType;
-    private int attackRange;
-    private int attackDamage;
 
-    public AttackShip() {
+    public Schematic() {
     }
 
     public String getShipType() {
@@ -29,28 +27,10 @@ public class AttackShip implements Serializable{
         this.shipType = shipType;
     }
 
-    public int getAttackRange() {
-        return attackRange;
-    }
-
-    public void setAttackRange(int attackRange) {
-        this.attackRange = attackRange;
-    }
-
-    public int getAttackDamage() {
-        return attackDamage;
-    }
-
-    public void setAttackDamage(int attackDamage) {
-        this.attackDamage = attackDamage;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.shipType);
-        hash = 97 * hash + this.attackRange;
-        hash = 97 * hash + this.attackDamage;
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.shipType);
         return hash;
     }
 
@@ -65,13 +45,7 @@ public class AttackShip implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final AttackShip other = (AttackShip) obj;
-        if (this.attackRange != other.attackRange) {
-            return false;
-        }
-        if (this.attackDamage != other.attackDamage) {
-            return false;
-        }
+        final Schematic other = (Schematic) obj;
         if (!Objects.equals(this.shipType, other.shipType)) {
             return false;
         }
@@ -80,8 +54,9 @@ public class AttackShip implements Serializable{
 
     @Override
     public String toString() {
-        return "AttackShip{" + "shipType=" + shipType + ", attackRange=" + attackRange + ", attackDamage=" + attackDamage + '}';
+        return "Schematic{" + "shipType=" + shipType + '}';
     }
+
     
     
 }

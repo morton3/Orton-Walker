@@ -12,25 +12,13 @@ import java.util.Objects;
  *
  * @author ort09
  */
-public class Character implements Serializable {
+public class ShipClass implements Serializable{
     
-    // classes instance variables
-    private double rank;
     private String name;
+    private int bonusDefense;
+    private int bonusHull;
 
-    
-    
-    public Character() {
-    }
-    
-    
-    
-    public double getRank() {
-        return rank;
-    }
-
-    public void setRank(double rank) {
-        this.rank = rank;
+    public ShipClass() {
     }
 
     public String getName() {
@@ -41,19 +29,31 @@ public class Character implements Serializable {
         this.name = name;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.rank) ^ (Double.doubleToLongBits(this.rank) >>> 32));
-        hash = 41 * hash + Objects.hashCode(this.name);
-        return hash;
+    public int getBonusDefense() {
+        return bonusDefense;
+    }
+
+    public void setBonusDefense(int bonusDefense) {
+        this.bonusDefense = bonusDefense;
+    }
+
+    public int getBonusHull() {
+        return bonusHull;
+    }
+
+    public void setBonusHull(int bonusHull) {
+        this.bonusHull = bonusHull;
     }
 
     @Override
-    public String toString() {
-        return "Character{" + "rank=" + rank + ", name=" + name + '}';
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + this.bonusDefense;
+        hash = 97 * hash + this.bonusHull;
+        return hash;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -65,8 +65,11 @@ public class Character implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Character other = (Character) obj;
-        if (Double.doubleToLongBits(this.rank) != Double.doubleToLongBits(other.rank)) {
+        final ShipClass other = (ShipClass) obj;
+        if (this.bonusDefense != other.bonusDefense) {
+            return false;
+        }
+        if (this.bonusHull != other.bonusHull) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -75,6 +78,10 @@ public class Character implements Serializable {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "ShipClass{" + "name=" + name + ", bonusDefense=" + bonusDefense + ", bonusHull=" + bonusHull + '}';
+    }
     
     
     

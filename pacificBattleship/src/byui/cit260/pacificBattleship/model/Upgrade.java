@@ -14,63 +14,53 @@ import java.util.Objects;
  */
 public class Upgrade implements Serializable{
     
-    private String upgradeName;
-    private String upgradeType;
-    private int upgradeCurrentLevel;
-    private int upgradeMaxLevel;
-    private double upgradeCurrency;
-
+    private String shipType;
+    private String name;
+    private int currentAllocation;
+    private int maxAllocation;
+    
     public Upgrade() {
     }
 
-    public String getUpgradeName() {
-        return upgradeName;
+    public String getShipType() {
+        return shipType;
     }
 
-    public void setUpgradeName(String upgradeName) {
-        this.upgradeName = upgradeName;
+    public void setShipType(String shipType) {
+        this.shipType = shipType;
     }
 
-    public String getUpgradeType() {
-        return upgradeType;
+    public String getName() {
+        return name;
     }
 
-    public void setUpgradeType(String upgradeType) {
-        this.upgradeType = upgradeType;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getUpgradeCurrentLevel() {
-        return upgradeCurrentLevel;
+    public int getCurrentAllocation() {
+        return currentAllocation;
     }
 
-    public void setUpgradeCurrentLevel(int upgradeCurrentLevel) {
-        this.upgradeCurrentLevel = upgradeCurrentLevel;
+    public void setCurrentAllocation(int currentAllocation) {
+        this.currentAllocation = currentAllocation;
     }
 
-    public int getUpgradeMaxLevel() {
-        return upgradeMaxLevel;
+    public int getMaxAllocation() {
+        return maxAllocation;
     }
 
-    public void setUpgradeMaxLevel(int upgradeMaxLevel) {
-        this.upgradeMaxLevel = upgradeMaxLevel;
-    }
-
-    public double getUpgradeCurrency() {
-        return upgradeCurrency;
-    }
-
-    public void setUpgradeCurrency(double upgradeCurrency) {
-        this.upgradeCurrency = upgradeCurrency;
+    public void setMaxAllocation(int maxAllocation) {
+        this.maxAllocation = maxAllocation;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 31 * hash + Objects.hashCode(this.upgradeName);
-        hash = 31 * hash + Objects.hashCode(this.upgradeType);
-        hash = 31 * hash + this.upgradeCurrentLevel;
-        hash = 31 * hash + this.upgradeMaxLevel;
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.upgradeCurrency) ^ (Double.doubleToLongBits(this.upgradeCurrency) >>> 32));
+        hash = 67 * hash + Objects.hashCode(this.shipType);
+        hash = 67 * hash + Objects.hashCode(this.name);
+        hash = 67 * hash + this.currentAllocation;
+        hash = 67 * hash + this.maxAllocation;
         return hash;
     }
 
@@ -86,19 +76,16 @@ public class Upgrade implements Serializable{
             return false;
         }
         final Upgrade other = (Upgrade) obj;
-        if (this.upgradeCurrentLevel != other.upgradeCurrentLevel) {
+        if (this.currentAllocation != other.currentAllocation) {
             return false;
         }
-        if (this.upgradeMaxLevel != other.upgradeMaxLevel) {
+        if (this.maxAllocation != other.maxAllocation) {
             return false;
         }
-        if (Double.doubleToLongBits(this.upgradeCurrency) != Double.doubleToLongBits(other.upgradeCurrency)) {
+        if (!Objects.equals(this.shipType, other.shipType)) {
             return false;
         }
-        if (!Objects.equals(this.upgradeName, other.upgradeName)) {
-            return false;
-        }
-        if (!Objects.equals(this.upgradeType, other.upgradeType)) {
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         return true;
@@ -106,9 +93,9 @@ public class Upgrade implements Serializable{
 
     @Override
     public String toString() {
-        return "Upgrade{" + "upgradeName=" + upgradeName + ", upgradeType=" + upgradeType + ", upgradeCurrentLevel=" + upgradeCurrentLevel + ", upgradeMaxLevel=" + upgradeMaxLevel + ", upgradeCurrency=" + upgradeCurrency + '}';
+        return "Upgrade{" + "shipType=" + shipType + ", name=" + name + ", currentAllocation=" + currentAllocation + ", maxAllocation=" + maxAllocation + '}';
     }
-    
+
     
     
 }

@@ -5,22 +5,24 @@
  */
 package pacificbattleship;
 
+
 import byui.cit260.pacificBattleship.model.Game;
 
-import byui.cit260.pacificBattleship.model.Character;
-import byui.cit260.pacificBattleship.model.Player;
+import byui.cit260.pacificBattleship.model.ShipMenu;
+import byui.cit260.pacificBattleship.model.ShipClass;
+import byui.cit260.pacificBattleship.model.Collectable;
 import byui.cit260.pacificBattleship.model.Upgrade;
 import byui.cit260.pacificBattleship.model.Ship;
-import byui.cit260.pacificBattleship.model.Transport;
-import byui.cit260.pacificBattleship.model.AttackShip;
-import byui.cit260.pacificBattleship.model.ShipAbility;
+import byui.cit260.pacificBattleship.model.Invasion;
+import byui.cit260.pacificBattleship.model.SalvageShip;
+import byui.cit260.pacificBattleship.model.Schematic;
 //<editor-fold defaultstate="collapsed" desc="comment">
 import byui.cit260.pacificBattleship.model.Map;
 import byui.cit260.pacificBattleship.model.Location;
-import byui.cit260.pacificBattleship.model.nuclearMisslePart;
+import byui.cit260.pacificBattleship.model.NuclearPart;
 import byui.cit260.pacificBattleship.model.Scene;
-import byui.cit260.pacificBattleship.model.TrapSceneType;
-import byui.cit260.pacificBattleship.model.IslandSceneType;
+import byui.cit260.pacificBattleship.model.Trap;
+import byui.cit260.pacificBattleship.model.Base;
 /**
  *
  * @author ort09
@@ -33,58 +35,45 @@ public class PacificBattleship {
     public static void main(String[] args) {
         
         /********************************************************
-         * GAME
+         * Base
+         ********************************************************/
+        Base base0 = new Base();
+        
+        base0.setDefense(1);
+        base0.setAttack(4);
+        base0.setPower(15);
+        
+        String baseInfo = base0.toString();
+        System.out.println(baseInfo);
+        
+        
+        /********************************************************
+         * Game
          ********************************************************/
         
         Game gameOne = new Game();
         
-        gameOne.setName("Nathan");
-        gameOne.setScrapAmount(2.00);
-        gameOne.setNumOfUnusedPrisoners(5.00);
-        gameOne.setNumOfUsedPrisoners(7.00);
+        gameOne.setUserName("Nathan");
+        gameOne.setNuclearParts(1);
+        gameOne.setNumOfUsedPOW(2);
+        gameOne.setNumOfPOW(5);
         
  
       
         
         String gameInfo = gameOne.toString();
         System.out.println(gameInfo);
-        
-                
-        /********************************************************
-         * Character
-         ********************************************************/
-        
-        Character characterOne = new Character();
-        
-        characterOne.setRank(1);
-        characterOne.setName("Matthew");
-        
-        String characterInfo = characterOne.toString();
-        System.out.println(characterInfo);
-        
-        /********************************************************
-         * Player
-         ********************************************************/
-        
-        Player playerOne = new Player();
-        
-        playerOne.setName("Matthew");
-        playerOne.setTime(5.00);
-        
-        String playerInfo = playerOne.toString();
-        System.out.println(playerInfo);
-        
+     
         /********************************************************
          * Upgrade
          ********************************************************/
         
         Upgrade battleshipAttack = new Upgrade();
         
-        battleshipAttack.setUpgradeName("Extra Battleship Gun");
-        battleshipAttack.setUpgradeType("scrap");
-        battleshipAttack.setUpgradeCurrentLevel(0);
-        battleshipAttack.setUpgradeMaxLevel(3);
-        battleshipAttack.setUpgradeCurrency(1);
+        battleshipAttack.setShipType("battleship");
+        battleshipAttack.setName("Guns");
+        battleshipAttack.setCurrentAllocation(2);
+        battleshipAttack.setMaxAllocation(5);
         
         String upgradeInfo = battleshipAttack.toString();
         System.out.println(upgradeInfo);
@@ -111,132 +100,150 @@ public class PacificBattleship {
                 + "After the end of World War II, Tennessee was placed on\n"
                 + " reserve in the \"mothball fleet\" for nearly 15 years\n"
                 + " before finally being scrapped in 1959. - Wikipedia\n");
-        battleship0.setShipType("battleship");
-        battleship0.setShipSunk(false);
-        battleship0.setMapSymbol("ƃ");
+        battleship0.setType("battleship");
+        battleship0.setDefense(1);
+        battleship0.setAccuracy(80);
+        battleship0.setUserControl(true);
+        battleship0.setAttack(1);
+        battleship0.setHull(10);
         
         String shipInfo = battleship0.toString();
         System.out.println(shipInfo);
         
         /********************************************************
-         * Transport
+         * SalvageShip
          ********************************************************/
         
-        Transport transport0 = new Transport();
+        SalvageShip submarine = new SalvageShip();
         
-        transport0.setTroopsRemaining(5);
+        submarine.setType("submarine");
+        submarine.setSpawnCoordinate(00);
         
-        String transportInfo = transport0.toString();
+        String transportInfo = submarine.toString();
         System.out.println(transportInfo);
         
         /********************************************************
-         * Attack Ship
+         * ShipMenu
          ********************************************************/
         
-        AttackShip battleship = new AttackShip();
+        ShipMenu battleshipMenu = new ShipMenu();
         
-        battleship.setShipType("Battleship");
-        battleship.setAttackRange(1);
-        battleship.setAttackDamage(2);
+        battleshipMenu.setShipName("battleship");
         
-        String battleshipInfo = battleship.toString();
-        System.out.println(battleshipInfo);
+        String shipMenuInfo = battleshipMenu.toString();
+        System.out.println(shipMenuInfo);
         
         /********************************************************
-         * Ship Ability
+         * Schematic
          ********************************************************/
         
-        ShipAbility aircraftCarrier = new ShipAbility();
+        Schematic submarinePlan = new Schematic();
         
-        aircraftCarrier.setAbility("planes");
-        aircraftCarrier.setActive(true);
-        aircraftCarrier.setCount(1);
+        submarinePlan.setShipType("Submarine");
         
-        String shipAbilityInfo = aircraftCarrier.toString();
-        System.out.println(shipAbilityInfo);
+        String schematicInfo = submarinePlan.toString();
+        System.out.println(schematicInfo);
+        
+        /********************************************************
+         * ShipClass
+         ********************************************************/
+        
+        ShipClass dreadnaught = new ShipClass();
+        
+        dreadnaught.setName("Dreadnaught");
+        dreadnaught.setBonusDefense(1);
+        dreadnaught.setBonusHull(2);
+        
+        String shipClassInfo = dreadnaught.toString();
+        System.out.println(shipClassInfo);
         
           /********************************************************
          * Location
          ********************************************************/
         
-        Location l00 = new Location();
+        Location A1 = new Location();
         
-        l00.setRow(0);
-        l00.setColumn(0);
-        l00.setVisited(false);
-        l00.setRank("captain");
-        l00.setTurrain("openSea");
+        A1.setRow(0);
+        A1.setColumn(0);
+        A1.setType("Sea");
+        A1.setRank(2);
        
         
-        String locationInfo = l00.toString();
+        String locationInfo = A1.toString();
         System.out.println(locationInfo);
         
          /********************************************************
-         * nuclearMisslePart
+         * nuclearPart
          ********************************************************/
         
-        nuclearMisslePart oneOfFifteen = new nuclearMisslePart();
+        NuclearPart oneOfFifteen = new NuclearPart();
         
-        oneOfFifteen.setPieceNum(5);
-        oneOfFifteen.setPieceReceiver(2);
-        oneOfFifteen.setPieceRemaining(3);
+        oneOfFifteen.setPartNo(1);
         
-        String nuclearMisslePartInfo = oneOfFifteen.toString();
-        System.out.println(nuclearMisslePartInfo);
+        String nuclearPartInfo = oneOfFifteen.toString();
+        System.out.println(nuclearPartInfo);
         
-        /********************************************************
-         * TEMPLATE FOR NEW CLASSES
-         ********************************************************/
-        
-        /********************************************************
-        
-        NameOfClass variableName = new NameOFClass();
-        
-        variableName.setNameOfStringAttribute("Name in Quotes");
-        variableName.setNameOfIntAttribute(2);
-        variableName.setNameOfDoubleAttribute(2.00); 
-        variableName.setNameOfBooleanAttribute(true); 
-        
-        String nameOfClassInfo = variableName.toString();
-        System.out.println(nameOfClassInfo);
-        
-         ********************************************************/
         
          /********************************************************
          * Scene
          ********************************************************/
-        Scene sceneInfo = new Scene();
-        sceneInfo.setDescription("Midway");
-        sceneInfo.setMapSymbol("MW");
+        Scene base1 = new Scene();
         
-          String scene = sceneInfo.toString();
-        System.out.println(scene);
+        base1.setType("Base");
+        base1.setName("Lv.5 Stronghold");
+        
+          String sceneInfo = base0.toString();
+        System.out.println(sceneInfo);
         
          /********************************************************
-         * TrapSceneType
+         * Trap
          ********************************************************/
        
-         TrapSceneType trapInfo = new TrapSceneType();
-         trapInfo.setTrapName("mine");
-        trapInfo.setDamage(5);
-        trapInfo.setTrapUncovered(true);
-        trapInfo.setTrapActive(false);
+         Trap kamikaze0 = new Trap();
+         kamikaze0.setType("Kamikaze");
+         kamikaze0.setDamage(10);
         
-         String TrapSceneType = trapInfo.toString();
-        System.out.println(TrapSceneType);
-        
+         String trapInfo = kamikaze0.toString();
+        System.out.println(trapInfo);
+           
         /********************************************************
-         * IslandSceneType
+         * Collectable
          ********************************************************/
         
-           IslandSceneType islandInfo = new IslandSceneType();
-           islandInfo.setUnitDestoryed(4);
-           islandInfo.setStrength(10);
-           islandInfo.setNumOdTroops(50);
-           
-           String IslandSceneType = islandInfo.toString();
-        System.out.println(IslandSceneType);
-           
+        
+        Collectable salvageSubmarine = new Collectable();
+        
+        salvageSubmarine.setType("salvageShip");
+        salvageSubmarine.setName("submarine");
+        
+        String collectableInfo = salvageSubmarine.toString();
+        System.out.println(collectableInfo);
+        
+        /********************************************************
+         * Invasion
+         ********************************************************/
+        
+        
+        Invasion midway = new Invasion();
+        
+        midway.setDescription("The battle of midway...");
+        midway.setUnit("midwayFleet");
+        
+        String invasionInfo = midway.toString();
+        System.out.println(invasionInfo);
+        
+        /********************************************************
+         * Map
+         ********************************************************/
+        
+        Map grid = new Map();
+        
+        grid.setRowCount(9);
+        grid.setColumnCount(9);
+                
+        String MapInfo = grid.toString();
+        System.out.println(MapInfo);
+        
            
            
     }   
