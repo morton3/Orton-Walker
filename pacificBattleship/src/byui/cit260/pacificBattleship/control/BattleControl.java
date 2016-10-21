@@ -26,7 +26,7 @@ public class BattleControl {
         */
     
     /* NATHAN ---- TotalAttack */
-    int totalAttack = 5;
+   
     private int CalTotalAttackPower(Ship uShip,Upgrade uShipUpgrade){
         
     int attack = uShip.getAttack();
@@ -42,7 +42,7 @@ public class BattleControl {
              return attack + upgradeCurrentLevel;
     }
 
-    /* change 5 to formula return */
+   
     
     /* Calculate wheether or not the attack will hit */
     
