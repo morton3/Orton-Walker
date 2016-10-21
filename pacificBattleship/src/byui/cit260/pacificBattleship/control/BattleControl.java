@@ -8,6 +8,7 @@ package byui.cit260.pacificBattleship.control;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.Upgrade;
 import byui.cit260.pacificBattleship.model.ShipClass;
+import java.util.Random;
 
 /**
  *
@@ -28,14 +29,21 @@ public class BattleControl {
     int totalAttack = 5;
     /* change 5 to formula return */
     
-    /* MATT ---- hitOrMiss 	
-    if(uShipAccuracy + hitChance < 100)
-		return 0;*/
-    boolean hitOrMiss = true;
-    /* change truue to formula return */
+    /* Calculate wheether or not the attack will hit */
     
+    public boolean hitOrMiss(Ship uShip){
+        Random rn = new Random();
+        
+        int hitMissRatio = rn.nextInt(100) + 1;
+        
+        if (uShip.getAccuracy() + hitMissRatio < 100){
+            return false;
+        }
+        else
+            return true;
+        
+        }
 
-    
     
     public int calculateAttackBonus(int totalAttack, Ship uShip, Ship eShip){
 	
