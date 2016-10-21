@@ -15,10 +15,13 @@ import java.util.Objects;
 public class Ship implements Serializable{
     
     private String name;
+    private String type;
+    private int defense;
+    private int accuracy;
+    private boolean userControl;
+    private int attack;
+    private int hull;
     private String description;
-    private String shipType;
-    private boolean shipSunk;
-    private String mapSymbol;
 
     public Ship() {
     }
@@ -31,6 +34,54 @@ public class Ship implements Serializable{
         this.name = name;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    public int getAccuracy() {
+        return accuracy;
+    }
+
+    public void setAccuracy(int accuracy) {
+        this.accuracy = accuracy;
+    }
+
+    public boolean isUserControl() {
+        return userControl;
+    }
+
+    public void setUserControl(boolean userControl) {
+        this.userControl = userControl;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public int getHull() {
+        return hull;
+    }
+
+    public void setHull(int hull) {
+        this.hull = hull;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -39,38 +90,17 @@ public class Ship implements Serializable{
         this.description = description;
     }
 
-    public String getShipType() {
-        return shipType;
-    }
-
-    public void setShipType(String shipType) {
-        this.shipType = shipType;
-    }
-
-    public boolean isShipSunk() {
-        return shipSunk;
-    }
-
-    public void setShipSunk(boolean shipSunk) {
-        this.shipSunk = shipSunk;
-    }
-
-    public String getMapSymbol() {
-        return mapSymbol;
-    }
-
-    public void setMapSymbol(String mapSymbol) {
-        this.mapSymbol = mapSymbol;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.name);
-        hash = 79 * hash + Objects.hashCode(this.description);
-        hash = 79 * hash + Objects.hashCode(this.shipType);
-        hash = 79 * hash + (this.shipSunk ? 1 : 0);
-        hash = 79 * hash + Objects.hashCode(this.mapSymbol);
+        int hash = 5;
+        hash = 61 * hash + Objects.hashCode(this.name);
+        hash = 61 * hash + Objects.hashCode(this.type);
+        hash = 61 * hash + this.defense;
+        hash = 61 * hash + this.accuracy;
+        hash = 61 * hash + (this.userControl ? 1 : 0);
+        hash = 61 * hash + this.attack;
+        hash = 61 * hash + this.hull;
+        hash = 61 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -86,30 +116,33 @@ public class Ship implements Serializable{
             return false;
         }
         final Ship other = (Ship) obj;
-        if (this.shipSunk != other.shipSunk) {
+        if (this.defense != other.defense) {
+            return false;
+        }
+        if (this.accuracy != other.accuracy) {
+            return false;
+        }
+        if (this.userControl != other.userControl) {
+            return false;
+        }
+        if (this.attack != other.attack) {
+            return false;
+        }
+        if (this.hull != other.hull) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
+        if (!Objects.equals(this.type, other.type)) {
+            return false;
+        }
         if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.shipType, other.shipType)) {
-            return false;
-        }
-        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
             return false;
         }
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Ship{" + "name=" + name + ", description=" + description + ", shipType=" + shipType + ", shipSunk=" + shipSunk + ", mapSymbol=" + mapSymbol + '}';
-    }
-    
-    
     
     
 }

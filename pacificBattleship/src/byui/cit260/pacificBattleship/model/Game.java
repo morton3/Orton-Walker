@@ -15,64 +15,55 @@ import java.util.Objects;
 public class Game implements Serializable {
     
     // classes instance variables
-    private String name;
-    private double scrapAmount;
-    private double numOfUnusedPrisoners;
-    private double numOfUsedPrisoners;
+    private String userName;
+    private double nuclearParts;
+    private double numOfPOW;
+    private double numOfUsedPOW;
 
     public Game() {
     }
-    
-    
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public double getScrapAmount() {
-        return scrapAmount;
+    public double getNuclearParts() {
+        return nuclearParts;
     }
 
-    public void setScrapAmount(double scrapAmount) {
-        this.scrapAmount = scrapAmount;
+    public void setNuclearParts(double nuclearParts) {
+        this.nuclearParts = nuclearParts;
     }
 
-    public double getNumOfUnusedPrisoners() {
-        return numOfUnusedPrisoners;
+    public double getNumOfPOW() {
+        return numOfPOW;
     }
 
-    public void setNumOfUnusedPrisoners(double numOfUnusedPrisoners) {
-        this.numOfUnusedPrisoners = numOfUnusedPrisoners;
+    public void setNumOfPOW(double numOfPOW) {
+        this.numOfPOW = numOfPOW;
     }
 
-    public double getNumOfUsedPrisoners() {
-        return numOfUsedPrisoners;
+    public double getNumOfUsedPOW() {
+        return numOfUsedPOW;
     }
 
-    public void setNumOfUsedPrisoners(double numOfUsedPrisoners) {
-        this.numOfUsedPrisoners = numOfUsedPrisoners;
-    } 
+    public void setNumOfUsedPOW(double numOfUsedPOW) {
+        this.numOfUsedPOW = numOfUsedPOW;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.name);
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.scrapAmount) ^ (Double.doubleToLongBits(this.scrapAmount) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.numOfUnusedPrisoners) ^ (Double.doubleToLongBits(this.numOfUnusedPrisoners) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.numOfUsedPrisoners) ^ (Double.doubleToLongBits(this.numOfUsedPrisoners) >>> 32));
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.userName);
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.nuclearParts) ^ (Double.doubleToLongBits(this.nuclearParts) >>> 32));
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.numOfPOW) ^ (Double.doubleToLongBits(this.numOfPOW) >>> 32));
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.numOfUsedPOW) ^ (Double.doubleToLongBits(this.numOfUsedPOW) >>> 32));
         return hash;
-    } 
-
-    @Override
-    public String toString() {
-        return "Game{" + "name=" + name + ", scrapAmount=" + scrapAmount + ", numOfUnusedPrisoners=" + numOfUnusedPrisoners + ", numOfUsedPrisoners=" + numOfUsedPrisoners + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -86,19 +77,26 @@ public class Game implements Serializable {
             return false;
         }
         final Game other = (Game) obj;
-        if (Double.doubleToLongBits(this.scrapAmount) != Double.doubleToLongBits(other.scrapAmount)) {
+        if (Double.doubleToLongBits(this.nuclearParts) != Double.doubleToLongBits(other.nuclearParts)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.numOfUnusedPrisoners) != Double.doubleToLongBits(other.numOfUnusedPrisoners)) {
+        if (Double.doubleToLongBits(this.numOfPOW) != Double.doubleToLongBits(other.numOfPOW)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.numOfUsedPrisoners) != Double.doubleToLongBits(other.numOfUsedPrisoners)) {
+        if (Double.doubleToLongBits(this.numOfUsedPOW) != Double.doubleToLongBits(other.numOfUsedPOW)) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name)) {
+        if (!Objects.equals(this.userName, other.userName)) {
             return false;
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Game{" + "userName=" + userName + ", nuclearParts=" + nuclearParts + ", numOfPOW=" + numOfPOW + ", numOfUsedPOW=" + numOfUsedPOW + '}';
+    }
+    
+   
     
 }

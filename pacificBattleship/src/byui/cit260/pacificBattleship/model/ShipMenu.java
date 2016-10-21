@@ -6,29 +6,33 @@
 package byui.cit260.pacificBattleship.model;
 
 import java.io.Serializable;
+import java.util.Objects;
+
 /**
  *
  * @author ort09
  */
-public class Transport implements Serializable{
+public class ShipMenu implements Serializable {
     
-    private int troopsRemaining;
+    private String shipName;
 
-    public Transport() {
+    
+    
+    public ShipMenu() {
     }
 
-    public int getTroopsRemaining() {
-        return troopsRemaining;
+    public String getShipName() {
+        return shipName;
     }
 
-    public void setTroopsRemaining(int troopsRemaining) {
-        this.troopsRemaining = troopsRemaining;
+    public void setShipName(String shipName) {
+        this.shipName = shipName;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 43 * hash + this.troopsRemaining;
+        hash = 89 * hash + Objects.hashCode(this.shipName);
         return hash;
     }
 
@@ -43,8 +47,8 @@ public class Transport implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Transport other = (Transport) obj;
-        if (this.troopsRemaining != other.troopsRemaining) {
+        final ShipMenu other = (ShipMenu) obj;
+        if (!Objects.equals(this.shipName, other.shipName)) {
             return false;
         }
         return true;
@@ -52,9 +56,8 @@ public class Transport implements Serializable{
 
     @Override
     public String toString() {
-        return "Transport{" + "troopsRemaining=" + troopsRemaining + '}';
+        return "ShipMenu{" + "shipName=" + shipName + '}';
     }
     
-    
-    
+ 
 }

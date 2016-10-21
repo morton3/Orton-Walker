@@ -11,20 +11,36 @@ import java.util.Objects;
  *
  * @author ort09
  */
-public class Player implements Serializable{
+public class Collectable implements Serializable{
      
     // classes instance variables
+    private String type;
     private String name;
-    private double time;
 
-    public Player() {
+    public Collectable() {
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 13 * hash + Objects.hashCode(this.name);
-        hash = 13 * hash + (int) (Double.doubleToLongBits(this.time) ^ (Double.doubleToLongBits(this.time) >>> 32));
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.type);
+        hash = 89 * hash + Objects.hashCode(this.name);
         return hash;
     }
 
@@ -39,8 +55,8 @@ public class Player implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Player other = (Player) obj;
-        if (Double.doubleToLongBits(this.time) != Double.doubleToLongBits(other.time)) {
+        final Collectable other = (Collectable) obj;
+        if (!Objects.equals(this.type, other.type)) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -51,27 +67,9 @@ public class Player implements Serializable{
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", time=" + time + '}';
+        return "Collectable{" + "type=" + type + ", name=" + name + '}';
     }
-
     
     
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getTime() {
-        return time;
-    }
-
-    public void setTime(double time) {
-        this.time = time;
-    }
-
     
-       
 }

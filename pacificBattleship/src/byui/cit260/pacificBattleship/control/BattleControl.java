@@ -5,14 +5,15 @@
  */
 package byui.cit260.pacificBattleship.control;
 
-import byui.cit260.pacificBattleship.model.AttackShip;
+import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.Upgrade;
+import byui.cit260.pacificBattleship.model.ShipClass;
 
 /**
  *
  * @author ort09
  */
-public class Battle {
+public class BattleControl {
 
         /*
         DAMAGE TO eShip
@@ -36,7 +37,7 @@ public class Battle {
 
     
     
-    public int calculateAttackBonus(int totalAttack, AttackShip uShip, AttackShip eShip){
+    public int calculateAttackBonus(int totalAttack, Ship uShip, Ship eShip){
 	
 	if(uShip == null) {
 		return -1;
@@ -48,20 +49,20 @@ public class Battle {
 	int attack = totalAttack * 2;
         
 
-	if (uShip.getShipType().equals("destroyer") &&
-                eShip.getShipType().equals("submarine") ||
-                uShip.getShipType().equals("submarine") &&
-                eShip.getShipType().equals("aircraftCarrier") ||
-                uShip.getShipType().equals("aircraftCarrier") &&
-                eShip.getShipType().equals("destroyer"))
+	if (uShip.getType().equals("destroyer") &&
+                eShip.getType().equals("submarine") ||
+                uShip.getType().equals("submarine") &&
+                eShip.getType().equals("aircraftCarrier") ||
+                uShip.getType().equals("aircraftCarrier") &&
+                eShip.getType().equals("destroyer"))
 		attack *= 2;
 		
-	if (eShip.getShipType().equals("destroyer") &&
-                uShip.getShipType().equals("submarine") ||
-                eShip.getShipType().equals("submarine") &&
-                uShip.getShipType().equals("aircraftCarrier") ||
-                eShip.getShipType().equals("aircraftCarrier") &&
-                uShip.getShipType().equals("destroyer"))
+	if (eShip.getType().equals("destroyer") &&
+                uShip.getType().equals("submarine") ||
+                eShip.getType().equals("submarine") &&
+                uShip.getType().equals("aircraftCarrier") ||
+                eShip.getType().equals("aircraftCarrier") &&
+                uShip.getType().equals("destroyer"))
 		attack *= 0.5;
 
         return attack;
