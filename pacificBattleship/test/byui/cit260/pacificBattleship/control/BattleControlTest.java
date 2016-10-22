@@ -27,13 +27,55 @@ public class BattleControlTest {
          * Test case #1 Nathan
          ********************************/
         Ship uShip = new Ship();
-        Upgrade uShipUpgrade = new Upgrade();
-        int expResult = 0;
+        Upgrade uShipUpgrade = new Upgrade(); 
+        uShip.setAttack(3);
+        uShipUpgrade.setCurrentAllocation(1);
+        int expResult = 4;
          BattleControl instance = new BattleControl();
          int result = instance.CalTotalAttackPower(uShip,uShipUpgrade);
          assertEquals(expResult, result);
+    
+      
+         /*********************************
+         * Test case #2 Nathan
+         ********************************/
+        uShip.setAttack(-10);
+        uShipUpgrade.setCurrentAllocation(2);
+        expResult = -1;
+        
+          result = instance.CalTotalAttackPower(uShip,uShipUpgrade);
+         assertEquals(expResult, result);
+    
+              /*********************************
+         * Test case #3 Nathan
+         ********************************/
+        uShip.setAttack(11);
+        uShipUpgrade.setCurrentAllocation(3);
+        expResult = -1;
+        
+          result = instance.CalTotalAttackPower(uShip,uShipUpgrade);
+         assertEquals(expResult, result);
+    
+                  /*********************************
+         * Test case #4 Nathan
+         ********************************/
+        uShip.setAttack(5);
+        uShipUpgrade.setCurrentAllocation(6);
+        expResult = -1;
+        
+          result = instance.CalTotalAttackPower(uShip,uShipUpgrade);
+         assertEquals(expResult, result);
+    
+             /*********************************
+         * Test case #5 Nathan
+         ********************************/
+        uShip.setAttack(7);
+        uShipUpgrade.setCurrentAllocation(-10);
+        expResult = -1;
+        
+          result = instance.CalTotalAttackPower(uShip,uShipUpgrade);
+         assertEquals(expResult, result);
     }
-         
     /**
      * Test of hitOrMiss method, of class BattleControl.
      */
