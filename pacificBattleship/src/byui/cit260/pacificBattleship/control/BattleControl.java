@@ -7,7 +7,6 @@ package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.Upgrade;
-import byui.cit260.pacificBattleship.model.ShipClass;
 import java.util.Random;
 
 /**
@@ -16,8 +15,24 @@ import java.util.Random;
  */
 public class BattleControl {
 
-    public int attackUnit(Ship uShip, Ship eShip){
+    public int attackUnit(Ship uShip, Ship eShip, Upgrade uShipUpgrade){
+        
+        boolean hit = hitOrMiss(uShip);
+        
+        if(hit){
+                
+        int atkPower = CalTotalAttackPower(uShip, uShipUpgrade);
+        int atkBonus = calculateAttackBonus(atkPower, uShip, eShip);
+        
+        int shipRemainingHull = shipRemainingHull(atkBonus, eShip);
+        
+        eShip.setHull(shipRemainingHull);     
+        
         return 0;
+        }
+        
+        else
+            return 0;
     }
     
     public int shipRemainingHull(int damage, Ship eShip){
