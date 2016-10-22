@@ -16,14 +16,11 @@ import java.util.Random;
  */
 public class BattleControl {
 
-        /*
-        DAMAGE TO eShip
-    	int totalDamage = attack - eShipDefense;
-	
-	eShipHull -= totalDamage;
-
-	return eShipHull;
-        */
+    private int shipRemainingHull(){
+        
+        
+        return 0;
+    }
     
     /* NATHAN ---- TotalAttack */
    
