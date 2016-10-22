@@ -16,10 +16,22 @@ import java.util.Random;
  */
 public class BattleControl {
 
-    private int shipRemainingHull(){
-        
-        
+    public int attackUnit(Ship uShip, Ship eShip){
         return 0;
+    }
+    
+    public int shipRemainingHull(int damage, Ship eShip){
+        if(eShip == null)
+            return -1;
+        
+        if(damage < 0)
+            return 0;
+        
+        int oldHull = eShip.getHull();
+        
+        int newHull = oldHull - damage;
+        
+        return newHull;
     }
     
     /* NATHAN ---- TotalAttack */
