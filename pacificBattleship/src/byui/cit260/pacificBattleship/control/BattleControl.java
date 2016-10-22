@@ -27,7 +27,7 @@ public class BattleControl {
     
     /* NATHAN ---- TotalAttack */
    
-    private int CalTotalAttackPower(Ship uShip,Upgrade uShipUpgrade){
+    public int CalTotalAttackPower(Ship uShip,Upgrade uShipUpgrade){
         
     int attack = uShip.getAttack();
       int upgradeCurrentLevel = uShipUpgrade.getCurrentAllocation();

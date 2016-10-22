@@ -6,6 +6,7 @@
 package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.model.Ship;
+import byui.cit260.pacificBattleship.model.Upgrade;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,6 +19,21 @@ public class BattleControlTest {
     public BattleControlTest() {
     }
 
+    
+    @Test
+    public void testCalTotalAttackPower() {
+        System.out.println("CalTotalAttackPower");
+         /*********************************
+         * Test case #1 Nathan
+         ********************************/
+        Ship uShip = new Ship();
+        Upgrade uShipUpgrade = new Upgrade();
+        int expResult = 0;
+         BattleControl instance = new BattleControl();
+         int result = instance.CalTotalAttackPower(uShip,uShipUpgrade);
+         assertEquals(expResult, result);
+    }
+         
     /**
      * Test of hitOrMiss method, of class BattleControl.
      */
