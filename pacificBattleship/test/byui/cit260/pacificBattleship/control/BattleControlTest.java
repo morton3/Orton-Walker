@@ -82,11 +82,35 @@ public class BattleControlTest {
     @Test
     public void testHitOrMiss() {
         System.out.println("hitOrMiss");
+        
+        /*********************************
+         * Test case #1
+         ********************************/
+        System.out.println("\tTest case #1");
+                
         Ship uShip = new Ship();
-        uShip.setAccuracy(0);
+        
+        uShip.setAccuracy(100);
+        
+        boolean expResult = true;
+        
         BattleControl instance = new BattleControl();
-        boolean expResult = false;
+
         boolean result = instance.hitOrMiss(uShip);
+        
+        assertEquals(expResult, result);
+    
+        /*********************************
+         * Test case #2
+         ********************************/
+        System.out.println("\tTest case #2");
+        
+        uShip.setAccuracy(-1);
+        
+        expResult = false;
+
+        result = instance.hitOrMiss(uShip);
+        
         assertEquals(expResult, result);
 
     }
