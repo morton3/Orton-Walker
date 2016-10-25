@@ -5,6 +5,8 @@
  */
 package byui.cit260.pacificBattleship.view;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Nathan
@@ -38,6 +40,38 @@ public class StartProgramView {
     }
 
     public void displayStartProgramView() {
-        System.out.println("\n*** displayStartProgram() function called ***");
+        boolean done = false;
+        do{
+            String playersName = this.getPlayersName();
+            if (playersName.toUpperCase().equals("Q")) 
+                return;
+            done = this.doAction(playersName);
+        }while (!done);
+    }
+
+    private String getPlayersName() {
+        Scanner keyboard = new Scanner(System.in);
+        String value ="";
+        boolean valid = false;
+        
+        while (!valid) {
+            System.out.println("\n" + this.promptMessage);
+            
+            value = keyboard.nextLine();
+            value = value.trim();
+                    
+            
+            if (value.length() < 1) {
+                System.out.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            break;
+        }
+        return value;
+    }
+
+    private boolean doAction(String playersName) {
+       System.out.println("\n*** doAction() called***");
+       return true;
     }
 }
