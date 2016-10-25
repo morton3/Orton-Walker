@@ -58,6 +58,10 @@ public class ShipMenu implements Serializable {
     public String toString() {
         return "ShipMenu{" + "shipName=" + shipName + '}';
     }
+
+    public void shipMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
  
 }
