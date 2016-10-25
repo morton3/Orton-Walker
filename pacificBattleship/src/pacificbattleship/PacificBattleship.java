@@ -24,6 +24,7 @@ import byui.cit260.pacificBattleship.model.Scene;
 import byui.cit260.pacificBattleship.model.Trap;
 import byui.cit260.pacificBattleship.model.Base;
 import byui.cit260.pacificBattleship.view.StartProgramView;
+import byui.cit260.pacificBattleship.view.CommandMenu;
 /**
  *
  * @author ort09
@@ -37,5 +38,13 @@ public class PacificBattleship {
         
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
+        
+        
+        
+        
+        
+        
+        // CommandMenu shipMenu = new CommandMenu();
+        // shipMenu.commandMenu();
            }   
 }
