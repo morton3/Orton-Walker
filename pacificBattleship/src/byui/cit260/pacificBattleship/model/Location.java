@@ -15,6 +15,8 @@ public class Location implements Serializable{
     private int column;
     private int rank;
     private String type;
+    private String symbol;
+    private boolean hidden;
 
     public Location() {
     }
@@ -51,13 +53,31 @@ public class Location implements Serializable{
         this.type = type;
     }
 
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public boolean isHidden() {
+        return hidden;
+    }
+
+    public void setHidden(boolean hidden) {
+        this.hidden = hidden;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + this.row;
-        hash = 89 * hash + this.column;
-        hash = 89 * hash + this.rank;
-        hash = 89 * hash + Objects.hashCode(this.type);
+        hash = 59 * hash + this.row;
+        hash = 59 * hash + this.column;
+        hash = 59 * hash + this.rank;
+        hash = 59 * hash + Objects.hashCode(this.type);
+        hash = 59 * hash + Objects.hashCode(this.symbol);
+        hash = 59 * hash + (this.hidden ? 1 : 0);
         return hash;
     }
 
@@ -82,7 +102,13 @@ public class Location implements Serializable{
         if (this.rank != other.rank) {
             return false;
         }
+        if (this.hidden != other.hidden) {
+            return false;
+        }
         if (!Objects.equals(this.type, other.type)) {
+            return false;
+        }
+        if (!Objects.equals(this.symbol, other.symbol)) {
             return false;
         }
         return true;
@@ -90,9 +116,7 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", rank=" + rank + ", type=" + type + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", rank=" + rank + ", type=" + type + ", symbol=" + symbol + ", hidden=" + hidden + '}';
     }
 
-    
-    
 }
