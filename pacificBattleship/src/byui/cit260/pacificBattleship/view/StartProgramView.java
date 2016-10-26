@@ -5,6 +5,8 @@
  */
 package byui.cit260.pacificBattleship.view;
 
+import byui.cit260.pacificBattleship.control.GameControl;
+import byui.cit260.pacificBattleship.model.Game;
 import java.util.Scanner;
 
 /**
@@ -71,7 +73,27 @@ public class StartProgramView {
     }
 
     private boolean doAction(String playersName) {
-       System.out.println("\n*** doAction() called***");
-       return true;
+       
+        if (playersName.length() < 2) {
+            System.out.println("\nInvalid players name: "
+                    + "The name must be greater than one character in length");
+            return false;
+        }
+        Game player = GameControl.createPlayer(playersName);
+        
+        if (player == null) {
+            System.out.println("\nError creating the player.");
+            return false;
+        }
+
+    this.displayNextView();
+      return true;
+      
+    }
+   
+
+    private void displayNextView() {
+       System.out.println("\n*** function displayNextView ***");
+    
     }
 }
