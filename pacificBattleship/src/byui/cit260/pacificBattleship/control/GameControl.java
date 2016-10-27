@@ -6,6 +6,7 @@
 package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.model.Game;
+import pacificbattleship.PacificBattleship;
 
 /**
  *
@@ -13,9 +14,15 @@ import byui.cit260.pacificBattleship.model.Game;
  */
 public class GameControl {
 
-    public static Game createPlayer(String playersName) {
-       System.out.println("\n*** createPlayer() function called ***");
-       return new Game();
+    public static Game createPlayer(String name) {
+      if (name == null){
+          return null;
+      }
+      Game player = new Game();
+      player.setUserName(name);
+      PacificBattleship.setPlayer(player);
+      
+       return player;
     }
     
 }

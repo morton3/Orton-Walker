@@ -86,14 +86,21 @@ public class StartProgramView {
             return false;
         }
 
-    this.displayNextView();
+    this.displayNextView(player);
       return true;
       
     }
    
 
-    private void displayNextView() {
-       System.out.println("\n*** function displayNextView ***");
+    private void displayNextView(Game player) {
+       System.out.println("\n===================================================="
+                          +"\n Welcome to the game " + player.getUserName()
+                          +"\n We hope you have fun!"
+                          +"\n==================================================="
+                           );
     
+       MainMenuView mainMenuView = new MainMenuView();
+       
+       mainMenuView.displayMainMenuView();
     }
 }
