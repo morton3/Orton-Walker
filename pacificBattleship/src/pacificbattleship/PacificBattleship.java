@@ -61,7 +61,7 @@ public class PacificBattleship {
         
         
  
-       
+      /* 
     Location A01 = new Location();
     Location A02 = new Location();
     Location A03 = new Location();
@@ -191,6 +191,6 @@ public class PacificBattleship {
                               H01, H02, H03, H04, H05, H06, H07, H08, H09, H10, 
                               I01, I02, I03, I04, I05, I06, I07, I08, I09, I10, 
                               J01, J02, J03, J04, J05, J06, J07, J08, J09, J10);
-         
+     */    
     }  
 }
