@@ -42,7 +42,7 @@ public class PacificBattleship {
         
         
         
- /*
+ 
         
     Location A01 = new Location();
     Location A02 = new Location();
@@ -145,8 +145,25 @@ public class PacificBattleship {
     Location J09 = new Location();
     Location J10 = new Location();
     
+
+        
+    ShipMenu Player = new ShipMenu();
+    Player.setUserRank("* * * * *");
+    Player.setUserName("Matthew");
+    Player.setShipLevel("DREADNAUGHT");
+    Player.setShipClass("BATTLESHIP");
+    Player.setShipName("U.S.S. TENNESSEE");
+    Player.setShipAttack(5);
+    Player.setShipAccuracy(75);
+    Player.setShipDefense(1);
+    Player.setCurrentHull(20);
+    Player.setMaxHull(21);
+    Player.setCurrentPart(1);
+    Player.setPOWs(12);
+    
          CommandMenu shipMenu = new CommandMenu();
-         shipMenu.commandMenu(A01, A02, A03, A04, A05, A06, A07, A08, A09, A10, 
+         shipMenu.commandMenu(Player, 
+                              A01, A02, A03, A04, A05, A06, A07, A08, A09, A10, 
                               B01, B02, B03, B04, B05, B06, B07, B08, B09, B10, 
                               C01, C02, C03, C04, C05, C06, C07, C08, C09, C10, 
                               D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, 
@@ -156,6 +173,6 @@ public class PacificBattleship {
                               H01, H02, H03, H04, H05, H06, H07, H08, H09, H10, 
                               I01, I02, I03, I04, I05, I06, I07, I08, I09, I10, 
                               J01, J02, J03, J04, J05, J06, J07, J08, J09, J10);
-    */     
+         
     }  
 }

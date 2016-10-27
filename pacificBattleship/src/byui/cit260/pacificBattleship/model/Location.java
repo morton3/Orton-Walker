@@ -15,7 +15,9 @@ public class Location implements Serializable{
     private int column;
     private int rank;
     private String type;
-    private String symbol;
+    private String SymTop;
+    private String SymMid;
+    private String SymBot;
     private boolean hidden;
 
     public Location() {
@@ -53,12 +55,28 @@ public class Location implements Serializable{
         this.type = type;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public String getSymMid() {
+        return SymMid;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setSymMid(String SymMid) {
+        this.SymMid = SymMid;
+    }
+
+    public String getSymTop() {
+        return SymTop;
+    }
+
+    public void setSymTop(String SymTop) {
+        this.SymTop = SymTop;
+    }
+
+    public String getSymBot() {
+        return SymBot;
+    }
+
+    public void setSymBot(String SymBot) {
+        this.SymBot = SymBot;
     }
 
     public boolean isHidden() {
@@ -71,13 +89,15 @@ public class Location implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + this.row;
-        hash = 59 * hash + this.column;
-        hash = 59 * hash + this.rank;
-        hash = 59 * hash + Objects.hashCode(this.type);
-        hash = 59 * hash + Objects.hashCode(this.symbol);
-        hash = 59 * hash + (this.hidden ? 1 : 0);
+        int hash = 3;
+        hash = 41 * hash + this.row;
+        hash = 41 * hash + this.column;
+        hash = 41 * hash + this.rank;
+        hash = 41 * hash + Objects.hashCode(this.type);
+        hash = 41 * hash + Objects.hashCode(this.SymTop);
+        hash = 41 * hash + Objects.hashCode(this.SymMid);
+        hash = 41 * hash + Objects.hashCode(this.SymBot);
+        hash = 41 * hash + (this.hidden ? 1 : 0);
         return hash;
     }
 
@@ -108,7 +128,13 @@ public class Location implements Serializable{
         if (!Objects.equals(this.type, other.type)) {
             return false;
         }
-        if (!Objects.equals(this.symbol, other.symbol)) {
+        if (!Objects.equals(this.SymTop, other.SymTop)) {
+            return false;
+        }
+        if (!Objects.equals(this.SymMid, other.SymMid)) {
+            return false;
+        }
+        if (!Objects.equals(this.SymBot, other.SymBot)) {
             return false;
         }
         return true;
@@ -116,7 +142,10 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", rank=" + rank + ", type=" + type + ", symbol=" + symbol + ", hidden=" + hidden + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", rank=" + rank + ", type=" + type + ", SymTop=" + SymTop + ", SymMid=" + SymMid + ", SymBot=" + SymBot + ", hidden=" + hidden + '}';
     }
+
+
+
 
 }
