@@ -12,10 +12,10 @@ import java.util.Scanner;
  * @author Nathan
  */
 public class MainMenuView {
-    private String promptSelection;
+    
     private String menu;
     public MainMenuView() {
-        this.menu = "/n"
+        this.menu = "\n"
                    + "\n-------------------------------------------------"
                    +"\n| Main Menu                                      |"
                    +"\n--------------------------------------------------"
@@ -46,7 +46,7 @@ public class MainMenuView {
         boolean valid = false;
         
         while (!valid) {
-            System.out.println("\n" + this.promptSelection);
+            System.out.println("\n" + this.menu);
             
             value = keyboard.nextLine();
             value = value.trim();
@@ -63,7 +63,8 @@ public class MainMenuView {
     
 
     private boolean doAction(String menuOption) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       System.out.println("\n doAction() function called ***)");
+       return true;
     }
     
 }
