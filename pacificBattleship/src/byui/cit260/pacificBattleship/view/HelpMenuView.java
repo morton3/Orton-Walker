@@ -5,31 +5,28 @@
  */
 package byui.cit260.pacificBattleship.view;
 
-import byui.cit260.pacificBattleship.control.GameControl;
 import java.util.Scanner;
-import pacificbattleship.PacificBattleship;
 
 /**
  *
  * @author Nathan
  */
-public class MainMenuView {
-    HelpMenuView helpMenuView = new HelpMenuView();
+public class HelpMenuView {
     private String menu;
-    public MainMenuView() {
+    public HelpMenuView() {
         this.menu = "\n"
                    + "\n-------------------------------------------------"
-                   +"\n| Main Menu                                      |"
+                   +"\n| Help Menu                                      |"
                    +"\n--------------------------------------------------"
-                   +"\nN - Start new game"
-                   +"\nG - Get and start saved game"
-                   +"\nH - Get help om how to play the game"
-                   +"\nS - Save game"
+                   +"\nG - What is the goal of the game?"
+                   +"\nM - How to move"
+                   +"\nP - What do the POW'S do?"
+                   +"\nN - What does the Nuke do?"
                    +"\nQ - Quit"
                    +"\n--------------------------------------------------";
               }
 
-   public void displayMainMenuView() {
+   public void displayHelpMenuView() {
        
        boolean done = false;
        do{
@@ -68,17 +65,17 @@ public class MainMenuView {
       menuOption = menuOption.toUpperCase();
       
       switch (menuOption){
-          case "N":
-              this.startNewGame();
-              break;
           case "G":
-              this.startExistingGame();
+              this.gameGoal();
               break;
-          case "H":
-              helpMenuView.displayHelpMenuView();
+          case "M":
+              this.move();
               break;
-          case "S":
-              this.saveGame();
+          case "P":
+              this.pow();
+              break;
+          case "N":
+              this.nuke();
               break;
           default:
               System.out.println("\n*** Invalid selection *** Try again");
@@ -88,24 +85,19 @@ public class MainMenuView {
        return false;
     }
 
-    private void startNewGame() {
-       GameControl.createNewGame(PacificBattleship.getPlayer());
-       
-       GameMenuView gameMenu = new GameMenuView();
-       gameMenu.displayMenu();
+    private void gameGoal() {
+           System.out.println("\n*** gameGoal stub function called ***");
     }
 
-    private void startExistingGame() {
-        System.out.println("*** startExistinGame function called ***");
+    private void move() {
+          System.out.println("\n*** move stub function called ***");
     }
 
-  
-        
-  
-
-    private void saveGame() {
-        System.out.println("*** saveGame function called ***");
+    private void pow() {
+          System.out.println("\n*** POW stub function called ***");
     }
-    
+
+    private void nuke() {
+           System.out.println("\n*** nuke stub function called ***");
+    }
 }
-
