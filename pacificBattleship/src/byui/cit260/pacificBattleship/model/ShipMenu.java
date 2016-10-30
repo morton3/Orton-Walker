@@ -19,6 +19,7 @@ public class ShipMenu implements Serializable {
     private String shipLevel;
     private String shipClass;
     private String shipName;
+    private String shipSymbol;
     private int shipAttack;
     private int shipAccuracy;
     private int shipDefense;

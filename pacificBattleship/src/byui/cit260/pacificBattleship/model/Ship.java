@@ -22,6 +22,8 @@ public class Ship implements Serializable{
     private int attack;
     private int hull;
     private String description;
+    private int coordinate;
+    private String symbol;
 
     public Ship() {
     }
