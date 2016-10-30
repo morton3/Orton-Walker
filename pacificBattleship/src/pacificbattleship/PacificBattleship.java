@@ -7,7 +7,6 @@ package pacificbattleship;
 
 
 import byui.cit260.pacificBattleship.model.Game;
-
 import byui.cit260.pacificBattleship.model.ShipMenu;
 import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.Collectable;
@@ -16,7 +15,6 @@ import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.Invasion;
 import byui.cit260.pacificBattleship.model.SalvageShip;
 import byui.cit260.pacificBattleship.model.Schematic;
-//<editor-fold defaultstate="collapsed" desc="comment">
 import byui.cit260.pacificBattleship.model.Map;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.NuclearPart;
@@ -49,9 +47,7 @@ public class PacificBattleship {
         PacificBattleship.player = player;
     }
     
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
         
         StartProgramView startProgramView = new StartProgramView();
@@ -61,7 +57,7 @@ public class PacificBattleship {
         
         
  
-      /* 
+
     Location A01 = new Location();
     Location A02 = new Location();
     Location A03 = new Location();
@@ -162,20 +158,220 @@ public class PacificBattleship {
     Location J08 = new Location();
     Location J09 = new Location();
     Location J10 = new Location();
+	A01.setRow(1);
+	B01.setRow(1);
+	C01.setRow(1);
+	D01.setRow(1);
+	E01.setRow(1);
+	F01.setRow(1);
+	G01.setRow(1);
+	H01.setRow(1);
+	I01.setRow(1);
+	J01.setRow(1);
+	A02.setRow(2);
+	B02.setRow(2);
+	C02.setRow(2);
+	D02.setRow(2);
+	E02.setRow(2);
+	F02.setRow(2);
+	G02.setRow(2);
+	H02.setRow(2);
+	I02.setRow(2);
+	J02.setRow(2);
+	A03.setRow(3);
+	B03.setRow(3);
+	C03.setRow(3);
+	D03.setRow(3);
+	E03.setRow(3);
+	F03.setRow(3);
+	G03.setRow(3);
+	H03.setRow(3);
+	I03.setRow(3);
+	J03.setRow(3);
+	A04.setRow(4);
+	B04.setRow(4);
+	C04.setRow(4);
+	D04.setRow(4);
+	E04.setRow(4);
+	F04.setRow(4);
+	G04.setRow(4);
+	H04.setRow(4);
+	I04.setRow(4);
+	J04.setRow(4);
+	A05.setRow(5);
+	B05.setRow(5);
+	C05.setRow(5);
+	D05.setRow(5);
+	E05.setRow(5);
+	F05.setRow(5);
+	G05.setRow(5);
+	H05.setRow(5);
+	I05.setRow(5);
+	J05.setRow(5);
+	A06.setRow(6);
+	B06.setRow(6);
+	C06.setRow(6);
+	D06.setRow(6);
+	E06.setRow(6);
+	F06.setRow(6);
+	G06.setRow(6);
+	H06.setRow(6);
+	I06.setRow(6);
+	J06.setRow(6);
+	A07.setRow(7);
+	B07.setRow(7);
+	C07.setRow(7);
+	D07.setRow(7);
+	E07.setRow(7);
+	F07.setRow(7);
+	G07.setRow(7);
+	H07.setRow(7);
+	I07.setRow(7);
+	J07.setRow(7);
+	A08.setRow(8);
+	B08.setRow(8);
+	C08.setRow(8);
+	D08.setRow(8);
+	E08.setRow(8);
+	F08.setRow(8);
+	G08.setRow(8);
+	H08.setRow(8);
+	I08.setRow(8);
+	J08.setRow(8);
+	A09.setRow(9);
+	B09.setRow(9);
+	C09.setRow(9);
+	D09.setRow(9);
+	E09.setRow(9);
+	F09.setRow(9);
+	G09.setRow(9);
+	H09.setRow(9);
+	I09.setRow(9);
+	J09.setRow(9);
+	A10.setRow(10);
+	B10.setRow(10);
+	C10.setRow(10);
+	D10.setRow(10);
+	E10.setRow(10);
+	F10.setRow(10);
+	G10.setRow(10);
+	H10.setRow(10);
+	I10.setRow(10);
+	J10.setRow(10);
+        A01.setColumn(1);
+	B01.setColumn(2);
+	C01.setColumn(3);
+	D01.setColumn(4);
+	E01.setColumn(5);
+	F01.setColumn(6);
+	G01.setColumn(7);
+	H01.setColumn(8);
+	I01.setColumn(9);
+	J01.setColumn(10);
+	A02.setColumn(1);
+	B02.setColumn(2);
+	C02.setColumn(3);
+	D02.setColumn(4);
+	E02.setColumn(5);
+	F02.setColumn(6);
+	G02.setColumn(7);
+	H02.setColumn(8);
+	I02.setColumn(9);
+	J02.setColumn(10);
+	A03.setColumn(1);
+	B03.setColumn(2);
+	C03.setColumn(3);
+	D03.setColumn(4);
+	E03.setColumn(5);
+	F03.setColumn(6);
+	G03.setColumn(7);
+	H03.setColumn(8);
+	I03.setColumn(9);
+	J03.setColumn(10);
+	A04.setColumn(1);
+	B04.setColumn(2);
+	C04.setColumn(3);
+	D04.setColumn(4);
+	E04.setColumn(5);
+	F04.setColumn(6);
+	G04.setColumn(7);
+	H04.setColumn(8);
+	I04.setColumn(9);
+	J04.setColumn(10);
+	A05.setColumn(1);
+	B05.setColumn(2);
+	C05.setColumn(3);
+	D05.setColumn(4);
+	E05.setColumn(5);
+	F05.setColumn(6);
+	G05.setColumn(7);
+	H05.setColumn(8);
+	I05.setColumn(9);
+	J05.setColumn(10);
+	A06.setColumn(1);
+	B06.setColumn(2);
+	C06.setColumn(3);
+	D06.setColumn(4);
+	E06.setColumn(5);
+	F06.setColumn(6);
+	G06.setColumn(7);
+	H06.setColumn(8);
+	I06.setColumn(9);
+	J06.setColumn(10);
+	A07.setColumn(1);
+	B07.setColumn(2);
+	C07.setColumn(3);
+	D07.setColumn(4);
+	E07.setColumn(5);
+	F07.setColumn(6);
+	G07.setColumn(7);
+	H07.setColumn(8);
+	I07.setColumn(9);
+	J07.setColumn(10);
+	A08.setColumn(1);
+	B08.setColumn(2);
+	C08.setColumn(3);
+	D08.setColumn(4);
+	E08.setColumn(5);
+	F08.setColumn(6);
+	G08.setColumn(7);
+	H08.setColumn(8);
+	I08.setColumn(9);
+	J08.setColumn(10);
+	A09.setColumn(1);
+	B09.setColumn(2);
+	C09.setColumn(3);
+	D09.setColumn(4);
+	E09.setColumn(5);
+	F09.setColumn(6);
+	G09.setColumn(7);
+	H09.setColumn(8);
+	I09.setColumn(9);
+	J09.setColumn(10);
+	A10.setColumn(1);
+	B10.setColumn(2);
+	C10.setColumn(3);
+	D10.setColumn(4);
+	E10.setColumn(5);
+	F10.setColumn(6);
+	G10.setColumn(7);
+	H10.setColumn(8);
+	I10.setColumn(9);
+	J10.setColumn(10);
     
 
         
     ShipMenu Player = new ShipMenu();
     Player.setUserRank("* * * * *");
     Player.setUserName(player.getUserName());
-    Player.setShipLevel("DREADNAUGHT");
-    Player.setShipClass("BATTLESHIP");
+    Player.setShipLevel("Heavy Carrier");
+    Player.setShipClass("Aircraft Carrier");
     Player.setShipName("U.S.S. TENNESSEE");
     Player.setShipAttack(5);
     Player.setShipAccuracy(75);
     Player.setShipDefense(1);
-    Player.setCurrentHull(18);
-    Player.setMaxHull(35);
+    Player.setCurrentHull(3);
+    Player.setMaxHull(8);
     Player.setCurrentPart(1);
     Player.setPOWs(12);
     
@@ -191,6 +387,6 @@ public class PacificBattleship {
                               H01, H02, H03, H04, H05, H06, H07, H08, H09, H10, 
                               I01, I02, I03, I04, I05, I06, I07, I08, I09, I10, 
                               J01, J02, J03, J04, J05, J06, J07, J08, J09, J10);
-     */    
+   
     }  
 }
