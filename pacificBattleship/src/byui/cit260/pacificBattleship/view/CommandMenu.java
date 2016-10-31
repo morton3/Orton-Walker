@@ -7,6 +7,7 @@ package byui.cit260.pacificBattleship.view;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipMenu;
+import pacificbattleship.PacificBattleship;
 
 /**
  *
@@ -17,27 +18,328 @@ public class CommandMenu {
 
     
     
-    public void commandMenu(ShipMenu Player, 
-Location A01, Location A02, Location A03, Location A04, Location A05, 
-Location A06, Location A07, Location A08, Location A09, Location A10, 
-Location B01, Location B02, Location B03, Location B04, Location B05, 
-Location B06, Location B07, Location B08, Location B09, Location B10, 
-Location C01, Location C02, Location C03, Location C04, Location C05, 
-Location C06, Location C07, Location C08, Location C09, Location C10, 
-Location D01, Location D02, Location D03, Location D04, Location D05, 
-Location D06, Location D07, Location D08, Location D09, Location D10, 
-Location E01, Location E02, Location E03, Location E04, Location E05, 
-Location E06, Location E07, Location E08, Location E09, Location E10, 
-Location F01, Location F02, Location F03, Location F04, Location F05, 
-Location F06, Location F07, Location F08, Location F09, Location F10, 
-Location G01, Location G02, Location G03, Location G04, Location G05, 
-Location G06, Location G07, Location G08, Location G09, Location G10, 
-Location H01, Location H02, Location H03, Location H04, Location H05, 
-Location H06, Location H07, Location H08, Location H09, Location H10, 
-Location I01, Location I02, Location I03, Location I04, Location I05, 
-Location I06, Location I07, Location I08, Location I09, Location I10, 
-Location J01, Location J02, Location J03, Location J04, Location J05, 
-Location J06, Location J07, Location J08, Location J09, Location J10){
+    public void displayMenu(){
+    
+        
+
+    Location A01 = new Location();
+    Location A02 = new Location();
+    Location A03 = new Location();
+    Location A04 = new Location();
+    Location A05 = new Location();
+    Location A06 = new Location();
+    Location A07 = new Location();
+    Location A08 = new Location();
+    Location A09 = new Location();
+    Location A10 = new Location();
+    Location B01 = new Location();
+    Location B02 = new Location();
+    Location B03 = new Location();
+    Location B04 = new Location();
+    Location B05 = new Location();
+    Location B06 = new Location();
+    Location B07 = new Location();
+    Location B08 = new Location();
+    Location B09 = new Location();
+    Location B10 = new Location();
+    Location C01 = new Location();
+    Location C02 = new Location();
+    Location C03 = new Location();
+    Location C04 = new Location();
+    Location C05 = new Location();
+    Location C06 = new Location();
+    Location C07 = new Location();
+    Location C08 = new Location();
+    Location C09 = new Location();
+    Location C10 = new Location();
+    Location D01 = new Location();
+    Location D02 = new Location();
+    Location D03 = new Location();
+    Location D04 = new Location();
+    Location D05 = new Location();
+    Location D06 = new Location();
+    Location D07 = new Location();
+    Location D08 = new Location();
+    Location D09 = new Location();
+    Location D10 = new Location();
+    Location E01 = new Location();
+    Location E02 = new Location();
+    Location E03 = new Location();
+    Location E04 = new Location();
+    Location E05 = new Location();
+    Location E06 = new Location();
+    Location E07 = new Location();
+    Location E08 = new Location();
+    Location E09 = new Location();
+    Location E10 = new Location();
+    Location F01 = new Location();
+    Location F02 = new Location();
+    Location F03 = new Location();
+    Location F04 = new Location();
+    Location F05 = new Location();
+    Location F06 = new Location();
+    Location F07 = new Location();
+    Location F08 = new Location();
+    Location F09 = new Location();
+    Location F10 = new Location();
+    Location G01 = new Location();
+    Location G02 = new Location();
+    Location G03 = new Location();
+    Location G04 = new Location();
+    Location G05 = new Location();
+    Location G06 = new Location();
+    Location G07 = new Location();
+    Location G08 = new Location();
+    Location G09 = new Location();
+    Location G10 = new Location();
+    Location H01 = new Location();
+    Location H02 = new Location();
+    Location H03 = new Location();
+    Location H04 = new Location();
+    Location H05 = new Location();
+    Location H06 = new Location();
+    Location H07 = new Location();
+    Location H08 = new Location();
+    Location H09 = new Location();
+    Location H10 = new Location();
+    Location I01 = new Location();
+    Location I02 = new Location();
+    Location I03 = new Location();
+    Location I04 = new Location();
+    Location I05 = new Location();
+    Location I06 = new Location();
+    Location I07 = new Location();
+    Location I08 = new Location();
+    Location I09 = new Location();
+    Location I10 = new Location();
+    Location J01 = new Location();
+    Location J02 = new Location();
+    Location J03 = new Location();
+    Location J04 = new Location();
+    Location J05 = new Location();
+    Location J06 = new Location();
+    Location J07 = new Location();
+    Location J08 = new Location();
+    Location J09 = new Location();
+    Location J10 = new Location();
+	A01.setRow(1);
+	B01.setRow(1);
+	C01.setRow(1);
+	D01.setRow(1);
+	E01.setRow(1);
+	F01.setRow(1);
+	G01.setRow(1);
+	H01.setRow(1);
+	I01.setRow(1);
+	J01.setRow(1);
+	A02.setRow(2);
+	B02.setRow(2);
+	C02.setRow(2);
+	D02.setRow(2);
+	E02.setRow(2);
+	F02.setRow(2);
+	G02.setRow(2);
+	H02.setRow(2);
+	I02.setRow(2);
+	J02.setRow(2);
+	A03.setRow(3);
+	B03.setRow(3);
+	C03.setRow(3);
+	D03.setRow(3);
+	E03.setRow(3);
+	F03.setRow(3);
+	G03.setRow(3);
+	H03.setRow(3);
+	I03.setRow(3);
+	J03.setRow(3);
+	A04.setRow(4);
+	B04.setRow(4);
+	C04.setRow(4);
+	D04.setRow(4);
+	E04.setRow(4);
+	F04.setRow(4);
+	G04.setRow(4);
+	H04.setRow(4);
+	I04.setRow(4);
+	J04.setRow(4);
+	A05.setRow(5);
+	B05.setRow(5);
+	C05.setRow(5);
+	D05.setRow(5);
+	E05.setRow(5);
+	F05.setRow(5);
+	G05.setRow(5);
+	H05.setRow(5);
+	I05.setRow(5);
+	J05.setRow(5);
+	A06.setRow(6);
+	B06.setRow(6);
+	C06.setRow(6);
+	D06.setRow(6);
+	E06.setRow(6);
+	F06.setRow(6);
+	G06.setRow(6);
+	H06.setRow(6);
+	I06.setRow(6);
+	J06.setRow(6);
+	A07.setRow(7);
+	B07.setRow(7);
+	C07.setRow(7);
+	D07.setRow(7);
+	E07.setRow(7);
+	F07.setRow(7);
+	G07.setRow(7);
+	H07.setRow(7);
+	I07.setRow(7);
+	J07.setRow(7);
+	A08.setRow(8);
+	B08.setRow(8);
+	C08.setRow(8);
+	D08.setRow(8);
+	E08.setRow(8);
+	F08.setRow(8);
+	G08.setRow(8);
+	H08.setRow(8);
+	I08.setRow(8);
+	J08.setRow(8);
+	A09.setRow(9);
+	B09.setRow(9);
+	C09.setRow(9);
+	D09.setRow(9);
+	E09.setRow(9);
+	F09.setRow(9);
+	G09.setRow(9);
+	H09.setRow(9);
+	I09.setRow(9);
+	J09.setRow(9);
+	A10.setRow(10);
+	B10.setRow(10);
+	C10.setRow(10);
+	D10.setRow(10);
+	E10.setRow(10);
+	F10.setRow(10);
+	G10.setRow(10);
+	H10.setRow(10);
+	I10.setRow(10);
+	J10.setRow(10);
+        A01.setColumn(1);
+	B01.setColumn(2);
+	C01.setColumn(3);
+	D01.setColumn(4);
+	E01.setColumn(5);
+	F01.setColumn(6);
+	G01.setColumn(7);
+	H01.setColumn(8);
+	I01.setColumn(9);
+	J01.setColumn(10);
+	A02.setColumn(1);
+	B02.setColumn(2);
+	C02.setColumn(3);
+	D02.setColumn(4);
+	E02.setColumn(5);
+	F02.setColumn(6);
+	G02.setColumn(7);
+	H02.setColumn(8);
+	I02.setColumn(9);
+	J02.setColumn(10);
+	A03.setColumn(1);
+	B03.setColumn(2);
+	C03.setColumn(3);
+	D03.setColumn(4);
+	E03.setColumn(5);
+	F03.setColumn(6);
+	G03.setColumn(7);
+	H03.setColumn(8);
+	I03.setColumn(9);
+	J03.setColumn(10);
+	A04.setColumn(1);
+	B04.setColumn(2);
+	C04.setColumn(3);
+	D04.setColumn(4);
+	E04.setColumn(5);
+	F04.setColumn(6);
+	G04.setColumn(7);
+	H04.setColumn(8);
+	I04.setColumn(9);
+	J04.setColumn(10);
+	A05.setColumn(1);
+	B05.setColumn(2);
+	C05.setColumn(3);
+	D05.setColumn(4);
+	E05.setColumn(5);
+	F05.setColumn(6);
+	G05.setColumn(7);
+	H05.setColumn(8);
+	I05.setColumn(9);
+	J05.setColumn(10);
+	A06.setColumn(1);
+	B06.setColumn(2);
+	C06.setColumn(3);
+	D06.setColumn(4);
+	E06.setColumn(5);
+	F06.setColumn(6);
+	G06.setColumn(7);
+	H06.setColumn(8);
+	I06.setColumn(9);
+	J06.setColumn(10);
+	A07.setColumn(1);
+	B07.setColumn(2);
+	C07.setColumn(3);
+	D07.setColumn(4);
+	E07.setColumn(5);
+	F07.setColumn(6);
+	G07.setColumn(7);
+	H07.setColumn(8);
+	I07.setColumn(9);
+	J07.setColumn(10);
+	A08.setColumn(1);
+	B08.setColumn(2);
+	C08.setColumn(3);
+	D08.setColumn(4);
+	E08.setColumn(5);
+	F08.setColumn(6);
+	G08.setColumn(7);
+	H08.setColumn(8);
+	I08.setColumn(9);
+	J08.setColumn(10);
+	A09.setColumn(1);
+	B09.setColumn(2);
+	C09.setColumn(3);
+	D09.setColumn(4);
+	E09.setColumn(5);
+	F09.setColumn(6);
+	G09.setColumn(7);
+	H09.setColumn(8);
+	I09.setColumn(9);
+	J09.setColumn(10);
+	A10.setColumn(1);
+	B10.setColumn(2);
+	C10.setColumn(3);
+	D10.setColumn(4);
+	E10.setColumn(5);
+	F10.setColumn(6);
+	G10.setColumn(7);
+	H10.setColumn(8);
+	I10.setColumn(9);
+	J10.setColumn(10);
+    
+
+        
+    ShipMenu shipMenu = new ShipMenu();
+    shipMenu.setUserRank("* * * * *");
+    shipMenu.setUserName(PacificBattleship.getPlayer().getUserName());
+    shipMenu.setShipLevel("Heavy Carrier");
+    shipMenu.setShipClass("Aircraft Carrier");
+    shipMenu.setShipName("U.S.S. TENNESSEE");
+    shipMenu.setShipAttack(5);
+    shipMenu.setShipAccuracy(75);
+    shipMenu.setShipDefense(1);
+    shipMenu.setCurrentHull(3);
+    shipMenu.setMaxHull(8);
+    shipMenu.setCurrentPart(1);
+    shipMenu.setPOWs(12);
+   
+      
         
 A01.setSymTop("+++++++");
 B01.setSymTop("~~~~~~~");
@@ -655,7 +957,7 @@ System.out.println(
 				  + "│"      + this.checkHidden(H01, H01.getSymTop())
 				  + "│"      + this.checkHidden(I01, I01.getSymTop())
 				  + "│"      + this.checkHidden(J01, J01.getSymTop()) + "│  "
-				  + Player.getUserRank()
+				  + shipMenu.getUserRank()
 				  + "\n│ 1│" + this.checkHidden(A01, A01.getSymMid()) + this.checkHidden(A01, A01.getSymbol()) + this.checkHidden(A01, A01.getSymMid2())
 				  + "│"      + this.checkHidden(B01, B01.getSymMid()) + this.checkHidden(B01, B01.getSymbol()) + this.checkHidden(B01, B01.getSymMid2())
 				  + "│"      + this.checkHidden(C01, C01.getSymMid()) + this.checkHidden(C01, C01.getSymbol()) + this.checkHidden(C01, C01.getSymMid2())
@@ -666,7 +968,7 @@ System.out.println(
 				  + "│"      + this.checkHidden(H01, H01.getSymMid()) + this.checkHidden(H01, H01.getSymbol()) + this.checkHidden(H01, H01.getSymMid2())
 				  + "│"      + this.checkHidden(I01, I01.getSymMid()) + this.checkHidden(I01, I01.getSymbol()) + this.checkHidden(I01, I01.getSymMid2())
 				  + "│"      + this.checkHidden(J01, J01.getSymMid()) + this.checkHidden(J01, J01.getSymbol()) + this.checkHidden(J01, J01.getSymMid2())  + "│  "
-				  + Player.getUserName()
+				  + shipMenu.getUserName()
 				  + "\n│  │" + this.checkHidden(A01, A01.getSymBot())
 				  + "│"      + this.checkHidden(B01, B01.getSymBot())
 				  + "│"      + this.checkHidden(C01, C01.getSymBot())
@@ -678,7 +980,7 @@ System.out.println(
 				  + "│"      + this.checkHidden(I01, I01.getSymBot())
 				  + "│"      + this.checkHidden(J01, J01.getSymBot()) + "│  "
 				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-				  + Player.getShipClass()
+				  + shipMenu.getShipClass()
 				  + "\n│  │" + this.checkHidden(A02, A02.getSymTop())
 				  + "│"      + this.checkHidden(B02, B02.getSymTop())
 				  + "│"      + this.checkHidden(C02, C02.getSymTop())
@@ -689,7 +991,7 @@ System.out.println(
 				  + "│"      + this.checkHidden(H02, H02.getSymTop())
 				  + "│"      + this.checkHidden(I02, I02.getSymTop())
 				  + "│"      + this.checkHidden(J02, J02.getSymTop()) + "│  "
-				  + Player.getShipLevel()
+				  + shipMenu.getShipLevel()
 				  + "\n│ 2│" + this.checkHidden(A02, A02.getSymMid()) + this.checkHidden(A02, A02.getSymbol()) + this.checkHidden(A02, A02.getSymMid2())
 				  + "│"      + this.checkHidden(B02, B02.getSymMid()) + this.checkHidden(B02, B02.getSymbol()) + this.checkHidden(B02, B02.getSymMid2())
 				  + "│"      + this.checkHidden(C02, C02.getSymMid()) + this.checkHidden(C02, C02.getSymbol()) + this.checkHidden(C02, C02.getSymMid2())
@@ -710,9 +1012,9 @@ System.out.println(
 				  + "│"      + this.checkHidden(H02, H02.getSymBot())
 				  + "│"      + this.checkHidden(I02, I02.getSymBot())
 				  + "│"      + this.checkHidden(J02, J02.getSymBot())
-				  + "│  ATTACK »»»»»»»» " + Player.getShipAttack()
+				  + "│  ATTACK »»»»»»»» " + shipMenu.getShipAttack()
 				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-				  + "  ACCURACY »»»»»» " + Player.getShipAccuracy()
+				  + "  ACCURACY »»»»»» " + shipMenu.getShipAccuracy()
 				  + "\n│  │" + this.checkHidden(A03, A03.getSymTop())
 				  + "│"    + this.checkHidden(B03, B03.getSymTop())
 				  + "│"    + this.checkHidden(C03, C03.getSymTop())
@@ -724,7 +1026,7 @@ System.out.println(
 				  + "│"    + this.checkHidden(I03, I03.getSymTop())
 				  + "│"    + this.checkHidden(J03, J03.getSymTop())
 				  + "│  DEFENCE »»»»»»» "
-				  + Player.getShipDefense()
+				  + shipMenu.getShipDefense()
 				  + "\n│ 3│" + this.checkHidden(A03, A03.getSymMid()) + this.checkHidden(A03, A03.getSymbol()) + this.checkHidden(A03, A03.getSymMid2())
 				  + "│"      + this.checkHidden(B03, B03.getSymMid()) + this.checkHidden(B03, B03.getSymbol()) + this.checkHidden(B03, B03.getSymMid2())
 				  + "│"      + this.checkHidden(C03, C03.getSymMid()) + this.checkHidden(C03, C03.getSymbol()) + this.checkHidden(C03, C03.getSymMid2())
@@ -736,7 +1038,7 @@ System.out.println(
 				  + "│"      + this.checkHidden(I03, I03.getSymMid()) + this.checkHidden(I03, I03.getSymbol()) + this.checkHidden(I03, I03.getSymMid2())
 				  + "│"      + this.checkHidden(J03, J03.getSymMid()) + this.checkHidden(J03, J03.getSymbol()) + this.checkHidden(J03, J03.getSymMid2())
 				  + "│  POW's »»»»»»»»» "
-				  + Player.getPOWs()
+				  + shipMenu.getPOWs()
 				  + "\n│  │" + this.checkHidden(A03, A03.getSymBot())
 				  + "│"      + this.checkHidden(B03, B03.getSymBot())
 				  + "│"      + this.checkHidden(C03, C03.getSymBot())
@@ -760,9 +1062,9 @@ System.out.println(
 				  + "│"    + this.checkHidden(I04, I04.getSymTop())
 				  + "│"    + this.checkHidden(J04, J04.getSymTop()) + "│"
 				  + " │ HULL       "
-				  + Player.getCurrentHull()
+				  + shipMenu.getCurrentHull()
                                   + " / "
-                                  + Player.getMaxHull()
+                                  + shipMenu.getMaxHull()
 				  + "\n│ 4│" + this.checkHidden(A04, A04.getSymMid()) + this.checkHidden(A04, A04.getSymbol()) + this.checkHidden(A04, A04.getSymMid2())
 				  + "│"      + this.checkHidden(B04, B04.getSymMid()) + this.checkHidden(B04, B04.getSymbol()) + this.checkHidden(B04, B04.getSymMid2())
 				  + "│"      + this.checkHidden(C04, C04.getSymMid()) + this.checkHidden(C04, C04.getSymbol()) + this.checkHidden(C04, C04.getSymMid2())
@@ -773,7 +1075,7 @@ System.out.println(
 				  + "│"      + this.checkHidden(H04, H04.getSymMid()) + this.checkHidden(H04, H04.getSymbol()) + this.checkHidden(H04, H04.getSymMid2())
 				  + "│"      + this.checkHidden(I04, I04.getSymMid()) + this.checkHidden(I04, I04.getSymbol()) + this.checkHidden(I04, I04.getSymMid2())
 				  + "│"      + this.checkHidden(J04, J04.getSymMid()) + this.checkHidden(J04, J04.getSymbol()) + this.checkHidden(J04, J04.getSymMid2()) + "│ "
-				  + this.topHull(Player)
+				  + this.topHull(shipMenu)
 				  + "\n│  │" + this.checkHidden(A04, A04.getSymBot())
 				  + "│"      + this.checkHidden(B04, B04.getSymBot())
 				  + "│"      + this.checkHidden(C04, C04.getSymBot())
@@ -784,9 +1086,9 @@ System.out.println(
 				  + "│"      + this.checkHidden(H04, H04.getSymBot())
 				  + "│"      + this.checkHidden(I04, I04.getSymBot())
 				  + "│"      + this.checkHidden(J04, J04.getSymBot()) + "│ "
-				  + this.MidTopHull(Player)
+				  + this.MidTopHull(shipMenu)
 				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤ "
-				  + this.MidHull(Player)
+				  + this.MidHull(shipMenu)
 				  + "\n│  │" + this.checkHidden(A05, A05.getSymTop())
 				  + "│"    + this.checkHidden(B05, B05.getSymTop())
 				  + "│"    + this.checkHidden(C05, C05.getSymTop())
@@ -797,7 +1099,7 @@ System.out.println(
 				  + "│"    + this.checkHidden(H05, H05.getSymTop())
 				  + "│"    + this.checkHidden(I05, I05.getSymTop())
 				  + "│"    + this.checkHidden(J05, J05.getSymTop()) + "│ "
-				  + this.MidBotHull(Player)
+				  + this.MidBotHull(shipMenu)
 				  + "\n│ 5│" + this.checkHidden(A05, A05.getSymMid()) + this.checkHidden(A05, A05.getSymbol()) + this.checkHidden(A05, A05.getSymMid2())
 				  + "│"      + this.checkHidden(B05, B05.getSymMid()) + this.checkHidden(B05, B05.getSymbol()) + this.checkHidden(B05, B05.getSymMid2())
 				  + "│"      + this.checkHidden(C05, C05.getSymMid()) + this.checkHidden(C05, C05.getSymbol()) + this.checkHidden(C05, C05.getSymMid2())
@@ -808,7 +1110,7 @@ System.out.println(
 				  + "│"      + this.checkHidden(H05, H05.getSymMid()) + this.checkHidden(H05, H05.getSymbol()) + this.checkHidden(H05, H05.getSymMid2())
 				  + "│"      + this.checkHidden(I05, I05.getSymMid()) + this.checkHidden(I05, I05.getSymbol()) + this.checkHidden(I05, I05.getSymMid2())
 				  + "│"      + this.checkHidden(J05, J05.getSymMid()) + this.checkHidden(J05, J05.getSymbol()) + this.checkHidden(J05, J05.getSymMid2()) + "│ "
-				  + this.BotHull(Player)
+				  + this.BotHull(shipMenu)
 				  + "\n│  │" + this.checkHidden(A05, A05.getSymBot())
 				  + "│"      + this.checkHidden(B05, B05.getSymBot())
 				  + "│"      + this.checkHidden(C05, C05.getSymBot())
@@ -983,7 +1285,7 @@ System.out.println(
 				  + "│"      + this.checkHidden(I10, I10.getSymMid()) + this.checkHidden(I10, I10.getSymbol()) + this.checkHidden(I10, I10.getSymMid2())
 				  + "│"      + this.checkHidden(J10, J10.getSymMid()) + this.checkHidden(J10, J10.getSymbol()) + this.checkHidden(J10, J10.getSymMid2()) + "│"
 				  + "   │ L │-Launch      "
-				  + Player.getCurrentPart()
+				  + shipMenu.getCurrentPart()
 				  + " / 15 Parts"
 				  + "\n│  │" + this.checkHidden(A10, A10.getSymBot())
 				  + "│"      + this.checkHidden(B10, B10.getSymBot())
@@ -999,7 +1301,8 @@ System.out.println(
 				  + "\n└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘"
         );
         
-    }
+    
+}
     
     private String topHull(ShipMenu Player){
         
@@ -1117,7 +1420,11 @@ System.out.println(
         else
             return symbol;
     }
+}
+
     
+    
+    /*
     private Location cycleLocation(int coordinate,
             Location A01, Location A02, Location A03, Location A04, Location A05, 
             Location A06, Location A07, Location A08, Location A09, Location A10, 
@@ -1384,5 +1691,5 @@ switch (row) {
         System.out.println("***** move function called *****");
         
     }
+*/
 
-}
