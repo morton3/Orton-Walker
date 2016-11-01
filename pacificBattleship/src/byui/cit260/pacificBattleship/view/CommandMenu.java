@@ -1487,7 +1487,8 @@ map =
     }
 
     private void upgradeMenu() {
-        System.out.println("*** supgrdeMenu function called ***");
+        UpgradeMenu upgradeMenu = new UpgradeMenu();
+        upgradeMenu.displayUpgradeMenuView();
     }
 
     private void switchShips() {
@@ -1515,7 +1516,8 @@ map =
     }
 
     private void launchNuke() {
-        System.out.println("*** launchNuke() function called ***");
+       LaunchNuke launchNuke = new LaunchNuke();
+       launchNuke.displayLaunchNukeView();
     }
 }
 

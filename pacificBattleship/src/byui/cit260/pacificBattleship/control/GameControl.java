@@ -30,5 +30,9 @@ public class GameControl {
         CommandMenu commandMenu = new CommandMenu();
         commandMenu.displayCommandMenuView();
     }
+
+    public static void upgradeView(String upgrade) {
+        System.out.println("You have upgraded your ship " + upgrade);
+    }
     
 }
