@@ -6,6 +6,7 @@
 package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.model.Game;
+import byui.cit260.pacificBattleship.view.CommandMenu;
 import pacificbattleship.PacificBattleship;
 
 /**
@@ -26,7 +27,8 @@ public class GameControl {
     }
 
     public static void createNewGame(Game player) {
-       System.out.println("\n*** createNewGame stub function called ***");
+        CommandMenu commandMenu = new CommandMenu();
+        commandMenu.displayCommandMenuView();
     }
     
 }

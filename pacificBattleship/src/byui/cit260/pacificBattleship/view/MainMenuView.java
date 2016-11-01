@@ -91,8 +91,7 @@ public class MainMenuView {
     private void startNewGame() {
        GameControl.createNewGame(PacificBattleship.getPlayer());
        
-       CommandMenu commandMenu = new CommandMenu();
-       commandMenu.displayCommandMenuView();
+
     }
 
     private void startExistingGame() {

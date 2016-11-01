@@ -17,6 +17,8 @@ public class ShipClass implements Serializable{
     private String name;
     private int bonusDefense;
     private int bonusHull;
+    private String symbol;
+    private int bonusAccuracy;
 
     public ShipClass() {
     }
@@ -45,12 +47,30 @@ public class ShipClass implements Serializable{
         this.bonusHull = bonusHull;
     }
 
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public int getBonusAccuracy() {
+        return bonusAccuracy;
+    }
+
+    public void setBonusAccuracy(int bonusAccuracy) {
+        this.bonusAccuracy = bonusAccuracy;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.name);
-        hash = 97 * hash + this.bonusDefense;
-        hash = 97 * hash + this.bonusHull;
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.name);
+        hash = 17 * hash + this.bonusDefense;
+        hash = 17 * hash + this.bonusHull;
+        hash = 17 * hash + Objects.hashCode(this.symbol);
+        hash = 17 * hash + this.bonusAccuracy;
         return hash;
     }
 
@@ -72,7 +92,13 @@ public class ShipClass implements Serializable{
         if (this.bonusHull != other.bonusHull) {
             return false;
         }
+        if (this.bonusAccuracy != other.bonusAccuracy) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.symbol, other.symbol)) {
             return false;
         }
         return true;
@@ -80,8 +106,10 @@ public class ShipClass implements Serializable{
 
     @Override
     public String toString() {
-        return "ShipClass{" + "name=" + name + ", bonusDefense=" + bonusDefense + ", bonusHull=" + bonusHull + '}';
+        return "ShipClass{" + "name=" + name + ", bonusDefense=" + bonusDefense + ", bonusHull=" + bonusHull + ", symbol=" + symbol + ", bonusAccuracy=" + bonusAccuracy + '}';
     }
+
+    
     
     
     

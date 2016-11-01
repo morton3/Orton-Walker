@@ -398,8 +398,8 @@ public class CommandMenu {
     shipMenu.setUserRank("* * * * *");
     shipMenu.setUserName(PacificBattleship.getPlayer().getUserName());
     shipMenu.setShipLevel("Heavy Carrier");
-    shipMenu.setShipClass("Aircraft Carrier");
-    shipMenu.setShipName("U.S.S. TENNESSEE");
+    shipMenu.setShipClass(PacificBattleship.getBattleship().getType());
+    shipMenu.setShipName(PacificBattleship.getBattleship().getName());
     shipMenu.setShipAttack(5);
     shipMenu.setShipAccuracy(75);
     shipMenu.setShipDefense(1);

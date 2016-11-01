@@ -22,8 +22,9 @@ public class Ship implements Serializable{
     private int attack;
     private int hull;
     private String description;
-    private int coordinate;
+    private Location coordinate;
     private String symbol;
+    private ShipClass shipClass;
 
     public Ship() {
     }
@@ -92,17 +93,44 @@ public class Ship implements Serializable{
         this.description = description;
     }
 
+    public Location getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Location coordinate) {
+        this.coordinate = coordinate;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public ShipClass getShipClass() {
+        return shipClass;
+    }
+
+    public void setShipClass(ShipClass shipClass) {
+        this.shipClass = shipClass;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 61 * hash + Objects.hashCode(this.name);
-        hash = 61 * hash + Objects.hashCode(this.type);
-        hash = 61 * hash + this.defense;
-        hash = 61 * hash + this.accuracy;
-        hash = 61 * hash + (this.userControl ? 1 : 0);
-        hash = 61 * hash + this.attack;
-        hash = 61 * hash + this.hull;
-        hash = 61 * hash + Objects.hashCode(this.description);
+        int hash = 3;
+        hash = 83 * hash + Objects.hashCode(this.name);
+        hash = 83 * hash + Objects.hashCode(this.type);
+        hash = 83 * hash + this.defense;
+        hash = 83 * hash + this.accuracy;
+        hash = 83 * hash + (this.userControl ? 1 : 0);
+        hash = 83 * hash + this.attack;
+        hash = 83 * hash + this.hull;
+        hash = 83 * hash + Objects.hashCode(this.description);
+        hash = 83 * hash + Objects.hashCode(this.coordinate);
+        hash = 83 * hash + Objects.hashCode(this.symbol);
+        hash = 83 * hash + Objects.hashCode(this.shipClass);
         return hash;
     }
 
@@ -142,9 +170,25 @@ public class Ship implements Serializable{
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
+        if (!Objects.equals(this.symbol, other.symbol)) {
+            return false;
+        }
+        if (!Objects.equals(this.coordinate, other.coordinate)) {
+            return false;
+        }
+        if (!Objects.equals(this.shipClass, other.shipClass)) {
+            return false;
+        }
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Ship{" + "name=" + name + ", type=" + type + ", defense=" + defense + ", accuracy=" + accuracy + ", userControl=" + userControl + ", attack=" + attack + ", hull=" + hull + ", description=" + description + ", coordinate=" + coordinate + ", symbol=" + symbol + ", shipClass=" + shipClass + '}';
+    }
+
+
     
+
     
 }
