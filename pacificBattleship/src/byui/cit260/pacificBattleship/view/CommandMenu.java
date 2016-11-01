@@ -7,6 +7,7 @@ package byui.cit260.pacificBattleship.view;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipMenu;
+import java.util.Scanner;
 import pacificbattleship.PacificBattleship;
 
 /**
@@ -15,10 +16,78 @@ import pacificbattleship.PacificBattleship;
  */
 public class CommandMenu {
     
-
+    public String map;
     
+   public void displayCommandMenuView() {
+       
+       boolean done = false;
+       do{
+           String menuOption = this.getMenuOption();
+           if (menuOption.toUpperCase().equals("2"))
+               return;
+           done = this.doAction(menuOption);
+   } while (!done);
+            
+    }
     
-    public void displayMenu(){
+       private String getMenuOption() {
+          
+        Scanner keyboard = new Scanner(System.in);
+        String value ="";
+        boolean valid = false;
+        
+        while (!valid) {
+            System.out.println("\n" + this.map);
+            
+            value = keyboard.nextLine();
+            value = value.trim();
+                    
+            
+            if (value.length() < 1) {
+                System.out.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            break;
+        }
+        return value;
+       }
+       
+           public boolean doAction(String menuOption) {
+      menuOption = menuOption.toUpperCase();
+      
+      switch (menuOption){
+          case "Q":
+              this.upgradeMenu();
+              break;
+          case "E":
+              this.switchShips();
+              break;
+          case "W":
+              this.moveUp();
+              break;
+          case "S":
+              this.moveDown();
+              break;
+          case "A":
+              this.moveLeft();
+              break;
+          case "D":
+              this.moveRight();
+              break;
+          case "1":
+              this.attack();
+              break;
+          case "0":
+              this.launchNuke();
+              break;
+          default:
+              System.out.println("\n*** Invalid selection *** Try again");
+              break;
+      }
+      return false;
+           }
+    
+    public CommandMenu(){
     
         
 
@@ -944,7 +1013,7 @@ H10.setSymbol("   ");
 I10.setSymbol("   ");
 J10.setSymbol("   ");
 
-System.out.println(
+map =
                     "\n         A        B       C        D       E        F       G        H        I       J "
                   + "\n┌--┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┐"
 				  + "\n│  │" + this.checkHidden(A01, A01.getSymTop())
@@ -1191,9 +1260,9 @@ System.out.println(
 				  + "│"      + this.checkHidden(H07, H07.getSymBot())
 				  + "│"      + this.checkHidden(I07, I07.getSymBot())
 				  + "│"      + this.checkHidden(J07, J07.getSymBot()) + "│"
-				  + "   ┌---------------┐"
+				  + "   ┌---┐"
 				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-				  + "   │   Space Bar   │-Attack"
+				  + "   │ 1 │-Attack"
 				  + "\n│  │" + this.checkHidden(A08, A08.getSymTop())
 				  + "│"    + this.checkHidden(B08, B08.getSymTop())
 				  + "│"    + this.checkHidden(C08, C08.getSymTop())
@@ -1204,7 +1273,7 @@ System.out.println(
 				  + "│"    + this.checkHidden(H08, H08.getSymTop())
 				  + "│"    + this.checkHidden(I08, I08.getSymTop())
 				  + "│"    + this.checkHidden(J08, J08.getSymTop()) + "│"
-				  + "   └---------------┘"
+				  + "   └---┘"
 				  + "\n│ 8│" + this.checkHidden(A08, A08.getSymMid()) + this.checkHidden(A08, A08.getSymbol()) + this.checkHidden(A08, A08.getSymMid2())
 				  + "│"      + this.checkHidden(B08, B08.getSymMid()) + this.checkHidden(B08, B08.getSymbol()) + this.checkHidden(B08, B08.getSymMid2())
 				  + "│"      + this.checkHidden(C08, C08.getSymMid()) + this.checkHidden(C08, C08.getSymbol()) + this.checkHidden(C08, C08.getSymMid2())
@@ -1215,7 +1284,7 @@ System.out.println(
 				  + "│"      + this.checkHidden(H08, H08.getSymMid()) + this.checkHidden(H08, H08.getSymbol()) + this.checkHidden(H08, H08.getSymMid2())
 				  + "│"      + this.checkHidden(I08, I08.getSymMid()) + this.checkHidden(I08, I08.getSymbol()) + this.checkHidden(I08, I08.getSymMid2())
 				  + "│"      + this.checkHidden(J08, J08.getSymMid()) + this.checkHidden(J08, J08.getSymbol()) + this.checkHidden(J08, J08.getSymMid2()) + "│"
-				  + "   ┌-----┐"
+				  + "   ┌---┐"
 				  + "\n│  │" + this.checkHidden(A08, A08.getSymBot())
 				  + "│"      + this.checkHidden(B08, B08.getSymBot())
 				  + "│"      + this.checkHidden(C08, C08.getSymBot())
@@ -1226,9 +1295,9 @@ System.out.println(
 				  + "│"      + this.checkHidden(H08, H08.getSymBot())
 				  + "│"      + this.checkHidden(I08, I08.getSymBot())
 				  + "│"      + this.checkHidden(J08, J08.getSymBot()) + "│"
-				  + "   │ esc │-Main Menu"
+				  + "   │ 2 │-Main Menu"
 				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-				  + "   └-----┘"
+				  + "   └---┘"
 				  + "\n│  │" + this.checkHidden(A09, A09.getSymTop())
 				  + "│"    + this.checkHidden(B09, B09.getSymTop())
 				  + "│"    + this.checkHidden(C09, C09.getSymTop())
@@ -1239,7 +1308,6 @@ System.out.println(
 				  + "│"    + this.checkHidden(H09, H09.getSymTop())
 				  + "│"    + this.checkHidden(I09, I09.getSymTop())
 				  + "│"    + this.checkHidden(J09, J09.getSymTop()) + "│"
-				  + "   ┌---┐"
 				  + "\n│ 9│" + this.checkHidden(A09, A09.getSymMid()) + this.checkHidden(A09, A09.getSymbol()) + this.checkHidden(A09, A09.getSymMid2())
 				  + "│"      + this.checkHidden(B09, B09.getSymMid()) + this.checkHidden(B09, B09.getSymbol()) + this.checkHidden(B09, B09.getSymMid2())
 				  + "│"      + this.checkHidden(C09, C09.getSymMid()) + this.checkHidden(C09, C09.getSymbol()) + this.checkHidden(C09, C09.getSymMid2())
@@ -1250,7 +1318,6 @@ System.out.println(
 				  + "│"      + this.checkHidden(H09, H09.getSymMid()) + this.checkHidden(H09, H09.getSymbol()) + this.checkHidden(H09, H09.getSymMid2())
 				  + "│"      + this.checkHidden(I09, I09.getSymMid()) + this.checkHidden(I09, I09.getSymbol()) + this.checkHidden(I09, I09.getSymMid2())
 				  + "│"      + this.checkHidden(J09, J09.getSymMid()) + this.checkHidden(J09, J09.getSymbol()) + this.checkHidden(J09, J09.getSymMid2()) + "│"
-				  + "   │ H │-Help"
 				  + "\n│  │" + this.checkHidden(A09, A09.getSymBot())
 				  + "│"      + this.checkHidden(B09, B09.getSymBot())
 				  + "│"      + this.checkHidden(C09, C09.getSymBot())
@@ -1261,7 +1328,6 @@ System.out.println(
 				  + "│"      + this.checkHidden(H09, H09.getSymBot())
 				  + "│"      + this.checkHidden(I09, I09.getSymBot())
 				  + "│"      + this.checkHidden(J09, J09.getSymBot()) + "│"
-				  + "   └---┘"
 				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
 				  + "\n│  │" + this.checkHidden(A10, A10.getSymTop())
 				  + "│"    + this.checkHidden(B10, B10.getSymTop())
@@ -1284,7 +1350,7 @@ System.out.println(
 				  + "│"      + this.checkHidden(H10, H10.getSymMid()) + this.checkHidden(H10, H10.getSymbol()) + this.checkHidden(H10, H10.getSymMid2())
 				  + "│"      + this.checkHidden(I10, I10.getSymMid()) + this.checkHidden(I10, I10.getSymbol()) + this.checkHidden(I10, I10.getSymMid2())
 				  + "│"      + this.checkHidden(J10, J10.getSymMid()) + this.checkHidden(J10, J10.getSymbol()) + this.checkHidden(J10, J10.getSymMid2()) + "│"
-				  + "   │ L │-Launch      "
+				  + "   │ 0 │-Launch      "
 				  + shipMenu.getCurrentPart()
 				  + " / 15 Parts"
 				  + "\n│  │" + this.checkHidden(A10, A10.getSymBot())
@@ -1298,8 +1364,7 @@ System.out.println(
 				  + "│"      + this.checkHidden(I10, I10.getSymBot())
 				  + "│"      + this.checkHidden(J10, J10.getSymBot()) + "│"
 				  + "   └---┘"
-				  + "\n└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘"
-        );
+				  + "\n└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘";
         
     
 }
@@ -1419,6 +1484,38 @@ System.out.println(
         }
         else
             return symbol;
+    }
+
+    private void upgradeMenu() {
+        System.out.println("*** supgrdeMenu function called ***");
+    }
+
+    private void switchShips() {
+        System.out.println("*** switchShips function called ***");
+    }
+
+    private void moveUp() {
+        System.out.println("*** moveUp function called ***");
+    }
+
+    private void moveDown() {
+        System.out.println("*** moveDown function called ***");
+    }
+
+    private void moveLeft() {
+        System.out.println("*** moveLeft function called ***");
+    }
+
+    private void moveRight() {
+        System.out.println("*** moveRight function called ***");
+    }
+
+    private void attack() {
+        System.out.println("*** attack function called ***");
+    }
+
+    private void launchNuke() {
+        System.out.println("*** launchNuke() function called ***");
     }
 }
 
