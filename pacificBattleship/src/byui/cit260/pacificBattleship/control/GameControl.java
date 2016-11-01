@@ -30,5 +30,10 @@ public class GameControl {
         CommandMenu commandMenu = new CommandMenu();
         commandMenu.displayCommandMenuView();
     }
+
+    public static void switchShips(String ship) {
+        
+        System.out.println("You've selected the " + ship);
+    }
     
 }

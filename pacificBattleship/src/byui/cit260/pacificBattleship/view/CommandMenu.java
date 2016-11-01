@@ -1491,7 +1491,8 @@ map =
     }
 
     private void switchShips() {
-        System.out.println("*** switchShips function called ***");
+        SwitchShipsView switchShipsView = new SwitchShipsView();
+        switchShipsView.displaySwitchShipsView();
     }
 
     private void moveUp() {

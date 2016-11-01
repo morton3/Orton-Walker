@@ -19,6 +19,7 @@ public class Game implements Serializable {
     private double nuclearParts;
     private double numOfPOW;
     private double numOfUsedPOW;
+    private Ship currentShip;
 
     public Game() {
     }
@@ -53,6 +54,14 @@ public class Game implements Serializable {
 
     public void setNumOfUsedPOW(double numOfUsedPOW) {
         this.numOfUsedPOW = numOfUsedPOW;
+    }
+
+    public Ship getCurrentShip() {
+        return currentShip;
+    }
+
+    public void setCurrentShip(Ship currentShip) {
+        this.currentShip = currentShip;
     }
 
     @Override
