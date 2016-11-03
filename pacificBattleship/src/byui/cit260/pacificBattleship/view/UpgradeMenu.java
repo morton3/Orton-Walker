@@ -6,6 +6,7 @@
 package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.GameControl;
+import byui.cit260.pacificBattleship.model.ShipMenu;
 import java.util.Scanner;
 
 /**
@@ -14,13 +15,30 @@ import java.util.Scanner;
  */
 public class UpgradeMenu {
         private String menu;
+        
+        private int upgradeAttackMax = 5;
+        private int upgradeAttackCurrent = 2;
+        private int upgradeSpecialMax = 5;
+        private int upgradeSpecialCurrent = 1;
+        
+        
+        
     public UpgradeMenu() {
+        
         this.menu = "\n"
                    + "\n-------------------------------------------------"
                    +"\n| Upgrade Menu                                      |"
                    +"\n--------------------------------------------------"
-                   +"\nA - Upgrade attack power"
-                   +"\nS - Special ability"
+                   +"\nA - Upgrade attack power\n"
+                   
+                   + this.topHull(upgradeAttackMax)+"\n"
+                   + this.MidTopHull(upgradeAttackCurrent, upgradeAttackMax)+"\n"
+                   + this.BotHull(upgradeAttackMax)
+                   +"\nS - Special ability\n"
+                   + this.topHull(upgradeSpecialMax)+"\n"
+                   + this.MidTopHull(upgradeSpecialCurrent, upgradeSpecialMax)+"\n"
+                   + this.BotHull(upgradeSpecialMax)
+                   
                    +"\nQ - Quit"
                    +"\n--------------------------------------------------";
               }
@@ -82,8 +100,51 @@ public class UpgradeMenu {
       
       return false;
     }
+    
+  private String topHull(int uaMax){
+        
+        String line = "┌";
+        int x = 1;
+        
+        while (uaMax > x){
+            line += "─┬";
+            x++;
+        }
+        
+        return line += "─┐";
+    }
+  private String MidTopHull(int uaCurrent, int uaMax) {
+        
+        String line = "│";
+        int x = 0;
+        
+        while (uaMax > x) {
+            if (uaCurrent > x)
+                line += "█";
+            
+            else
+                line += "░";
+            
+            line += "│";
+                    
+            x++;
+        }
+        
+        return line;
+    }
+    private String BotHull(int uaMax) {
+         
+       String line = "└";
+        int x = 1;
+        
+        while (uaMax > x){
+            line += "─┴";
+            x++;
+        }
+        
+        return line += "─┘";
+    }
 
-  
     }
 
 

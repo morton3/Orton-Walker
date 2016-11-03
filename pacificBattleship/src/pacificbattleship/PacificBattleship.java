@@ -39,10 +39,37 @@ public class PacificBattleship {
     private static Ship aircraftCarrier = new Ship();
     private static Ship destroyer = new Ship();
     private static ShipClass battleship0 = new ShipClass();
-    private static ShipClass transport0 = new ShipClass();
+    private static ShipClass transport0 = new ShipClass(); 
+    private static int current = 5;
+    private static int max = 5;
+    private static int POW = 15;
 
     public static Game getCurrentGame() {
         return currentGame;
+    }
+
+    public static int getCurrent() {
+        return current;
+    }
+
+    public static void setCurrent(int current) {
+        PacificBattleship.current = current;
+    }
+
+    public static int getMax() {
+        return max;
+    }
+
+    public static void setMax(int max) {
+        PacificBattleship.max = max;
+    }
+
+    public static int getPOW() {
+        return POW;
+    }
+
+    public static void setPOW(int POW) {
+        PacificBattleship.POW = POW;
     }
 
     public static void setCurrentGame(Game currentGame) {

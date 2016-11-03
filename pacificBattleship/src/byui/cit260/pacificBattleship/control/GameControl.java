@@ -33,8 +33,14 @@ public class GameControl {
 
 
     public static void upgradeView(String upgrade) {
-        System.out.println("You have upgraded your ship " + upgrade);
-    }
+        
+            if (PacificBattleship.getPOW() < 1 || PacificBattleship.getCurrent() == PacificBattleship.getMax()){ 
+                System.out.println("You can not upgrade this ship " + upgrade);
+            }
+            else {
+                System.out.println("You have upgraded your ship " + upgrade);
+            }
+                }
     public static void switchShips(String ship) {
         
         System.out.println("You've selected the " + ship);
