@@ -6,6 +6,7 @@
 package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.GameControl;
+import pacificbattleship.PacificBattleship;
 import java.util.Scanner;
 
 /**
@@ -65,7 +66,7 @@ public class SwitchShipsView {
     }
     
 
-    public boolean doAction(String menuOption) {
+    public static boolean doAction(String menuOption) {
       menuOption = menuOption.toUpperCase();
       
       String ship = "";

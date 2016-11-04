@@ -6,7 +6,9 @@
 package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.model.Game;
+import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.view.CommandMenu;
+import java.util.HashSet;
 import pacificbattleship.PacificBattleship;
 
 /**
@@ -41,9 +43,33 @@ public class GameControl {
                 System.out.println("You have upgraded your ship " + upgrade);
             }
                 }
-    public static void switchShips(String ship) {
+    public static Ship switchShips(String ship) {
         
+        
+        switch (ship){
+            case "Battleship":
+                PacificBattleship.setActiveShip(PacificBattleship.getBattleship());
+                break;
+            case "Transport":
+                PacificBattleship.setActiveShip(PacificBattleship.getTransport());
+                break;
+            case "Submarine":
+                PacificBattleship.setActiveShip(PacificBattleship.getSubmarine());
+                break;
+            case "Aircraft Carrier":
+                PacificBattleship.setActiveShip(PacificBattleship.getAircraftCarrier());
+                break;
+            case "Destroyer":
+                PacificBattleship.setActiveShip(PacificBattleship.getDestroyer());
+                break;
+          default:
+              System.out.println("\n*** Invalid selection *** Try again");
+              break;
+                    
+        }
         System.out.println("You've selected the " + ship);
+        
+        return PacificBattleship.getActiveShip();
 
     }
     

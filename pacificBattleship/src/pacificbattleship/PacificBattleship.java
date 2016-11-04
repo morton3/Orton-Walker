@@ -38,6 +38,7 @@ public class PacificBattleship {
     private static Ship submarine = new Ship();
     private static Ship aircraftCarrier = new Ship();
     private static Ship destroyer = new Ship();
+    private static Ship activeShip = new Ship();
     private static ShipClass battleship0 = new ShipClass();
     private static ShipClass transport0 = new ShipClass(); 
     private static int current = 5;
@@ -139,6 +140,14 @@ public class PacificBattleship {
     public static void setTransport0(ShipClass transport0) {
         PacificBattleship.transport0 = transport0;
     }
+
+    public static Ship getActiveShip() {
+        return activeShip;
+    }
+
+    public static void setActiveShip(Ship activeShip) {
+        PacificBattleship.activeShip = activeShip;
+    }
     
     
 
@@ -156,6 +165,7 @@ public class PacificBattleship {
         transport0.setBonusHull(0);
         transport0.setSymbol("t");
         
+        
         battleship.setName("U.S.S. Tennessee");
         battleship.setType("Battleship");
         battleship.setDefense(1);
@@ -163,11 +173,11 @@ public class PacificBattleship {
         battleship.setUserControl(true);
         battleship.setAttack(4);
         battleship.setHull(6);
+        battleship.setMaxHull(10);
         battleship.setDescription("");
         battleship.setCoordinate(null);
         battleship.setSymbol("");
         battleship.setShipClass(battleship0);
-        
         
         transport.setName("U.S.S. President Jackson");
         transport.setType("Transport");
@@ -176,13 +186,53 @@ public class PacificBattleship {
         transport.setUserControl(true);
         transport.setAttack(10);
         transport.setHull(10);
+        transport.setMaxHull(10);
         transport.setDescription("");
         transport.setCoordinate(null);
         transport.setSymbol("");
         transport.setShipClass(transport0);
         
-
+        submarine.setName("U.S.S. submarine name");
+        submarine.setType("Submarine");
+        submarine.setDefense(0);
+        submarine.setAccuracy(70);
+        submarine.setUserControl(true);
+        submarine.setAttack(10);
+        submarine.setHull(10);
+        submarine.setMaxHull(10);
+        submarine.setDescription("");
+        submarine.setCoordinate(null);
+        submarine.setSymbol("");
+        submarine.setShipClass(transport0);
         
+        aircraftCarrier.setName("U.S.S. arircraft carrier");
+        aircraftCarrier.setType("Aircraft Carrier");
+        aircraftCarrier.setDefense(0);
+        aircraftCarrier.setAccuracy(75);
+        aircraftCarrier.setUserControl(true);
+        aircraftCarrier.setAttack(10);
+        aircraftCarrier.setHull(10);
+        aircraftCarrier.setMaxHull(10);
+        aircraftCarrier.setDescription("");
+        aircraftCarrier.setCoordinate(null);
+        aircraftCarrier.setSymbol("");
+        aircraftCarrier.setShipClass(transport0);
+        
+        destroyer.setName("U.S.S. destroyer");
+        destroyer.setType("Destroyer");
+        destroyer.setDefense(0);
+        destroyer.setAccuracy(60);
+        destroyer.setUserControl(true);
+        destroyer.setAttack(10);
+        destroyer.setHull(10);
+        destroyer.setMaxHull(10);
+        destroyer.setDescription("");
+        destroyer.setCoordinate(null);
+        destroyer.setSymbol("");
+        destroyer.setShipClass(transport0);
+
+        PacificBattleship.setActiveShip(battleship);
+        //PacificBattleship.getPlayer().setNuclearParts(current);
         
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();

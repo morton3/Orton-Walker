@@ -88,7 +88,19 @@ public class CommandMenu {
            }
     
     public CommandMenu(){
-    
+        ShipMenu shipMenu = new ShipMenu();
+        shipMenu.setUserRank("* * * * *");
+        shipMenu.setUserName(PacificBattleship.getPlayer().getUserName());
+        shipMenu.setShipLevel(PacificBattleship.getActiveShip().getClass().getName());
+        String shipType = PacificBattleship.getActiveShip().getType();
+        shipMenu.setShipName(PacificBattleship.getActiveShip().getName());
+        shipMenu.setShipAttack(PacificBattleship.getActiveShip().getAttack());
+        shipMenu.setShipAccuracy(PacificBattleship.getActiveShip().getAccuracy());
+        shipMenu.setShipDefense(PacificBattleship.getActiveShip().getDefense());
+        shipMenu.setCurrentHull(PacificBattleship.getActiveShip().getHull());
+        shipMenu.setMaxHull(PacificBattleship.getActiveShip().getMaxHull());
+        shipMenu.setCurrentPart(1);
+        shipMenu.setPOWs(12);
         
 
     Location A01 = new Location();
@@ -394,19 +406,7 @@ public class CommandMenu {
     
 
         
-    ShipMenu shipMenu = new ShipMenu();
-    shipMenu.setUserRank("* * * * *");
-    shipMenu.setUserName(PacificBattleship.getPlayer().getUserName());
-    shipMenu.setShipLevel("Heavy Carrier");
-    shipMenu.setShipClass(PacificBattleship.getBattleship().getType());
-    shipMenu.setShipName(PacificBattleship.getBattleship().getName());
-    shipMenu.setShipAttack(5);
-    shipMenu.setShipAccuracy(75);
-    shipMenu.setShipDefense(1);
-    shipMenu.setCurrentHull(3);
-    shipMenu.setMaxHull(8);
-    shipMenu.setCurrentPart(1);
-    shipMenu.setPOWs(12);
+
    
       
         
@@ -1049,7 +1049,7 @@ map =
 				  + "│"      + this.checkHidden(I01, I01.getSymBot())
 				  + "│"      + this.checkHidden(J01, J01.getSymBot()) + "│  "
 				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-				  + shipMenu.getShipClass()
+				  + shipType
 				  + "\n│  │" + this.checkHidden(A02, A02.getSymTop())
 				  + "│"      + this.checkHidden(B02, B02.getSymTop())
 				  + "│"      + this.checkHidden(C02, C02.getSymTop())

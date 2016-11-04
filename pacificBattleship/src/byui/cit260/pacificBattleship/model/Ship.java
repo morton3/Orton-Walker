@@ -21,6 +21,7 @@ public class Ship implements Serializable{
     private boolean userControl;
     private int attack;
     private int hull;
+    private int maxHull;
     private String description;
     private Location coordinate;
     private String symbol;
@@ -85,6 +86,14 @@ public class Ship implements Serializable{
         this.hull = hull;
     }
 
+    public int getMaxHull() {
+        return maxHull;
+    }
+
+    public void setMaxHull(int maxHull) {
+        this.maxHull = maxHull;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -119,18 +128,19 @@ public class Ship implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 83 * hash + Objects.hashCode(this.name);
-        hash = 83 * hash + Objects.hashCode(this.type);
-        hash = 83 * hash + this.defense;
-        hash = 83 * hash + this.accuracy;
-        hash = 83 * hash + (this.userControl ? 1 : 0);
-        hash = 83 * hash + this.attack;
-        hash = 83 * hash + this.hull;
-        hash = 83 * hash + Objects.hashCode(this.description);
-        hash = 83 * hash + Objects.hashCode(this.coordinate);
-        hash = 83 * hash + Objects.hashCode(this.symbol);
-        hash = 83 * hash + Objects.hashCode(this.shipClass);
+        int hash = 5;
+        hash = 41 * hash + Objects.hashCode(this.name);
+        hash = 41 * hash + Objects.hashCode(this.type);
+        hash = 41 * hash + this.defense;
+        hash = 41 * hash + this.accuracy;
+        hash = 41 * hash + (this.userControl ? 1 : 0);
+        hash = 41 * hash + this.attack;
+        hash = 41 * hash + this.hull;
+        hash = 41 * hash + this.maxHull;
+        hash = 41 * hash + Objects.hashCode(this.description);
+        hash = 41 * hash + Objects.hashCode(this.coordinate);
+        hash = 41 * hash + Objects.hashCode(this.symbol);
+        hash = 41 * hash + Objects.hashCode(this.shipClass);
         return hash;
     }
 
@@ -161,6 +171,9 @@ public class Ship implements Serializable{
         if (this.hull != other.hull) {
             return false;
         }
+        if (this.maxHull != other.maxHull) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -184,11 +197,7 @@ public class Ship implements Serializable{
 
     @Override
     public String toString() {
-        return "Ship{" + "name=" + name + ", type=" + type + ", defense=" + defense + ", accuracy=" + accuracy + ", userControl=" + userControl + ", attack=" + attack + ", hull=" + hull + ", description=" + description + ", coordinate=" + coordinate + ", symbol=" + symbol + ", shipClass=" + shipClass + '}';
+        return "Ship{" + "name=" + name + ", type=" + type + ", defense=" + defense + ", accuracy=" + accuracy + ", userControl=" + userControl + ", attack=" + attack + ", hull=" + hull + ", maxHull=" + maxHull + ", description=" + description + ", coordinate=" + coordinate + ", symbol=" + symbol + ", shipClass=" + shipClass + '}';
     }
-
-
-    
-
     
 }
