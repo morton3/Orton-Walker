@@ -25,46 +25,12 @@ public class GameControl {
         Ship aircraftCarrier = new Ship();
         Ship destroyer = new Ship();
         Ship activeShip = new Ship();
-        ShipClass battleship0 = new ShipClass();
-        ShipClass transport0 = new ShipClass(); 
+
         int POW = 15;
-        
+        /*
         public static void setShip(ShipClass battleship0, ShipClass transport0, Ship battleship,Ship transport, Ship submarine, Ship aircraftCarrier, Ship destroyer) {
-        battleship0.setName("Salvaged Battleship");
-        battleship0.setBonusDefense(0);
-        battleship0.setBonusHull(0);
-        battleship0.setSymbol("b");
+
         
-        transport0.setName("Salvaged Transport");
-        transport0.setBonusDefense(0);
-        transport0.setBonusHull(0);
-        transport0.setSymbol("t");
-    
-        battleship.setName("U.S.S. Tennessee");
-        battleship.setType("Battleship");
-        battleship.setDefense(1);
-        battleship.setAccuracy(80);
-        battleship.setUserControl(true);
-        battleship.setAttack(4);
-        battleship.setHull(6);
-        battleship.setMaxHull(10);
-        battleship.setDescription("");
-        battleship.setCoordinate(null);
-        battleship.setSymbol("");
-        battleship.setShipClass(battleship0);
-        
-        transport.setName("U.S.S. President Jackson");
-        transport.setType("Transport");
-        transport.setDefense(0);
-        transport.setAccuracy(100);
-        transport.setUserControl(true);
-        transport.setAttack(10);
-        transport.setHull(10);
-        transport.setMaxHull(10);
-        transport.setDescription("");
-        transport.setCoordinate(null);
-        transport.setSymbol("");
-        transport.setShipClass(transport0);
         
         submarine.setName("U.S.S. submarine name");
         submarine.setType("Submarine");
@@ -104,7 +70,7 @@ public class GameControl {
         destroyer.setCoordinate(null);
         destroyer.setSymbol("");
         destroyer.setShipClass(battleship0);
-        }
+        }*/
 
     public static Game createPlayer(String name) {
       if (name == null){
@@ -119,11 +85,32 @@ public class GameControl {
 
     public static void createNewGame(Game player) {
         
-        Ship battleship = new Ship();
-        Ship activeShip = new Ship();
         
-        activeShip = createActiveShip(battleship);
-        CommandMenu commandMenu = new CommandMenu(activeShip);
+        ShipClass battleship0 = new ShipClass();
+        
+        battleship0.setName("Salvaged Battleship");
+        battleship0.setBonusDefense(0);
+        battleship0.setBonusHull(0);
+        battleship0.setSymbol("b");
+        
+        Ship battleship = new Ship();
+        
+        battleship.setName("U.S.S. Tennessee");
+        battleship.setType("Battleship");
+        battleship.setDefense(1);
+        battleship.setAccuracy(80);
+        battleship.setUserControl(true);
+        battleship.setAttack(4);
+        battleship.setHull(6);
+        battleship.setMaxHull(10);
+        battleship.setDescription("");
+        battleship.setCoordinate(null);
+        battleship.setSymbol("");
+        battleship.setShipClass(battleship0);
+        
+        PacificBattleship.setActiveShip(battleship);
+        
+        CommandMenu commandMenu = new CommandMenu();
         commandMenu.displayCommandMenuView();
     }
 
@@ -158,8 +145,11 @@ public class GameControl {
       activeShip.setSymbol(theShip.getSymbol());
       activeShip.setShipClass(theShip.getShipClass());
       
+      PacificBattleship.setActiveShip(activeShip);
+      
       return activeShip;
       
     }
     
+      
 }
