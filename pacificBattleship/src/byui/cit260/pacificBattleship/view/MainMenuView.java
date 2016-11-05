@@ -6,6 +6,7 @@
 package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.GameControl;
+import byui.cit260.pacificBattleship.model.Ship;
 import java.util.Scanner;
 import pacificbattleship.PacificBattleship;
 
@@ -89,9 +90,9 @@ public class MainMenuView {
     }
 
     private void startNewGame() {
+        
        GameControl.createNewGame(PacificBattleship.getPlayer());
        
-
     }
 
     private void startExistingGame() {

@@ -6,6 +6,7 @@
 package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.GameControl;
+import byui.cit260.pacificBattleship.model.Ship;
 import pacificbattleship.PacificBattleship;
 import java.util.Scanner;
 
@@ -15,6 +16,7 @@ import java.util.Scanner;
  */
 public class SwitchShipsView {
         private String menu;
+        private String ship;
     public SwitchShipsView() {
         this.menu = "\n"
                 + "\n-------------------------------------------------"
@@ -66,36 +68,39 @@ public class SwitchShipsView {
     }
     
 
-    public static boolean doAction(String menuOption) {
+    private boolean doAction(String menuOption) {
       menuOption = menuOption.toUpperCase();
       
-      String ship = "";
+      boolean value = true;
+      String activeShip = "";
       
       switch (menuOption){
           case "B":
-              ship = "Battleship";
+              activeShip = "battleship";
               break;
           case "T":
-              ship = "Transport";
+              activeShip = "transport";
               break;
           case "S":
-              ship = "Submarine";
+              activeShip = "submarine";
               break;
           case "A":
-              ship = "Aircraft Carrier";
+              activeShip = "aircraftCarrier";
               break;
           case "D":
-              ship = "Destroyer";
+              activeShip = "destroyer";
               break;
           default:
               System.out.println("\n*** Invalid selection *** Try again");
+              value = false;
               break;
       }
       
-      GameControl.switchShips(ship);
       
-      return false;
+      return value;
     }
+    
+
 
 
 }

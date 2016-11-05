@@ -7,7 +7,9 @@ package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.model.Game;
+import byui.cit260.pacificBattleship.model.Ship;
 import java.util.Scanner;
+import pacificbattleship.PacificBattleship;
 
 /**
  *
@@ -100,7 +102,7 @@ public class StartProgramView {
                            );
     
        MainMenuView mainMenuView = new MainMenuView();
-       
+
        mainMenuView.displayMainMenuView();
     }
 }
