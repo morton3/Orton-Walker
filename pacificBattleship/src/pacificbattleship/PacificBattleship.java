@@ -32,6 +32,7 @@ import java.util.Set;
 public class PacificBattleship {
     private static Game currentGame = null;
     private static Game player = null;
+    private static Ship activeShip = null;
     
 
 
@@ -49,6 +50,14 @@ public class PacificBattleship {
 
     public static void setPlayer(Game player) {
         PacificBattleship.player = player;
+    }
+
+    public static Ship getActiveShip() {
+        return activeShip;
+    }
+
+    public static void setActiveShip(Ship activeShip) {
+        PacificBattleship.activeShip = activeShip;
     }
 
     

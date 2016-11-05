@@ -30,43 +30,9 @@ public class CommandMenu {
         int POW = 15;
 
 
-        
+        /*
         public void setShip(ShipClass battleship0, ShipClass transport0, Ship battleship,Ship transport, Ship submarine, Ship aircraftCarrier, Ship destroyer) {
-        battleship0.setName("Salvaged Battleship");
-        battleship0.setBonusDefense(0);
-        battleship0.setBonusHull(0);
-        battleship0.setSymbol("b");
-        
-        transport0.setName("Salvaged Transport");
-        transport0.setBonusDefense(0);
-        transport0.setBonusHull(0);
-        transport0.setSymbol("t");
-    
-        battleship.setName("U.S.S. Tennessee");
-        battleship.setType("Battleship");
-        battleship.setDefense(1);
-        battleship.setAccuracy(80);
-        battleship.setUserControl(true);
-        battleship.setAttack(4);
-        battleship.setHull(6);
-        battleship.setMaxHull(10);
-        battleship.setDescription("");
-        battleship.setCoordinate(null);
-        battleship.setSymbol("");
-        battleship.setShipClass(battleship0);
-        
-        transport.setName("U.S.S. President Jackson");
-        transport.setType("Transport");
-        transport.setDefense(0);
-        transport.setAccuracy(100);
-        transport.setUserControl(true);
-        transport.setAttack(10);
-        transport.setHull(10);
-        transport.setMaxHull(10);
-        transport.setDescription("");
-        transport.setCoordinate(null);
-        transport.setSymbol("");
-        transport.setShipClass(transport0);
+
         
         submarine.setName("U.S.S. submarine name");
         submarine.setType("Submarine");
@@ -106,7 +72,7 @@ public class CommandMenu {
         destroyer.setCoordinate(null);
         destroyer.setSymbol("");
         destroyer.setShipClass(battleship0);
-        }
+        }*/
     
    public void displayCommandMenuView() {
        
@@ -177,21 +143,21 @@ public class CommandMenu {
       return false;
            }
     
-    public CommandMenu(Ship activeShip){
+    public CommandMenu(){
         
 
         
         ShipMenu shipMenu = new ShipMenu();
         shipMenu.setUserRank("* * * * *");
         shipMenu.setUserName(PacificBattleship.getPlayer().getUserName());
-        shipMenu.setShipLevel(activeShip.getShipClass().getName());
-        String shipType = activeShip.getType();
-        shipMenu.setShipName(activeShip.getName());
-        shipMenu.setShipAttack(activeShip.getAttack());
-        shipMenu.setShipAccuracy(activeShip.getAccuracy());
-        shipMenu.setShipDefense(activeShip.getDefense());
-        shipMenu.setCurrentHull(activeShip.getHull());
-        shipMenu.setMaxHull(activeShip.getMaxHull());
+        shipMenu.setShipLevel(PacificBattleship.getActiveShip().getShipClass().getName());
+        String shipType = PacificBattleship.getActiveShip().getType();
+        shipMenu.setShipName(PacificBattleship.getActiveShip().getName());
+        shipMenu.setShipAttack(PacificBattleship.getActiveShip().getAttack());
+        shipMenu.setShipAccuracy(PacificBattleship.getActiveShip().getAccuracy());
+        shipMenu.setShipDefense(PacificBattleship.getActiveShip().getDefense());
+        shipMenu.setCurrentHull(PacificBattleship.getActiveShip().getHull());
+        shipMenu.setMaxHull(PacificBattleship.getActiveShip().getMaxHull());
         shipMenu.setCurrentPart(1);
         shipMenu.setPOWs(12);
         

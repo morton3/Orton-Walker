@@ -7,6 +7,7 @@ package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.model.Ship;
+import byui.cit260.pacificBattleship.model.ShipClass;
 import pacificbattleship.PacificBattleship;
 import java.util.Scanner;
 
@@ -72,32 +73,95 @@ public class SwitchShipsView {
       menuOption = menuOption.toUpperCase();
       
       boolean value = true;
-      String activeShip = "";
       
       switch (menuOption){
           case "B":
-              activeShip = "battleship";
+              this.activeToBattleship();
               break;
           case "T":
-              activeShip = "transport";
+              this.activeToTransport();
               break;
           case "S":
-              activeShip = "submarine";
+              this.activeToSubmarine();
               break;
           case "A":
-              activeShip = "aircraftCarrier";
+              this.activeToAircraftCarrier();
               break;
           case "D":
-              activeShip = "destroyer";
+              this.activeToDestroyer();
               break;
-          default:
+          default: {
               System.out.println("\n*** Invalid selection *** Try again");
               value = false;
-              break;
+              break;}
       }
       
       
       return value;
+    }
+
+    private void activeToBattleship() {
+        
+        ShipClass battleship0 = new ShipClass();
+        
+        battleship0.setName("Salvaged Battleship");
+        battleship0.setBonusDefense(0);
+        battleship0.setBonusHull(0);
+        battleship0.setSymbol("b");
+        
+        Ship battleship = new Ship();
+        
+        battleship.setName("U.S.S. Tennessee");
+        battleship.setType("Battleship");
+        battleship.setDefense(1);
+        battleship.setAccuracy(80);
+        battleship.setUserControl(true);
+        battleship.setAttack(4);
+        battleship.setHull(6);
+        battleship.setMaxHull(10);
+        battleship.setDescription("");
+        battleship.setCoordinate(null);
+        battleship.setSymbol("");
+        
+        PacificBattleship.setActiveShip(GameControl.createActiveShip(battleship));
+    }
+
+    private void activeToTransport() {
+        ShipClass transport0 = new ShipClass(); 
+        
+        transport0.setName("Salvaged Transport");
+        transport0.setBonusDefense(0);
+        transport0.setBonusHull(0);
+        transport0.setSymbol("t");
+        
+        Ship transport = new Ship();
+        
+        transport.setName("U.S.S. President Jackson");
+        transport.setType("Transport");
+        transport.setDefense(0);
+        transport.setAccuracy(100);
+        transport.setUserControl(true);
+        transport.setAttack(10);
+        transport.setHull(10);
+        transport.setMaxHull(10);
+        transport.setDescription("");
+        transport.setCoordinate(null);
+        transport.setSymbol("");
+        transport.setShipClass(transport0);
+        
+        PacificBattleship.setActiveShip(GameControl.createActiveShip(transport));
+    }
+
+    private void activeToSubmarine() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void activeToAircraftCarrier() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void activeToDestroyer() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 
