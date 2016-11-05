@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.pacificBattleship.view;
+import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
@@ -18,63 +19,21 @@ import pacificbattleship.PacificBattleship;
 public class CommandMenu {
     
     String map;
+    public static Ship activeShip = null;
+
+    public static Ship getActiveShip() {
+        return activeShip;
+    }
+
+    public static void setActiveShip(Ship activeShip) {
+        CommandMenu.activeShip = activeShip;
+    }
     
-        Ship battleship = new Ship();
-        Ship transport = new Ship();
-        Ship submarine = new Ship();
-        Ship aircraftCarrier = new Ship();
-        Ship destroyer = new Ship();
-        Ship activeShip = new Ship();
-        ShipClass battleship0 = new ShipClass();
-        ShipClass transport0 = new ShipClass(); 
-        int POW = 15;
-
-
-        /*
-        public void setShip(ShipClass battleship0, ShipClass transport0, Ship battleship,Ship transport, Ship submarine, Ship aircraftCarrier, Ship destroyer) {
-
-        
-        submarine.setName("U.S.S. submarine name");
-        submarine.setType("Submarine");
-        submarine.setDefense(0);
-        submarine.setAccuracy(70);
-        submarine.setUserControl(true);
-        submarine.setAttack(10);
-        submarine.setHull(10);
-        submarine.setMaxHull(10);
-        submarine.setDescription("");
-        submarine.setCoordinate(null);
-        submarine.setSymbol("");
-        submarine.setShipClass(battleship0);
-        
-        aircraftCarrier.setName("U.S.S. arircraft carrier");
-        aircraftCarrier.setType("Aircraft Carrier");
-        aircraftCarrier.setDefense(0);
-        aircraftCarrier.setAccuracy(75);
-        aircraftCarrier.setUserControl(true);
-        aircraftCarrier.setAttack(10);
-        aircraftCarrier.setHull(10);
-        aircraftCarrier.setMaxHull(10);
-        aircraftCarrier.setDescription("");
-        aircraftCarrier.setCoordinate(null);
-        aircraftCarrier.setSymbol("");
-        aircraftCarrier.setShipClass(battleship0);
-        
-        destroyer.setName("U.S.S. destroyer");
-        destroyer.setType("Destroyer");
-        destroyer.setDefense(0);
-        destroyer.setAccuracy(60);
-        destroyer.setUserControl(true);
-        destroyer.setAttack(10);
-        destroyer.setHull(10);
-        destroyer.setMaxHull(10);
-        destroyer.setDescription("");
-        destroyer.setCoordinate(null);
-        destroyer.setSymbol("");
-        destroyer.setShipClass(battleship0);
-        }*/
+    
     
    public void displayCommandMenuView() {
+       
+       
        
        boolean done = false;
        do{
@@ -87,7 +46,9 @@ public class CommandMenu {
     }
     
        private String getMenuOption() {
-          
+        
+           
+           
         Scanner keyboard = new Scanner(System.in);
         String value ="";
         boolean valid = false;
@@ -115,9 +76,9 @@ public class CommandMenu {
           case "Q":
               this.upgradeMenu();
               break;
-          case "E":
-              this.switchShips();
-              break;
+          case "E": {
+              CommandMenu.setActiveShip(this.switchShips());
+              break;}
           case "W":
               this.moveUp();
               break;
@@ -145,19 +106,18 @@ public class CommandMenu {
     
     public CommandMenu(){
         
-
         
         ShipMenu shipMenu = new ShipMenu();
         shipMenu.setUserRank("* * * * *");
         shipMenu.setUserName(PacificBattleship.getPlayer().getUserName());
-        shipMenu.setShipLevel(PacificBattleship.getActiveShip().getShipClass().getName());
-        String shipType = PacificBattleship.getActiveShip().getType();
-        shipMenu.setShipName(PacificBattleship.getActiveShip().getName());
-        shipMenu.setShipAttack(PacificBattleship.getActiveShip().getAttack());
-        shipMenu.setShipAccuracy(PacificBattleship.getActiveShip().getAccuracy());
-        shipMenu.setShipDefense(PacificBattleship.getActiveShip().getDefense());
-        shipMenu.setCurrentHull(PacificBattleship.getActiveShip().getHull());
-        shipMenu.setMaxHull(PacificBattleship.getActiveShip().getMaxHull());
+        shipMenu.setShipLevel(CommandMenu.getActiveShip().getShipClass().getName());
+        String shipType = CommandMenu.getActiveShip().getType();
+        shipMenu.setShipName(CommandMenu.getActiveShip().getName());
+        shipMenu.setShipAttack(CommandMenu.getActiveShip().getAttack());
+        shipMenu.setShipAccuracy(CommandMenu.getActiveShip().getAccuracy());
+        shipMenu.setShipDefense(CommandMenu.getActiveShip().getDefense());
+        shipMenu.setCurrentHull(CommandMenu.getActiveShip().getHull());
+        shipMenu.setMaxHull(CommandMenu.getActiveShip().getMaxHull());
         shipMenu.setCurrentPart(1);
         shipMenu.setPOWs(12);
         
@@ -1550,9 +1510,13 @@ map =
         upgradeMenu.displayUpgradeMenuView();
     }
 
-    private void switchShips() {
+    private Ship switchShips() {
+        Ship ship = new Ship();
+        
         SwitchShipsView switchShipsView = new SwitchShipsView();
         switchShipsView.displaySwitchShipsView();
+        
+        return ship;
     }
 
     private void moveUp() {

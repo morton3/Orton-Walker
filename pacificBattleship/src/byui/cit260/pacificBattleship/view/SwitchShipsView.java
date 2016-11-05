@@ -18,6 +18,9 @@ import java.util.Scanner;
 public class SwitchShipsView {
         private String menu;
         private String ship;
+        
+
+        
     public SwitchShipsView() {
         this.menu = "\n"
                 + "\n-------------------------------------------------"
@@ -33,15 +36,15 @@ public class SwitchShipsView {
               }
 
    public void displaySwitchShipsView() {
+
        
        boolean done = false;
        do{
            String menuOption = this.getMenuOption();
            if (menuOption.toUpperCase().equals("Q"))
-               return;
+               break;
            done = this.doAction(menuOption);
    } while (!done);
-       
 
        
     }
@@ -82,7 +85,7 @@ public class SwitchShipsView {
               this.activeToTransport();
               break;
           case "S":
-              this.activeToSubmarine();
+              SwitchShipsView.activeToSubmarine();
               break;
           case "A":
               this.activeToAircraftCarrier();
@@ -100,7 +103,7 @@ public class SwitchShipsView {
       return value;
     }
 
-    private void activeToBattleship() {
+    public Ship activeToBattleship() {
         
         ShipClass battleship0 = new ShipClass();
         
@@ -123,10 +126,17 @@ public class SwitchShipsView {
         battleship.setCoordinate(null);
         battleship.setSymbol("");
         
-        PacificBattleship.setActiveShip(GameControl.createActiveShip(battleship));
+        CommandMenu.setActiveShip(GameControl.createActiveShip(battleship));
+        
+        System.out.println("Switched to the:\n"
+                + CommandMenu.getActiveShip().getName()
+                + "\n"
+                + CommandMenu.getActiveShip().getDescription());
+        
+        return battleship;
     }
 
-    private void activeToTransport() {
+    public Ship activeToTransport() {
         ShipClass transport0 = new ShipClass(); 
         
         transport0.setName("Salvaged Transport");
@@ -149,19 +159,114 @@ public class SwitchShipsView {
         transport.setSymbol("");
         transport.setShipClass(transport0);
         
-        PacificBattleship.setActiveShip(GameControl.createActiveShip(transport));
+        CommandMenu.setActiveShip(GameControl.createActiveShip(transport));
+        
+        System.out.println("Switched to the:\n"
+                + CommandMenu.getActiveShip().getName()
+                + "\n"
+                + CommandMenu.getActiveShip().getDescription());
+        return transport;
     }
 
-    private void activeToSubmarine() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void activeToSubmarine() {
+
+        
+        ShipClass submarine0 = new ShipClass(); 
+        
+        submarine0.setName("Salvaged Submarine");
+        submarine0.setBonusDefense(0);
+        submarine0.setBonusHull(0);
+        submarine0.setSymbol("b");        
+        
+        Ship submarine = new Ship();
+        
+        submarine.setName("U.S.S. submarine name");
+        submarine.setType("Submarine");
+        submarine.setDefense(0);
+        submarine.setAccuracy(70);
+        submarine.setUserControl(true);
+        submarine.setAttack(10);
+        submarine.setHull(10);
+        submarine.setMaxHull(10);
+        submarine.setDescription("");
+        submarine.setCoordinate(null);
+        submarine.setSymbol("");
+        submarine.setShipClass(submarine0);
+        
+        CommandMenu.setActiveShip(GameControl.createActiveShip(submarine));
+        
+        System.out.println("Switched to the:\n"
+                + CommandMenu.getActiveShip().getName()
+                + "\n"
+                + CommandMenu.getActiveShip().getDescription());
+
     }
 
-    private void activeToAircraftCarrier() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Ship activeToAircraftCarrier() {
+        
+        ShipClass aircraftCarrier0 = new ShipClass(); 
+        
+        aircraftCarrier0.setName("Salvaged Aircraft Carrier");
+        aircraftCarrier0.setBonusDefense(0);
+        aircraftCarrier0.setBonusHull(0);
+        aircraftCarrier0.setSymbol("a");        
+        
+        Ship aircraftCarrier = new Ship();
+        
+        aircraftCarrier.setName("U.S.S. arircraft carrier");
+        aircraftCarrier.setType("Aircraft Carrier");
+        aircraftCarrier.setDefense(0);
+        aircraftCarrier.setAccuracy(75);
+        aircraftCarrier.setUserControl(true);
+        aircraftCarrier.setAttack(10);
+        aircraftCarrier.setHull(10);
+        aircraftCarrier.setMaxHull(10);
+        aircraftCarrier.setDescription("");
+        aircraftCarrier.setCoordinate(null);
+        aircraftCarrier.setSymbol("");
+        aircraftCarrier.setShipClass(aircraftCarrier0);
+        
+        CommandMenu.setActiveShip(GameControl.createActiveShip(aircraftCarrier));
+        
+        System.out.println("Switched to the:\n"
+                + CommandMenu.getActiveShip().getName()
+                + "\n"
+                + CommandMenu.getActiveShip().getDescription());
+        return aircraftCarrier;
     }
 
-    private void activeToDestroyer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Ship activeToDestroyer() {
+        
+        ShipClass destroyer0 = new ShipClass(); 
+        
+        destroyer0.setName("Salvaged Destroyer");
+        destroyer0.setBonusDefense(0);
+        destroyer0.setBonusHull(0);
+        destroyer0.setSymbol("a");        
+        
+        Ship destroyer = new Ship();
+        
+        destroyer.setName("U.S.S. destroyer");
+        destroyer.setType("Destroyer");
+        destroyer.setDefense(0);
+        destroyer.setAccuracy(60);
+        destroyer.setUserControl(true);
+        destroyer.setAttack(10);
+        destroyer.setHull(10);
+        destroyer.setMaxHull(10);
+        destroyer.setDescription("");
+        destroyer.setCoordinate(null);
+        destroyer.setSymbol("");
+        destroyer.setShipClass(destroyer0);
+        
+        CommandMenu.setActiveShip(GameControl.createActiveShip(destroyer));
+        
+        System.out.println("Switched to the:\n"
+                + CommandMenu.getActiveShip().getName()
+                + "\n"
+                + CommandMenu.getActiveShip().getDescription());
+        return destroyer;
+        
     }
     
 

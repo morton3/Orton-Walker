@@ -19,58 +19,7 @@ import pacificbattleship.PacificBattleship;
  */
 public class GameControl {
     
-        Ship battleship = new Ship();
-        Ship transport = new Ship();
-        Ship submarine = new Ship();
-        Ship aircraftCarrier = new Ship();
-        Ship destroyer = new Ship();
-        Ship activeShip = new Ship();
 
-        int POW = 15;
-        /*
-        public static void setShip(ShipClass battleship0, ShipClass transport0, Ship battleship,Ship transport, Ship submarine, Ship aircraftCarrier, Ship destroyer) {
-
-        
-        
-        submarine.setName("U.S.S. submarine name");
-        submarine.setType("Submarine");
-        submarine.setDefense(0);
-        submarine.setAccuracy(70);
-        submarine.setUserControl(true);
-        submarine.setAttack(10);
-        submarine.setHull(10);
-        submarine.setMaxHull(10);
-        submarine.setDescription("");
-        submarine.setCoordinate(null);
-        submarine.setSymbol("");
-        submarine.setShipClass(battleship0);
-        
-        aircraftCarrier.setName("U.S.S. arircraft carrier");
-        aircraftCarrier.setType("Aircraft Carrier");
-        aircraftCarrier.setDefense(0);
-        aircraftCarrier.setAccuracy(75);
-        aircraftCarrier.setUserControl(true);
-        aircraftCarrier.setAttack(10);
-        aircraftCarrier.setHull(10);
-        aircraftCarrier.setMaxHull(10);
-        aircraftCarrier.setDescription("");
-        aircraftCarrier.setCoordinate(null);
-        aircraftCarrier.setSymbol("");
-        aircraftCarrier.setShipClass(battleship0);
-        
-        destroyer.setName("U.S.S. destroyer");
-        destroyer.setType("Destroyer");
-        destroyer.setDefense(0);
-        destroyer.setAccuracy(60);
-        destroyer.setUserControl(true);
-        destroyer.setAttack(10);
-        destroyer.setHull(10);
-        destroyer.setMaxHull(10);
-        destroyer.setDescription("");
-        destroyer.setCoordinate(null);
-        destroyer.setSymbol("");
-        destroyer.setShipClass(battleship0);
-        }*/
 
     public static Game createPlayer(String name) {
       if (name == null){
@@ -108,7 +57,7 @@ public class GameControl {
         battleship.setSymbol("");
         battleship.setShipClass(battleship0);
         
-        PacificBattleship.setActiveShip(battleship);
+        CommandMenu.setActiveShip(battleship);
         
         CommandMenu commandMenu = new CommandMenu();
         commandMenu.displayCommandMenuView();
@@ -145,7 +94,7 @@ public class GameControl {
       activeShip.setSymbol(theShip.getSymbol());
       activeShip.setShipClass(theShip.getShipClass());
       
-      PacificBattleship.setActiveShip(activeShip);
+      CommandMenu.setActiveShip(activeShip);
       
       return activeShip;
       
