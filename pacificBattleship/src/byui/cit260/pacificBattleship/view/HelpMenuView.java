@@ -11,10 +11,10 @@ import java.util.Scanner;
  *
  * @author Nathan
  */
-public class HelpMenuView {
-    private String menu;
+public class HelpMenuView extends View{
+    
     public HelpMenuView() {
-        this.menu = "\n"
+        super("\n"
                    + "\n-------------------------------------------------"
                    +"\n| Help Menu                                      |"
                    +"\n--------------------------------------------------"
@@ -23,48 +23,15 @@ public class HelpMenuView {
                    +"\nP - What do the POW'S do?"
                    +"\nN - What does the Nuke do?"
                    +"\nQ - Quit"
-                   +"\n--------------------------------------------------";
+                   +"\n--------------------------------------------------");
               }
-
-   public void displayHelpMenuView() {
-       
-       boolean done = false;
-       do{
-           String menuOption = this.getMenuOption();
-           if (menuOption.toUpperCase().equals("Q"))
-               return;
-           done = this.doAction(menuOption);
-   } while (!done);
-            
-    }
-
-    private String getMenuOption() {
-          
-        Scanner keyboard = new Scanner(System.in);
-        String value ="";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-                    
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
     
 
-    public boolean doAction(String menuOption) {
-      menuOption = menuOption.toUpperCase();
+    @Override
+    public boolean doAction(String value) {
+      value = value.toUpperCase();
       
-      switch (menuOption){
+      switch (value){
           case "G":
               this.gameGoal();
               break;
