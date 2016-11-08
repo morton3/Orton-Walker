@@ -19,7 +19,8 @@ import pacificbattleship.PacificBattleship;
 public class CommandMenu {
     
     String map;
-    public static Ship activeShip = null;
+    
+    private static Ship activeShip = null;
 
     public static Ship getActiveShip() {
         return activeShip;
@@ -40,6 +41,10 @@ public class CommandMenu {
            String menuOption = this.getMenuOption();
            if (menuOption.toUpperCase().equals("2"))
                return;
+           if (menuOption.toUpperCase().equals("E")) {
+               done = this.doAction(menuOption);
+               return;
+           }
            done = this.doAction(menuOption);
    } while (!done);
             
@@ -77,7 +82,7 @@ public class CommandMenu {
               this.upgradeMenu();
               break;
           case "E": {
-              CommandMenu.setActiveShip(this.switchShips());
+              this.switchShips();
               break;}
           case "W":
               this.moveUp();
@@ -103,6 +108,8 @@ public class CommandMenu {
       }
       return false;
            }
+           
+           
     
     public CommandMenu(){
         
@@ -1510,13 +1517,11 @@ map =
         upgradeMenu.display();
     }
 
-    private Ship switchShips() {
-        Ship ship = new Ship();
+    private void switchShips() {
         
         SwitchShipsView switchShipsView = new SwitchShipsView();
         switchShipsView.display();
         
-        return ship;
     }
 
     private void moveUp() {

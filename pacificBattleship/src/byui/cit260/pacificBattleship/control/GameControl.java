@@ -42,22 +42,22 @@ public class GameControl {
         battleship0.setBonusHull(0);
         battleship0.setSymbol("b");
         
-        Ship battleship = new Ship();
+        Ship start = new Ship();
         
-        battleship.setName("U.S.S. Tennessee");
-        battleship.setType("Battleship");
-        battleship.setDefense(1);
-        battleship.setAccuracy(80);
-        battleship.setUserControl(true);
-        battleship.setAttack(4);
-        battleship.setHull(6);
-        battleship.setMaxHull(10);
-        battleship.setDescription("");
-        battleship.setCoordinate(null);
-        battleship.setSymbol("");
-        battleship.setShipClass(battleship0);
+        start.setName("U.S.S. Tennessee");
+        start.setType("Battleship");
+        start.setDefense(1);
+        start.setAccuracy(80);
+        start.setUserControl(true);
+        start.setAttack(4);
+        start.setHull(6);
+        start.setMaxHull(10);
+        start.setDescription("");
+        start.setCoordinate(null);
+        start.setSymbol("");
+        start.setShipClass(battleship0);
         
-        CommandMenu.setActiveShip(battleship);
+        CommandMenu.setActiveShip(start);
         
         CommandMenu commandMenu = new CommandMenu();
         commandMenu.displayCommandMenuView();
@@ -95,6 +95,8 @@ public class GameControl {
       activeShip.setShipClass(theShip.getShipClass());
       
       CommandMenu.setActiveShip(activeShip);
+      
+      
       
       return activeShip;
       

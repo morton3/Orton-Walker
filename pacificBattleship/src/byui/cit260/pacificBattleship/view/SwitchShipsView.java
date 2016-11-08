@@ -23,16 +23,16 @@ public class SwitchShipsView extends View{
         
     public SwitchShipsView(){
         super(    "\n"
-                + "\n-------------------------------------------------"
-                + "\n| Switch Ship                                    |"
-                + "\n--------------------------------------------------"
-                + "\nB - Battleship"
-                + "\nT - Transport"
-                + "\nS - Submarine"
-                + "\nA - Aircraft Carrier"
-                + "\nD - Destroyer"
-                + "\nQ - Quit"
-                + "\n--------------------------------------------------");
+                + "\n┌---------------------------------------------┐"
+                + "\n│ Switch Ship                                 │"
+                + "\n├---------------------------------------------┤"
+                + "\n│ B - Battleship                              │"
+                + "\n│ T - Transport                               │"
+                + "\n│ S - Submarine                               │"
+                + "\n│ A - Aircraft Carrier                        │"
+                + "\n│ D - Destroyer                               │"
+                + "\n│ Q - Quit                                    │"
+                + "\n└---------------------------------------------┘");
               }
 
    
@@ -53,7 +53,7 @@ public class SwitchShipsView extends View{
               this.activeToTransport();
               break;
           case "S":
-              SwitchShipsView.activeToSubmarine();
+              this.activeToSubmarine();
               break;
           case "A":
               this.activeToAircraftCarrier();
@@ -71,7 +71,7 @@ public class SwitchShipsView extends View{
       return done;
     }
 
-    public Ship activeToBattleship() {
+    public void activeToBattleship() {
         
         ShipClass battleship0 = new ShipClass();
         
@@ -101,10 +101,11 @@ public class SwitchShipsView extends View{
                 + "\n"
                 + CommandMenu.getActiveShip().getDescription());
         
-        return battleship;
+        CommandMenu commandMenu = new CommandMenu();
+        commandMenu.displayCommandMenuView();
     }
 
-    public Ship activeToTransport() {
+    public void activeToTransport() {
         ShipClass transport0 = new ShipClass(); 
         
         transport0.setName("Salvaged Transport");
@@ -133,10 +134,12 @@ public class SwitchShipsView extends View{
                 + CommandMenu.getActiveShip().getName()
                 + "\n"
                 + CommandMenu.getActiveShip().getDescription());
-        return transport;
+        
+        CommandMenu commandMenu = new CommandMenu();
+        commandMenu.displayCommandMenuView();
     }
 
-    public static void activeToSubmarine() {
+    public void activeToSubmarine() {
 
         
         ShipClass submarine0 = new ShipClass(); 
@@ -167,10 +170,12 @@ public class SwitchShipsView extends View{
                 + CommandMenu.getActiveShip().getName()
                 + "\n"
                 + CommandMenu.getActiveShip().getDescription());
-
+        
+        CommandMenu commandMenu = new CommandMenu();
+        commandMenu.displayCommandMenuView();
     }
 
-    public Ship activeToAircraftCarrier() {
+    public void activeToAircraftCarrier() {
         
         ShipClass aircraftCarrier0 = new ShipClass(); 
         
@@ -200,10 +205,12 @@ public class SwitchShipsView extends View{
                 + CommandMenu.getActiveShip().getName()
                 + "\n"
                 + CommandMenu.getActiveShip().getDescription());
-        return aircraftCarrier;
+        
+        CommandMenu commandMenu = new CommandMenu();
+        commandMenu.displayCommandMenuView();
     }
 
-    public Ship activeToDestroyer() {
+    public void activeToDestroyer() {
         
         ShipClass destroyer0 = new ShipClass(); 
         
@@ -233,8 +240,9 @@ public class SwitchShipsView extends View{
                 + CommandMenu.getActiveShip().getName()
                 + "\n"
                 + CommandMenu.getActiveShip().getDescription());
-        return destroyer;
         
+        CommandMenu commandMenu = new CommandMenu();
+        commandMenu.displayCommandMenuView();
     }
     
 

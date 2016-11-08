@@ -32,7 +32,6 @@ import java.util.Set;
 public class PacificBattleship {
     private static Game currentGame = null;
     private static Game player = null;
-    private static Ship activeShip = null;
     
 
 
@@ -52,27 +51,13 @@ public class PacificBattleship {
         PacificBattleship.player = player;
     }
 
-    public static Ship getActiveShip() {
-        return activeShip;
-    }
-
-    public static void setActiveShip(Ship activeShip) {
-        PacificBattleship.activeShip = activeShip;
-    }
-
     
     
 
     public static void main(String[] args) {
         
-        
-        
-
-
-        
-        
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+        startProgramView.display();
         
         
         

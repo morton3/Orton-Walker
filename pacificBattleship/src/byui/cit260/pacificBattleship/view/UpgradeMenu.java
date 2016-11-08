@@ -39,6 +39,7 @@ public class UpgradeMenu extends View{
 
     
 
+    @Override
     public boolean doAction(String value) {
       value = value.toUpperCase();
         String upgrade = "";
