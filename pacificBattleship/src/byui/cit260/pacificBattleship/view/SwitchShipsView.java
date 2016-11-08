@@ -15,14 +15,14 @@ import java.util.Scanner;
  *
  * @author ort09
  */
-public class SwitchShipsView {
+public class SwitchShipsView extends View{
         private String menu;
         private String ship;
         
 
         
-    public SwitchShipsView() {
-        this.menu = "\n"
+    public SwitchShipsView(){
+        super(    "\n"
                 + "\n-------------------------------------------------"
                 + "\n| Switch Ship                                    |"
                 + "\n--------------------------------------------------"
@@ -32,52 +32,20 @@ public class SwitchShipsView {
                 + "\nA - Aircraft Carrier"
                 + "\nD - Destroyer"
                 + "\nQ - Quit"
-                + "\n--------------------------------------------------";
+                + "\n--------------------------------------------------");
               }
 
-   public void displaySwitchShipsView() {
+   
 
-       
-       boolean done = false;
-       do{
-           String menuOption = this.getMenuOption();
-           if (menuOption.toUpperCase().equals("Q"))
-               break;
-           done = this.doAction(menuOption);
-   } while (!done);
-
-       
-    }
-
-    private String getMenuOption() {
-          
-        Scanner keyboard = new Scanner(System.in);
-        String value ="";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-                    
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
+  
     
-
-    private boolean doAction(String menuOption) {
-      menuOption = menuOption.toUpperCase();
+    @Override
+    public boolean doAction(String value) {
+      value = value.toUpperCase();
       
-      boolean value = true;
+      boolean done = true;
       
-      switch (menuOption){
+      switch (value){
           case "B":
               this.activeToBattleship();
               break;
@@ -95,12 +63,12 @@ public class SwitchShipsView {
               break;
           default: {
               System.out.println("\n*** Invalid selection *** Try again");
-              value = false;
+              done = false;
               break;}
       }
       
       
-      return value;
+      return done;
     }
 
     public Ship activeToBattleship() {

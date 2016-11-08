@@ -11,10 +11,10 @@ import java.util.Scanner;
  *
  * @author Nathan
  */
-public class AttackMenuView {
-        private String menu;
+public class AttackMenuView extends View{
+       
     public AttackMenuView() {
-        this.menu = "\n"
+        super(      "\n"
                    + "\n-------------------------------------------------"
                    +"\n| Attack Menu                                      |"
                    +"\n--------------------------------------------------"
@@ -23,48 +23,18 @@ public class AttackMenuView {
                    +"\nP - What do the POW'S do?"
                    +"\nN - What does the Nuke do?"
                    +"\nQ - Quit"
-                   +"\n--------------------------------------------------";
+                   +"\n--------------------------------------------------");
               }
 
-   public void displayAttackMenuView() {
-       
-       boolean done = false;
-       do{
-           String menuOption = this.getMenuOption();
-           if (menuOption.toUpperCase().equals("Q"))
-               return;
-           done = this.doAction(menuOption);
-   } while (!done);
-            //not done means true//
-    }
-
-    private String getMenuOption() {
-          
-        Scanner keyboard = new Scanner(System.in);
-        String value ="";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-                    
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
+ 
     
 
-    public boolean doAction(String menuOption) {
-      menuOption = menuOption.toUpperCase();
+    
+    @Override
+    public boolean doAction(String value) {
+      value = value.toUpperCase();
       
-      switch (menuOption){
+      switch (value){
           case "G":
               this.gameGoal();
               break;
