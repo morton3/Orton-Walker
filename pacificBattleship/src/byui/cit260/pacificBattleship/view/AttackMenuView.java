@@ -35,7 +35,7 @@ public class AttackMenuView {
                return;
            done = this.doAction(menuOption);
    } while (!done);
-            
+            //not done means true//
     }
 
     private String getMenuOption() {
