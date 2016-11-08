@@ -1507,14 +1507,14 @@ map =
 
     private void upgradeMenu() {
         UpgradeMenu upgradeMenu = new UpgradeMenu();
-        upgradeMenu.displayUpgradeMenuView();
+        upgradeMenu.display();
     }
 
     private Ship switchShips() {
         Ship ship = new Ship();
         
         SwitchShipsView switchShipsView = new SwitchShipsView();
-        switchShipsView.displaySwitchShipsView();
+        switchShipsView.display();
         
         return ship;
     }
@@ -1541,7 +1541,7 @@ map =
 
     private void launchNuke() {
        LaunchNuke launchNuke = new LaunchNuke();
-       launchNuke.displayLaunchNukeView();
+       launchNuke.display();
     }
 }
 

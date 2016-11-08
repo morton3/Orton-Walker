@@ -12,61 +12,30 @@ import java.util.Scanner;
  *
  * @author Nathan
  */
-public class LaunchNuke {
-            private String menu;
+public class LaunchNuke extends View{
+            
                 private int parts = 15;
     public LaunchNuke() {
-        this.menu = "\n"
+        super( "\n"
                    + "\n-------------------------------------------------"
                    +"\n| Are you sure?                                   |"
                    +"\n--------------------------------------------------"
                    +"\nY - Yes "
                    +"\nQ - Quit"
-                   +"\n--------------------------------------------------";
+                   +"\n--------------------------------------------------");
               }
 
-   public void displayLaunchNukeView() {
-       
-       boolean done = false;
-       do{
-           String menuOption = this.getMenuOption();
-           if (menuOption.toUpperCase().equals("Q"))
-               return;
-           done = this.doAction(menuOption);
-   } while (!done);
-          
-      
-    }
+ 
 
-    private String getMenuOption() {
-          
-        Scanner keyboard = new Scanner(System.in);
-        String value ="";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-                    
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
+
     
-
-    public boolean doAction(String menuOption) {
-      menuOption = menuOption.toUpperCase();
+    @Override
+    public boolean doAction(String value) {
+      value = value.toUpperCase();
         String launch = "";
         
         
-      switch (menuOption){
+      switch (value){
           case "Y":
               launch = "launch";
               break;
@@ -76,7 +45,8 @@ public class LaunchNuke {
               System.out.println("\n*** Invalid selection *** Try again");
               break;
       }
-      GameControl.upgradeView(launch);
+         System.out.println("\n*** Nuke is launch");
+     
       
       return false;
     }

@@ -13,8 +13,8 @@ import java.util.Scanner;
  *
  * @author Nathan
  */
-public class UpgradeMenu {
-        private String menu;
+public class UpgradeMenu extends View{
+       
         
         private int upgradeAttackMax = 5;
         private int upgradeAttackCurrent = 2;
@@ -25,66 +25,26 @@ public class UpgradeMenu {
         
     public UpgradeMenu() {
         
-        this.menu = "\n"
+        super(      "\n"
                    + "\n-------------------------------------------------"
                    +"\n| Upgrade Menu                                      |"
                    +"\n--------------------------------------------------"
-                   +"\nA - Upgrade attack power\n"
-                   
-                   + this.topHull(upgradeAttackMax)+"\n"
-                   + this.MidTopHull(upgradeAttackCurrent, upgradeAttackMax)+"\n"
-                   + this.BotHull(upgradeAttackMax)
-                   +"\nS - Special ability\n"
-                   + this.topHull(upgradeSpecialMax)+"\n"
-                   + this.MidTopHull(upgradeSpecialCurrent, upgradeSpecialMax)+"\n"
-                   + this.BotHull(upgradeSpecialMax)
-                   
+                   +"\nA - Upgrade attack power"
+                   +"\nS - Special ability"
                    +"\nQ - Quit"
-                   +"\n--------------------------------------------------";
+                   +"\n--------------------------------------------------");
               }
 
-   public void displayUpgradeMenuView() {
-       
-       boolean done = false;
-       do{
-           String menuOption = this.getMenuOption();
-           if (menuOption.toUpperCase().equals("Q"))
-               return;
-           done = this.doAction(menuOption);
-   } while (!done);
-          
-      
-    }
+ 
 
-    private String getMenuOption() {
-          
-        Scanner keyboard = new Scanner(System.in);
-        String value ="";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-                    
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
     
 
-    public boolean doAction(String menuOption) {
-      menuOption = menuOption.toUpperCase();
+    public boolean doAction(String value) {
+      value = value.toUpperCase();
         String upgrade = "";
         
         
-      switch (menuOption){
+      switch (value){
           case "A":
               upgrade = "Attack power";
               break;
@@ -100,7 +60,16 @@ public class UpgradeMenu {
       
       return false;
     }
-    
+}
+    /*
+      this.topHull(upgradeAttackMax)+"\n"
+                   + this.MidTopHull(upgradeAttackCurrent, upgradeAttackMax)+"\n"
+                   + this.BotHull(upgradeAttackMax)
+                   
+                   + this.topHull(upgradeSpecialMax)+"\n"
+                   + this.MidTopHull(upgradeSpecialCurrent, upgradeSpecialMax)+"\n"
+                   + this.BotHull(upgradeSpecialMax)
+      
   private String topHull(int uaMax){
         
         String line = "┌";
@@ -148,4 +117,4 @@ public class UpgradeMenu {
     }
 
 
-
+*/
