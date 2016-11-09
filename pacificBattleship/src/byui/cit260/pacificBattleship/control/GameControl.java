@@ -18,32 +18,29 @@ import pacificbattleship.PacificBattleship;
  * @author Nathan
  */
 public class GameControl {
-    
-
 
     public static Game createPlayer(String name) {
-      if (name == null){
-          return null;
-      }
-      Game player = new Game();
-      player.setUserName(name);
-      PacificBattleship.setPlayer(player);
-      
-       return player;
+        if (name == null) {
+            return null;
+        }
+        Game player = new Game();
+        player.setUserName(name);
+        PacificBattleship.setPlayer(player);
+
+        return player;
     }
 
-    public static void createNewGame(Game player) {
-        
-        
-        ShipClass battleship0 = new ShipClass();
-        
-        battleship0.setName("Salvaged Battleship");
-        battleship0.setBonusDefense(0);
-        battleship0.setBonusHull(0);
-        battleship0.setSymbol("b");
-        
+    public static void createNewGame() {
+
+        ShipClass startClass = new ShipClass();
+
+        startClass.setName("Salvaged Battleship");
+        startClass.setBonusDefense(0);
+        startClass.setBonusHull(0);
+        startClass.setSymbol("b");
+
         Ship start = new Ship();
-        
+
         start.setName("U.S.S. Tennessee");
         start.setType("Battleship");
         start.setDefense(1);
@@ -55,52 +52,48 @@ public class GameControl {
         start.setDescription("");
         start.setCoordinate(null);
         start.setSymbol("");
-        start.setShipClass(battleship0);
-        
-        CommandMenu.setActiveShip(start);
-        
-        CommandMenu commandMenu = new CommandMenu();
-        commandMenu.displayCommandMenuView();
-    }
+        start.setShipClass(startClass);
 
+    }
 
     public static void upgradeView(String upgrade) {
         int POW = 1;
         int current = 2;
         int max = 5;
-        
-            if (POW < 1 || current == max){ 
-                System.out.println("You can not upgrade this ship " + upgrade);
-            }
-            else {
-                System.out.println("You have upgraded your ship " + upgrade);
-            }
-                }
-    
-      public static Ship createActiveShip(Ship theShip) {
-      
-      Ship activeShip = new Ship();
-      
-      activeShip.setName(theShip.getName());
-      activeShip.setType(theShip.getType());
-      activeShip.setDefense(theShip.getDefense());
-      activeShip.setAccuracy(theShip.getAccuracy());
-      activeShip.setUserControl(theShip.isUserControl());
-      activeShip.setAttack(theShip.getAttack());
-      activeShip.setHull(theShip.getHull());
-      activeShip.setMaxHull(theShip.getMaxHull());
-      activeShip.setDescription(theShip.getDescription());
-      activeShip.setCoordinate(theShip.getCoordinate());
-      activeShip.setSymbol(theShip.getSymbol());
-      activeShip.setShipClass(theShip.getShipClass());
-      
-      CommandMenu.setActiveShip(activeShip);
-      
-      
-      
-      return activeShip;
-      
+
+        if (POW < 1 || current == max) {
+            System.out.println("You can not upgrade this ship " + upgrade);
+        } else {
+            System.out.println("You have upgraded your ship " + upgrade);
+        }
     }
-    
-      
+
+    public static Ship getActiveShip() {
+
+        ShipClass startClass = new ShipClass();
+
+        startClass.setName("Salvaged Battleship");
+        startClass.setBonusDefense(0);
+        startClass.setBonusHull(0);
+        startClass.setSymbol("b");
+
+        Ship activeShip = new Ship();
+
+        activeShip.setName("U.S.S. Tennessee");
+        activeShip.setType("Battleship");
+        activeShip.setDefense(1);
+        activeShip.setAccuracy(80);
+        activeShip.setUserControl(true);
+        activeShip.setAttack(4);
+        activeShip.setHull(6);
+        activeShip.setMaxHull(10);
+        activeShip.setDescription("");
+        activeShip.setCoordinate(null);
+        activeShip.setSymbol("");
+        activeShip.setShipClass(startClass);
+
+        return activeShip;
+
+    }
+
 }

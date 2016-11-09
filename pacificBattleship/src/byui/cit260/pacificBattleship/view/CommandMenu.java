@@ -16,63 +16,23 @@ import pacificbattleship.PacificBattleship;
  *
  * @author ort09
  */
-public class CommandMenu {
+public class CommandMenu extends View{
     
     String map;
     
-    private static Ship activeShip = null;
-
-    public static Ship getActiveShip() {
-        return activeShip;
-    }
-
-    public static void setActiveShip(Ship activeShip) {
-        CommandMenu.activeShip = activeShip;
-    }
-    
-    
-    
-   public void displayCommandMenuView() {
-       
-       
-       
-       boolean done = false;
-       do{
-           String menuOption = this.getMenuOption();
-           if (menuOption.toUpperCase().equals("2"))
-               return;
-           if (menuOption.toUpperCase().equals("E")) {
-               done = this.doAction(menuOption);
-               return;
-           }
-           done = this.doAction(menuOption);
-   } while (!done);
-            
-    }
-    
-       private String getMenuOption() {
+    public CommandMenu(){
         
-           
-           
-        Scanner keyboard = new Scanner(System.in);
-        String value ="";
-        boolean valid = false;
+        super(
+                "Select your command:"
         
-        while (!valid) {
-            System.out.println("\n" + this.map);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-                    
-            
-            if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            break;
-        }
-        return value;
-       }
+        );
+        
+        this.displayMap();
+        
+        
+    }
+    
+
        
            public boolean doAction(String menuOption) {
       menuOption = menuOption.toUpperCase();
@@ -106,27 +66,31 @@ public class CommandMenu {
               System.out.println("\n*** Invalid selection *** Try again");
               break;
       }
+      
+      this.displayMap();
+      
       return false;
            }
            
            
     
-    public CommandMenu(){
+    private void displayMap(){
         
+        Ship ship = GameControl.getActiveShip();
         
-        ShipMenu shipMenu = new ShipMenu();
-        shipMenu.setUserRank("* * * * *");
-        shipMenu.setUserName(PacificBattleship.getPlayer().getUserName());
-        shipMenu.setShipLevel(CommandMenu.getActiveShip().getShipClass().getName());
-        String shipType = CommandMenu.getActiveShip().getType();
-        shipMenu.setShipName(CommandMenu.getActiveShip().getName());
-        shipMenu.setShipAttack(CommandMenu.getActiveShip().getAttack());
-        shipMenu.setShipAccuracy(CommandMenu.getActiveShip().getAccuracy());
-        shipMenu.setShipDefense(CommandMenu.getActiveShip().getDefense());
-        shipMenu.setCurrentHull(CommandMenu.getActiveShip().getHull());
-        shipMenu.setMaxHull(CommandMenu.getActiveShip().getMaxHull());
-        shipMenu.setCurrentPart(1);
-        shipMenu.setPOWs(12);
+                
+        String rank = "* * * * *";
+        String userName = PacificBattleship.getPlayer().getUserName();
+        String shipClass = ship.getShipClass().getName();
+        String shipType = ship.getType();
+        String shipName = ship.getName();
+        int shipAttack = ship.getAttack();
+        int shipAccuracy = ship.getAccuracy();
+        int defense = ship.getDefense();
+        int hull = ship.getHull();
+        int maxHull = ship.getMaxHull();
+        int currentPart = 1;
+        int POWs = 12;
         
 
     Location A01 = new Location();
@@ -1052,7 +1016,7 @@ map =
 				  + "│"      + this.checkHidden(H01, H01.getSymTop())
 				  + "│"      + this.checkHidden(I01, I01.getSymTop())
 				  + "│"      + this.checkHidden(J01, J01.getSymTop()) + "│  "
-				  + shipMenu.getUserRank()
+				  + rank
 				  + "\n│ 1│" + this.checkHidden(A01, A01.getSymMid()) + this.checkHidden(A01, A01.getSymbol()) + this.checkHidden(A01, A01.getSymMid2())
 				  + "│"      + this.checkHidden(B01, B01.getSymMid()) + this.checkHidden(B01, B01.getSymbol()) + this.checkHidden(B01, B01.getSymMid2())
 				  + "│"      + this.checkHidden(C01, C01.getSymMid()) + this.checkHidden(C01, C01.getSymbol()) + this.checkHidden(C01, C01.getSymMid2())
@@ -1063,7 +1027,7 @@ map =
 				  + "│"      + this.checkHidden(H01, H01.getSymMid()) + this.checkHidden(H01, H01.getSymbol()) + this.checkHidden(H01, H01.getSymMid2())
 				  + "│"      + this.checkHidden(I01, I01.getSymMid()) + this.checkHidden(I01, I01.getSymbol()) + this.checkHidden(I01, I01.getSymMid2())
 				  + "│"      + this.checkHidden(J01, J01.getSymMid()) + this.checkHidden(J01, J01.getSymbol()) + this.checkHidden(J01, J01.getSymMid2())  + "│  "
-				  + shipMenu.getUserName()
+				  + userName
 				  + "\n│  │" + this.checkHidden(A01, A01.getSymBot())
 				  + "│"      + this.checkHidden(B01, B01.getSymBot())
 				  + "│"      + this.checkHidden(C01, C01.getSymBot())
@@ -1086,7 +1050,7 @@ map =
 				  + "│"      + this.checkHidden(H02, H02.getSymTop())
 				  + "│"      + this.checkHidden(I02, I02.getSymTop())
 				  + "│"      + this.checkHidden(J02, J02.getSymTop()) + "│  "
-				  + shipMenu.getShipLevel()
+				  + shipClass
 				  + "\n│ 2│" + this.checkHidden(A02, A02.getSymMid()) + this.checkHidden(A02, A02.getSymbol()) + this.checkHidden(A02, A02.getSymMid2())
 				  + "│"      + this.checkHidden(B02, B02.getSymMid()) + this.checkHidden(B02, B02.getSymbol()) + this.checkHidden(B02, B02.getSymMid2())
 				  + "│"      + this.checkHidden(C02, C02.getSymMid()) + this.checkHidden(C02, C02.getSymbol()) + this.checkHidden(C02, C02.getSymMid2())
@@ -1107,9 +1071,9 @@ map =
 				  + "│"      + this.checkHidden(H02, H02.getSymBot())
 				  + "│"      + this.checkHidden(I02, I02.getSymBot())
 				  + "│"      + this.checkHidden(J02, J02.getSymBot())
-				  + "│  ATTACK »»»»»»»» " + shipMenu.getShipAttack()
+				  + "│  ATTACK »»»»»»»» " + shipAttack
 				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-				  + "  ACCURACY »»»»»» " + shipMenu.getShipAccuracy()
+				  + "  ACCURACY »»»»»» " + shipAccuracy
 				  + "\n│  │" + this.checkHidden(A03, A03.getSymTop())
 				  + "│"    + this.checkHidden(B03, B03.getSymTop())
 				  + "│"    + this.checkHidden(C03, C03.getSymTop())
@@ -1121,7 +1085,7 @@ map =
 				  + "│"    + this.checkHidden(I03, I03.getSymTop())
 				  + "│"    + this.checkHidden(J03, J03.getSymTop())
 				  + "│  DEFENCE »»»»»»» "
-				  + shipMenu.getShipDefense()
+				  + defense
 				  + "\n│ 3│" + this.checkHidden(A03, A03.getSymMid()) + this.checkHidden(A03, A03.getSymbol()) + this.checkHidden(A03, A03.getSymMid2())
 				  + "│"      + this.checkHidden(B03, B03.getSymMid()) + this.checkHidden(B03, B03.getSymbol()) + this.checkHidden(B03, B03.getSymMid2())
 				  + "│"      + this.checkHidden(C03, C03.getSymMid()) + this.checkHidden(C03, C03.getSymbol()) + this.checkHidden(C03, C03.getSymMid2())
@@ -1133,7 +1097,7 @@ map =
 				  + "│"      + this.checkHidden(I03, I03.getSymMid()) + this.checkHidden(I03, I03.getSymbol()) + this.checkHidden(I03, I03.getSymMid2())
 				  + "│"      + this.checkHidden(J03, J03.getSymMid()) + this.checkHidden(J03, J03.getSymbol()) + this.checkHidden(J03, J03.getSymMid2())
 				  + "│  POW's »»»»»»»»» "
-				  + shipMenu.getPOWs()
+				  + POWs
 				  + "\n│  │" + this.checkHidden(A03, A03.getSymBot())
 				  + "│"      + this.checkHidden(B03, B03.getSymBot())
 				  + "│"      + this.checkHidden(C03, C03.getSymBot())
@@ -1157,9 +1121,9 @@ map =
 				  + "│"    + this.checkHidden(I04, I04.getSymTop())
 				  + "│"    + this.checkHidden(J04, J04.getSymTop()) + "│"
 				  + " │ HULL       "
-				  + shipMenu.getCurrentHull()
+				  + hull
                                   + " / "
-                                  + shipMenu.getMaxHull()
+                                  + maxHull
 				  + "\n│ 4│" + this.checkHidden(A04, A04.getSymMid()) + this.checkHidden(A04, A04.getSymbol()) + this.checkHidden(A04, A04.getSymMid2())
 				  + "│"      + this.checkHidden(B04, B04.getSymMid()) + this.checkHidden(B04, B04.getSymbol()) + this.checkHidden(B04, B04.getSymMid2())
 				  + "│"      + this.checkHidden(C04, C04.getSymMid()) + this.checkHidden(C04, C04.getSymbol()) + this.checkHidden(C04, C04.getSymMid2())
@@ -1170,7 +1134,7 @@ map =
 				  + "│"      + this.checkHidden(H04, H04.getSymMid()) + this.checkHidden(H04, H04.getSymbol()) + this.checkHidden(H04, H04.getSymMid2())
 				  + "│"      + this.checkHidden(I04, I04.getSymMid()) + this.checkHidden(I04, I04.getSymbol()) + this.checkHidden(I04, I04.getSymMid2())
 				  + "│"      + this.checkHidden(J04, J04.getSymMid()) + this.checkHidden(J04, J04.getSymbol()) + this.checkHidden(J04, J04.getSymMid2()) + "│ "
-				  + this.topHull(shipMenu)
+				  + this.topHull(hull)
 				  + "\n│  │" + this.checkHidden(A04, A04.getSymBot())
 				  + "│"      + this.checkHidden(B04, B04.getSymBot())
 				  + "│"      + this.checkHidden(C04, C04.getSymBot())
@@ -1181,9 +1145,9 @@ map =
 				  + "│"      + this.checkHidden(H04, H04.getSymBot())
 				  + "│"      + this.checkHidden(I04, I04.getSymBot())
 				  + "│"      + this.checkHidden(J04, J04.getSymBot()) + "│ "
-				  + this.MidTopHull(shipMenu)
+				  + this.MidTopHull(hull)
 				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤ "
-				  + this.MidHull(shipMenu)
+				  + this.MidHull(hull)
 				  + "\n│  │" + this.checkHidden(A05, A05.getSymTop())
 				  + "│"    + this.checkHidden(B05, B05.getSymTop())
 				  + "│"    + this.checkHidden(C05, C05.getSymTop())
@@ -1194,7 +1158,7 @@ map =
 				  + "│"    + this.checkHidden(H05, H05.getSymTop())
 				  + "│"    + this.checkHidden(I05, I05.getSymTop())
 				  + "│"    + this.checkHidden(J05, J05.getSymTop()) + "│ "
-				  + this.MidBotHull(shipMenu)
+				  + this.MidBotHull(hull)
 				  + "\n│ 5│" + this.checkHidden(A05, A05.getSymMid()) + this.checkHidden(A05, A05.getSymbol()) + this.checkHidden(A05, A05.getSymMid2())
 				  + "│"      + this.checkHidden(B05, B05.getSymMid()) + this.checkHidden(B05, B05.getSymbol()) + this.checkHidden(B05, B05.getSymMid2())
 				  + "│"      + this.checkHidden(C05, C05.getSymMid()) + this.checkHidden(C05, C05.getSymbol()) + this.checkHidden(C05, C05.getSymMid2())
@@ -1205,7 +1169,7 @@ map =
 				  + "│"      + this.checkHidden(H05, H05.getSymMid()) + this.checkHidden(H05, H05.getSymbol()) + this.checkHidden(H05, H05.getSymMid2())
 				  + "│"      + this.checkHidden(I05, I05.getSymMid()) + this.checkHidden(I05, I05.getSymbol()) + this.checkHidden(I05, I05.getSymMid2())
 				  + "│"      + this.checkHidden(J05, J05.getSymMid()) + this.checkHidden(J05, J05.getSymbol()) + this.checkHidden(J05, J05.getSymMid2()) + "│ "
-				  + this.BotHull(shipMenu)
+				  + this.BotHull(hull)
 				  + "\n│  │" + this.checkHidden(A05, A05.getSymBot())
 				  + "│"      + this.checkHidden(B05, B05.getSymBot())
 				  + "│"      + this.checkHidden(C05, C05.getSymBot())
@@ -1377,7 +1341,7 @@ map =
 				  + "│"      + this.checkHidden(I10, I10.getSymMid()) + this.checkHidden(I10, I10.getSymbol()) + this.checkHidden(I10, I10.getSymMid2())
 				  + "│"      + this.checkHidden(J10, J10.getSymMid()) + this.checkHidden(J10, J10.getSymbol()) + this.checkHidden(J10, J10.getSymMid2()) + "│"
 				  + "   │ 0 │-Launch      "
-				  + shipMenu.getCurrentPart()
+				  + currentPart
 				  + " / 15 Parts"
 				  + "\n│  │" + this.checkHidden(A10, A10.getSymBot())
 				  + "│"      + this.checkHidden(B10, B10.getSymBot())
@@ -1395,12 +1359,12 @@ map =
     
 }
     
-    private String topHull(ShipMenu Player){
+    private String topHull(int hull){
         
         String line = "├";
         int x = 1;
         
-        while (Player.getMaxHull() > x && x < 20){
+        while (hull > x && x < 20){
             line += "─┬";
             x++;
         }
@@ -1408,13 +1372,13 @@ map =
         return line += "─┐";
     }
 
-    private String MidTopHull(ShipMenu Player) {
+    private String MidTopHull(int hull) {
         
         String line = "│";
         int x = 0;
         
-        while (Player.getMaxHull() > x && x < 20) {
-            if (Player.getCurrentHull() > x)
+        while (hull > x && x < 20) {
+            if (hull > x)
                 line += "█";
             
             else
@@ -1428,11 +1392,11 @@ map =
         return line;
     }
 
-    private String MidHull(ShipMenu Player) {
+    private String MidHull(int hull) {
         
         String line = "";
         
-        if (Player.getMaxHull() <= 20)
+        if (hull <= 20)
             line = "└";
         else
             line = "├";
@@ -1440,8 +1404,8 @@ map =
         int x = 1;
         int y = 20;
         
-        while (Player.getMaxHull() > x && x < 20){
-            if (Player.getMaxHull() > y){
+        while (hull > x && x < 20){
+            if (hull > y){
                 line += "─┼";
             }
             else {
@@ -1453,22 +1417,22 @@ map =
         
         y--;
         
-        if (Player.getMaxHull() == y)
+        if (hull == y)
             return line += "─┤";
         
         return line += "─┘";
     }
 
-    private String MidBotHull(ShipMenu Player) {
+    private String MidBotHull(int hull) {
         
-        if (Player.getMaxHull() <= 20)
+        if (hull <= 20)
             return "";
         
         String line = "";
         int x = 20;
         
-        while (Player.getMaxHull() > x) {
-            if (Player.getCurrentHull() > x)
+        while (hull > x) {
+            if (hull > x)
                 line += "│█";
             
             else
@@ -1480,15 +1444,15 @@ map =
         return line += "│";
     }
 
-    private String BotHull(ShipMenu Player) {
-        if (Player.getMaxHull() <= 20){
+    private String BotHull(int hull) {
+        if (hull <= 20){
             return "";
         }
         
         String line = "└";
         int x = 21;
         
-        while (Player.getMaxHull() > x){
+        while (hull > x){
             line += "─┴";
             x++;
         }
@@ -1821,3 +1785,46 @@ switch (row) {
     }
 */
 
+/*
+   public void displayCommandMenuView() {
+       
+       
+       
+       boolean done = false;
+       do{
+           String menuOption = this.getMenuOption();
+           if (menuOption.toUpperCase().equals("2"))
+               return;
+           if (menuOption.toUpperCase().equals("E")) {
+               done = this.doAction(menuOption);
+               return;
+           }
+           done = this.doAction(menuOption);
+   } while (!done);
+            
+    }
+    
+       private String getMenuOption() {
+        
+           
+           
+        Scanner keyboard = new Scanner(System.in);
+        String value ="";
+        boolean valid = false;
+        
+        while (!valid) {
+            System.out.println("\n" + this.map);
+            
+            value = keyboard.nextLine();
+            value = value.trim();
+                    
+            
+            if (value.length() < 1) {
+                System.out.println("\nInvalid value: value can not be blank");
+                continue;
+            }
+            break;
+        }
+        return value;
+       }
+*/
