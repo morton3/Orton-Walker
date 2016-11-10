@@ -34,7 +34,7 @@ public class BattleResultView extends View{
               System.out.println("\n*** Invalid selection *** Try again");
               break;
       }
-      
+      System.out.println("\n*** Battle results *** Displayed");
        return false;
     }
 
@@ -43,10 +43,5 @@ public class BattleResultView extends View{
         attackMenu.display();
     }
     private void results() {
-        
-         System.out.println("\n*** Battle results *** Displayed");
-        
-    }
-
-    
+        }
 }
