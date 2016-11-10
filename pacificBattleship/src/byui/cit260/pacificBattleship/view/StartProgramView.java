@@ -36,7 +36,6 @@ public class StartProgramView extends View {
                 + "\n* are needed for what battle. But watch out and don’t make the wrong move or make the wrong             *"
                 + "\n* guess of the intent of the Japanese military’s next move. It may lead your forces into defeat and     *"
                 + "\n* you will be decommissioned thus losing the game.                                                     *"
-                + "\n*                                                                                                      *"
                 + "\n********************************************************************************************************"
         );
                 

@@ -47,19 +47,19 @@ public class SwitchShipsView extends View{
       
       switch (value){
           case "B":
-              this.activeToBattleship();
+              System.out.println("this.activeToBattleship();");
               break;
           case "T":
-              this.activeToTransport();
+              System.out.println("this.activeToTransport();");
               break;
           case "S":
-              this.activeToSubmarine();
+              System.out.println("this.activeToSubmarine();");
               break;
           case "A":
-              this.activeToAircraftCarrier();
+              System.out.println("this.activeToAircraftCarrier();");
               break;
           case "D":
-              this.activeToDestroyer();
+              System.out.println("this.activeToDestroyer();");
               break;
           default: {
               System.out.println("\n*** Invalid selection *** Try again");
@@ -70,7 +70,7 @@ public class SwitchShipsView extends View{
       
       return done;
     }
-
+/*
     public void activeToBattleship() {
         
         ShipClass battleship0 = new ShipClass();
@@ -93,6 +93,7 @@ public class SwitchShipsView extends View{
         battleship.setDescription("");
         battleship.setCoordinate(null);
         battleship.setSymbol("");
+        battleship.setShipClass(battleship0);
         
         CommandMenu.setActiveShip(GameControl.createActiveShip(battleship));
         
@@ -246,7 +247,7 @@ public class SwitchShipsView extends View{
     }
     
 
-
+*/
 
 }
 

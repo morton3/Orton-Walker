@@ -56,7 +56,7 @@ public class MainMenuView extends View {
 
     private void startNewGame() {
         
-       GameControl.createNewGame(PacificBattleship.getPlayer());
+       GameControl.createNewGame();
     }
 
     private void startExistingGame() {
