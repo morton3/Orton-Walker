@@ -31,17 +31,8 @@ public class AttackMenuView extends View{
     public boolean doAction(String value) {
       value = value.toUpperCase();
       
+      int row = -1;
       int column = -1;
-      int row = 0;
-      
-      if (value.charAt(1) == '1') {
-          if (value.charAt(2) == '0')
-              column = 10;
-          else
-              column = 1;
-      }
-      else
-          column = Character.getNumericValue(value.charAt(1));
       
       switch (value.charAt(0)){
           case 'A':
@@ -75,20 +66,32 @@ public class AttackMenuView extends View{
               row = 10;
               break;
           default:
-              row = -1;
+              System.out.println("\n*** Invalid Row! *** Try again");
+              return false;
       }
       
+      String strColumn = value.substring(1);
       
-      if (value.length() < 2 || value.length() > 3 || row == -1) {
-          System.out.println("\n*** Invalid Coordinates! *** Try again");
+      column = Integer.parseInt(strColumn);
+      
+      if (column < 1 || column > 10) {
+          System.out.println("\n*** Invalid Column! *** Try again");
           return false;
       }
       
-      BattleResultView battleResultView = new BattleResultView(row, column);
+      this.results(row, column);
+      
+      BattleResultView battleResultView = new BattleResultView();
       battleResultView.display();
       
       return true;
       
+    }
+
+    private void results(int row, int column) {
+        System.out.println("\nAttack made at:"
+                + "\n\trow:" + row
+                + "\n\tcolumn:" + column);
     }
 
 }

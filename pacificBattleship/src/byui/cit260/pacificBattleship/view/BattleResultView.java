@@ -11,15 +11,14 @@ package byui.cit260.pacificBattleship.view;
  */
 public class BattleResultView extends View{
     
-       public BattleResultView(int row, int column) {
-        super("Attack made at" + row + column + "\n"
-                + "\n"
-                   + "\n-------------------------------------------------"
-                   +"\n| Battle Results                                     |"
-                   +"\n--------------------------------------------------"
-                   +"\nA - Attack again?"
-                   +"\nQ - Quit"
-                   +"\n--------------------------------------------------");
+       public BattleResultView() {
+        super("\n"
+                + "\n--------------------------------------------------"
+                + "\n| Battle Results                                  |"
+                + "\n--------------------------------------------------"
+                + "\nA - Attack again?"
+                + "\nQ - Quit"
+                + "\n--------------------------------------------------");
               }
     
          @Override
