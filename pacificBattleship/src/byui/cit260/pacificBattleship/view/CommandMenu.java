@@ -1194,6 +1194,8 @@ System.out.println(
             return blanks;
         }
         else
+    
+            
             return symbol;
     }
 
