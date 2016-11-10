@@ -84,6 +84,9 @@ public class AttackMenuView extends View{
           return false;
       }
       
+      BattleResultView battleResultView = new BattleResultView(row, column);
+      battleResultView.display();
+      
       return true;
       
     }

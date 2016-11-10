@@ -11,8 +11,9 @@ package byui.cit260.pacificBattleship.view;
  */
 public class BattleResultView extends View{
     
-       public BattleResultView() {
-        super("\n"
+       public BattleResultView(int row, int column) {
+        super("Attack made at" + row + column + "\n"
+                + "\n"
                    + "\n-------------------------------------------------"
                    +"\n| Battle Results                                     |"
                    +"\n--------------------------------------------------"
@@ -28,8 +29,7 @@ public class BattleResultView extends View{
       switch (value){
           case "A":
               this.attackView();
-              break;
-         
+              return true;
           default:
               System.out.println("\n*** Invalid selection *** Try again");
               break;
@@ -40,8 +40,8 @@ public class BattleResultView extends View{
 
     private void attackView() {
        AttackMenuView attackMenu = new AttackMenuView();
-        attackMenu.display();
+       attackMenu.display();
     }
-    private void results() {
-        }
+    
+
 }
