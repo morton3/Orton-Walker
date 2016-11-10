@@ -1509,6 +1509,8 @@ map =
             return blanks;
         }
         else
+    
+            
             return symbol;
     }
 
