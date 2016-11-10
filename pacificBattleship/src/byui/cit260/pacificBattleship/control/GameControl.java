@@ -32,28 +32,8 @@ public class GameControl {
 
     public static void createNewGame() {
 
-        ShipClass startClass = new ShipClass();
-
-        startClass.setName("Salvaged Battleship");
-        startClass.setBonusDefense(0);
-        startClass.setBonusHull(0);
-        startClass.setSymbol("b");
-
-        Ship start = new Ship();
-
-        start.setName("U.S.S. Tennessee");
-        start.setType("Battleship");
-        start.setDefense(1);
-        start.setAccuracy(80);
-        start.setUserControl(true);
-        start.setAttack(4);
-        start.setHull(6);
-        start.setMaxHull(10);
-        start.setDescription("");
-        start.setCoordinate(null);
-        start.setSymbol("");
-        start.setShipClass(startClass);
-
+        CommandMenu commandMenu = new CommandMenu();
+        commandMenu.display();
     }
 
     public static void upgradeView(String upgrade) {

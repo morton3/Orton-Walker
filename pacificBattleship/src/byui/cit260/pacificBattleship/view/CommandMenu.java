@@ -17,14 +17,11 @@ import pacificbattleship.PacificBattleship;
  * @author ort09
  */
 public class CommandMenu extends View{
-    
-    String map;
-    
+
     public CommandMenu(){
         
         super(
-                "Select your command:"
-        
+                "Command?"
         );
         
         this.displayMap();
@@ -33,12 +30,12 @@ public class CommandMenu extends View{
     }
     
 
-       
-           public boolean doAction(String menuOption) {
-      menuOption = menuOption.toUpperCase();
+    @Override
+    public boolean doAction(String menuOption) {
+        menuOption = menuOption.toUpperCase();
       
       switch (menuOption){
-          case "Q":
+          case "R":
               this.upgradeMenu();
               break;
           case "E": {
@@ -56,10 +53,10 @@ public class CommandMenu extends View{
           case "D":
               this.moveRight();
               break;
-          case "1":
+          case "4":
               this.attack();
               break;
-          case "0":
+          case "N":
               this.launchNuke();
               break;
           default:
@@ -1003,368 +1000,92 @@ H10.setSymbol("   ");
 I10.setSymbol("   ");
 J10.setSymbol("   ");
 
-map =
-                    "\n         A        B       C        D       E        F       G        H        I       J "
-                  + "\n┌--┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┐"
-				  + "\n│  │" + this.checkHidden(A01, A01.getSymTop())
-				  + "│"      + this.checkHidden(B01, B01.getSymTop())
-				  + "│"      + this.checkHidden(C01, C01.getSymTop())
-				  + "│"      + this.checkHidden(D01, D01.getSymTop())
-				  + "│"      + this.checkHidden(E01, E01.getSymTop())
-				  + "│"      + this.checkHidden(F01, F01.getSymTop())
-				  + "│"      + this.checkHidden(G01, G01.getSymTop())
-				  + "│"      + this.checkHidden(H01, H01.getSymTop())
-				  + "│"      + this.checkHidden(I01, I01.getSymTop())
-				  + "│"      + this.checkHidden(J01, J01.getSymTop()) + "│  "
-				  + rank
-				  + "\n│ 1│" + this.checkHidden(A01, A01.getSymMid()) + this.checkHidden(A01, A01.getSymbol()) + this.checkHidden(A01, A01.getSymMid2())
-				  + "│"      + this.checkHidden(B01, B01.getSymMid()) + this.checkHidden(B01, B01.getSymbol()) + this.checkHidden(B01, B01.getSymMid2())
-				  + "│"      + this.checkHidden(C01, C01.getSymMid()) + this.checkHidden(C01, C01.getSymbol()) + this.checkHidden(C01, C01.getSymMid2())
-				  + "│"      + this.checkHidden(D01, D01.getSymMid()) + this.checkHidden(D01, D01.getSymbol()) + this.checkHidden(D01, D01.getSymMid2())
-				  + "│"      + this.checkHidden(E01, E01.getSymMid()) + this.checkHidden(E01, E01.getSymbol()) + this.checkHidden(E01, E01.getSymMid2())
-				  + "│"      + this.checkHidden(F01, F01.getSymMid()) + this.checkHidden(F01, F01.getSymbol()) + this.checkHidden(F01, F01.getSymMid2())
-				  + "│"      + this.checkHidden(G01, G01.getSymMid()) + this.checkHidden(G01, G01.getSymbol()) + this.checkHidden(G01, G01.getSymMid2())
-				  + "│"      + this.checkHidden(H01, H01.getSymMid()) + this.checkHidden(H01, H01.getSymbol()) + this.checkHidden(H01, H01.getSymMid2())
-				  + "│"      + this.checkHidden(I01, I01.getSymMid()) + this.checkHidden(I01, I01.getSymbol()) + this.checkHidden(I01, I01.getSymMid2())
-				  + "│"      + this.checkHidden(J01, J01.getSymMid()) + this.checkHidden(J01, J01.getSymbol()) + this.checkHidden(J01, J01.getSymMid2())  + "│  "
-				  + userName
-				  + "\n│  │" + this.checkHidden(A01, A01.getSymBot())
-				  + "│"      + this.checkHidden(B01, B01.getSymBot())
-				  + "│"      + this.checkHidden(C01, C01.getSymBot())
-				  + "│"      + this.checkHidden(D01, D01.getSymBot())
-				  + "│"      + this.checkHidden(E01, E01.getSymBot())
-				  + "│"      + this.checkHidden(F01, F01.getSymBot())
-				  + "│"      + this.checkHidden(G01, G01.getSymBot())
-				  + "│"      + this.checkHidden(H01, H01.getSymBot())
-				  + "│"      + this.checkHidden(I01, I01.getSymBot())
-				  + "│"      + this.checkHidden(J01, J01.getSymBot()) + "│  "
-				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-				  + shipType
-				  + "\n│  │" + this.checkHidden(A02, A02.getSymTop())
-				  + "│"      + this.checkHidden(B02, B02.getSymTop())
-				  + "│"      + this.checkHidden(C02, C02.getSymTop())
-				  + "│"      + this.checkHidden(D02, D02.getSymTop())
-				  + "│"      + this.checkHidden(E02, E02.getSymTop())
-				  + "│"      + this.checkHidden(F02, F02.getSymTop())
-				  + "│"      + this.checkHidden(G02, G02.getSymTop())
-				  + "│"      + this.checkHidden(H02, H02.getSymTop())
-				  + "│"      + this.checkHidden(I02, I02.getSymTop())
-				  + "│"      + this.checkHidden(J02, J02.getSymTop()) + "│  "
-				  + shipClass
-				  + "\n│ 2│" + this.checkHidden(A02, A02.getSymMid()) + this.checkHidden(A02, A02.getSymbol()) + this.checkHidden(A02, A02.getSymMid2())
-				  + "│"      + this.checkHidden(B02, B02.getSymMid()) + this.checkHidden(B02, B02.getSymbol()) + this.checkHidden(B02, B02.getSymMid2())
-				  + "│"      + this.checkHidden(C02, C02.getSymMid()) + this.checkHidden(C02, C02.getSymbol()) + this.checkHidden(C02, C02.getSymMid2())
-				  + "│"      + this.checkHidden(D02, D02.getSymMid()) + this.checkHidden(D02, D02.getSymbol()) + this.checkHidden(D02, D02.getSymMid2())
-				  + "│"      + this.checkHidden(E02, E02.getSymMid()) + this.checkHidden(E02, E02.getSymbol()) + this.checkHidden(E02, E02.getSymMid2())
-				  + "│"      + this.checkHidden(F02, F02.getSymMid()) + this.checkHidden(F02, F02.getSymbol()) + this.checkHidden(F02, F02.getSymMid2())
-				  + "│"      + this.checkHidden(G02, G02.getSymMid()) + this.checkHidden(G02, G02.getSymbol()) + this.checkHidden(G02, G02.getSymMid2())
-				  + "│"      + this.checkHidden(H02, H02.getSymMid()) + this.checkHidden(H02, H02.getSymbol()) + this.checkHidden(H02, H02.getSymMid2())
-				  + "│"      + this.checkHidden(I02, I02.getSymMid()) + this.checkHidden(I02, I02.getSymbol()) + this.checkHidden(I02, I02.getSymMid2())
-				  + "│"      + this.checkHidden(J02, J02.getSymMid()) + this.checkHidden(J02, J02.getSymbol()) + this.checkHidden(J02, J02.getSymMid2()) + "│"
-				  + "\n│  │" + this.checkHidden(A02, A02.getSymBot())
-				  + "│"      + this.checkHidden(B02, B02.getSymBot())
-				  + "│"      + this.checkHidden(C02, C02.getSymBot())
-				  + "│"      + this.checkHidden(D02, D02.getSymBot())
-				  + "│"      + this.checkHidden(E02, E02.getSymBot())
-				  + "│"      + this.checkHidden(F02, F02.getSymBot())
-				  + "│"      + this.checkHidden(G02, G02.getSymBot())
-				  + "│"      + this.checkHidden(H02, H02.getSymBot())
-				  + "│"      + this.checkHidden(I02, I02.getSymBot())
-				  + "│"      + this.checkHidden(J02, J02.getSymBot())
-				  + "│  ATTACK »»»»»»»» " + shipAttack
-				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-				  + "  ACCURACY »»»»»» " + shipAccuracy
-				  + "\n│  │" + this.checkHidden(A03, A03.getSymTop())
-				  + "│"    + this.checkHidden(B03, B03.getSymTop())
-				  + "│"    + this.checkHidden(C03, C03.getSymTop())
-				  + "│"    + this.checkHidden(D03, D03.getSymTop())
-				  + "│"    + this.checkHidden(E03, E03.getSymTop())
-				  + "│"    + this.checkHidden(F03, F03.getSymTop())
-				  + "│"    + this.checkHidden(G03, G03.getSymTop())
-				  + "│"    + this.checkHidden(H03, H03.getSymTop())
-				  + "│"    + this.checkHidden(I03, I03.getSymTop())
-				  + "│"    + this.checkHidden(J03, J03.getSymTop())
-				  + "│  DEFENCE »»»»»»» "
-				  + defense
-				  + "\n│ 3│" + this.checkHidden(A03, A03.getSymMid()) + this.checkHidden(A03, A03.getSymbol()) + this.checkHidden(A03, A03.getSymMid2())
-				  + "│"      + this.checkHidden(B03, B03.getSymMid()) + this.checkHidden(B03, B03.getSymbol()) + this.checkHidden(B03, B03.getSymMid2())
-				  + "│"      + this.checkHidden(C03, C03.getSymMid()) + this.checkHidden(C03, C03.getSymbol()) + this.checkHidden(C03, C03.getSymMid2())
-				  + "│"      + this.checkHidden(D03, D03.getSymMid()) + this.checkHidden(D03, D03.getSymbol()) + this.checkHidden(D03, D03.getSymMid2())
-				  + "│"      + this.checkHidden(E03, E03.getSymMid()) + this.checkHidden(E03, E03.getSymbol()) + this.checkHidden(E03, E03.getSymMid2())
-				  + "│"      + this.checkHidden(F03, F03.getSymMid()) + this.checkHidden(F03, F03.getSymbol()) + this.checkHidden(F03, F03.getSymMid2())
-				  + "│"      + this.checkHidden(G03, G03.getSymMid()) + this.checkHidden(G03, G03.getSymbol()) + this.checkHidden(G03, G03.getSymMid2())
-				  + "│"      + this.checkHidden(H03, H03.getSymMid()) + this.checkHidden(H03, H03.getSymbol()) + this.checkHidden(H03, H03.getSymMid2())
-				  + "│"      + this.checkHidden(I03, I03.getSymMid()) + this.checkHidden(I03, I03.getSymbol()) + this.checkHidden(I03, I03.getSymMid2())
-				  + "│"      + this.checkHidden(J03, J03.getSymMid()) + this.checkHidden(J03, J03.getSymbol()) + this.checkHidden(J03, J03.getSymMid2())
-				  + "│  POW's »»»»»»»»» "
-				  + POWs
-				  + "\n│  │" + this.checkHidden(A03, A03.getSymBot())
-				  + "│"      + this.checkHidden(B03, B03.getSymBot())
-				  + "│"      + this.checkHidden(C03, C03.getSymBot())
-				  + "│"      + this.checkHidden(D03, D03.getSymBot())
-				  + "│"      + this.checkHidden(E03, E03.getSymBot())
-				  + "│"      + this.checkHidden(F03, F03.getSymBot())
-				  + "│"      + this.checkHidden(G03, G03.getSymBot())
-				  + "│"      + this.checkHidden(H03, H03.getSymBot())
-				  + "│"      + this.checkHidden(I03, I03.getSymBot())
-				  + "│"      + this.checkHidden(J03, J03.getSymBot()) + "│"
-				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-				  + " ┌──────────────┐"
-				  + "\n│  │" + this.checkHidden(A04, A04.getSymTop())
-				  + "│"    + this.checkHidden(B04, B04.getSymTop())
-				  + "│"    + this.checkHidden(C04, C04.getSymTop())
-				  + "│"    + this.checkHidden(D04, D04.getSymTop())
-				  + "│"    + this.checkHidden(E04, E04.getSymTop())
-				  + "│"    + this.checkHidden(F04, F04.getSymTop())
-				  + "│"    + this.checkHidden(G04, G04.getSymTop())
-				  + "│"    + this.checkHidden(H04, H04.getSymTop())
-				  + "│"    + this.checkHidden(I04, I04.getSymTop())
-				  + "│"    + this.checkHidden(J04, J04.getSymTop()) + "│"
-				  + " │ HULL       "
-				  + hull
-                                  + " / "
-                                  + maxHull
-				  + "\n│ 4│" + this.checkHidden(A04, A04.getSymMid()) + this.checkHidden(A04, A04.getSymbol()) + this.checkHidden(A04, A04.getSymMid2())
-				  + "│"      + this.checkHidden(B04, B04.getSymMid()) + this.checkHidden(B04, B04.getSymbol()) + this.checkHidden(B04, B04.getSymMid2())
-				  + "│"      + this.checkHidden(C04, C04.getSymMid()) + this.checkHidden(C04, C04.getSymbol()) + this.checkHidden(C04, C04.getSymMid2())
-				  + "│"      + this.checkHidden(D04, D04.getSymMid()) + this.checkHidden(D04, D04.getSymbol()) + this.checkHidden(D04, D04.getSymMid2())
-				  + "│"      + this.checkHidden(E04, E04.getSymMid()) + this.checkHidden(E04, E04.getSymbol()) + this.checkHidden(E04, E04.getSymMid2())
-				  + "│"      + this.checkHidden(F04, F04.getSymMid()) + this.checkHidden(F04, F04.getSymbol()) + this.checkHidden(F04, F04.getSymMid2())
-				  + "│"      + this.checkHidden(G04, G04.getSymMid()) + this.checkHidden(G04, G04.getSymbol()) + this.checkHidden(G04, G04.getSymMid2())
-				  + "│"      + this.checkHidden(H04, H04.getSymMid()) + this.checkHidden(H04, H04.getSymbol()) + this.checkHidden(H04, H04.getSymMid2())
-				  + "│"      + this.checkHidden(I04, I04.getSymMid()) + this.checkHidden(I04, I04.getSymbol()) + this.checkHidden(I04, I04.getSymMid2())
-				  + "│"      + this.checkHidden(J04, J04.getSymMid()) + this.checkHidden(J04, J04.getSymbol()) + this.checkHidden(J04, J04.getSymMid2()) + "│ "
-				  + this.topHull(hull)
-				  + "\n│  │" + this.checkHidden(A04, A04.getSymBot())
-				  + "│"      + this.checkHidden(B04, B04.getSymBot())
-				  + "│"      + this.checkHidden(C04, C04.getSymBot())
-				  + "│"      + this.checkHidden(D04, D04.getSymBot())
-				  + "│"      + this.checkHidden(E04, E04.getSymBot())
-				  + "│"      + this.checkHidden(F04, F04.getSymBot())
-				  + "│"      + this.checkHidden(G04, G04.getSymBot())
-				  + "│"      + this.checkHidden(H04, H04.getSymBot())
-				  + "│"      + this.checkHidden(I04, I04.getSymBot())
-				  + "│"      + this.checkHidden(J04, J04.getSymBot()) + "│ "
-				  + this.MidTopHull(hull)
-				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤ "
-				  + this.MidHull(hull)
-				  + "\n│  │" + this.checkHidden(A05, A05.getSymTop())
-				  + "│"    + this.checkHidden(B05, B05.getSymTop())
-				  + "│"    + this.checkHidden(C05, C05.getSymTop())
-				  + "│"    + this.checkHidden(D05, D05.getSymTop())
-				  + "│"    + this.checkHidden(E05, E05.getSymTop())
-				  + "│"    + this.checkHidden(F05, F05.getSymTop())
-				  + "│"    + this.checkHidden(G05, G05.getSymTop())
-				  + "│"    + this.checkHidden(H05, H05.getSymTop())
-				  + "│"    + this.checkHidden(I05, I05.getSymTop())
-				  + "│"    + this.checkHidden(J05, J05.getSymTop()) + "│ "
-				  + this.MidBotHull(hull)
-				  + "\n│ 5│" + this.checkHidden(A05, A05.getSymMid()) + this.checkHidden(A05, A05.getSymbol()) + this.checkHidden(A05, A05.getSymMid2())
-				  + "│"      + this.checkHidden(B05, B05.getSymMid()) + this.checkHidden(B05, B05.getSymbol()) + this.checkHidden(B05, B05.getSymMid2())
-				  + "│"      + this.checkHidden(C05, C05.getSymMid()) + this.checkHidden(C05, C05.getSymbol()) + this.checkHidden(C05, C05.getSymMid2())
-				  + "│"      + this.checkHidden(D05, D05.getSymMid()) + this.checkHidden(D05, D05.getSymbol()) + this.checkHidden(D05, D05.getSymMid2())
-				  + "│"      + this.checkHidden(E05, E05.getSymMid()) + this.checkHidden(E05, E05.getSymbol()) + this.checkHidden(E05, E05.getSymMid2())
-				  + "│"      + this.checkHidden(F05, F05.getSymMid()) + this.checkHidden(F05, F05.getSymbol()) + this.checkHidden(F05, F05.getSymMid2())
-				  + "│"      + this.checkHidden(G05, G05.getSymMid()) + this.checkHidden(G05, G05.getSymbol()) + this.checkHidden(G05, G05.getSymMid2())
-				  + "│"      + this.checkHidden(H05, H05.getSymMid()) + this.checkHidden(H05, H05.getSymbol()) + this.checkHidden(H05, H05.getSymMid2())
-				  + "│"      + this.checkHidden(I05, I05.getSymMid()) + this.checkHidden(I05, I05.getSymbol()) + this.checkHidden(I05, I05.getSymMid2())
-				  + "│"      + this.checkHidden(J05, J05.getSymMid()) + this.checkHidden(J05, J05.getSymbol()) + this.checkHidden(J05, J05.getSymMid2()) + "│ "
-				  + this.BotHull(hull)
-				  + "\n│  │" + this.checkHidden(A05, A05.getSymBot())
-				  + "│"      + this.checkHidden(B05, B05.getSymBot())
-				  + "│"      + this.checkHidden(C05, C05.getSymBot())
-				  + "│"      + this.checkHidden(D05, D05.getSymBot())
-				  + "│"      + this.checkHidden(E05, E05.getSymBot())
-				  + "│"      + this.checkHidden(F05, F05.getSymBot())
-				  + "│"      + this.checkHidden(G05, G05.getSymBot())
-				  + "│"      + this.checkHidden(H05, H05.getSymBot())
-				  + "│"      + this.checkHidden(I05, I05.getSymBot())
-				  + "│"      + this.checkHidden(J05, J05.getSymBot()) + "│"
-				  + "  ----- -Upgrade   ----- -Switch Ships"
-				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-				  + "  | Q |            | E |"
-				  + "\n│  │" + this.checkHidden(A06, A06.getSymTop())
-				  + "│"    + this.checkHidden(B06, B06.getSymTop())
-				  + "│"    + this.checkHidden(C06, C06.getSymTop())
-				  + "│"    + this.checkHidden(D06, D06.getSymTop())
-				  + "│"    + this.checkHidden(E06, E06.getSymTop())
-				  + "│"    + this.checkHidden(F06, F06.getSymTop())
-				  + "│"    + this.checkHidden(G06, G06.getSymTop())
-				  + "│"    + this.checkHidden(H06, H06.getSymTop())
-				  + "│"    + this.checkHidden(I06, I06.getSymTop())
-				  + "│"    + this.checkHidden(J06, J06.getSymTop()) + "│"
-				  + "  -----    -----   -----"
-				  + "\n│ 6│" + this.checkHidden(A06, A06.getSymMid()) + this.checkHidden(A06, A06.getSymbol()) + this.checkHidden(A06, A06.getSymMid2())
-				  + "│"      + this.checkHidden(B06, B06.getSymMid()) + this.checkHidden(B06, B06.getSymbol()) + this.checkHidden(B06, B06.getSymMid2())
-				  + "│"      + this.checkHidden(C06, C06.getSymMid()) + this.checkHidden(C06, C06.getSymbol()) + this.checkHidden(C06, C06.getSymMid2())
-				  + "│"      + this.checkHidden(D06, D06.getSymMid()) + this.checkHidden(D06, D06.getSymbol()) + this.checkHidden(D06, D06.getSymMid2())
-				  + "│"      + this.checkHidden(E06, E06.getSymMid()) + this.checkHidden(E06, E06.getSymbol()) + this.checkHidden(E06, E06.getSymMid2())
-				  + "│"      + this.checkHidden(F06, F06.getSymMid()) + this.checkHidden(F06, F06.getSymbol()) + this.checkHidden(F06, F06.getSymMid2())
-				  + "│"      + this.checkHidden(G06, G06.getSymMid()) + this.checkHidden(G06, G06.getSymbol()) + this.checkHidden(G06, G06.getSymMid2())
-				  + "│"      + this.checkHidden(H06, H06.getSymMid()) + this.checkHidden(H06, H06.getSymbol()) + this.checkHidden(H06, H06.getSymMid2())
-				  + "│"      + this.checkHidden(I06, I06.getSymMid()) + this.checkHidden(I06, I06.getSymbol()) + this.checkHidden(I06, I06.getSymMid2())
-				  + "│"      + this.checkHidden(J06, J06.getSymMid()) + this.checkHidden(J06, J06.getSymbol()) + this.checkHidden(J06, J06.getSymMid2()) + "│"
-				  + "           | W |-Up"
-				  + "\n│  │" + this.checkHidden(A06, A06.getSymBot())
-				  + "│"      + this.checkHidden(B06, B06.getSymBot())
-				  + "│"      + this.checkHidden(C06, C06.getSymBot())
-				  + "│"      + this.checkHidden(D06, D06.getSymBot())
-				  + "│"      + this.checkHidden(E06, E06.getSymBot())
-				  + "│"      + this.checkHidden(F06, F06.getSymBot())
-				  + "│"      + this.checkHidden(G06, G06.getSymBot())
-				  + "│"      + this.checkHidden(H06, H06.getSymBot())
-				  + "│"      + this.checkHidden(I06, I06.getSymBot())
-				  + "│"      + this.checkHidden(J06, J06.getSymBot()) + "│"
-				  + "       -------------"
-				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-				  + "  Left-| A | S | D |-Right"
-				  + "\n│  │" + this.checkHidden(A07, A07.getSymTop())
-				  + "│"    + this.checkHidden(B07, B07.getSymTop())
-				  + "│"    + this.checkHidden(C07, C07.getSymTop())
-				  + "│"    + this.checkHidden(D07, D07.getSymTop())
-				  + "│"    + this.checkHidden(E07, E07.getSymTop())
-				  + "│"    + this.checkHidden(F07, F07.getSymTop())
-				  + "│"    + this.checkHidden(G07, G07.getSymTop())
-				  + "│"    + this.checkHidden(H07, H07.getSymTop())
-				  + "│"    + this.checkHidden(I07, I07.getSymTop())
-				  + "│"    + this.checkHidden(J07, J07.getSymTop()) + "│"
-				  + "       -------------"
-				  + "\n│ 7│" + this.checkHidden(A07, A07.getSymMid()) + this.checkHidden(A07, A07.getSymbol()) + this.checkHidden(A07, A07.getSymMid2())
-				  + "│"      + this.checkHidden(B07, B07.getSymMid()) + this.checkHidden(B07, B07.getSymbol()) + this.checkHidden(B07, B07.getSymMid2())
-				  + "│"      + this.checkHidden(C07, C07.getSymMid()) + this.checkHidden(C07, C07.getSymbol()) + this.checkHidden(C07, C07.getSymMid2())
-				  + "│"      + this.checkHidden(D07, D07.getSymMid()) + this.checkHidden(D07, D07.getSymbol()) + this.checkHidden(D07, D07.getSymMid2())
-				  + "│"      + this.checkHidden(E07, E07.getSymMid()) + this.checkHidden(E07, E07.getSymbol()) + this.checkHidden(E07, E07.getSymMid2())
-				  + "│"      + this.checkHidden(F07, F07.getSymMid()) + this.checkHidden(F07, F07.getSymbol()) + this.checkHidden(F07, F07.getSymMid2())
-				  + "│"      + this.checkHidden(G07, G07.getSymMid()) + this.checkHidden(G07, G07.getSymbol()) + this.checkHidden(G07, G07.getSymMid2())
-				  + "│"      + this.checkHidden(H07, H07.getSymMid()) + this.checkHidden(H07, H07.getSymbol()) + this.checkHidden(H07, H07.getSymMid2())
-				  + "│"      + this.checkHidden(I07, I07.getSymMid()) + this.checkHidden(I07, I07.getSymbol()) + this.checkHidden(I07, I07.getSymMid2())
-				  + "│"      + this.checkHidden(J07, J07.getSymMid()) + this.checkHidden(J07, J07.getSymbol()) + this.checkHidden(J07, J07.getSymMid2()) + "│"
-				  + "            └Down"
-				  + "\n│  │" + this.checkHidden(A07, A07.getSymBot())
-				  + "│"      + this.checkHidden(B07, B07.getSymBot())
-				  + "│"      + this.checkHidden(C07, C07.getSymBot())
-				  + "│"      + this.checkHidden(D07, D07.getSymBot())
-				  + "│"      + this.checkHidden(E07, E07.getSymBot())
-				  + "│"      + this.checkHidden(F07, F07.getSymBot())
-				  + "│"      + this.checkHidden(G07, G07.getSymBot())
-				  + "│"      + this.checkHidden(H07, H07.getSymBot())
-				  + "│"      + this.checkHidden(I07, I07.getSymBot())
-				  + "│"      + this.checkHidden(J07, J07.getSymBot()) + "│"
-				  + "   ┌---┐"
-				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-				  + "   │ 1 │-Attack"
-				  + "\n│  │" + this.checkHidden(A08, A08.getSymTop())
-				  + "│"    + this.checkHidden(B08, B08.getSymTop())
-				  + "│"    + this.checkHidden(C08, C08.getSymTop())
-				  + "│"    + this.checkHidden(D08, D08.getSymTop())
-				  + "│"    + this.checkHidden(E08, E08.getSymTop())
-				  + "│"    + this.checkHidden(F08, F08.getSymTop())
-				  + "│"    + this.checkHidden(G08, G08.getSymTop())
-				  + "│"    + this.checkHidden(H08, H08.getSymTop())
-				  + "│"    + this.checkHidden(I08, I08.getSymTop())
-				  + "│"    + this.checkHidden(J08, J08.getSymTop()) + "│"
-				  + "   └---┘"
-				  + "\n│ 8│" + this.checkHidden(A08, A08.getSymMid()) + this.checkHidden(A08, A08.getSymbol()) + this.checkHidden(A08, A08.getSymMid2())
-				  + "│"      + this.checkHidden(B08, B08.getSymMid()) + this.checkHidden(B08, B08.getSymbol()) + this.checkHidden(B08, B08.getSymMid2())
-				  + "│"      + this.checkHidden(C08, C08.getSymMid()) + this.checkHidden(C08, C08.getSymbol()) + this.checkHidden(C08, C08.getSymMid2())
-				  + "│"      + this.checkHidden(D08, D08.getSymMid()) + this.checkHidden(D08, D08.getSymbol()) + this.checkHidden(D08, D08.getSymMid2())
-				  + "│"      + this.checkHidden(E08, E08.getSymMid()) + this.checkHidden(E08, E08.getSymbol()) + this.checkHidden(E08, E08.getSymMid2())
-				  + "│"      + this.checkHidden(F08, F08.getSymMid()) + this.checkHidden(F08, F08.getSymbol()) + this.checkHidden(F08, F08.getSymMid2())
-				  + "│"      + this.checkHidden(G08, G08.getSymMid()) + this.checkHidden(G08, G08.getSymbol()) + this.checkHidden(G08, G08.getSymMid2())
-				  + "│"      + this.checkHidden(H08, H08.getSymMid()) + this.checkHidden(H08, H08.getSymbol()) + this.checkHidden(H08, H08.getSymMid2())
-				  + "│"      + this.checkHidden(I08, I08.getSymMid()) + this.checkHidden(I08, I08.getSymbol()) + this.checkHidden(I08, I08.getSymMid2())
-				  + "│"      + this.checkHidden(J08, J08.getSymMid()) + this.checkHidden(J08, J08.getSymbol()) + this.checkHidden(J08, J08.getSymMid2()) + "│"
-				  + "   ┌---┐"
-				  + "\n│  │" + this.checkHidden(A08, A08.getSymBot())
-				  + "│"      + this.checkHidden(B08, B08.getSymBot())
-				  + "│"      + this.checkHidden(C08, C08.getSymBot())
-				  + "│"      + this.checkHidden(D08, D08.getSymBot())
-				  + "│"      + this.checkHidden(E08, E08.getSymBot())
-				  + "│"      + this.checkHidden(F08, F08.getSymBot())
-				  + "│"      + this.checkHidden(G08, G08.getSymBot())
-				  + "│"      + this.checkHidden(H08, H08.getSymBot())
-				  + "│"      + this.checkHidden(I08, I08.getSymBot())
-				  + "│"      + this.checkHidden(J08, J08.getSymBot()) + "│"
-				  + "   │ 2 │-Main Menu"
-				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-				  + "   └---┘"
-				  + "\n│  │" + this.checkHidden(A09, A09.getSymTop())
-				  + "│"    + this.checkHidden(B09, B09.getSymTop())
-				  + "│"    + this.checkHidden(C09, C09.getSymTop())
-				  + "│"    + this.checkHidden(D09, D09.getSymTop())
-				  + "│"    + this.checkHidden(E09, E09.getSymTop())
-				  + "│"    + this.checkHidden(F09, F09.getSymTop())
-				  + "│"    + this.checkHidden(G09, G09.getSymTop())
-				  + "│"    + this.checkHidden(H09, H09.getSymTop())
-				  + "│"    + this.checkHidden(I09, I09.getSymTop())
-				  + "│"    + this.checkHidden(J09, J09.getSymTop()) + "│"
-				  + "\n│ 9│" + this.checkHidden(A09, A09.getSymMid()) + this.checkHidden(A09, A09.getSymbol()) + this.checkHidden(A09, A09.getSymMid2())
-				  + "│"      + this.checkHidden(B09, B09.getSymMid()) + this.checkHidden(B09, B09.getSymbol()) + this.checkHidden(B09, B09.getSymMid2())
-				  + "│"      + this.checkHidden(C09, C09.getSymMid()) + this.checkHidden(C09, C09.getSymbol()) + this.checkHidden(C09, C09.getSymMid2())
-				  + "│"      + this.checkHidden(D09, D09.getSymMid()) + this.checkHidden(D09, D09.getSymbol()) + this.checkHidden(D09, D09.getSymMid2())
-				  + "│"      + this.checkHidden(E09, E09.getSymMid()) + this.checkHidden(E09, E09.getSymbol()) + this.checkHidden(E09, E09.getSymMid2())
-				  + "│"      + this.checkHidden(F09, F09.getSymMid()) + this.checkHidden(F09, F09.getSymbol()) + this.checkHidden(F09, F09.getSymMid2())
-				  + "│"      + this.checkHidden(G09, G09.getSymMid()) + this.checkHidden(G09, G09.getSymbol()) + this.checkHidden(G09, G09.getSymMid2())
-				  + "│"      + this.checkHidden(H09, H09.getSymMid()) + this.checkHidden(H09, H09.getSymbol()) + this.checkHidden(H09, H09.getSymMid2())
-				  + "│"      + this.checkHidden(I09, I09.getSymMid()) + this.checkHidden(I09, I09.getSymbol()) + this.checkHidden(I09, I09.getSymMid2())
-				  + "│"      + this.checkHidden(J09, J09.getSymMid()) + this.checkHidden(J09, J09.getSymbol()) + this.checkHidden(J09, J09.getSymMid2()) + "│"
-				  + "\n│  │" + this.checkHidden(A09, A09.getSymBot())
-				  + "│"      + this.checkHidden(B09, B09.getSymBot())
-				  + "│"      + this.checkHidden(C09, C09.getSymBot())
-				  + "│"      + this.checkHidden(D09, D09.getSymBot())
-				  + "│"      + this.checkHidden(E09, E09.getSymBot())
-				  + "│"      + this.checkHidden(F09, F09.getSymBot())
-				  + "│"      + this.checkHidden(G09, G09.getSymBot())
-				  + "│"      + this.checkHidden(H09, H09.getSymBot())
-				  + "│"      + this.checkHidden(I09, I09.getSymBot())
-				  + "│"      + this.checkHidden(J09, J09.getSymBot()) + "│"
-				  + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-				  + "\n│  │" + this.checkHidden(A10, A10.getSymTop())
-				  + "│"    + this.checkHidden(B10, B10.getSymTop())
-				  + "│"    + this.checkHidden(C10, C10.getSymTop())
-				  + "│"    + this.checkHidden(D10, D10.getSymTop())
-				  + "│"    + this.checkHidden(E10, E10.getSymTop())
-				  + "│"    + this.checkHidden(F10, F10.getSymTop())
-				  + "│"    + this.checkHidden(G10, G10.getSymTop())
-				  + "│"    + this.checkHidden(H10, H10.getSymTop())
-				  + "│"    + this.checkHidden(I10, I10.getSymTop())
-				  + "│"    + this.checkHidden(J10, J10.getSymTop()) + "│"
-				  + "   ┌---┐"
-				  + "\n│10│" + this.checkHidden(A10, A10.getSymMid()) + this.checkHidden(A10, A10.getSymbol()) + this.checkHidden(A10, A10.getSymMid2())
-				  + "│"      + this.checkHidden(B10, B10.getSymMid()) + this.checkHidden(B10, B10.getSymbol()) + this.checkHidden(B10, B10.getSymMid2())
-				  + "│"      + this.checkHidden(C10, C10.getSymMid()) + this.checkHidden(C10, C10.getSymbol()) + this.checkHidden(C10, C10.getSymMid2())
-				  + "│"      + this.checkHidden(D10, D10.getSymMid()) + this.checkHidden(D10, D10.getSymbol()) + this.checkHidden(D10, D10.getSymMid2())
-				  + "│"      + this.checkHidden(E10, E10.getSymMid()) + this.checkHidden(E10, E10.getSymbol()) + this.checkHidden(E10, E10.getSymMid2())
-				  + "│"      + this.checkHidden(F10, F10.getSymMid()) + this.checkHidden(F10, F10.getSymbol()) + this.checkHidden(F10, F10.getSymMid2())
-				  + "│"      + this.checkHidden(G10, G10.getSymMid()) + this.checkHidden(G10, G10.getSymbol()) + this.checkHidden(G10, G10.getSymMid2())
-				  + "│"      + this.checkHidden(H10, H10.getSymMid()) + this.checkHidden(H10, H10.getSymbol()) + this.checkHidden(H10, H10.getSymMid2())
-				  + "│"      + this.checkHidden(I10, I10.getSymMid()) + this.checkHidden(I10, I10.getSymbol()) + this.checkHidden(I10, I10.getSymMid2())
-				  + "│"      + this.checkHidden(J10, J10.getSymMid()) + this.checkHidden(J10, J10.getSymbol()) + this.checkHidden(J10, J10.getSymMid2()) + "│"
-				  + "   │ 0 │-Launch      "
-				  + currentPart
-				  + " / 15 Parts"
-				  + "\n│  │" + this.checkHidden(A10, A10.getSymBot())
-				  + "│"      + this.checkHidden(B10, B10.getSymBot())
-				  + "│"      + this.checkHidden(C10, C10.getSymBot())
-				  + "│"      + this.checkHidden(D10, D10.getSymBot())
-				  + "│"      + this.checkHidden(E10, E10.getSymBot())
-				  + "│"      + this.checkHidden(F10, F10.getSymBot())
-				  + "│"      + this.checkHidden(G10, G10.getSymBot())
-				  + "│"      + this.checkHidden(H10, H10.getSymBot())
-				  + "│"      + this.checkHidden(I10, I10.getSymBot())
-				  + "│"      + this.checkHidden(J10, J10.getSymBot()) + "│"
-				  + "   └---┘"
-				  + "\n└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘";
+System.out.println(
+        "\n"
+                + "         A        B       C        D       E        F       G        H        I       J "
+                + "\n┌--┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┐"
+                + this.lineTop(A01, B01, C01, D01, E01, F01, G01, H01, I01, J01)
+                + rank
+                + this.lineMid(A01, B01, C01, D01, E01, F01, G01, H01, I01, J01)
+                + userName
+                + this.lineBot(A01, B01, C01, D01, E01, F01, G01, H01, I01, J01)
+                + shipName
+                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + shipType
+                + this.lineTop(A02, B02, C02, D02, E02, F02, G02, H02, I02, J02)
+                + shipClass
+                + this.lineMid(A02, B02, C02, D02, E02, F02, G02, H02, I02, J02)
+                + this.lineBot(A02, B02, C02, D02, E02, F02, G02, H02, I02, J02)
+                + "ATTACK »»»»»»»» " + shipAttack
+                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "ACCURACY »»»»»» " + shipAccuracy
+                + this.lineTop(A03, B03, C03, D03, E03, F03, G03, H03, I03, J03)
+                + "DEFENCE »»»»»»» "
+                + defense
+                + this.lineMid(A03, B03, C03, D03, E03, F03, G03, H03, I03, J03)
+                + "POW's »»»»»»»»» "
+                + POWs
+                + this.lineBot(A03, B03, C03, D03, E03, F03, G03, H03, I03, J03)
+                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "┌──────────────┐"
+                + this.lineTop(A04, B04, C04, D04, E04, F04, G04, H04, I04, J04)
+                + "│ HULL       "
+                + hull
+                + " / "
+                + maxHull
+                + this.lineMid(A04, B04, C04, D04, E04, F04, G04, H04, I04, J04)
+                + this.topHull(maxHull)
+                + this.lineBot(A04, B04, C04, D04, E04, F04, G04, H04, I04, J04)
+                + this.MidTopHull(hull, maxHull)
+                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + this.MidHull(maxHull)
+                + this.lineTop(A05, B05, C05, D05, E05, F05, G05, H05, I05, J05)
+                + this.MidBotHull(hull, maxHull)
+                + this.lineMid(A05, B05, C05, D05, E05, F05, G05, H05, I05, J05)
+                + this.BotHull(maxHull)
+                + this.lineBot(A05, B05, C05, D05, E05, F05, G05, H05, I05, J05)
+                + "E - Switch Ships"
+                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "R - Upgrade"
+                + this.lineTop(A06, B06, C06, D06, E06, F06, G06, H06, I06, J06)
+                + "Q - Back to Main Menu"
+                + this.lineMid(A06, B06, C06, D06, E06, F06, G06, H06, I06, J06)
+                + ""
+                + this.lineBot(A06, B06, C06, D06, E06, F06, G06, H06, I06, J06)
+                + "W - Move Up"
+                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "S - Move Down"
+                + this.lineTop(A07, B07, C07, D07, E07, F07, G07, H07, I07, J07)
+                + "A - Move Left"
+                + this.lineMid(A07, B07, C07, D07, E07, F07, G07, H07, I07, J07)
+                + "D - Move Right"
+                + this.lineBot(A07, B07, C07, D07, E07, F07, G07, H07, I07, J07)
+                + ""
+                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "L - Launch Nuclear Bomb"
+                + this.lineTop(A08, B08, C08, D08, E08, F08, G08, H08, I08, J08)
+                + "    Parts: " + currentPart + " / 15 Parts"
+                + this.lineMid(A08, B08, C08, D08, E08, F08, G08, H08, I08, J08)
+                + this.lineBot(A08, B08, C08, D08, E08, F08, G08, H08, I08, J08)
+                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + this.lineTop(A09, B09, C09, D09, E09, F09, G09, H09, I09, J09)
+                + this.lineMid(A09, B09, C09, D09, E09, F09, G09, H09, I09, J09)
+                + this.lineBot(A09, B09, C09, D09, E09, F09, G09, H09, I09, J09)
+                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + this.lineTop(A10, B10, C10, D10, E10, F10, G10, H10, I10, J10)
+                + this.lineMid(A10, B10, C10, D10, E10, F10, G10, H10, I10, J10)
+                + this.lineBot(A10, B10, C10, D10, E10, F10, G10, H10, I10, J10)
+                + "\n└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘");
         
     
 }
     
-    private String topHull(int hull){
+    private String topHull(int maxHull){
         
         String line = "├";
         int x = 1;
         
-        while (hull > x && x < 20){
+        while (maxHull > x && x < 20){
             line += "─┬";
             x++;
         }
@@ -1372,12 +1093,12 @@ map =
         return line += "─┐";
     }
 
-    private String MidTopHull(int hull) {
+    private String MidTopHull(int hull, int maxHull) {
         
         String line = "│";
         int x = 0;
         
-        while (hull > x && x < 20) {
+        while (maxHull > x && x < 20) {
             if (hull > x)
                 line += "█";
             
@@ -1392,11 +1113,11 @@ map =
         return line;
     }
 
-    private String MidHull(int hull) {
+    private String MidHull(int maxHull) {
         
         String line = "";
         
-        if (hull <= 20)
+        if (maxHull <= 20)
             line = "└";
         else
             line = "├";
@@ -1404,8 +1125,8 @@ map =
         int x = 1;
         int y = 20;
         
-        while (hull > x && x < 20){
-            if (hull > y){
+        while (maxHull > x && x < 20){
+            if (maxHull > y){
                 line += "─┼";
             }
             else {
@@ -1417,21 +1138,21 @@ map =
         
         y--;
         
-        if (hull == y)
+        if (maxHull == y)
             return line += "─┤";
         
         return line += "─┘";
     }
 
-    private String MidBotHull(int hull) {
+    private String MidBotHull(int hull, int maxHull) {
         
-        if (hull <= 20)
+        if (maxHull <= 20)
             return "";
         
         String line = "";
         int x = 20;
         
-        while (hull > x) {
+        while (maxHull > x) {
             if (hull > x)
                 line += "│█";
             
@@ -1444,15 +1165,15 @@ map =
         return line += "│";
     }
 
-    private String BotHull(int hull) {
-        if (hull <= 20){
+    private String BotHull(int maxHull) {
+        if (maxHull <= 20){
             return "";
         }
         
         String line = "└";
         int x = 21;
         
-        while (hull > x){
+        while (maxHull > x){
             line += "─┴";
             x++;
         }
@@ -1512,6 +1233,103 @@ map =
        LaunchNuke launchNuke = new LaunchNuke();
        launchNuke.display();
     }
+    
+    private String lineTop(
+            Location A, Location B,
+            Location C, Location D,
+            Location E, Location F,
+            Location G, Location H,
+            Location I, Location J) {
+        
+        String line = "\n│  │"
+                + this.checkHidden(A, A.getSymTop())
+                + "│"    + this.checkHidden(B, B.getSymTop())
+                + "│"    + this.checkHidden(C, C.getSymTop())
+                + "│"    + this.checkHidden(D, D.getSymTop())
+                + "│"    + this.checkHidden(E, E.getSymTop())
+                + "│"    + this.checkHidden(F, F.getSymTop())
+                + "│"    + this.checkHidden(G, G.getSymTop())
+                + "│"    + this.checkHidden(H, H.getSymTop())
+                + "│"    + this.checkHidden(I, I.getSymTop())
+                + "│"    + this.checkHidden(J, J.getSymTop()) + "│  ";
+        
+        return line;
+    }
+    
+    private String lineMid(
+            Location A, Location B,
+            Location C, Location D,
+            Location E, Location F,
+            Location G, Location H,
+            Location I, Location J) {
+        
+        String rowNumber = "";
+        
+        if (A.getRow() < 10)
+            rowNumber = " " + A.getRow();
+        else
+            rowNumber =  "" + A.getRow();
+    
+        String line = "\n│"
+                + rowNumber
+                + "│" + this.checkHidden(A, A.getSymMid())
+                + this.checkHidden(A, A.getSymbol())
+                + this.checkHidden(A, A.getSymMid2())
+                + "│"      + this.checkHidden(B, B.getSymMid())
+                + this.checkHidden(B, B.getSymbol())
+                + this.checkHidden(B, B.getSymMid2())
+                + "│"      + this.checkHidden(C, C.getSymMid())
+                + this.checkHidden(C, C.getSymbol())
+                + this.checkHidden(C, C.getSymMid2())
+                + "│"      + this.checkHidden(D, D.getSymMid())
+                + this.checkHidden(D, D.getSymbol())
+                + this.checkHidden(D, D.getSymMid2())
+                + "│"      + this.checkHidden(E, E.getSymMid())
+                + this.checkHidden(E, E.getSymbol())
+                + this.checkHidden(E, E.getSymMid2())
+                + "│"      + this.checkHidden(F, F.getSymMid())
+                + this.checkHidden(F, F.getSymbol())
+                + this.checkHidden(F, F.getSymMid2())
+                + "│"      + this.checkHidden(G, G.getSymMid())
+                + this.checkHidden(G, G.getSymbol())
+                + this.checkHidden(G, G.getSymMid2())
+                + "│"      + this.checkHidden(H, H.getSymMid())
+                + this.checkHidden(H, H.getSymbol())
+                + this.checkHidden(H, H.getSymMid2())
+                + "│"      + this.checkHidden(I, I.getSymMid())
+                + this.checkHidden(I, I.getSymbol())
+                + this.checkHidden(I, I.getSymMid2())
+                + "│"      + this.checkHidden(J, J.getSymMid())
+                + this.checkHidden(J, J.getSymbol())
+                + this.checkHidden(J, J.getSymMid2())  + "│  ";
+        
+        return line;
+    }
+    
+        private String lineBot(
+            Location A, Location B,
+            Location C, Location D,
+            Location E, Location F,
+            Location G, Location H,
+            Location I, Location J) {
+        
+        String line = "\n│  │"
+                + this.checkHidden(A, A.getSymBot())
+                + "│"    + this.checkHidden(B, B.getSymBot())
+                + "│"    + this.checkHidden(C, C.getSymBot())
+                + "│"    + this.checkHidden(D, D.getSymBot())
+                + "│"    + this.checkHidden(E, E.getSymBot())
+                + "│"    + this.checkHidden(F, F.getSymBot())
+                + "│"    + this.checkHidden(G, G.getSymBot())
+                + "│"    + this.checkHidden(H, H.getSymBot())
+                + "│"    + this.checkHidden(I, I.getSymBot())
+                + "│"    + this.checkHidden(J, J.getSymBot()) + "│  ";
+        
+        return line;
+    }
+            
+            
+            
 }
 
     
