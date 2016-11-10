@@ -5,7 +5,6 @@
  */
 package byui.cit260.pacificBattleship.view;
 
-import java.util.Scanner;
 
 /**
  *
@@ -14,16 +13,14 @@ import java.util.Scanner;
 public class AttackMenuView extends View{
        
     public AttackMenuView() {
-        super(      "\n"
-                   + "\n-------------------------------------------------"
-                   +"\n| Attack Menu                                      |"
-                   +"\n--------------------------------------------------"
-                   +"\nG - What is the goal of the game?"
-                   +"\nM - How to move"
-                   +"\nP - What do the POW'S do?"
-                   +"\nN - What does the Nuke do?"
-                   +"\nQ - Quit"
-                   +"\n--------------------------------------------------");
+        super(       "\n"
+                   + "\n--------------------------------------------------"
+                   + "\n| Select Coordinates                              |"
+                   + "\n--------------------------------------------------"
+                   + "\nEnter the coordintes of the location you wish to "
+                   + "\nattack:"
+                   + "\n    Q - Return to Command Menu"
+                   + "\n--------------------------------------------------");
               }
 
  
@@ -34,42 +31,63 @@ public class AttackMenuView extends View{
     public boolean doAction(String value) {
       value = value.toUpperCase();
       
-      switch (value){
-          case "G":
-              this.gameGoal();
+      int column = -1;
+      int row = 0;
+      
+      if (value.charAt(1) == '1') {
+          if (value.charAt(2) == '0')
+              column = 10;
+          else
+              column = 1;
+      }
+      else
+          column = Character.getNumericValue(value.charAt(1));
+      
+      switch (value.charAt(0)){
+          case 'A':
+              row = 1;
               break;
-          case "M":
-              this.move();
+          case 'B':
+              row = 2;
               break;
-          case "P":
-              this.pow();
+          case 'C':
+              row = 3;
               break;
-          case "N":
-              this.nuke();
+          case 'D':
+              row = 4;
+              break;
+          case 'E':
+              row = 5;
+              break;
+          case 'F':
+              row = 6;
+              break;
+          case 'G':
+              row = 7;
+              break;
+          case 'H':
+              row = 8;
+              break;
+          case 'I':
+              row = 9;
+              break;
+          case 'J':
+              row = 10;
               break;
           default:
-              System.out.println("\n*** Invalid selection *** Try again");
-              break;
+              row = -1;
       }
       
-       return false;
+      
+      if (value.length() < 2 || value.length() > 3 || row == -1) {
+          System.out.println("\n*** Invalid Coordinates! *** Try again");
+          return false;
+      }
+      
+      return true;
+      
     }
 
-    private void gameGoal() {
-           System.out.println("\n*** gameGoal stub function called ***");
-    }
-
-    private void move() {
-          System.out.println("\n*** move stub function called ***");
-    }
-
-    private void pow() {
-          System.out.println("\n*** POW stub function called ***");
-    }
-
-    private void nuke() {
-           System.out.println("\n*** nuke stub function called ***");
-    }
 }
 
     

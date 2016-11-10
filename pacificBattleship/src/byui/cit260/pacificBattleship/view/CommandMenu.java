@@ -1044,13 +1044,13 @@ System.out.println(
                 + this.lineMid(A05, B05, C05, D05, E05, F05, G05, H05, I05, J05)
                 + this.BotHull(maxHull)
                 + this.lineBot(A05, B05, C05, D05, E05, F05, G05, H05, I05, J05)
-                + "E - Switch Ships"
+                + "4 - Attack"
                 + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-                + "R - Upgrade"
+                + "E - Switch Ships"
                 + this.lineTop(A06, B06, C06, D06, E06, F06, G06, H06, I06, J06)
-                + "Q - Back to Main Menu"
+                + "R - Upgrade"
                 + this.lineMid(A06, B06, C06, D06, E06, F06, G06, H06, I06, J06)
-                + ""
+                + "Q - Back to Main Menu"
                 + this.lineBot(A06, B06, C06, D06, E06, F06, G06, H06, I06, J06)
                 + "W - Move Up"
                 + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
@@ -1226,7 +1226,8 @@ System.out.println(
     }
 
     private void attack() {
-        System.out.println("*** attack function called ***");
+       AttackMenuView attackMenuView = new AttackMenuView();
+       attackMenuView.display();
     }
 
     private void launchNuke() {
