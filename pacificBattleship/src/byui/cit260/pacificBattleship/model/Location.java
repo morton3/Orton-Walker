@@ -25,6 +25,10 @@ public class Location implements Serializable{
     public Location() {
     }
 
+    Location(int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", rank=" + rank + ", type=" + type + ", SymTop=" + SymTop + ", SymMid=" + SymMid + ", SymMid2=" + SymMid2 + ", SymBot=" + SymBot + ", hidden=" + hidden + ", symbol=" + symbol + '}';
