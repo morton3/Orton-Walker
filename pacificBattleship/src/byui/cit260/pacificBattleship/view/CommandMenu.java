@@ -26,7 +26,7 @@ public class CommandMenu extends View{
         
         this.displayMap();
         
-        
+        //
     }
     
 
