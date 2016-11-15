@@ -26,7 +26,7 @@ public class CommandMenu extends View{
         
         this.displayMap();
         
-        //
+        
     }
     
 
@@ -80,7 +80,7 @@ public class CommandMenu extends View{
         String userName = PacificBattleship.getPlayer().getUserName();
         String shipClass = ship.getShipClass().getName();
         String shipType = ship.getType();
-        String shipName = ship.getName();
+        String shipName = ship.getShipName();
         int shipAttack = ship.getAttack();
         int shipAccuracy = ship.getAccuracy();
         int defense = ship.getDefense();

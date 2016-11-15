@@ -59,7 +59,7 @@ public class GameControl {
 
         Ship activeShip = new Ship();
 
-        activeShip.setName("U.S.S. Tennessee");
+        activeShip.setName("USS Tennessee");
         activeShip.setType("Battleship");
         activeShip.setDefense(1);
         activeShip.setAccuracy(80);

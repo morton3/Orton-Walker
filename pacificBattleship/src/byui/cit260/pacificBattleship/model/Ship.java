@@ -14,14 +14,14 @@ import java.util.Objects;
  */
 public enum Ship implements Serializable{
     
-    Battleship("battleship",1,90,true,5,8,8,"Battleship description","B");
+    Battleship("USS Tennessee","battleship",1,90,true,5,8,8,"Battleship description","B");
     
     
     
     
     
     
-    
+    private final String shipName;
     private final String type;
     private final int defense;
     private final int accuracy;
@@ -34,10 +34,10 @@ public enum Ship implements Serializable{
     private final String symbol;
     private final ShipClass shipClass;
 
-        Ship(String type, int defense, int accuracy,boolean userControl,int attack,
+        Ship(String shipName, String type, int defense, int accuracy,boolean userControl,int attack,
         int hull,int maxHull,String description,String symbol){
                 this.type = type;
-                
+                this.shipName = shipName;
                 this.defense = defense;
                 this.accuracy = accuracy;
                 this.userControl = userControl;
@@ -50,7 +50,9 @@ public enum Ship implements Serializable{
                 shipClass = new ShipClass(0);
 }
 
-
+ public String getShipName() {
+        return shipName;
+    }
  
     public String getType() {
         return type;
