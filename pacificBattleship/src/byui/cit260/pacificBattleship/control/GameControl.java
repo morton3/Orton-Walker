@@ -6,11 +6,10 @@
 package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.model.Game;
-import byui.cit260.pacificBattleship.model.Location;
+import byui.cit260.pacificBattleship.model.Player;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.view.CommandMenu;
-import java.util.HashSet;
 import pacificbattleship.PacificBattleship;
 
 /**
@@ -19,11 +18,11 @@ import pacificbattleship.PacificBattleship;
  */
 public class GameControl {
 
-    public static Game createPlayer(String name) {
+    public static Player createPlayer(String name) {
         if (name == null) {
             return null;
         }
-        Game player = new Game();
+        Player player = new Player();
         player.setUserName(name);
         PacificBattleship.setPlayer(player);
 
@@ -48,6 +47,7 @@ public class GameControl {
         }
     }
 
+    /*
     public static Ship getActiveShip() {
 
         ShipClass startClass = new ShipClass();
@@ -56,24 +56,13 @@ public class GameControl {
         startClass.setBonusDefense(0);
         startClass.setBonusHull(0);
         startClass.setSymbol("b");
-
-        Ship activeShip = new Ship();
-
-        activeShip.setName("USS Tennessee");
-        activeShip.setType("Battleship");
-        activeShip.setDefense(1);
-        activeShip.setAccuracy(80);
-        activeShip.setUserControl(true);
-        activeShip.setAttack(4);
-        activeShip.setHull(6);
-        activeShip.setMaxHull(10);
-        activeShip.setDescription("");
-        activeShip.setCoordinate(null);
-        activeShip.setSymbol("");
-        activeShip.setShipClass(startClass);
-
+        
+        Ship activeShip;
+        activeShip = Ship("USS Tennessee", "Battleship", 1, 80, true, 4, 6, 10, "USS Tennessee description here", "B");
+        
         return activeShip;
 
-    }
 
+    }
+*/
 }

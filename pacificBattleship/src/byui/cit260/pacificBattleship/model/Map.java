@@ -14,6 +14,7 @@ import java.io.Serializable;
     
     private int rowCount;
     private int columnCount;
+    private Game game;
 
     public int getRowCount() {
         return rowCount;

@@ -11,18 +11,9 @@ import java.util.Objects;
  * @author Nathan
  */
 public class Trap {
-    private String type;
     private int damage;
 
     public Trap() {
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public int getDamage() {
@@ -36,7 +27,6 @@ public class Trap {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.type);
         hash = 97 * hash + this.damage;
         return hash;
     }
@@ -56,15 +46,12 @@ public class Trap {
         if (this.damage != other.damage) {
             return false;
         }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Trap{" + "type=" + type + ", damage=" + damage + '}';
+        return "Trap{" + "damage=" + damage + '}';
     }
 
     

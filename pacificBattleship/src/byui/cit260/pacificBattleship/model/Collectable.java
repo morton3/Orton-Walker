@@ -16,6 +16,7 @@ public class Collectable implements Serializable{
     // classes instance variables
     private String type;
     private String name;
+    private Ship ship;
 
     public Collectable() {
     }

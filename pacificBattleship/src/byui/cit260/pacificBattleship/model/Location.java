@@ -21,6 +21,9 @@ public class Location implements Serializable{
     private String SymBot;
     private boolean hidden;
     private String symbol;
+    private Collectable collectable;
+    private Ship ship;
+    private Scene scene;
 
     public Location() {
     }

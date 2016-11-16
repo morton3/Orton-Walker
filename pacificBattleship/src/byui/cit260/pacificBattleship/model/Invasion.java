@@ -13,18 +13,9 @@ import java.util.Objects;
  */
 public class Invasion implements Serializable{
     
-    private String description;
     private String unit;
 
     public Invasion() {
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getUnit() {
@@ -38,7 +29,6 @@ public class Invasion implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.description);
         hash = 47 * hash + Objects.hashCode(this.unit);
         return hash;
     }
@@ -55,18 +45,17 @@ public class Invasion implements Serializable{
             return false;
         }
         final Invasion other = (Invasion) obj;
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
         if (!Objects.equals(this.unit, other.unit)) {
             return false;
         }
         return true;
     }
 
+
+
     @Override
     public String toString() {
-        return "Invasion{" + "description=" + description + ", unit=" + unit + '}';
+        return "Invasion{" + "unit=" + unit + '}';
     }
 
 }

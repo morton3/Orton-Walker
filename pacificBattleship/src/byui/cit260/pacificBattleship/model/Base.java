@@ -13,6 +13,8 @@ public class Base implements Serializable{
     private int defense;
     private int attack;
     private int power;
+    
+    
 
     public Base() {
     }
