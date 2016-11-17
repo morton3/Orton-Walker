@@ -56,14 +56,6 @@ public class Game implements Serializable {
         this.currentPlayer = currentPlayer;
     }
 
-    public Map getMap() {
-        return map;
-    }
-
-    public void setMap(Map map) {
-        this.map = map;
-    }
-
     @Override
     public int hashCode() {
         int hash = 3;
