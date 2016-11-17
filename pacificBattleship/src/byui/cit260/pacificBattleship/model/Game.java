@@ -20,7 +20,10 @@ public class Game implements Serializable {
     private double numOfPOW;
     private double numOfUsedPOW;
     private Ship currentShip;
-
+    private Map map;
+    
+    
+    
     public Game() {
     }
 
@@ -62,6 +65,14 @@ public class Game implements Serializable {
 
     public void setCurrentShip(Ship currentShip) {
         this.currentShip = currentShip;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
     }
 
     @Override
