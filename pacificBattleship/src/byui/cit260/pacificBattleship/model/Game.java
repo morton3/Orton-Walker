@@ -15,25 +15,14 @@ import java.util.Objects;
 public class Game implements Serializable {
     
     // classes instance variables
-    private String userName;
     private double nuclearParts;
     private double numOfPOW;
     private double numOfUsedPOW;
-    private Ship currentShip;
-    private Map map;
-    
-    
-    
+    private Player currentPlayer;
+
     public Game() {
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     public double getNuclearParts() {
         return nuclearParts;
@@ -59,12 +48,12 @@ public class Game implements Serializable {
         this.numOfUsedPOW = numOfUsedPOW;
     }
 
-    public Ship getCurrentShip() {
-        return currentShip;
+    public Player getCurrentPlayer() {
+        return currentPlayer;
     }
 
-    public void setCurrentShip(Ship currentShip) {
-        this.currentShip = currentShip;
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
     }
 
     public Map getMap() {
@@ -78,7 +67,6 @@ public class Game implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 37 * hash + Objects.hashCode(this.userName);
         hash = 37 * hash + (int) (Double.doubleToLongBits(this.nuclearParts) ^ (Double.doubleToLongBits(this.nuclearParts) >>> 32));
         hash = 37 * hash + (int) (Double.doubleToLongBits(this.numOfPOW) ^ (Double.doubleToLongBits(this.numOfPOW) >>> 32));
         hash = 37 * hash + (int) (Double.doubleToLongBits(this.numOfUsedPOW) ^ (Double.doubleToLongBits(this.numOfUsedPOW) >>> 32));
@@ -106,15 +94,12 @@ public class Game implements Serializable {
         if (Double.doubleToLongBits(this.numOfUsedPOW) != Double.doubleToLongBits(other.numOfUsedPOW)) {
             return false;
         }
-        if (!Objects.equals(this.userName, other.userName)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Game{" + "userName=" + userName + ", nuclearParts=" + nuclearParts + ", numOfPOW=" + numOfPOW + ", numOfUsedPOW=" + numOfUsedPOW + '}';
+        return "Game{" + "nuclearParts=" + nuclearParts + ", numOfPOW=" + numOfPOW + ", numOfUsedPOW=" + numOfUsedPOW + '}';
     }
     
    

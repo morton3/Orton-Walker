@@ -7,6 +7,7 @@ package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.model.Game;
+import byui.cit260.pacificBattleship.model.Player;
 import byui.cit260.pacificBattleship.model.Ship;
 import java.util.Scanner;
 import pacificbattleship.PacificBattleship;
@@ -49,7 +50,7 @@ public class StartProgramView extends View {
                     + "The name must be greater than one character in length");
             return false;
         }
-        Game player = GameControl.createPlayer(playersName);
+        Player player = GameControl.createPlayer(playersName);
         
         if (player == null) {
             System.out.println("\nError creating the player.");
@@ -62,7 +63,7 @@ public class StartProgramView extends View {
     }
    
 
-    private void displayNextView(Game player) {
+    private void displayNextView(Player player) {
         System.out.println(
                   "\n===================================================="
                 + "\n Welcome to the game " + player.getUserName()

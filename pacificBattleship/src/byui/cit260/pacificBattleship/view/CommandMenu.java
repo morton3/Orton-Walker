@@ -4,12 +4,8 @@
  * and open the template in the editor.
  */
 package byui.cit260.pacificBattleship.view;
-import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
-import byui.cit260.pacificBattleship.model.ShipClass;
-import byui.cit260.pacificBattleship.model.ShipMenu;
-import java.util.Scanner;
 import pacificbattleship.PacificBattleship;
 
 /**
@@ -17,6 +13,7 @@ import pacificbattleship.PacificBattleship;
  * @author ort09
  */
 public class CommandMenu extends View{
+    
 
     public CommandMenu(){
         
@@ -73,9 +70,20 @@ public class CommandMenu extends View{
     
     private void displayMap(){
         
-        Ship ship = GameControl.getActiveShip();
+        String rank = "* * * * *";
+        String userName = PacificBattleship.getPlayer().getUserName();
+        String shipClass = "Battleship";
+        String shipType = "Battleship";
+        String shipName = "USS Tennessee";
+        int shipAttack = 5;
+        int shipAccuracy = 80;
+        int defense = 1;
+        int hull = 10;
+        int maxHull = 10;
+        int currentPart = 1;
+        int POWs = 12;
         
-                
+/*                
         String rank = "* * * * *";
         String userName = PacificBattleship.getPlayer().getUserName();
         String shipClass = ship.getShipClass().getName();
@@ -88,7 +96,7 @@ public class CommandMenu extends View{
         int maxHull = ship.getMaxHull();
         int currentPart = 1;
         int POWs = 12;
-        
+*/        
 
     Location A01 = new Location();
     Location A02 = new Location();

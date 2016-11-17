@@ -6,8 +6,6 @@
 package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.GameControl;
-import byui.cit260.pacificBattleship.model.ShipMenu;
-import java.util.Scanner;
 
 /**
  *
