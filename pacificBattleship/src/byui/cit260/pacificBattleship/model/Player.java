@@ -16,7 +16,10 @@ public class Player implements Serializable{
     private String userName;
     private int activeShips;
     private long time;
-
+    private Rank rank;
+    private Game[] game;
+    private Actor[] actor;
+    
     public String getUserName() {
         return userName;
     }
@@ -39,6 +42,30 @@ public class Player implements Serializable{
 
     public void setTime(long time) {
         this.time = time;
+    }
+
+    public Rank getRank() {
+        return rank;
+    }
+
+    public void setRank(Rank rank) {
+        this.rank = rank;
+    }
+
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
+    }
+
+    public Actor[] getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor[] actor) {
+        this.actor = actor;
     }
     
     

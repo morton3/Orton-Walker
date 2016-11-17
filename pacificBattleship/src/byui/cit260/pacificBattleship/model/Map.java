@@ -15,6 +15,8 @@ import java.io.Serializable;
     private int rowCount;
     private int columnCount;
     private Game game;
+    private Location[][] locations;
+    
 
     public int getRowCount() {
         return rowCount;
@@ -35,39 +37,25 @@ import java.io.Serializable;
     public Map() {
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 61 * hash + this.rowCount;
-        hash = 61 * hash + this.columnCount;
-        return hash;
+    public Game getGame() {
+        return game;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Map other = (Map) obj;
-        if (this.rowCount != other.rowCount) {
-            return false;
-        }
-        if (this.columnCount != other.columnCount) {
-            return false;
-        }
-        return true;
+    public void setGame(Game game) {
+        this.game = game;
     }
 
-    @Override
-    public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
+    public Location[][] getLocations() {
+        return locations;
     }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
+   
+
+    
     
     
     }

@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author ort09
  */
-public class SalvageShip implements Serializable{
+public class SalvageShip extends Scene implements Serializable{
     
     private String type;
     private int spawnCoordinate;

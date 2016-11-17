@@ -41,7 +41,7 @@ public class Ship implements Serializable{
                 this.hull = hull;
                 this.maxHull = maxHull;
                 this.description = description;
-                coordinate = new Location(9,2);
+                coordinate = new Location();
                 this.symbol = symbol;
                 shipClass = new ShipClass(0);
         }

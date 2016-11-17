@@ -15,6 +15,7 @@ public class Scene implements Serializable{
     private String type;
     private String name;
     private boolean active;
+    private String description;
 
     public Scene() {
     }
@@ -43,44 +44,16 @@ public class Scene implements Serializable{
         this.active = active;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 23 * hash + Objects.hashCode(this.type);
-        hash = 23 * hash + Objects.hashCode(this.name);
-        hash = 23 * hash + (this.active ? 1 : 0);
-        return hash;
+    public String getDescription() {
+        return description;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Scene other = (Scene) obj;
-        if (this.active != other.active) {
-            return false;
-        }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        return true;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "Scene{" + "type=" + type + ", name=" + name + ", active=" + active + '}';
     }
 
     
     
-}
+

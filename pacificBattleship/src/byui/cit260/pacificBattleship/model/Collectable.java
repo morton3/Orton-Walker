@@ -17,6 +17,7 @@ public class Collectable implements Serializable{
     private String type;
     private String name;
     private Ship ship;
+    private Location[] location;
 
     public Collectable() {
     }
@@ -37,40 +38,27 @@ public class Collectable implements Serializable{
         this.name = name;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.type);
-        hash = 89 * hash + Objects.hashCode(this.name);
-        return hash;
+    public Ship getShip() {
+        return ship;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Collectable other = (Collectable) obj;
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        return true;
+    public void setShip(Ship ship) {
+        this.ship = ship;
     }
 
-    @Override
-    public String toString() {
-        return "Collectable{" + "type=" + type + ", name=" + name + '}';
+    public Location[] getLocation() {
+        return location;
     }
-    
+
+    public void setLocation(Location[] location) {
+        this.location = location;
+    }
+
+  
+
+  
+
+   
     
     
 }

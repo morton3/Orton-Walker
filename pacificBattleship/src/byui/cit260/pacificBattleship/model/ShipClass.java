@@ -19,6 +19,7 @@ public class ShipClass implements Serializable{
     private int bonusHull;
     private String symbol;
     private int bonusAccuracy;
+    private Ship[] ship;
 
     public ShipClass() {
     }
@@ -67,54 +68,20 @@ public class ShipClass implements Serializable{
         this.bonusAccuracy = bonusAccuracy;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.name);
-        hash = 17 * hash + this.bonusDefense;
-        hash = 17 * hash + this.bonusHull;
-        hash = 17 * hash + Objects.hashCode(this.symbol);
-        hash = 17 * hash + this.bonusAccuracy;
-        return hash;
+    public Ship[] getShip() {
+        return ship;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ShipClass other = (ShipClass) obj;
-        if (this.bonusDefense != other.bonusDefense) {
-            return false;
-        }
-        if (this.bonusHull != other.bonusHull) {
-            return false;
-        }
-        if (this.bonusAccuracy != other.bonusAccuracy) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.symbol, other.symbol)) {
-            return false;
-        }
-        return true;
+    public void setShip(Ship[] ship) {
+        this.ship = ship;
     }
 
-    @Override
-    public String toString() {
-        return "ShipClass{" + "name=" + name + ", bonusDefense=" + bonusDefense + ", bonusHull=" + bonusHull + ", symbol=" + symbol + ", bonusAccuracy=" + bonusAccuracy + '}';
+   
     }
+
 
     
     
     
     
-}
+

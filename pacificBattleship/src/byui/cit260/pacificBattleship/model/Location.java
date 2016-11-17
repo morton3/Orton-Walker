@@ -28,76 +28,7 @@ public class Location implements Serializable{
     public Location() {
     }
 
-    Location(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", rank=" + rank + ", type=" + type + ", SymTop=" + SymTop + ", SymMid=" + SymMid + ", SymMid2=" + SymMid2 + ", SymBot=" + SymBot + ", hidden=" + hidden + ", symbol=" + symbol + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + this.row;
-        hash = 79 * hash + this.column;
-        hash = 79 * hash + this.rank;
-        hash = 79 * hash + Objects.hashCode(this.type);
-        hash = 79 * hash + Objects.hashCode(this.SymTop);
-        hash = 79 * hash + Objects.hashCode(this.SymMid);
-        hash = 79 * hash + Objects.hashCode(this.SymMid2);
-        hash = 79 * hash + Objects.hashCode(this.SymBot);
-        hash = 79 * hash + (this.hidden ? 1 : 0);
-        hash = 79 * hash + Objects.hashCode(this.symbol);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Location other = (Location) obj;
-        if (this.row != other.row) {
-            return false;
-        }
-        if (this.column != other.column) {
-            return false;
-        }
-        if (this.rank != other.rank) {
-            return false;
-        }
-        if (this.hidden != other.hidden) {
-            return false;
-        }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        if (!Objects.equals(this.SymTop, other.SymTop)) {
-            return false;
-        }
-        if (!Objects.equals(this.SymMid, other.SymMid)) {
-            return false;
-        }
-        if (!Objects.equals(this.SymMid2, other.SymMid2)) {
-            return false;
-        }
-        if (!Objects.equals(this.SymBot, other.SymBot)) {
-            return false;
-        }
-        if (!Objects.equals(this.symbol, other.symbol)) {
-            return false;
-        }
-        return true;
-    }
-
+   
     public int getRow() {
         return row;
     }
@@ -176,6 +107,32 @@ public class Location implements Serializable{
 
     public void setSymbol(String symbol) {
         this.symbol = symbol;
+    
     }
+
+    public Collectable getCollectable() {
+        return collectable;
+    }
+
+    public void setCollectable(Collectable collectable) {
+        this.collectable = collectable;
+    }
+
+    public Ship getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+    
 
 }

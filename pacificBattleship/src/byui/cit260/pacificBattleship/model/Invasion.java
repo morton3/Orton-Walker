@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author ort09
  */
-public class Invasion implements Serializable{
+public class Invasion extends Scene implements Serializable{
     
     private String unit;
 

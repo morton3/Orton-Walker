@@ -19,7 +19,10 @@ public class Game implements Serializable {
     private double numOfPOW;
     private double numOfUsedPOW;
     private Player currentPlayer;
-
+    private Map map;
+    private Actor[] actor;
+    private Ship[] ship;
+    
     public Game() {
     }
 
@@ -56,44 +59,34 @@ public class Game implements Serializable {
         this.currentPlayer = currentPlayer;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.nuclearParts) ^ (Double.doubleToLongBits(this.nuclearParts) >>> 32));
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.numOfPOW) ^ (Double.doubleToLongBits(this.numOfPOW) >>> 32));
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.numOfUsedPOW) ^ (Double.doubleToLongBits(this.numOfUsedPOW) >>> 32));
-        return hash;
+    public Map getMap() {
+        return map;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Game other = (Game) obj;
-        if (Double.doubleToLongBits(this.nuclearParts) != Double.doubleToLongBits(other.nuclearParts)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.numOfPOW) != Double.doubleToLongBits(other.numOfPOW)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.numOfUsedPOW) != Double.doubleToLongBits(other.numOfUsedPOW)) {
-            return false;
-        }
-        return true;
+    public void setMap(Map map) {
+        this.map = map;
     }
 
-    @Override
-    public String toString() {
-        return "Game{" + "nuclearParts=" + nuclearParts + ", numOfPOW=" + numOfPOW + ", numOfUsedPOW=" + numOfUsedPOW + '}';
+    public Actor[] getActor() {
+        return actor;
     }
+
+    public void setActor(Actor[] actor) {
+        this.actor = actor;
+    }
+
+    public Ship[] getShip() {
+        return ship;
+    }
+
+    public void setShip(Ship[] ship) {
+        this.ship = ship;
+    }
+
     
+    
+
+   
    
     
 }

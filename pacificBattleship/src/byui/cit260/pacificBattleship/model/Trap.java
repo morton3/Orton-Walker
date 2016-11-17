@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @author Nathan
  */
-public class Trap {
+public class Trap extends Scene implements Serializable {
     private int damage;
 
     public Trap() {

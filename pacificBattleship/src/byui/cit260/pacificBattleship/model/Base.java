@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * @author Nathan
  */
-public class Base implements Serializable{
+public class Base extends Scene implements Serializable{
     private int defense;
     private int attack;
     private int power;

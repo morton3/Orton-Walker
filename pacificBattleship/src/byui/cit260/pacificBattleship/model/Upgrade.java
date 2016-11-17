@@ -18,6 +18,7 @@ public class Upgrade implements Serializable{
     private String name;
     private int currentAllocation;
     private int maxAllocation;
+    private Ship[] ship;
     
     public Upgrade() {
     }
@@ -54,48 +55,17 @@ public class Upgrade implements Serializable{
         this.maxAllocation = maxAllocation;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.shipType);
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + this.currentAllocation;
-        hash = 67 * hash + this.maxAllocation;
-        return hash;
+    public Ship[] getShip() {
+        return ship;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Upgrade other = (Upgrade) obj;
-        if (this.currentAllocation != other.currentAllocation) {
-            return false;
-        }
-        if (this.maxAllocation != other.maxAllocation) {
-            return false;
-        }
-        if (!Objects.equals(this.shipType, other.shipType)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        return true;
+    public void setShip(Ship[] ship) {
+        this.ship = ship;
     }
 
-    @Override
-    public String toString() {
-        return "Upgrade{" + "shipType=" + shipType + ", name=" + name + ", currentAllocation=" + currentAllocation + ", maxAllocation=" + maxAllocation + '}';
-    }
+   
 
+    
     
     
 }

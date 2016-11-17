@@ -23,13 +23,33 @@ public enum Rank implements Serializable {
     private final String name;
     private final String description;
     private final String symbol;
-    private Player player;
-    private Actor actor;
+    private Player[] player;
+    private Actor[] actor;
     
     Rank(String name, String description, String symbol){
         this.name = name;
         this.description = description;
         this.symbol = symbol;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public Player[] getPlayer() {
+        return player;
+    }
+
+    public Actor[] getActor() {
+        return actor;
     }
     
 }
