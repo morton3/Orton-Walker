@@ -8,6 +8,7 @@ package byui.cit260.pacificBattleship.view;
 import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
+import byui.cit260.pacificBattleship.model.ShipList;
 import pacificbattleship.PacificBattleship;
 import java.util.Scanner;
 
@@ -44,6 +45,7 @@ public class SwitchShipsView extends View{
       value = value.toUpperCase();
       
       boolean done = true;
+      
       
       switch (value){
           case "B":

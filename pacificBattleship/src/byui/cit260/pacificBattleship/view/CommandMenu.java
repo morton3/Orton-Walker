@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 package byui.cit260.pacificBattleship.view;
+import byui.cit260.pacificBattleship.control.GameControl;
+import byui.cit260.pacificBattleship.model.Game;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
+import byui.cit260.pacificBattleship.model.ShipList;
 import pacificbattleship.PacificBattleship;
 
 /**
@@ -21,7 +24,7 @@ public class CommandMenu extends View{
                 "Command?"
         );
         
-        this.displayMap();
+        this.displayMap(PacificBattleship.getActiveShip());
         
         
     }
@@ -30,6 +33,7 @@ public class CommandMenu extends View{
     @Override
     public boolean doAction(String menuOption) {
         menuOption = menuOption.toUpperCase();
+        
       
       switch (menuOption){
           case "R":
@@ -61,25 +65,25 @@ public class CommandMenu extends View{
               break;
       }
       
-      this.displayMap();
+      this.displayMap(PacificBattleship.getActiveShip());
       
       return false;
            }
            
            
     
-    private void displayMap(){
+    private void displayMap(Ship ship){
         
         String rank = "* * * * *";
         String userName = PacificBattleship.getPlayer().getUserName();
-        String shipClass = "Battleship";
-        String shipType = "Battleship";
-        String shipName = "USS Tennessee";
-        int shipAttack = 5;
-        int shipAccuracy = 80;
-        int defense = 1;
-        int hull = 10;
-        int maxHull = 10;
+        String shipClass = ship.getShipClass().getName();
+        String shipType = ship.getType();
+        String shipName = ship.getShipName();
+        int shipAttack = ship.getAttack();
+        int shipAccuracy = ship.getAccuracy();
+        int defense = ship.getDefense();
+        int hull = ship.getHull();
+        int maxHull = ship.getMaxHull();
         int currentPart = 1;
         int POWs = 12;
         
