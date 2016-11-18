@@ -18,7 +18,7 @@ public class Game implements Serializable {
     private double nuclearParts;
     private double numOfPOW;
     private double numOfUsedPOW;
-    private Player currentPlayer;
+    private Player player;
     private Map map;
     private Actor[] actor;
     private Ship[] ship;
@@ -51,12 +51,12 @@ public class Game implements Serializable {
         this.numOfUsedPOW = numOfUsedPOW;
     }
 
-    public Player getCurrentPlayer() {
-        return currentPlayer;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setCurrentPlayer(Player currentPlayer) {
-        this.currentPlayer = currentPlayer;
+    public void setPlayer(Player currentPlayer) {
+        this.player = currentPlayer;
     }
 
     public Map getMap() {

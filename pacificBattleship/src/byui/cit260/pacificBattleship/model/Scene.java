@@ -12,28 +12,10 @@ import java.util.Objects;
  */
 public class Scene implements Serializable{
     
-    private String type;
-    private String name;
     private boolean active;
     private String description;
 
     public Scene() {
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public boolean isActive() {

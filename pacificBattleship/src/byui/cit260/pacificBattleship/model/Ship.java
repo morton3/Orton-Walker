@@ -12,9 +12,7 @@ import java.util.Objects;
  *
  * @author ort09
  */
-public class Ship implements Serializable{
-    
-    public Ship battleship = new Ship("USS Tennessee", "Battleship", 1, 80, true, 4, 6, 10, "USS Tennessee description here", "B");
+public class Ship {
       
     private String shipName;
     private String type;
@@ -25,27 +23,13 @@ public class Ship implements Serializable{
     private int hull;
     private int maxHull;
     private String description;
-    private Location coordinate;
+    private Location location;
     private String symbol;
     private ShipClass shipClass;
 
-
-    public Ship(String shipName, String type, int defense, int accuracy,boolean userControl,int attack,
-        int hull,int maxHull,String description,String symbol){
-                this.type = type;
-                this.shipName = shipName;
-                this.defense = defense;
-                this.accuracy = accuracy;
-                this.userControl = userControl;
-                this.attack = attack;
-                this.hull = hull;
-                this.maxHull = maxHull;
-                this.description = description;
-                coordinate = new Location();
-                this.symbol = symbol;
-                shipClass = new ShipClass(0);
-        }
-    
+    public Ship(){
+        
+    }
     
     
     public String getShipName() {
@@ -120,12 +104,12 @@ public class Ship implements Serializable{
         this.description = description;
     }
 
-    public Location getCoordinate() {
-        return coordinate;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setCoordinate(Location coordinate) {
-        this.coordinate = coordinate;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public String getSymbol() {
