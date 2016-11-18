@@ -5,6 +5,7 @@
  */
 package byui.cit260.pacificBattleship.control;
 
+import byui.cit260.pacificBattleship.model.BattleshipClassList;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.ShipList;
@@ -32,7 +33,7 @@ public class ShipControl {
         battleship.setDescription("");
         battleship.setLocation(null);
         battleship.setSymbol("");
-        battleship.setShipClass(null);
+        battleship.setShipClass(battleshipClasses[BattleshipClassList.battleship0.ordinal()]);
         ships[ShipList.battleship.ordinal()] = battleship;
         
         Ship transport = new Ship();
