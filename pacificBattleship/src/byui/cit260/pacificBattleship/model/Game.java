@@ -15,13 +15,14 @@ import java.util.Objects;
 public class Game implements Serializable {
     
     // classes instance variables
-    private double nuclearParts;
-    private double numOfPOW;
-    private double numOfUsedPOW;
+    private int nuclearParts;
+    private int numOfPOW;
+    private int numOfUsedPOW;
     private Player player;
     private Map map;
     private Actor[] actor;
     private Ship[] ship;
+    private Ship activeShip;
     
     public Game() {
     }
@@ -31,7 +32,7 @@ public class Game implements Serializable {
         return nuclearParts;
     }
 
-    public void setNuclearParts(double nuclearParts) {
+    public void setNuclearParts(int nuclearParts) {
         this.nuclearParts = nuclearParts;
     }
 
@@ -39,7 +40,7 @@ public class Game implements Serializable {
         return numOfPOW;
     }
 
-    public void setNumOfPOW(double numOfPOW) {
+    public void setNumOfPOW(int numOfPOW) {
         this.numOfPOW = numOfPOW;
     }
 
@@ -47,7 +48,7 @@ public class Game implements Serializable {
         return numOfUsedPOW;
     }
 
-    public void setNumOfUsedPOW(double numOfUsedPOW) {
+    public void setNumOfUsedPOW(int numOfUsedPOW) {
         this.numOfUsedPOW = numOfUsedPOW;
     }
 
@@ -81,6 +82,14 @@ public class Game implements Serializable {
 
     public void setShip(Ship[] ship) {
         this.ship = ship;
+    }
+
+    public Ship getActiveShip() {
+        return activeShip;
+    }
+
+    public void setActiveShip(Ship activeShip) {
+        this.activeShip = activeShip;
     }
 
     

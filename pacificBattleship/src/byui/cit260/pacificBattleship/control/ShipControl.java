@@ -6,6 +6,7 @@
 package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.model.Ship;
+import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.ShipList;
 
 /**
@@ -15,6 +16,7 @@ import byui.cit260.pacificBattleship.model.ShipList;
 public class ShipControl {
     
         public static Ship[] createShips() {
+            ShipClass[] battleshipClasses = ShipClassControl.createBattleshipClasses(); 
         
         Ship[] ships = new Ship[ShipList.values().length];
         

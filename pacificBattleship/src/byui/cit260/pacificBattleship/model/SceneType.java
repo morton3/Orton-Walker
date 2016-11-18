@@ -7,11 +7,10 @@ package byui.cit260.pacificBattleship.model;
 
 /**
  *
- * @author ort09
+ * @author Nathan
  */
-public interface ViewInterface {
+public enum SceneType {
+    water,
+    land;
     
-    public void display();
-    public String getInput();
-    public boolean doAction(String value);
 }

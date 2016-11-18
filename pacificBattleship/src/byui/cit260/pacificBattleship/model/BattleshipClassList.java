@@ -7,11 +7,12 @@ package byui.cit260.pacificBattleship.model;
 
 /**
  *
- * @author ort09
+ * @author Nathan
  */
-public interface ViewInterface {
+public enum BattleshipClassList {
+    battleship0,
+    battleship1,
+    battleship2;
+            
     
-    public void display();
-    public String getInput();
-    public boolean doAction(String value);
 }

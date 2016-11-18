@@ -24,7 +24,7 @@ public class CommandMenu extends View{
                 "Command?"
         );
         
-        this.displayMap(PacificBattleship.getActiveShip());
+        this.displayMap(PacificBattleship.getCurrentGame().getActiveShip());
         
         
     }
@@ -65,7 +65,7 @@ public class CommandMenu extends View{
               break;
       }
       
-      this.displayMap(PacificBattleship.getActiveShip());
+      this.displayMap(PacificBattleship.getCurrentGame().getActiveShip());
       
       return false;
            }
