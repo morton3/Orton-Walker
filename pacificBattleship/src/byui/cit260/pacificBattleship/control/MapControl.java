@@ -8,6 +8,8 @@ package byui.cit260.pacificBattleship.control;
 import byui.cit260.pacificBattleship.model.Map;
 import byui.cit260.pacificBattleship.model.Scene;
 import byui.cit260.pacificBattleship.model.SceneType;
+import byui.cit260.pacificBattleship.model.Ship;
+import pacificbattleship.PacificBattleship;
 
 /**
  *
@@ -20,7 +22,12 @@ public class MapControl {
         
         Scene[] scenes = createScenes();
         
+        Ship[] ships = PacificBattleship.getCurrentGame().getShip();
+        
         GameControl.assignScenesToLocations(map,scenes);
+        
+        GameControl.moveShipsToStartingLocations(ships, map);
+        
         
         return map;
     }
@@ -53,5 +60,7 @@ public class MapControl {
         
         return scenes;
     }
+
+
 
 }
