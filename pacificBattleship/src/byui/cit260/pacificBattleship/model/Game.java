@@ -28,7 +28,7 @@ public class Game implements Serializable {
     }
 
 
-    public double getNuclearParts() {
+    public int getNuclearParts() {
         return nuclearParts;
     }
 
@@ -36,7 +36,7 @@ public class Game implements Serializable {
         this.nuclearParts = nuclearParts;
     }
 
-    public double getNumOfPOW() {
+    public int getNumOfPOW() {
         return numOfPOW;
     }
 
@@ -44,7 +44,7 @@ public class Game implements Serializable {
         this.numOfPOW = numOfPOW;
     }
 
-    public double getNumOfUsedPOW() {
+    public int getNumOfUsedPOW() {
         return numOfUsedPOW;
     }
 

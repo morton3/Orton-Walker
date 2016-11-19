@@ -8,7 +8,6 @@ package pacificbattleship;
 
 import byui.cit260.pacificBattleship.model.Game;
 import byui.cit260.pacificBattleship.model.Player;
-import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.view.StartProgramView;
 /**
  *
@@ -17,7 +16,6 @@ import byui.cit260.pacificBattleship.view.StartProgramView;
 public class PacificBattleship {
     private static Game currentGame = null;
     private static Player player = null;
-    private static Ship activeShip = null;
     
 
 
@@ -35,14 +33,6 @@ public class PacificBattleship {
 
     public static void setPlayer(Player player) {
         PacificBattleship.player = player;
-    }
-
-    public static Ship getActiveShip() {
-        return activeShip;
-    }
-
-    public static void setActiveShip(Ship ActiveShip) {
-        PacificBattleship.activeShip = ActiveShip;
     }
 
     

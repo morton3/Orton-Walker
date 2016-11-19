@@ -29,17 +29,29 @@ public class MapControl {
         Scene[] scenes = new Scene[SceneType.values().length];
     
         Scene water = new Scene();
+        String waterSymTop =    "~~~~~~~";
+        String[] waterSymMid = {"~~","~~"};
+        String waterSymBot =    "~~~~~~~";
         water.setDescription("Pacific Ocean that navy ships travel on");
         water.setActive(true);
+        water.setSymTop(waterSymTop);
+        water.setSymMid(waterSymMid);
+        water.setSymBot(waterSymBot);
         scenes[SceneType.water.ordinal()] = water;
         
         Scene land = new Scene();
+        String landSymTop =    "+++++++";
+        String[] landSymMid = {"++","++"};
+        String landSymBot =    "+++++++";
         land.setDescription("Islands in the Pacific Ocean");
         land.setActive(true);
+        land.setSymTop(landSymTop);
+        land.setSymMid(landSymMid);
+        land.setSymBot(landSymBot);
         scenes[SceneType.land.ordinal()] = land;
         
         
-            return scenes;
+        return scenes;
     }
 
 }

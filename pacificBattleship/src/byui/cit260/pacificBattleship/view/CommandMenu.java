@@ -8,6 +8,7 @@ import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.model.Game;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
+import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.ShipList;
 import pacificbattleship.PacificBattleship;
 
@@ -74,33 +75,37 @@ public class CommandMenu extends View{
     
     private void displayMap(Ship ship){
         
-        String rank = "* * * * *";
-        String userName = PacificBattleship.getPlayer().getUserName();
-        String shipClass = ship.getShipClass().getName();
-        String shipType = ship.getType();
-        String shipName = ship.getShipName();
-        int shipAttack = ship.getAttack();
-        int shipAccuracy = ship.getAccuracy();
-        int defense = ship.getDefense();
-        int hull = ship.getHull();
-        int maxHull = ship.getMaxHull();
-        int currentPart = 1;
-        int POWs = 12;
+        String[] sideMenu = new String[13];
         
-/*                
-        String rank = "* * * * *";
+        String rank =  PacificBattleship.getPlayer().getRank().getSymbol() + " " + PacificBattleship.getPlayer().getRank().getName();
         String userName = PacificBattleship.getPlayer().getUserName();
         String shipClass = ship.getShipClass().getName();
         String shipType = ship.getType();
         String shipName = ship.getShipName();
-        int shipAttack = ship.getAttack();
-        int shipAccuracy = ship.getAccuracy();
-        int defense = ship.getDefense();
-        int hull = ship.getHull();
-        int maxHull = ship.getMaxHull();
-        int currentPart = 1;
-        int POWs = 12;
-*/        
+        String shipAttack = Integer.toString(ship.getAttack());
+        String shipAccuracy = Integer.toString(ship.getAccuracy() + ship.getShipClass().getBonusAccuracy());
+        String defense = Integer.toString(ship.getDefense() + ship.getShipClass().getBonusDefense());
+        String hull = Integer.toString(ship.getHull());
+        String maxHull = Integer.toString(ship.getMaxHull() + ship.getShipClass().getBonusHull());
+        String currentPart = Integer.toString(PacificBattleship.getCurrentGame().getNuclearParts());
+        String POWs = Integer.toString(PacificBattleship.getCurrentGame().getNumOfPOW() - PacificBattleship.getCurrentGame().getNumOfUsedPOW());
+        String shipSymbol = "<" + ship.getSymbol() + ">";
+        
+        sideMenu[0] = rank;
+        sideMenu[1] = userName;
+        sideMenu[2] = shipClass;
+        sideMenu[3] = shipType;
+        sideMenu[4] = shipName;
+        sideMenu[5] = shipAttack;
+        sideMenu[6] = shipAccuracy;
+        sideMenu[7] = defense;
+        sideMenu[8] = hull;
+        sideMenu[9] = maxHull;
+        sideMenu[10] = currentPart;
+        sideMenu[11] = POWs;
+        sideMenu[12] = shipSymbol;
+        
+    
 
     Location A01 = new Location();
     Location A02 = new Location();
@@ -939,7 +944,7 @@ E03.setSymbol("   ");
 F03.setSymbol("   ");
 G03.setSymbol("   ");
 H03.setSymbol("   ");
-I03.setSymbol("<b>");
+I03.setSymbol(shipSymbol);
 J03.setSymbol("   ");
 A04.setSymbol("   ");
 B04.setSymbol("   ");
@@ -1013,23 +1018,23 @@ I10.setSymbol("   ");
 J10.setSymbol("   ");
 
 System.out.println(
-        "\n"
-                + "         A        B       C        D       E        F       G        H        I       J "
-                + "\n┌--┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┐"
+                  "┌--┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┐\n"
+                + "│>>│   A   │   B   │   C   │   D   │   E   │   F   │   G   │   H   │   I   │   J   │\n"
+                + "├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
                 + this.lineTop(A01, B01, C01, D01, E01, F01, G01, H01, I01, J01)
                 + rank
                 + this.lineMid(A01, B01, C01, D01, E01, F01, G01, H01, I01, J01)
                 + userName
                 + this.lineBot(A01, B01, C01, D01, E01, F01, G01, H01, I01, J01)
                 + shipName
-                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
                 + shipType
                 + this.lineTop(A02, B02, C02, D02, E02, F02, G02, H02, I02, J02)
                 + shipClass
                 + this.lineMid(A02, B02, C02, D02, E02, F02, G02, H02, I02, J02)
                 + this.lineBot(A02, B02, C02, D02, E02, F02, G02, H02, I02, J02)
                 + "ATTACK »»»»»»»» " + shipAttack
-                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
                 + "ACCURACY »»»»»» " + shipAccuracy
                 + this.lineTop(A03, B03, C03, D03, E03, F03, G03, H03, I03, J03)
                 + "DEFENCE »»»»»»» "
@@ -1038,7 +1043,7 @@ System.out.println(
                 + "POW's »»»»»»»»» "
                 + POWs
                 + this.lineBot(A03, B03, C03, D03, E03, F03, G03, H03, I03, J03)
-                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
                 + "┌──────────────┐"
                 + this.lineTop(A04, B04, C04, D04, E04, F04, G04, H04, I04, J04)
                 + "│ HULL       "
@@ -1046,18 +1051,18 @@ System.out.println(
                 + " / "
                 + maxHull
                 + this.lineMid(A04, B04, C04, D04, E04, F04, G04, H04, I04, J04)
-                + this.topHull(maxHull)
+                + this.topHull(ship.getMaxHull())
                 + this.lineBot(A04, B04, C04, D04, E04, F04, G04, H04, I04, J04)
-                + this.MidTopHull(hull, maxHull)
-                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-                + this.MidHull(maxHull)
+                + this.MidTopHull(ship.getHull(), ship.getMaxHull())
+                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + this.MidHull(ship.getMaxHull())
                 + this.lineTop(A05, B05, C05, D05, E05, F05, G05, H05, I05, J05)
-                + this.MidBotHull(hull, maxHull)
+                + this.MidBotHull(ship.getHull(), ship.getMaxHull())
                 + this.lineMid(A05, B05, C05, D05, E05, F05, G05, H05, I05, J05)
-                + this.BotHull(maxHull)
+                + this.BotHull(ship.getMaxHull())
                 + this.lineBot(A05, B05, C05, D05, E05, F05, G05, H05, I05, J05)
                 + "4 - Attack"
-                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
                 + "E - Switch Ships"
                 + this.lineTop(A06, B06, C06, D06, E06, F06, G06, H06, I06, J06)
                 + "R - Upgrade"
@@ -1065,7 +1070,7 @@ System.out.println(
                 + "Q - Back to Main Menu"
                 + this.lineBot(A06, B06, C06, D06, E06, F06, G06, H06, I06, J06)
                 + "W - Move Up"
-                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
                 + "S - Move Down"
                 + this.lineTop(A07, B07, C07, D07, E07, F07, G07, H07, I07, J07)
                 + "A - Move Left"
@@ -1073,17 +1078,17 @@ System.out.println(
                 + "D - Move Right"
                 + this.lineBot(A07, B07, C07, D07, E07, F07, G07, H07, I07, J07)
                 + ""
-                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
                 + "L - Launch Nuclear Bomb"
                 + this.lineTop(A08, B08, C08, D08, E08, F08, G08, H08, I08, J08)
                 + "    Parts: " + currentPart + " / 15 Parts"
                 + this.lineMid(A08, B08, C08, D08, E08, F08, G08, H08, I08, J08)
                 + this.lineBot(A08, B08, C08, D08, E08, F08, G08, H08, I08, J08)
-                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
                 + this.lineTop(A09, B09, C09, D09, E09, F09, G09, H09, I09, J09)
                 + this.lineMid(A09, B09, C09, D09, E09, F09, G09, H09, I09, J09)
                 + this.lineBot(A09, B09, C09, D09, E09, F09, G09, H09, I09, J09)
-                + "\n│  ├-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
+                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
                 + this.lineTop(A10, B10, C10, D10, E10, F10, G10, H10, I10, J10)
                 + this.lineMid(A10, B10, C10, D10, E10, F10, G10, H10, I10, J10)
                 + this.lineBot(A10, B10, C10, D10, E10, F10, G10, H10, I10, J10)

@@ -14,6 +14,9 @@ public class Scene implements Serializable{
     
     private boolean active;
     private String description;
+    private String SymTop;
+    private String[] SymMid;
+    private String SymBot;
 
     public Scene() {
     }
@@ -32,6 +35,30 @@ public class Scene implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getSymTop() {
+        return SymTop;
+    }
+
+    public void setSymTop(String SymTop) {
+        this.SymTop = SymTop;
+    }
+
+    public String[] getSymMid() {
+        return SymMid;
+    }
+
+    public void setSymMid(String[] SymMid) {
+        this.SymMid = SymMid;
+    }
+
+    public String getSymBot() {
+        return SymBot;
+    }
+
+    public void setSymBot(String SymBot) {
+        this.SymBot = SymBot;
     }
 
     }
