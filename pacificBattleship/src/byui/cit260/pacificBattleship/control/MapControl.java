@@ -22,11 +22,9 @@ public class MapControl {
         
         Scene[] scenes = createScenes();
         
-        Ship[] ships = PacificBattleship.getCurrentGame().getShip();
         
         GameControl.assignScenesToLocations(map,scenes);
         
-        GameControl.moveShipsToStartingLocations(ships, map);
         
         
         return map;

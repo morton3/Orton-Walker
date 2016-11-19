@@ -60,7 +60,7 @@ public class GameControl {
         Ship[] ships = ShipControl.createShips();        
         game.setShip(ships);
         
-        
+        GameControl.moveShipsToStartingLocations();
         
         PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.battleship.ordinal()]);
         
@@ -199,9 +199,14 @@ public class GameControl {
 
     }
 
-    static void moveShipsToStartingLocations(Ship[] ships, Map map) {
+    public static void moveShipsToStartingLocations() {
+        
+        Map map = PacificBattleship.getCurrentGame().getMap();
+        Ship[] ships = PacificBattleship.getCurrentGame().getShip();
+
     
         Location[][] locations = map.getLocations();
+        
         locations[9][2].setShip(ships[ShipList.battleship.ordinal()]);
         locations[6][0].setShip(ships[ShipList.transport.ordinal()]);
         locations[9][9].setShip(ships[ShipList.submarine.ordinal()]);
