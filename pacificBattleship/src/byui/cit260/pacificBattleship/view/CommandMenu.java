@@ -7,6 +7,7 @@ package byui.cit260.pacificBattleship.view;
 import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.model.Game;
 import byui.cit260.pacificBattleship.model.Location;
+import byui.cit260.pacificBattleship.model.Map;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.ShipList;
@@ -74,6 +75,9 @@ public class CommandMenu extends View{
            
     
     private void displayMap(Ship ship){
+        Map map = PacificBattleship.getCurrentGame().getMap();
+        Location[][] locations = map.getLocations(); 
+        
         
         String[] sideMenu = new String[13];
         
@@ -104,87 +108,70 @@ public class CommandMenu extends View{
         sideMenu[10] = currentPart;
         sideMenu[11] = POWs;
         sideMenu[12] = shipSymbol;
+        int rowNum = 0;
         
-
-
-System.out.println(
-                  "┌--┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┐\n"
-                + "│>>│   A   │   B   │   C   │   D   │   E   │   F   │   G   │   H   │   I   │   J   │\n"
-                + "├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
-                + this.lineTop(A01, B01, C01, D01, E01, F01, G01, H01, I01, J01)
-                + rank
-                + this.lineMid(A01, B01, C01, D01, E01, F01, G01, H01, I01, J01)
-                + userName
-                + this.lineBot(A01, B01, C01, D01, E01, F01, G01, H01, I01, J01)
-                + shipName
-                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-                + shipType
-                + this.lineTop(A02, B02, C02, D02, E02, F02, G02, H02, I02, J02)
-                + shipClass
-                + this.lineMid(A02, B02, C02, D02, E02, F02, G02, H02, I02, J02)
-                + this.lineBot(A02, B02, C02, D02, E02, F02, G02, H02, I02, J02)
-                + "ATTACK »»»»»»»» " + shipAttack
-                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-                + "ACCURACY »»»»»» " + shipAccuracy
-                + this.lineTop(A03, B03, C03, D03, E03, F03, G03, H03, I03, J03)
-                + "DEFENCE »»»»»»» "
-                + defense
-                + this.lineMid(A03, B03, C03, D03, E03, F03, G03, H03, I03, J03)
-                + "POW's »»»»»»»»» "
-                + POWs
-                + this.lineBot(A03, B03, C03, D03, E03, F03, G03, H03, I03, J03)
-                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-                + "┌──────────────┐"
-                + this.lineTop(A04, B04, C04, D04, E04, F04, G04, H04, I04, J04)
-                + "│ HULL       "
-                + hull
-                + " / "
-                + maxHull
-                + this.lineMid(A04, B04, C04, D04, E04, F04, G04, H04, I04, J04)
-                + this.topHull(ship.getMaxHull())
-                + this.lineBot(A04, B04, C04, D04, E04, F04, G04, H04, I04, J04)
-                + this.MidTopHull(ship.getHull(), ship.getMaxHull())
-                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-                + this.MidHull(ship.getMaxHull())
-                + this.lineTop(A05, B05, C05, D05, E05, F05, G05, H05, I05, J05)
-                + this.MidBotHull(ship.getHull(), ship.getMaxHull())
-                + this.lineMid(A05, B05, C05, D05, E05, F05, G05, H05, I05, J05)
-                + this.BotHull(ship.getMaxHull())
-                + this.lineBot(A05, B05, C05, D05, E05, F05, G05, H05, I05, J05)
-                + "4 - Attack"
-                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-                + "E - Switch Ships"
-                + this.lineTop(A06, B06, C06, D06, E06, F06, G06, H06, I06, J06)
-                + "R - Upgrade"
-                + this.lineMid(A06, B06, C06, D06, E06, F06, G06, H06, I06, J06)
-                + "Q - Back to Main Menu"
-                + this.lineBot(A06, B06, C06, D06, E06, F06, G06, H06, I06, J06)
-                + "W - Move Up"
-                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-                + "S - Move Down"
-                + this.lineTop(A07, B07, C07, D07, E07, F07, G07, H07, I07, J07)
-                + "A - Move Left"
-                + this.lineMid(A07, B07, C07, D07, E07, F07, G07, H07, I07, J07)
-                + "D - Move Right"
-                + this.lineBot(A07, B07, C07, D07, E07, F07, G07, H07, I07, J07)
-                + ""
-                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-                + "L - Launch Nuclear Bomb"
-                + this.lineTop(A08, B08, C08, D08, E08, F08, G08, H08, I08, J08)
-                + "    Parts: " + currentPart + " / 15 Parts"
-                + this.lineMid(A08, B08, C08, D08, E08, F08, G08, H08, I08, J08)
-                + this.lineBot(A08, B08, C08, D08, E08, F08, G08, H08, I08, J08)
-                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-                + this.lineTop(A09, B09, C09, D09, E09, F09, G09, H09, I09, J09)
-                + this.lineMid(A09, B09, C09, D09, E09, F09, G09, H09, I09, J09)
-                + this.lineBot(A09, B09, C09, D09, E09, F09, G09, H09, I09, J09)
-                + "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤  "
-                + this.lineTop(A10, B10, C10, D10, E10, F10, G10, H10, I10, J10)
-                + this.lineMid(A10, B10, C10, D10, E10, F10, G10, H10, I10, J10)
-                + this.lineBot(A10, B10, C10, D10, E10, F10, G10, H10, I10, J10)
-                + "\n└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘");
-        
-    
+String wholeMap = 
+                  "                                 Pacific Battleship\n"
+                + "┌--┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┐\n"
+                + "│>>│   A   │   B   │   C   │   D   │   E   │   F   │   G   │   H   │   I   │   J   │";
+               
+               
+        for (Location[] row : locations) {
+            wholeMap += "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤\n"
+                    +   "│  ";
+            rowNum ++;
+                for (Location location : row){
+                   wholeMap += "│";
+                   if (!location.isHidden()) 
+                       wholeMap  +=  location.getScene().getSymTop();
+                   else 
+                       wholeMap += "???????";
+                   
+                   }
+                wholeMap += "│\n│";
+                if (rowNum == 10)
+                    wholeMap += "10";
+                else 
+                    wholeMap += " " + rowNum;
+                
+                
+                for (Location location : row){
+                    String[] symMid = location.getScene().getSymMid();
+                    wholeMap += "│";
+                    if (!location.isHidden())
+                        
+                     wholeMap  +=  symMid[0];
+                    else 
+                        wholeMap += "??";
+                    
+                    if (!location.isHidden())
+                    wholeMap += "   ";
+                    else 
+                        wholeMap += "???";
+                   
+                   
+                    if (!location.isHidden()) 
+                     wholeMap  +=  symMid[1];
+                   else 
+                       wholeMap += "??";
+                
+                }
+              wholeMap += "│\n│  ";
+                for (Location location : row){
+                     wholeMap += "│";
+                              if (!location.isHidden()) 
+                     wholeMap  +=  location.getScene().getSymBot();
+                   else 
+                       wholeMap += "???????";
+                }
+                
+                
+                
+                
+        wholeMap += "│";
+        }
+    System.out.println(wholeMap);
+    System.out.println("└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘");
 }
     
     private String topHull(int maxHull){

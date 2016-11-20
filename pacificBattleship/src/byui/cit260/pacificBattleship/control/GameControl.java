@@ -194,9 +194,14 @@ public class GameControl {
         locations[9][7].setScene(scenes[SceneType.water.ordinal()]);
         locations[9][8].setScene(scenes[SceneType.water.ordinal()]);
         locations[9][9].setScene(scenes[SceneType.water.ordinal()]);
-
-
-
+            
+            for (Location[] row : locations){
+                for (Location location : row){
+                    location.setHidden(true);
+                }
+            }
+    locations[2][9].setHidden(false);
+    
     }
 
     public static void moveShipsToStartingLocations() {
