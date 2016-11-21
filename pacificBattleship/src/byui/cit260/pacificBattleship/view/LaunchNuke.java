@@ -50,6 +50,12 @@ public class LaunchNuke extends View{
       
       return false;
     }
+    
+    public int numOfNukeParts;
+        
+    
+    
+    
 
   
     }

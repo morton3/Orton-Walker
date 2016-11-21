@@ -5,12 +5,12 @@
  */
 package byui.cit260.pacificBattleship.control;
 
+import byui.cit260.pacificBattleship.model.Collectable;
 import byui.cit260.pacificBattleship.model.Map;
 import byui.cit260.pacificBattleship.model.Scene;
 import byui.cit260.pacificBattleship.model.SceneType;
 import byui.cit260.pacificBattleship.model.Ship;
 import pacificbattleship.PacificBattleship;
-
 /**
  *
  * @author ort09
@@ -29,7 +29,7 @@ public class MapControl {
         
         return map;
     }
-
+    
     private static Scene[] createScenes() {
         Scene[] scenes = new Scene[SceneType.values().length];
     
@@ -58,7 +58,11 @@ public class MapControl {
         
         return scenes;
     }
-
+     private static Collectable[] createCollectables() {
+    Collectable[] collectables = new Collectable[CollectableType.values().length];
+    
+    return collectables;
+     }
 
 
 }

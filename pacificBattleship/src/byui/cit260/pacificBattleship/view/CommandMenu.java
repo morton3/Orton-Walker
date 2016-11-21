@@ -285,24 +285,6 @@ System.out.println(wholeMap);
         return line += "─┘";
     }
 
-    private String checkHidden(Location coordinate, String symbol) {
-        
-        int i = 1;
-        String blanks = " ";
-        
-        if (coordinate.isHidden()){
-            while (symbol.length() > i){
-                blanks += " ";
-                i++;
-            }
-            return blanks;
-        }
-        else
-    
-            
-            return symbol;
-    }
-
     private void upgradeMenu() {
         UpgradeMenu upgradeMenu = new UpgradeMenu();
         upgradeMenu.display();
@@ -340,103 +322,7 @@ System.out.println(wholeMap);
        LaunchNuke launchNuke = new LaunchNuke();
        launchNuke.display();
     }
-    
-    private String lineTop(
-            Location A, Location B,
-            Location C, Location D,
-            Location E, Location F,
-            Location G, Location H,
-            Location I, Location J) {
-        
-        String line = "\n│  │"
-                + this.checkHidden(A, A.getSymTop())
-                + "│"    + this.checkHidden(B, B.getSymTop())
-                + "│"    + this.checkHidden(C, C.getSymTop())
-                + "│"    + this.checkHidden(D, D.getSymTop())
-                + "│"    + this.checkHidden(E, E.getSymTop())
-                + "│"    + this.checkHidden(F, F.getSymTop())
-                + "│"    + this.checkHidden(G, G.getSymTop())
-                + "│"    + this.checkHidden(H, H.getSymTop())
-                + "│"    + this.checkHidden(I, I.getSymTop())
-                + "│"    + this.checkHidden(J, J.getSymTop()) + "│  ";
-        
-        return line;
-    }
-    
-    private String lineMid(
-            Location A, Location B,
-            Location C, Location D,
-            Location E, Location F,
-            Location G, Location H,
-            Location I, Location J) {
-        
-        String rowNumber = "";
-        
-        if (A.getRow() < 10)
-            rowNumber = " " + A.getRow();
-        else
-            rowNumber =  "" + A.getRow();
-    
-        String line = "\n│"
-                + rowNumber
-                + "│" + this.checkHidden(A, A.getSymMid())
-                + this.checkHidden(A, A.getSymbol())
-                + this.checkHidden(A, A.getSymMid2())
-                + "│"      + this.checkHidden(B, B.getSymMid())
-                + this.checkHidden(B, B.getSymbol())
-                + this.checkHidden(B, B.getSymMid2())
-                + "│"      + this.checkHidden(C, C.getSymMid())
-                + this.checkHidden(C, C.getSymbol())
-                + this.checkHidden(C, C.getSymMid2())
-                + "│"      + this.checkHidden(D, D.getSymMid())
-                + this.checkHidden(D, D.getSymbol())
-                + this.checkHidden(D, D.getSymMid2())
-                + "│"      + this.checkHidden(E, E.getSymMid())
-                + this.checkHidden(E, E.getSymbol())
-                + this.checkHidden(E, E.getSymMid2())
-                + "│"      + this.checkHidden(F, F.getSymMid())
-                + this.checkHidden(F, F.getSymbol())
-                + this.checkHidden(F, F.getSymMid2())
-                + "│"      + this.checkHidden(G, G.getSymMid())
-                + this.checkHidden(G, G.getSymbol())
-                + this.checkHidden(G, G.getSymMid2())
-                + "│"      + this.checkHidden(H, H.getSymMid())
-                + this.checkHidden(H, H.getSymbol())
-                + this.checkHidden(H, H.getSymMid2())
-                + "│"      + this.checkHidden(I, I.getSymMid())
-                + this.checkHidden(I, I.getSymbol())
-                + this.checkHidden(I, I.getSymMid2())
-                + "│"      + this.checkHidden(J, J.getSymMid())
-                + this.checkHidden(J, J.getSymbol())
-                + this.checkHidden(J, J.getSymMid2())  + "│  ";
-        
-        return line;
-    }
-    
-        private String lineBot(
-            Location A, Location B,
-            Location C, Location D,
-            Location E, Location F,
-            Location G, Location H,
-            Location I, Location J) {
-        
-        String line = "\n│  │"
-                + this.checkHidden(A, A.getSymBot())
-                + "│"    + this.checkHidden(B, B.getSymBot())
-                + "│"    + this.checkHidden(C, C.getSymBot())
-                + "│"    + this.checkHidden(D, D.getSymBot())
-                + "│"    + this.checkHidden(E, E.getSymBot())
-                + "│"    + this.checkHidden(F, F.getSymBot())
-                + "│"    + this.checkHidden(G, G.getSymBot())
-                + "│"    + this.checkHidden(H, H.getSymBot())
-                + "│"    + this.checkHidden(I, I.getSymBot())
-                + "│"    + this.checkHidden(J, J.getSymBot()) + "│  ";
-        
-        return line;
-    }
             
             
             
 }
-
-   

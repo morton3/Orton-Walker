@@ -18,7 +18,16 @@ public class Collectable implements Serializable{
     private String name;
     private Ship ship;
     private Location[] location;
+    private boolean active;
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+    
     public Collectable() {
     }
 
