@@ -111,67 +111,74 @@ public class CommandMenu extends View{
         int rowNum = 0;
         
 String wholeMap = 
-                  "                                 Pacific Battleship\n"
-                + "┌--┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┐\n"
-                + "│>>│   A   │   B   │   C   │   D   │   E   │   F   │   G   │   H   │   I   │   J   │";
+          "                                 Pacific Battleship\n"
+        + "┌--┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┐\n"
+        + "│>>│   A   │   B   │   C   │   D   │   E   │   F   │   G   │   H   │   I   │   J   │";
                
-               
-        for (Location[] row : locations) {
-            wholeMap += "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤\n"
-                    +   "│  ";
-            rowNum ++;
-                for (Location location : row){
-                   wholeMap += "│";
-                   if (!location.isHidden()) 
-                       wholeMap  +=  location.getScene().getSymTop();
-                   else 
-                       wholeMap += "???????";
-                   
-                   }
-                wholeMap += "│\n│";
-                if (rowNum == 10)
-                    wholeMap += "10";
-                else 
-                    wholeMap += " " + rowNum;
-                
-                
-                for (Location location : row){
-                    String[] symMid = location.getScene().getSymMid();
-                    wholeMap += "│";
-                    if (!location.isHidden())
-                        
-                     wholeMap  +=  symMid[0];
-                    else 
-                        wholeMap += "??";
-                    
-                    if (!location.isHidden())
-                    wholeMap += "   ";
-                    else 
-                        wholeMap += "???";
-                   
-                   
-                    if (!location.isHidden()) 
-                     wholeMap  +=  symMid[1];
-                   else 
-                       wholeMap += "??";
-                
-                }
-              wholeMap += "│\n│  ";
-                for (Location location : row){
-                     wholeMap += "│";
-                              if (!location.isHidden()) 
-                     wholeMap  +=  location.getScene().getSymBot();
-                   else 
-                       wholeMap += "???????";
-                }
-                
-                
-                
-                
+// Cycle through all rows
+for (Location[] row : locations) {
+    wholeMap += "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤\n"
+            +   "│  ";
+    rowNum ++;
+    
+    // Top of each row
+    for (Location location : row){
         wholeMap += "│";
-        }
-    System.out.println(wholeMap);
-    System.out.println("└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘");
+        if (!location.isHidden()) 
+            wholeMap  +=  location.getScene().getSymTop();
+        else 
+            wholeMap += "???????";
+                   
+    }
+    
+    wholeMap += "│\n│";
+    
+    // Row Number
+    if (rowNum == 10)
+        wholeMap += "10";
+    else 
+        wholeMap += " " + rowNum;
+    
+    // Middle of each row
+    for (Location location : row){
+        String[] symMid = location.getScene().getSymMid();
+        wholeMap += "│";
+        if (!location.isHidden())
+            wholeMap  +=  symMid[0];
+        else 
+            wholeMap += "??";
+                    
+        if (!location.isHidden())
+            wholeMap += "   ";
+        else 
+            wholeMap += "???";
+                                
+        if (!location.isHidden()) 
+            wholeMap  +=  symMid[1];
+        else 
+            wholeMap += "??";
+                
+    }
+    
+    wholeMap += "│\n│  ";
+    
+    // Bottom of each row
+    for (Location location : row){
+        wholeMap += "│";
+        if (!location.isHidden()) 
+            wholeMap  +=  location.getScene().getSymBot();
+        else 
+            wholeMap += "???????";
+    }               
+                                              
+    wholeMap += "│";
+    
+}
+
+wholeMap += "\n└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘";
+
+System.out.println(wholeMap);
+
 }
     
     private String topHull(int maxHull){
