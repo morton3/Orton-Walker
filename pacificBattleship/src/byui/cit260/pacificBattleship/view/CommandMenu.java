@@ -95,11 +95,14 @@ public class CommandMenu extends View{
         String POWs = Integer.toString(PacificBattleship.getCurrentGame().getNumOfPOW() - PacificBattleship.getCurrentGame().getNumOfUsedPOW());
         String shipSymbol = "<" + ship.getSymbol() + ">";
         
-        sideMenu[0] = rank;
-        sideMenu[1] = userName;
-        sideMenu[2] = shipClass;
-        sideMenu[3] = shipType;
-        sideMenu[4] = shipName;
+        sideMenu[0] = "\n";
+        sideMenu[1] = rank;
+        sideMenu[2] = userName;
+        sideMenu[3] = shipName;
+        sideMenu[4] = shipClass;
+        sideMenu[5] = shipType;
+        
+        // Fix this Matt- from, Matt
         sideMenu[5] = shipAttack;
         sideMenu[6] = shipAccuracy;
         sideMenu[7] = defense;
