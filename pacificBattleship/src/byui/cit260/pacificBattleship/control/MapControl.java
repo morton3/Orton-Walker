@@ -6,10 +6,12 @@
 package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.model.Collectable;
+import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Map;
 import byui.cit260.pacificBattleship.model.Scene;
 import byui.cit260.pacificBattleship.model.SceneType;
 import byui.cit260.pacificBattleship.model.Ship;
+import java.util.Random;
 import pacificbattleship.PacificBattleship;
 /**
  *
@@ -59,10 +61,31 @@ public class MapControl {
         return scenes;
     }
      private static Collectable[] createCollectables() {
-    Collectable[] collectables = new Collectable[CollectableType.values().length];
+    Collectable[] collectables = new Collectable[NukeParts.values().length];
     
     return collectables;
      }
 
-
+    static void assignNukesPartsToLocation(Location[][] mapLocations) {
+      //for all Nuke parts
+      NukeParts [] parts = NukeParts.values();{
+       Random randomRow = new Random();
+       Random randomColumn = new Random();
+       for (int i = 0; i < parts.length; i++){
+               
+        //random row
+         
+         int row = randomRow.nextInt(10);
+         
+        //randomm column
+         int column = randomColumn.nextInt(10);
+        //get location at random row and random column
+        Location mapLocation = mapLocations [row][column];
+        //assign current random Nuke part to locations
+        mapLocation.setCollectable(parts [i]);
+      }
+    
+    }
 }
+}
+

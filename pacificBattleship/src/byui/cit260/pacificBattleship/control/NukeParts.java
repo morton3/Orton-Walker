@@ -9,7 +9,7 @@ package byui.cit260.pacificBattleship.control;
  *
  * @author Nathan
  */
-public enum CollectableType {
+public enum NukeParts {
     nukePart1("First Nuclear Bomb Part"),
     nukePart2("Second Nuclear Bomb Part"),
     nukePart3("Third Nuclear Bomb Part"),
@@ -29,7 +29,7 @@ public enum CollectableType {
     private String description;
     
     
-    private CollectableType(String description) {
+    private NukeParts(String description) {
         this.description = description;
     }
     public String getDescription() {

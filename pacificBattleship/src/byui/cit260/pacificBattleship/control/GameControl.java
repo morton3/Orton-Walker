@@ -64,7 +64,8 @@ public class GameControl {
         
         PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.battleship.ordinal()]);
         
-        
+        Location [][] locationObjects = game.getMap().getLocations();
+        MapControl.assignNukesPartsToLocation(locationObjects);
         
 
     }
