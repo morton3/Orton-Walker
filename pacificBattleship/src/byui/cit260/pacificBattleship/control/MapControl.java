@@ -86,6 +86,31 @@ public class MapControl {
       }
     
     }
+       private static Collectable1[] createCollectable1s() {
+    Collectable[] collectables = new Collectable[NukeParts.values().length];
+    
+    return collectables;
+     }
+      
+      static void assignScrapShipToLocation(Location[][] mapLocations) {
+      //for all Scrap parts
+      ScrapShip [] parts = ScrapShip.values();{
+       Random randomRow = new Random();
+       Random randomColumn = new Random();
+       for (int i = 0; i < parts.length; i++){
+               
+        //random row
+         
+         int row = randomRow.nextInt(10);
+         
+        //randomm column
+         int column = randomColumn.nextInt(10);
+        //get location at random row and random column
+        Location mapLocation = mapLocations [row][column];
+        //assign current random Scrap part to locations
+        mapLocation.setCollectable1(parts [i]);
 }
+}
+      }
 }
 
