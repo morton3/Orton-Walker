@@ -5,6 +5,8 @@
  */
 package byui.cit260.pacificBattleship.control;
 
+import byui.cit260.pacificBattleship.model.Collectable;
+import byui.cit260.pacificBattleship.model.CollectableType;
 import byui.cit260.pacificBattleship.model.Game;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Map;
@@ -218,6 +220,46 @@ public class GameControl {
         locations[3][9].setShip(ships[ShipList.aircraftCarrier.ordinal()]);
         locations[1][9].setShip(ships[ShipList.destroyer.ordinal()]);
     
+    }
+
+    public static void assignCollectablesToLocations(Map map, Collectable[] collectables) {
+        
+        Location[][] locations = map.getLocations();
+        
+        
+        for (Location[] row : locations){
+            for (Location location : row){
+                location.setCollectable(collectables[CollectableType.empty.ordinal()]);
+            }
+        }
+        
+        locations[0][1].setCollectable(collectables[CollectableType.nukePart1.ordinal()]);
+        locations[0][2].setCollectable(collectables[CollectableType.nukePart2.ordinal()]);
+        locations[0][3].setCollectable(collectables[CollectableType.nukePart3.ordinal()]);
+        locations[0][4].setCollectable(collectables[CollectableType.nukePart4.ordinal()]);
+        locations[0][5].setCollectable(collectables[CollectableType.nukePart5.ordinal()]);
+        locations[0][6].setCollectable(collectables[CollectableType.nukePart6.ordinal()]);
+        locations[0][7].setCollectable(collectables[CollectableType.nukePart7.ordinal()]);
+        locations[0][8].setCollectable(collectables[CollectableType.nukePart8.ordinal()]);
+        locations[0][9].setCollectable(collectables[CollectableType.nukePart9.ordinal()]);
+        locations[1][0].setCollectable(collectables[CollectableType.nukePart10.ordinal()]);
+        locations[1][1].setCollectable(collectables[CollectableType.nukePart11.ordinal()]);
+        locations[1][2].setCollectable(collectables[CollectableType.nukePart12.ordinal()]);
+        locations[1][3].setCollectable(collectables[CollectableType.nukePart13.ordinal()]);
+        locations[1][4].setCollectable(collectables[CollectableType.nukePart14.ordinal()]);
+        locations[1][5].setCollectable(collectables[CollectableType.nukePart15.ordinal()]);
+        
+        locations[2][0].setCollectable(collectables[CollectableType.schematicBattleship2.ordinal()]);
+        locations[2][1].setCollectable(collectables[CollectableType.schematicBattleship3.ordinal()]);
+        locations[2][2].setCollectable(collectables[CollectableType.schematicTransport2.ordinal()]);
+        locations[2][3].setCollectable(collectables[CollectableType.schematicTransport3.ordinal()]);
+        locations[2][4].setCollectable(collectables[CollectableType.schematicSubmarine2.ordinal()]);
+        locations[2][5].setCollectable(collectables[CollectableType.schematicSubmarine3.ordinal()]);
+        locations[2][6].setCollectable(collectables[CollectableType.schematicAircraftCarrier2.ordinal()]);
+        locations[2][7].setCollectable(collectables[CollectableType.schematicAircraftCarrier3.ordinal()]);
+        locations[2][8].setCollectable(collectables[CollectableType.schematicDestroyer2.ordinal()]);
+        locations[2][9].setCollectable(collectables[CollectableType.schematicDestroyer3.ordinal()]);
+        
     }
 
 
