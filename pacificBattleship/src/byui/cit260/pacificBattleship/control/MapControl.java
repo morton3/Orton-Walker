@@ -5,6 +5,7 @@
  */
 package byui.cit260.pacificBattleship.control;
 
+import byui.cit260.pacificBattleship.model.NukeParts;
 import byui.cit260.pacificBattleship.model.Collectable;
 import byui.cit260.pacificBattleship.model.CollectableType;
 import byui.cit260.pacificBattleship.model.Location;
@@ -73,9 +74,13 @@ public class MapControl {
     
     private static Collectable[] createCollectables() {
         Collectable[] collectables = new Collectable[CollectableType.values().length];
+
+       Collectable empty = new Collectable();
+       empty.setName("<empty>");
+       empty.setCollectableType("<empty>");
+       empty.setActive(false);
        
-        
-        Collectable schematicBattleship2 = new Collectable();
+       Collectable schematicBattleship2 = new Collectable();
         schematicBattleship2.setCollectableType("schematicPiece");
         schematicBattleship2.setName("Battleship Class 2 Collectable");
         schematicBattleship2.setShipClass(ShipClass.battleship2);
@@ -166,7 +171,7 @@ public class MapControl {
         //get location at random row and random column
         Location mapLocation = mapLocations [row][column];
         //assign current random Nuke part to locations
-        mapLocation.setCollectable(parts [i]);
+        mapLocation.setNukePart(parts [i]);
       }
    
     }

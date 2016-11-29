@@ -29,15 +29,13 @@ public class SchematicPiecesView extends View{
                 + "\n| Q - Return to Command Menu                     |"
                 + "\n--------------------------------------------------");
     }
-
-    
     @Override
     public boolean doAction(String value) {
         value = value.toUpperCase();
         
         switch (value){
             case "Y":
-                //this.listPieces();
+                this.listPieces();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -46,8 +44,7 @@ public class SchematicPiecesView extends View{
 
         return false;
     }
-}
-/*
+
     private void listPieces() {
         
         Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
@@ -62,9 +59,7 @@ public class SchematicPiecesView extends View{
                         message += location.getCollectable().getName() + "\n";
                     empty = false;
                 }
-           
-}
-
+            }
         
         if (empty)
             message = "No schematics left!\n";
@@ -72,4 +67,3 @@ public class SchematicPiecesView extends View{
         System.out.println(message);
     }
 }
-*/

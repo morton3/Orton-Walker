@@ -227,14 +227,14 @@ public class GameControl {
         
         Location[][] locations = map.getLocations();
         
-        /*
+        
         for (Location[] row : locations){
             for (Location location : row){
                 location.setCollectable(collectables[CollectableType.empty.ordinal()]);
             }
         }
         
-      
+
         
         locations[2][0].setCollectable(collectables[CollectableType.schematicBattleship2.ordinal()]);
         locations[2][1].setCollectable(collectables[CollectableType.schematicBattleship3.ordinal()]);
@@ -246,7 +246,7 @@ public class GameControl {
         locations[2][7].setCollectable(collectables[CollectableType.schematicAircraftCarrier3.ordinal()]);
         locations[2][8].setCollectable(collectables[CollectableType.schematicDestroyer2.ordinal()]);
         locations[2][9].setCollectable(collectables[CollectableType.schematicDestroyer3.ordinal()]);
-        */
+        
     }
 
 

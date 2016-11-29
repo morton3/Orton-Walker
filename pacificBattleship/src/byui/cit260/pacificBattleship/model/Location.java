@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package byui.cit260.pacificBattleship.model;
-import byui.cit260.pacificBattleship.control.NukeParts;
 import java.io.Serializable;
 import java.util.Objects;
 /**
@@ -22,7 +21,8 @@ public class Location implements Serializable{
     private String SymBot;
     private boolean hidden;
     private String symbol;
-    private NukeParts collectable;
+    private NukeParts nukePart;
+    private Collectable collectable;
     private Ship ship;
     private Scene scene;
 
@@ -111,11 +111,11 @@ public class Location implements Serializable{
     
     }
 
-    public NukeParts getCollectable() {
+    public Collectable getCollectable() {
         return collectable;
     }
 
-    public void setCollectable(NukeParts collectable) {
+    public void setCollectable(Collectable collectable) {
         this.collectable = collectable;
     }
 
@@ -134,6 +134,16 @@ public class Location implements Serializable{
     public void setScene(Scene scene) {
         this.scene = scene;
     }
+
+    public NukeParts getNukePart() {
+        return nukePart;
+    }
+
+    public void setNukePart(NukeParts nukePart) {
+        this.nukePart = nukePart;
+    }
+    
+    
 
  
     }
