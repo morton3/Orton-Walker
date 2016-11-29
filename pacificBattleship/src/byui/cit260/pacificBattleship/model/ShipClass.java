@@ -15,20 +15,20 @@ import java.util.Objects;
 public enum ShipClass implements Serializable{
     
     battleship1("Battleship Class 1", 0, 0, "b", 0),
-    battleship2("Battleship Class 1", 2, 10, "B", 10),
-    battleship3("Battleship Class 1", 4, 20, "ß", 20),
+    battleship2("Battleship Class 2", 2, 10, "B", 10),
+    battleship3("Battleship Class 3", 4, 20, "ß", 20),
     transport1("Transport Class 1", 0, 0, "t", 0),
-    transport2("Transport Class 1", 1, 8, "†", 0),
-    transport3("Transport Class 1", 2, 16, "T", 0),
+    transport2("Transport Class 2", 1, 8, "†", 0),
+    transport3("Transport Class 3", 2, 16, "T", 0),
     submarine1("Submarine Class 1", 0, 0, "s", 0),
-    submarine2("Submarine Class 1", 1, 9, "S", 8),
-    submarine3("Submarine Class 1", 3, 9, "Š", 16),
+    submarine2("Submarine Class 2", 1, 9, "S", 8),
+    submarine3("Submarine Class 3", 3, 9, "Š", 16),
     aircraftCarrier1("Aircraft Carrier Class 1", 0, 0, "a", 0),
-    aircraftCarrier2("Aircraft Carrier Class 1", 3, 13, "A", 8),
-    aircraftCarrier3("Aircraft Carrier Class 1", 6, 26, "Ä", 15),
+    aircraftCarrier2("Aircraft Carrier Class 2", 3, 13, "A", 8),
+    aircraftCarrier3("Aircraft Carrier Class 3", 6, 26, "Ä", 15),
     destroyer1("Destroyer Class 1", 0, 0, "d", 0),
-    destroyer2("Destroyer Class 1", 3, 12, "D", 10),
-    destroyer3("Destroyer Class 1", 5, 24, "Ð", 20);
+    destroyer2("Destroyer Class 2", 3, 12, "D", 10),
+    destroyer3("Destroyer Class 3", 5, 24, "Ð", 20);
     
     private String name;
     private int bonusDefense;

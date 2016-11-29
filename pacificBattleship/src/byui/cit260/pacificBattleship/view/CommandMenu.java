@@ -62,6 +62,12 @@ public class CommandMenu extends View{
           case "N":
               this.launchNuke();
               break;
+          case "L":
+              this.countNukePieces();
+              break;
+          case "C":
+              this.schematicPiecesView();
+              break;
           default:
               System.out.println("\n*** Invalid selection *** Try again");
               break;
@@ -75,114 +81,151 @@ public class CommandMenu extends View{
            
     
     private void displayMap(Ship ship){
+        
         Map map = PacificBattleship.getCurrentGame().getMap();
         Location[][] locations = map.getLocations(); 
         
         
-        String[] sideMenu = new String[13];
+        String[] sideMenu = new String[42];
         
         String rank =  PacificBattleship.getPlayer().getRank().getSymbol() + " " + PacificBattleship.getPlayer().getRank().getName();
         String userName = PacificBattleship.getPlayer().getUserName();
         String shipClass = ship.getShipClass().getName();
         String shipType = ship.getType();
         String shipName = ship.getShipName();
-        String shipAttack = Integer.toString(ship.getAttack());
-        String shipAccuracy = Integer.toString(ship.getAccuracy() + ship.getShipClass().getBonusAccuracy());
-        String defense = Integer.toString(ship.getDefense() + ship.getShipClass().getBonusDefense());
-        String hull = Integer.toString(ship.getHull());
-        String maxHull = Integer.toString(ship.getMaxHull() + ship.getShipClass().getBonusHull());
-        String currentPart = Integer.toString(PacificBattleship.getCurrentGame().getNuclearParts());
-        String POWs = Integer.toString(PacificBattleship.getCurrentGame().getNumOfPOW() - PacificBattleship.getCurrentGame().getNumOfUsedPOW());
+        int shipAttack = ship.getAttack();
+        int shipAccuracy = ship.getAccuracy() + ship.getShipClass().getBonusAccuracy();
+        int defense = ship.getDefense() + ship.getShipClass().getBonusDefense();
+        int hull = ship.getHull();
+        int maxHull = ship.getMaxHull() + ship.getShipClass().getBonusHull();
+        int currentPart = PacificBattleship.getCurrentGame().getNuclearParts();
+        int POWs = PacificBattleship.getCurrentGame().getNumOfPOW() - PacificBattleship.getCurrentGame().getNumOfUsedPOW();
         String shipSymbol = "<" + ship.getSymbol() + ">";
         
-        sideMenu[0] = "\n";
-        sideMenu[1] = rank;
-        sideMenu[2] = userName;
-        sideMenu[3] = shipName;
-        sideMenu[4] = shipClass;
-        sideMenu[5] = shipType;
+        sideMenu[0] =  " " + rank;
+        sideMenu[1] =  " " + userName;
+        sideMenu[2] =  "";
+        sideMenu[3] =  " " + shipName;
+        sideMenu[4] =  " " + shipClass;
+        sideMenu[5] =  " " + shipType;
+        sideMenu[6] =  "";
+        sideMenu[7] =  " ATTACK »»»»»»»» " + Integer.toString(shipAttack);
+        sideMenu[8] =  " ACCURACY »»»»»» " + Integer.toString(shipAccuracy);
+        sideMenu[9] =  " DEFENCE »»»»»»» " + Integer.toString(defense);
+        sideMenu[10] = " POW's »»»»»»»»» " + Integer.toString(POWs);
+        sideMenu[11] = "";
+        sideMenu[12] = " ┌--------------------┐";
+        sideMenu[13] = " │ HULL       " + Integer.toString(hull) + " / " + Integer.toString(maxHull);
+        sideMenu[14] = " " + this.topHull(maxHull);
+        sideMenu[15] = " " + this.MidTopHull(hull, maxHull);
+        sideMenu[16] = " " + this.MidHull(maxHull);
+        sideMenu[17] = " " + this.MidBotHull(hull, maxHull);
+        sideMenu[18] = " " + this.BotHull(maxHull);
+        sideMenu[19] = "   ┌---┐-Main░  ░░┌---┐-Switch ┌---┐-Upgrade";
+        sideMenu[20] = "   │ Q │ Menu░  ░░│ E │ Ships  │ R │";
+        sideMenu[21] = "   └---┘   ┌─--┐  └---┘        └---┘";
+        sideMenu[22] = "   ░   ░   │░W │-Up";
+        sideMenu[23] = "        ┌─-┴┬--┴┬---┐";
+        sideMenu[24] = "   Left-│░A░│ S░│ D │-Right";
+        sideMenu[25] = "        └──-┴─--┴---┘";
+        sideMenu[26] = "                 └Down";
+        sideMenu[27] = "    ┌---┐";
+        sideMenu[28] = "    │ 4 │-Attack";
+        sideMenu[29] = "    └---┘";
+        sideMenu[30] = "";
+        sideMenu[31] = "    ┌---┐-Launch";
+        sideMenu[32] = "    │ N │ Nuke";
+        sideMenu[33] = "    └---┘";
+        sideMenu[34] = "";
+        sideMenu[35] = "     " + Integer.toString(currentPart) + " / 15 Parts";
+        sideMenu[36] = "";
+        sideMenu[37] = "";
+        sideMenu[38] = " L - How many Nuke pieces are left?";
+        sideMenu[39] = " C - How many schematic pieces are left?";
+        sideMenu[40] = "";
+        sideMenu[41] = "";
         
-        // Fix this Matt- from, Matt
-        sideMenu[5] = shipAttack;
-        sideMenu[6] = shipAccuracy;
-        sideMenu[7] = defense;
-        sideMenu[8] = hull;
-        sideMenu[9] = maxHull;
-        sideMenu[10] = currentPart;
-        sideMenu[11] = POWs;
-        sideMenu[12] = shipSymbol;
         int rowNum = 0;
         
-String wholeMap = 
-          "                                 Pacific Battleship\n"
-        + "┌--┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┐\n"
-        + "│>>│   A   │   B   │   C   │   D   │   E   │   F   │   G   │   H   │   I   │   J   │";
-               
-// Cycle through all rows
-for (Location[] row : locations) {
-    wholeMap += "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤\n"
-            +   "│  ";
-    rowNum ++;
-    
-    // Top of each row
-    for (Location location : row){
-        wholeMap += "│";
-        if (!location.isHidden()) 
-            wholeMap  +=  location.getScene().getSymTop();
-        else 
-            wholeMap += "???????";
-                   
-    }
-    
-    wholeMap += "│\n│";
-    
-    // Row Number
-    if (rowNum == 10)
-        wholeMap += "10";
-    else 
-        wholeMap += " " + rowNum;
-    
-    // Middle of each row
-    for (Location location : row){
-        String[] symMid = location.getScene().getSymMid();
-        wholeMap += "│";
-        if (!location.isHidden())
-            wholeMap  +=  symMid[0];
-        else 
-            wholeMap += "??";
-                    
-        if (!location.isHidden())
-            wholeMap += "   ";
-        else 
-            wholeMap += "???";
-                                
-        if (!location.isHidden()) 
-            wholeMap  +=  symMid[1];
-        else 
-            wholeMap += "??";
+        int menuRow = 0;
+        
+        String wholeMap = 
+                "                                 Pacific Battleship\n"
+                + "┌--┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┬-------┐"
+                + sideMenu[menuRow++] + "\n"
+                + "│>>│   A   │   B   │   C   │   D   │   E   │   F   │   G   │   H   │   I   │   J   │"
+                + sideMenu[menuRow++];
+        
+        // Cycle through all rows
+        for (Location[] row : locations) {
+            wholeMap += "\n├--┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┼-------┤"
+                    + sideMenu[menuRow++]
+                    +   "\n│  ";  
+            
+            rowNum ++;
+            
+            // Top of each row
+            for (Location location : row){
+                wholeMap += "│";
+                if (!location.isHidden()) 
+                    wholeMap  +=  location.getScene().getSymTop();
+                else 
+                    wholeMap += "???????";
+            }
+            
+            wholeMap += "│";
+            wholeMap += sideMenu[menuRow++];
+            wholeMap += "\n│";
+            
+            // Row Number
+            if (rowNum == 10)
+                wholeMap += "10";
+            else 
+                wholeMap += " " + rowNum;
+            
+            // Middle of each row
+            for (Location location : row){
+                String[] symMid = location.getScene().getSymMid();
+                wholeMap += "│";
+                if (!location.isHidden())
+                    wholeMap  +=  symMid[0];
+                else 
+                    wholeMap += "??"; 
                 
+                if (!location.isHidden())
+                    wholeMap += "   ";
+                else 
+                    wholeMap += "???";
+                
+                if (!location.isHidden()) 
+                    wholeMap  +=  symMid[1];
+                else 
+                    wholeMap += "??";
+            
+            }
+            
+            wholeMap += "│";
+            wholeMap += sideMenu[menuRow++];
+            wholeMap += "\n│  ";
+            
+            // Bottom of each row
+            for (Location location : row){
+                wholeMap += "│";
+                if (!location.isHidden()) 
+                    wholeMap  +=  location.getScene().getSymBot();
+                else 
+                    wholeMap += "???????";
+            } 
+            
+            wholeMap += "│";
+            wholeMap += sideMenu[menuRow++];
+        }
+        
+        wholeMap += "\n└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘";
+        
+        System.out.println(wholeMap);
+    
     }
-    
-    wholeMap += "│\n│  ";
-    
-    // Bottom of each row
-    for (Location location : row){
-        wholeMap += "│";
-        if (!location.isHidden()) 
-            wholeMap  +=  location.getScene().getSymBot();
-        else 
-            wholeMap += "???????";
-    }               
-                                              
-    wholeMap += "│";
-    
-}
-
-wholeMap += "\n└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘";
-
-System.out.println(wholeMap);
-
-}
     
     private String topHull(int maxHull){
         
@@ -321,6 +364,15 @@ System.out.println(wholeMap);
     private void launchNuke() {
        LaunchNuke launchNuke = new LaunchNuke();
        launchNuke.display();
+    }
+
+    private void countNukePieces() {
+        System.out.println("*** countNukePieces() function called ***");
+    }
+
+    private void schematicPiecesView() {
+        SchematicPiecesView schematicPiecesView = new SchematicPiecesView();
+        schematicPiecesView.display();
     }
             
             

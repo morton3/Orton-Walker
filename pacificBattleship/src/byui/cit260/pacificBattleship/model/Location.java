@@ -5,7 +5,6 @@
  */
 package byui.cit260.pacificBattleship.model;
 import byui.cit260.pacificBattleship.control.NukeParts;
-import byui.cit260.pacificBattleship.control.ScrapShip;
 import java.io.Serializable;
 import java.util.Objects;
 /**
@@ -136,9 +135,8 @@ public class Location implements Serializable{
         this.scene = scene;
     }
 
-    public void setCollectable1(ScrapShip part) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ 
     }
     
 
-}
+
