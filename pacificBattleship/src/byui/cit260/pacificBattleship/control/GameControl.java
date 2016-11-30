@@ -206,7 +206,8 @@ public class GameControl {
                     location.setHidden(true);
                 }
             }
-    locations[2][9].setHidden(false);
+            
+        locations[2][9].setHidden(false);
     
     }
 
@@ -214,15 +215,28 @@ public class GameControl {
         
         Map map = PacificBattleship.getCurrentGame().getMap();
         Ship[] ships = PacificBattleship.getCurrentGame().getShip();
-
+        
+        Ship battleship = ships[ShipList.battleship.ordinal()];
+        Ship transport = ships[ShipList.transport.ordinal()];
+        Ship submarine = ships[ShipList.submarine.ordinal()];
+        Ship aircraftCarrier = ships[ShipList.aircraftCarrier.ordinal()];
+        Ship destroyer = ships[ShipList.destroyer.ordinal()];
     
         Location[][] locations = map.getLocations();
         
-        locations[9][2].setShip(ships[ShipList.battleship.ordinal()]);
-        locations[6][0].setShip(ships[ShipList.transport.ordinal()]);
-        locations[9][9].setShip(ships[ShipList.submarine.ordinal()]);
-        locations[3][9].setShip(ships[ShipList.aircraftCarrier.ordinal()]);
-        locations[1][9].setShip(ships[ShipList.destroyer.ordinal()]);
+        locations[2][9].setShip(battleship);
+        locations[0][6].setShip(transport);
+        locations[9][9].setShip(submarine);
+        locations[9][3].setShip(aircraftCarrier);
+        locations[9][1].setShip(destroyer);
+        
+        battleship.setLocation(locations[2][9]);
+        transport.setLocation(locations[0][6]);
+        submarine.setLocation(locations[9][9]);
+        aircraftCarrier.setLocation(locations[9][3]);
+        destroyer.setLocation(locations[9][1]);
+        
+        
     
     }
 
