@@ -22,6 +22,7 @@ public class Game implements Serializable {
     private Map map;
     private Actor[] actor;
     private Ship[] ship;
+    private Ship[] enemyShips;
     private Ship activeShip;
     
     public Game() {
@@ -90,6 +91,14 @@ public class Game implements Serializable {
 
     public void setActiveShip(Ship activeShip) {
         this.activeShip = activeShip;
+    }
+
+    public Ship[] getEnemyShips() {
+        return enemyShips;
+    }
+
+    public void setEnemyShips(Ship[] enemyShips) {
+        this.enemyShips = enemyShips;
     }
 
     
