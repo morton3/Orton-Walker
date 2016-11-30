@@ -5,6 +5,7 @@
  */
 package byui.cit260.pacificBattleship.control;
 
+import byui.cit260.pacificBattleship.model.EnemyShipList;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.ShipList;
@@ -21,6 +22,7 @@ public class ShipControl {
         
         Ship battleship = new Ship();
         battleship.setShipName("USS Tennessee");
+        battleship.setDescription("The description......");
         battleship.setType("Battleship");
         battleship.setDefense(1);
         battleship.setAccuracy(80);
@@ -95,6 +97,43 @@ public class ShipControl {
         ships[ShipList.destroyer.ordinal()] = destroyer;
         
         return ships;
+    }
+
+    public static Ship[] createEnemyShips() {
+        
+        Ship[] enemyShips = new Ship[EnemyShipList.values().length];
+        
+        Ship enemy1 = new Ship();
+        enemy1.setShipName("USS enemy1 name");
+        enemy1.setType("Battleship");
+        enemy1.setDefense(0);
+        enemy1.setAccuracy(60);
+        enemy1.setUserControl(false);
+        enemy1.setAttack(10);
+        enemy1.setHull(12);
+        enemy1.setMaxHull(12);
+        enemy1.setDescription("");
+        enemy1.setLocation(null);
+        enemy1.setShipClass(ShipClass.battleship1);
+        enemy1.setSymbol(enemy1.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemy1.ordinal()] = enemy1;
+        
+        Ship enemy2 = new Ship();
+        enemy2.setShipName("USS enemy2 name");
+        enemy2.setType("Battleship");
+        enemy2.setDefense(0);
+        enemy2.setAccuracy(60);
+        enemy2.setUserControl(false);
+        enemy2.setAttack(10);
+        enemy2.setHull(12);
+        enemy2.setMaxHull(12);
+        enemy2.setDescription("");
+        enemy2.setLocation(null);
+        enemy2.setShipClass(ShipClass.battleship1);
+        enemy2.setSymbol(enemy2.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemy2.ordinal()] = enemy2;
+        
+        return enemyShips;
     }
     
 }

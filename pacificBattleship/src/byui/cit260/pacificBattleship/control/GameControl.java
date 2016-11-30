@@ -62,6 +62,9 @@ public class GameControl {
         Ship[] ships = ShipControl.createShips();        
         game.setShip(ships);
         
+        Ship[] enemyShips = ShipControl.createEnemyShips();
+        game.setEnemyShips(enemyShips);
+        
         GameControl.moveShipsToStartingLocations();
         
         PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.battleship.ordinal()]);
