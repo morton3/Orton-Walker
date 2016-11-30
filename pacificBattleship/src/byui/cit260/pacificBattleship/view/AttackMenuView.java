@@ -79,7 +79,7 @@ public class AttackMenuView extends View{
           return false;
       }
       
-      this.results(row, column);
+      this.results(column, row);
       
       BattleResultView battleResultView = new BattleResultView();
       battleResultView.display();
