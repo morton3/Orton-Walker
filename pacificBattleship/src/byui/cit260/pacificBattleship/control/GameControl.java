@@ -59,12 +59,12 @@ public class GameControl {
         Map map = MapControl.createMap();
         game.setMap(map);
         
-      //Ship[] ships = ShipControl.createShips();        
-     //   game.setShip(ships);
+        Ship[] ships = ShipControl.createShips();        
+        game.setShip(ships);
         
         GameControl.moveShipsToStartingLocations();
         
-       // PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.battleship.ordinal()]);
+        PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.battleship.ordinal()]);
         
         Location [][] locationObjects = game.getMap().getLocations();
         MapControl.assignNukesPartsToLocation(locationObjects);
