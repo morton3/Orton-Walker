@@ -399,20 +399,58 @@ public class CommandMenu extends View{
             return;
         }
         
+        if (!this.checkArea(locations[y + row][x + column]))
+            return;
+        
         // Set location of Ship to new location
-        ship.setLocation(locations[y + row][x + column]);
+        ship.setLocation(locations[y + row][x + column]);                       
         
         // remove ship from old location
-        locations[row][column].setShip(null);
+        locations[row][column].setShip(null);                                   
         
         //place ship in new location
-        locations[y + row][x + column].setShip(ship);
+        locations[y + row][x + column].setShip(ship);                           
         
         //set Ship location to seen
-        locations[y + row][x + column].setHidden(false);
-        locations[row][column].setHidden(true);
+        locations[y + row][x + column].setHidden(false);                        
+        
+        // Don't Hide Pearl Harbor!
+        if (!(row == 2 && column == 9))                                         
+            locations[row][column].setHidden(true);
+        
+
         
         
+    }
+
+    private boolean checkArea(Location location) {
+        
+        if (location.getShip() == null) {
+            return true;
+        }
+        
+        if (!(location.getCollectable() == null)) {
+            this.pickupCollectable(location);
+            return true;
+        }
+        
+        Ship ship = location.getShip();
+        
+        if (ship.isUserControl()) {
+            System.out.println("You're about to run into your own ship!"
+                           + "\n    Turn around!!!!");
+            return false;
+        }
+        else {
+            System.out.println("Looks like there's an enemy Ship here!"
+                           + "\nWe can either attack it, or go around...");
+            return false;
+        }
+    }
+
+    private void pickupCollectable(Location location) {
+        System.out.println("You found something!");
+        System.out.println("******* function pickupCollectable() reached *****");
     }
             
             

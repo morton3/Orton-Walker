@@ -11,6 +11,13 @@ package byui.cit260.pacificBattleship.model;
  */
 public enum SceneType {
     water,
-    land;
+    land,
+    shoreTop,
+    shoreRight,
+    shoreBottom,
+    shoreLeft,
+    verticalPass,
+    horizontalPass,
+    pearlHarbor;
     
 }

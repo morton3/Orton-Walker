@@ -100,23 +100,30 @@ public class BattleControl {
 	int attack = totalAttack * 2;
         
 
-	if (uShip.getType().equals("destroyer") &&
-                eShip.getType().equals("submarine") ||
-                uShip.getType().equals("submarine") &&
-                eShip.getType().equals("aircraftCarrier") ||
-                uShip.getType().equals("aircraftCarrier") &&
-                eShip.getType().equals("destroyer"))
+	if (uShip.getType().equals("Destroyer") &&
+                eShip.getType().equals("Submarine") ||
+                uShip.getType().equals("Submarine") &&
+                eShip.getType().equals("Aircraft Carrier") ||
+                uShip.getType().equals("Aircraft Carrier") &&
+                eShip.getType().equals("Destroyer"))
 		attack *= 2;
 		
-	if (eShip.getType().equals("destroyer") &&
-                uShip.getType().equals("submarine") ||
-                eShip.getType().equals("submarine") &&
-                uShip.getType().equals("aircraftCarrier") ||
-                eShip.getType().equals("aircraftCarrier") &&
-                uShip.getType().equals("destroyer"))
+	if (eShip.getType().equals("Destroyer") &&
+                uShip.getType().equals("Submarine") ||
+                eShip.getType().equals("Submarine") &&
+                uShip.getType().equals("Aircraft Carrier") ||
+                eShip.getType().equals("Aircraft Carrier") &&
+                uShip.getType().equals("Destroyer"))
 		attack *= 0.5;
 
         return attack;
+    }
+    
+    public static String checkForEnemy(int row, int column) {
+        
+        String message = "checkForEnemy(int row, int column)";
+        
+        return message;
     }
     
 }

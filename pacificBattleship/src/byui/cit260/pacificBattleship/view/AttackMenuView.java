@@ -5,6 +5,8 @@
  */
 package byui.cit260.pacificBattleship.view;
 
+import byui.cit260.pacificBattleship.control.BattleControl;
+
 
 /**
  *
@@ -89,11 +91,53 @@ public class AttackMenuView extends View{
     }
 
     private void results(int row, int column) {
+        
+        char rowLetter = 'A';
+        
+        switch (row){
+            case 1:
+                rowLetter = 'A';
+                break;
+            case 2:
+                rowLetter = 'B';
+                break;
+            case 3:
+                rowLetter = 'C';
+                break;
+            case 4:
+                rowLetter = 'D';
+                break;
+            case 5:
+                rowLetter = 'E';
+                break;
+            case 6:
+                rowLetter = 'F';
+                break;
+            case 7:
+                rowLetter = 'G';
+                break;
+            case 8:
+                rowLetter = 'H';
+                break;
+            case 9:
+                rowLetter = 'I';
+                break;
+            case 10:
+                rowLetter = 'J';
+                break;
+        }
+        
         System.out.println("\nAttack made at:"
-                + "\n\trow:" + row
-                + "\n\tcolumn:" + column);
+                + "\n\trow: " + rowLetter
+                + "\n\tcolumn: " + column);
+        
+        
+        String message = BattleControl.checkForEnemy(row, column);
+        
+        System.out.println(message);
+        
     }
-
+    
 }
 
     
