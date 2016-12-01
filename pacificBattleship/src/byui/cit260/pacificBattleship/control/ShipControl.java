@@ -38,6 +38,7 @@ public class ShipControl {
         
         Ship transport = new Ship();
         transport.setShipName("USS President Jackson");
+        transport.setDescription("The description......");
         transport.setType("Transport");
         transport.setDefense(0);
         transport.setAccuracy(100);
@@ -53,6 +54,7 @@ public class ShipControl {
         
         Ship submarine = new Ship();
         submarine.setShipName("USS submarine name");
+        submarine.setDescription("The description......");
         submarine.setType("Submarine");
         submarine.setDefense(0);
         submarine.setAccuracy(70);
@@ -68,6 +70,7 @@ public class ShipControl {
         
         Ship aircraftCarrier = new Ship();
         aircraftCarrier.setShipName("USS arircraft carrier");
+        aircraftCarrier.setDescription("The description......");
         aircraftCarrier.setType("Aircraft Carrier");
         aircraftCarrier.setDefense(0);
         aircraftCarrier.setAccuracy(65);
@@ -83,6 +86,7 @@ public class ShipControl {
         
         Ship destroyer = new Ship();
         destroyer.setShipName("USS destroyer");
+        destroyer.setDescription("The description......");
         destroyer.setType("Destroyer");
         destroyer.setDefense(0);
         destroyer.setAccuracy(60);
@@ -103,35 +107,155 @@ public class ShipControl {
         
         Ship[] enemyShips = new Ship[EnemyShipList.values().length];
         
-        Ship enemy1 = new Ship();
-        enemy1.setShipName("USS enemy1 name");
-        enemy1.setType("Battleship");
-        enemy1.setDefense(0);
-        enemy1.setAccuracy(60);
-        enemy1.setUserControl(false);
-        enemy1.setAttack(10);
-        enemy1.setHull(12);
-        enemy1.setMaxHull(12);
-        enemy1.setDescription("");
-        enemy1.setLocation(null);
-        enemy1.setShipClass(ShipClass.battleship1);
-        enemy1.setSymbol(enemy1.getShipClass().getSymbol());
-        enemyShips[EnemyShipList.enemy1.ordinal()] = enemy1;
+        Ship enemyBattleship1 = new Ship();
+        enemyBattleship1.setShipName("Yamato");
+        enemyBattleship1.setType("Battleship");
+        enemyBattleship1.setDefense(0);
+        enemyBattleship1.setAccuracy(60);
+        enemyBattleship1.setUserControl(false);
+        enemyBattleship1.setAttack(10);
+        enemyBattleship1.setHull(12);
+        enemyBattleship1.setMaxHull(12);
+        enemyBattleship1.setDescription("");
+        enemyBattleship1.setLocation(null);
+        enemyBattleship1.setShipClass(ShipClass.battleship1);
+        enemyBattleship1.setSymbol(enemyBattleship1.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemyBattleship1.ordinal()] = enemyBattleship1;
         
-        Ship enemy2 = new Ship();
-        enemy2.setShipName("USS enemy2 name");
-        enemy2.setType("Battleship");
-        enemy2.setDefense(0);
-        enemy2.setAccuracy(60);
-        enemy2.setUserControl(false);
-        enemy2.setAttack(10);
-        enemy2.setHull(12);
-        enemy2.setMaxHull(12);
-        enemy2.setDescription("");
-        enemy2.setLocation(null);
-        enemy2.setShipClass(ShipClass.battleship1);
-        enemy2.setSymbol(enemy2.getShipClass().getSymbol());
-        enemyShips[EnemyShipList.enemy2.ordinal()] = enemy2;
+        Ship enemyBattleship2 = new Ship();
+        enemyBattleship2.setShipName("Yamato");
+        enemyBattleship2.setType("Battleship");
+        enemyBattleship2.setDefense(0);
+        enemyBattleship2.setAccuracy(60);
+        enemyBattleship2.setUserControl(false);
+        enemyBattleship2.setAttack(10);
+        enemyBattleship2.setHull(12);
+        enemyBattleship2.setMaxHull(12);
+        enemyBattleship2.setDescription("");
+        enemyBattleship2.setLocation(null);
+        enemyBattleship2.setShipClass(ShipClass.battleship1);
+        enemyBattleship2.setSymbol(enemyBattleship2.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemyBattleship2.ordinal()] = enemyBattleship2;
+        
+        Ship enemyBattlecruisers1 = new Ship();
+        enemyBattlecruisers1.setShipName("Kongō");
+        enemyBattlecruisers1.setType("Battlecruisers");
+        enemyBattlecruisers1.setDefense(0);
+        enemyBattlecruisers1.setAccuracy(60);
+        enemyBattlecruisers1.setUserControl(false);
+        enemyBattlecruisers1.setAttack(10);
+        enemyBattlecruisers1.setHull(12);
+        enemyBattlecruisers1.setMaxHull(12);
+        enemyBattlecruisers1.setDescription("");
+        enemyBattlecruisers1.setLocation(null);
+        enemyBattlecruisers1.setShipClass(ShipClass.battleship1);
+        enemyBattlecruisers1.setSymbol(enemyBattlecruisers1.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemyBattlecruisers1.ordinal()] = enemyBattlecruisers1;
+        
+        Ship enemyBattlecruisers2 = new Ship();
+        enemyBattlecruisers2.setShipName("Kongō");
+        enemyBattlecruisers2.setType("Battlecruisers");
+        enemyBattlecruisers2.setDefense(0);
+        enemyBattlecruisers2.setAccuracy(60);
+        enemyBattlecruisers2.setUserControl(false);
+        enemyBattlecruisers2.setAttack(10);
+        enemyBattlecruisers2.setHull(12);
+        enemyBattlecruisers2.setMaxHull(12);
+        enemyBattlecruisers2.setDescription("");
+        enemyBattlecruisers2.setLocation(null);
+        enemyBattlecruisers2.setShipClass(ShipClass.battleship1);
+        enemyBattlecruisers2.setSymbol(enemyBattlecruisers2.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemyBattlecruisers2.ordinal()] = enemyBattlecruisers2;
+        
+         Ship enemySubmarine1 = new Ship();
+        enemySubmarine1.setShipName("I-506");
+        enemySubmarine1.setType("submarine");
+        enemySubmarine1.setDefense(0);
+        enemySubmarine1.setAccuracy(60);
+        enemySubmarine1.setUserControl(false);
+        enemySubmarine1.setAttack(10);
+        enemySubmarine1.setHull(12);
+        enemySubmarine1.setMaxHull(12);
+        enemySubmarine1.setDescription("");
+        enemySubmarine1.setLocation(null);
+        enemySubmarine1.setShipClass(ShipClass.battleship1);
+        enemySubmarine1.setSymbol(enemySubmarine1.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemySubmarine1.ordinal()] = enemySubmarine1;
+        
+        Ship enemySubmarine2 = new Ship();
+        enemySubmarine2.setShipName("I-506");
+        enemySubmarine2.setType("submarine");
+        enemySubmarine2.setDefense(0);
+        enemySubmarine2.setAccuracy(60);
+        enemySubmarine2.setUserControl(false);
+        enemySubmarine2.setAttack(10);
+        enemySubmarine2.setHull(12);
+        enemySubmarine2.setMaxHull(12);
+        enemySubmarine2.setDescription("");
+        enemySubmarine2.setLocation(null);
+        enemySubmarine2.setShipClass(ShipClass.battleship1);
+        enemySubmarine2.setSymbol(enemySubmarine2.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemySubmarine2.ordinal()] = enemySubmarine2;
+        
+        Ship enemyDestroyer1 = new Ship();
+        enemyDestroyer1.setShipName("Yūgumo1");
+        enemyDestroyer1.setType("Destroyer");
+        enemyDestroyer1.setDefense(0);
+        enemyDestroyer1.setAccuracy(60);
+        enemyDestroyer1.setUserControl(false);
+        enemyDestroyer1.setAttack(10);
+        enemyDestroyer1.setHull(12);
+        enemyDestroyer1.setMaxHull(12);
+        enemyDestroyer1.setDescription("");
+        enemyDestroyer1.setLocation(null);
+        enemyDestroyer1.setShipClass(ShipClass.battleship1);
+        enemyDestroyer1.setSymbol(enemyDestroyer1.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemyDestroyer1.ordinal()] = enemyDestroyer1;
+        
+        Ship enemyDestroyer2 = new Ship();
+        enemyDestroyer2.setShipName("Yūgumo2");
+        enemyDestroyer2.setType("Destroyer");
+        enemyDestroyer2.setDefense(0);
+        enemyDestroyer2.setAccuracy(60);
+        enemyDestroyer2.setUserControl(false);
+        enemyDestroyer2.setAttack(10);
+        enemyDestroyer2.setHull(12);
+        enemyDestroyer2.setMaxHull(12);
+        enemyDestroyer2.setDescription("");
+        enemyDestroyer2.setLocation(null);
+        enemyDestroyer2.setShipClass(ShipClass.battleship1);
+        enemyDestroyer2.setSymbol(enemyDestroyer2.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemyDestroyer2.ordinal()] = enemyDestroyer2;
+        
+        Ship enemyAircraftCarrier1 = new Ship();
+        enemyAircraftCarrier1.setShipName("Shōkaku2");
+        enemyAircraftCarrier1.setType("Aircraft Carrier");
+        enemyAircraftCarrier1.setDefense(0);
+        enemyAircraftCarrier1.setAccuracy(60);
+        enemyAircraftCarrier1.setUserControl(false);
+        enemyAircraftCarrier1.setAttack(10);
+        enemyAircraftCarrier1.setHull(12);
+        enemyAircraftCarrier1.setMaxHull(12);
+        enemyAircraftCarrier1.setDescription("");
+        enemyAircraftCarrier1.setLocation(null);
+        enemyAircraftCarrier1.setShipClass(ShipClass.battleship1);
+        enemyAircraftCarrier1.setSymbol(enemyAircraftCarrier1.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemyAircraftCarrier1.ordinal()] = enemyAircraftCarrier1;
+        
+        Ship enemyAircraftCarrier2 = new Ship();
+        enemyAircraftCarrier2.setShipName("Shōkaku2");
+        enemyAircraftCarrier2.setType("enemyAircraft Carrier");
+        enemyAircraftCarrier2.setDefense(0);
+        enemyAircraftCarrier2.setAccuracy(60);
+        enemyAircraftCarrier2.setUserControl(false);
+        enemyAircraftCarrier2.setAttack(10);
+        enemyAircraftCarrier2.setHull(12);
+        enemyAircraftCarrier2.setMaxHull(12);
+        enemyAircraftCarrier2.setDescription("");
+        enemyAircraftCarrier2.setLocation(null);
+        enemyAircraftCarrier2.setShipClass(ShipClass.battleship1);
+        enemyAircraftCarrier2.setSymbol(enemyAircraftCarrier2.getShipClass().getSymbol());
+        enemyShips[EnemyShipList.enemyAircraftCarrier2.ordinal()] = enemyAircraftCarrier2;
         
         return enemyShips;
     }
