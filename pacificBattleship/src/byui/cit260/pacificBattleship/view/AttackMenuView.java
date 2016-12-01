@@ -90,7 +90,7 @@ public class AttackMenuView extends View{
       
     }
 
-    private void results(int row, int column) {
+    private void results(int column, int row) {
         
         char rowLetter = 'A';
         
