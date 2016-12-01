@@ -64,6 +64,83 @@ public class MapControl {
         land.setSymMid(landSymMid);
         land.setSymBot(landSymBot);
         scenes[SceneType.land.ordinal()] = land;
+        
+        Scene shoreTop = new Scene();
+        String shoreTopSymTop = "+++++++";
+        String[] shoreTopSymMid = {"~~", "~~"};
+        String shoreTopSymBot = "~~~~~~~";
+        shoreTop.setDescription("Pacific Ocean with land above it");
+        shoreTop.setActive(true);
+        shoreTop.setSymTop(shoreTopSymTop);
+        shoreTop.setSymMid(shoreTopSymMid);
+        shoreTop.setSymBot(shoreTopSymBot);
+        scenes[SceneType.shoreTop.ordinal()] = shoreTop;
+        
+        Scene shoreRight = new Scene();
+        String shoreRightSymTop = "~~~~~~+";
+        String[] shoreRightSymMid = {"~~", "~+"};
+        String shoreRightSymBot = "~~~~~~+";
+        shoreRight.setDescription("Pacific Ocean with land to the right of it");
+        shoreRight.setActive(true);
+        shoreRight.setSymTop(shoreRightSymTop);
+        shoreRight.setSymMid(shoreRightSymMid);
+        shoreRight.setSymBot(shoreRightSymBot);
+        scenes[SceneType.shoreRight.ordinal()] = shoreRight;
+        
+        Scene shoreBottom = new Scene();
+        String shoreBottomSymTop = "~~~~~~~";
+        String[] shoreBottomSymMid = {"~~", "~~"};
+        String shoreBottomSymBot = "+++++++";
+        shoreBottom.setDescription("Pacific Ocean with land below it");
+        shoreBottom.setActive(true);
+        shoreBottom.setSymTop(shoreBottomSymTop);
+        shoreBottom.setSymMid(shoreBottomSymMid);
+        shoreBottom.setSymBot(shoreBottomSymBot);
+        scenes[SceneType.shoreBottom.ordinal()] = shoreBottom;
+        
+        Scene shoreLeft = new Scene();
+        String shoreLeftSymTop = "+~~~~~~";
+        String[] shoreLeftSymMid = {"+~", "~~"};
+        String shoreLeftSymBot = "+~~~~~~";
+        shoreLeft.setDescription("Pacific Ocean with land to the left of it");
+        shoreLeft.setActive(true);
+        shoreLeft.setSymTop(shoreLeftSymTop);
+        shoreLeft.setSymMid(shoreLeftSymMid);
+        shoreLeft.setSymBot(shoreLeftSymBot);
+        scenes[SceneType.shoreLeft.ordinal()] = shoreLeft;
+        
+        Scene verticalPass = new Scene();
+        String verticalPassSymTop = "+~~~~~+";
+        String[] verticalPassSymMid = {"+~", "~+"};
+        String verticalPassSymBot = "+~~~~~+";
+        verticalPass.setDescription("Pacific Ocean with land to the left and right of it");
+        verticalPass.setActive(true);
+        verticalPass.setSymTop(verticalPassSymTop);
+        verticalPass.setSymMid(verticalPassSymMid);
+        verticalPass.setSymBot(verticalPassSymBot);
+        scenes[SceneType.verticalPass.ordinal()] = verticalPass;
+        
+        Scene horizontalPass = new Scene();
+        String horizontalPassSymTop = "+++++++";
+        String[] horizontalPassSymMid = {"~~", "~~"};
+        String horizontalPassSymBot = "+++++++";
+        horizontalPass.setDescription("Pacific Ocean with land above and below it");
+        horizontalPass.setActive(true);
+        horizontalPass.setSymTop(horizontalPassSymTop);
+        horizontalPass.setSymMid(horizontalPassSymMid);
+        horizontalPass.setSymBot(horizontalPassSymBot);
+        scenes[SceneType.horizontalPass.ordinal()] = horizontalPass;
+        
+        Scene pearlHarbor = new Scene();
+        String pearlHarborSymTop = "PE| |RL";
+        String[] pearlHarborSymMid = {"->", "<-"};
+        String pearlHarborSymBot = "HR| |BR";
+        pearlHarbor.setDescription("Pearl Harbor Naval Base");
+        pearlHarbor.setActive(true);
+        pearlHarbor.setSymTop(pearlHarborSymTop);
+        pearlHarbor.setSymMid(pearlHarborSymMid);
+        pearlHarbor.setSymBot(pearlHarborSymBot);
+        scenes[SceneType.pearlHarbor.ordinal()] = pearlHarbor;
 
         return scenes;
     }

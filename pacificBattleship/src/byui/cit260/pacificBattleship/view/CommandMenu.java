@@ -83,8 +83,10 @@ public class CommandMenu extends View{
     private void displayMap(Ship ship){
         
         Map map = PacificBattleship.getCurrentGame().getMap();
-        Location[][] locations = map.getLocations(); 
+        Location[][] locations = map.getLocations();
         
+        // Generic blank for locations without Ships
+        String symbol = "   ";
         
         String[] sideMenu = new String[42];
         
@@ -185,7 +187,14 @@ public class CommandMenu extends View{
             
             // Middle of each row
             for (Location location : row){
-                String[] symMid = location.getScene().getSymMid();
+                
+                if (location.getShip() == null)
+                    symbol = "   ";
+                else
+                    symbol = " " + location.getShip().getSymbol() + " ";
+                
+                String symMid[] = location.getScene().getSymMid();
+
                 wholeMap += "│";
                 if (!location.isHidden())
                     wholeMap  +=  symMid[0];
@@ -193,7 +202,7 @@ public class CommandMenu extends View{
                     wholeMap += "??"; 
                 
                 if (!location.isHidden())
-                    wholeMap += "   ";
+                    wholeMap += symbol;
                 else 
                     wholeMap += "???";
                 
@@ -341,19 +350,19 @@ public class CommandMenu extends View{
     }
 
     private void moveUp() {
-        System.out.println("*** moveUp function called ***");
+        this.moveto(0,-1);
     }
 
     private void moveDown() {
-        System.out.println("*** moveDown function called ***");
+        this.moveto(0,1);
     }
 
     private void moveLeft() {
-        System.out.println("*** moveLeft function called ***");
+        this.moveto(-1,0);
     }
 
     private void moveRight() {
-        System.out.println("*** moveRight function called ***");
+        this.moveto(1,0);
     }
 
     private void attack() {
@@ -373,6 +382,75 @@ public class CommandMenu extends View{
     private void schematicPiecesView() {
         SchematicPiecesView schematicPiecesView = new SchematicPiecesView();
         schematicPiecesView.display();
+    }
+
+    private void moveto(int x, int y) {
+        
+        Ship ship = PacificBattleship.getCurrentGame().getActiveShip();
+        Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
+        
+        Location shipLocation = ship.getLocation();
+        int row = shipLocation.getRow();
+        int column = shipLocation.getColumn();
+        
+        // check if coordinates are on the map
+        if (row + y > 9 || row + y < 0 || column + x > 9 || column + x < 0){
+            System.out.println("Going off the chart!!!!\nTurn Around!!!!");
+            return;
+        }
+        
+        if (!this.checkArea(locations[y + row][x + column]))
+            return;
+        
+        // Set location of Ship to new location
+        ship.setLocation(locations[y + row][x + column]);                       
+        
+        // remove ship from old location
+        locations[row][column].setShip(null);                                   
+        
+        //place ship in new location
+        locations[y + row][x + column].setShip(ship);                           
+        
+        //set Ship location to seen
+        locations[y + row][x + column].setHidden(false);                        
+        
+        // Don't Hide Pearl Harbor!
+        if (!(row == 2 && column == 9))                                         
+            locations[row][column].setHidden(true);
+        
+
+        
+        
+    }
+
+    private boolean checkArea(Location location) {
+        
+        if (location.getShip() == null) {
+            return true;
+        }
+        
+        if (!(location.getCollectable() == null)) {
+            this.pickupCollectable(location);
+            return true;
+        }
+        
+        Ship ship = location.getShip();
+        
+        if (ship.isUserControl()) {
+            System.out.println("You're about to run into your own ship!"
+                           + "\n    Turn around!!!!");
+            return false;
+        }
+        else {
+            System.out.println("Looks like there's an enemy Ship here!"
+                           + "\nWe can either attack it, or go around...");
+            return false;
+        }
+    }
+
+    private void pickupCollectable(Location location) {
+        System.out.println("You found something!");
+        System.out.println("******* function pickupCollectable() reached *****");
     }
             
             
