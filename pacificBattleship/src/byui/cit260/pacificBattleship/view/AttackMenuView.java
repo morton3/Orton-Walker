@@ -74,7 +74,11 @@ public class AttackMenuView extends View{
       
       String strColumn = value.substring(1);
       
+      try{
       column = Integer.parseInt(strColumn);
+      } catch (NumberFormatException nf){
+          System.out.println("\n*** Invalid Column! *** Try again");
+      }
       
       if (column < 1 || column > 10) {
           System.out.println("\n*** Invalid Column! *** Try again");

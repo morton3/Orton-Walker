@@ -5,6 +5,7 @@
  */
 package byui.cit260.pacificBattleship.control;
 
+import byui.cit260.pacificBattleship.exceptions.BattleControlException;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.Upgrade;
 import org.junit.Test;
@@ -21,7 +22,8 @@ public class BattleControlTest {
 
     
     @Test
-    public void testCalTotalAttackPower() {
+    public void testCalTotalAttackPower() 
+                    throws BattleControlException{
         System.out.println("CalTotalAttackPower");
          /*********************************
          * Test case #1 Nathan
