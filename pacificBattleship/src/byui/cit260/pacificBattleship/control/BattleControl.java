@@ -6,9 +6,11 @@
 package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.exceptions.BattleControlException;
+import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.Upgrade;
 import java.util.Random;
+import pacificbattleship.PacificBattleship;
 
 /**
  *
@@ -133,7 +135,20 @@ public class BattleControl {
     
     public static String checkForEnemy(int row, int column) {
         
-        String message = "checkForEnemy(int row, int column)";
+        Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
+        String message;
+        
+        if (locations[row][column].getShip() == null){
+            message = "No enemy ship here...";
+            return message;
+        }
+        
+        
+        
+        Ship enemyShip = locations[row][column].getShip();
+        message = "Fired on the " + enemyShip.getShipName() + ", a "
+                + enemyShip.getShipClass().getName() + " class "
+                + enemyShip.getType() + "!\n";
         
         return message;
     }
