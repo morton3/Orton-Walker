@@ -6,6 +6,9 @@
 package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.BattleControl;
+import byui.cit260.pacificBattleship.exceptions.BattleControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -136,7 +139,13 @@ public class AttackMenuView extends View{
                 + "\n\tcolumn: " + column);
         
         
-        String message = BattleControl.checkForEnemy(row, column);
+        String message = "";
+        
+        try {
+            message = BattleControl.checkForEnemy(column - 1, row - 1);
+            } catch (BattleControlException me) {
+                System.out.println(me.getMessage());
+        }
         
         System.out.println(message);
         

@@ -9,6 +9,9 @@ import byui.cit260.pacificBattleship.model.EnemyShipList;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.ShipList;
+import byui.cit260.pacificBattleship.model.Upgrade;
+import byui.cit260.pacificBattleship.model.UpgradeList;
+import pacificbattleship.PacificBattleship;
 
 /**
  *
@@ -99,6 +102,7 @@ public class ShipControl {
         destroyer.setShipClass(ShipClass.destroyer1);
         destroyer.setSymbol(destroyer.getShipClass().getSymbol());
         ships[ShipList.destroyer.ordinal()] = destroyer;
+        
         
         return ships;
     }
@@ -215,7 +219,7 @@ public class ShipControl {
         Ship enemyDestroyer2 = new Ship();
         enemyDestroyer2.setShipName("Yūgumo2");
         enemyDestroyer2.setType("Destroyer");
-        enemyDestroyer2.setDefense(0);
+        enemyDestroyer2.setDefense(2);
         enemyDestroyer2.setAccuracy(60);
         enemyDestroyer2.setUserControl(false);
         enemyDestroyer2.setAttack(10);
@@ -244,7 +248,7 @@ public class ShipControl {
         
         Ship enemyAircraftCarrier2 = new Ship();
         enemyAircraftCarrier2.setShipName("Shōkaku2");
-        enemyAircraftCarrier2.setType("enemyAircraft Carrier");
+        enemyAircraftCarrier2.setType("Aircraft Carrier");
         enemyAircraftCarrier2.setDefense(0);
         enemyAircraftCarrier2.setAccuracy(60);
         enemyAircraftCarrier2.setUserControl(false);
@@ -258,6 +262,92 @@ public class ShipControl {
         enemyShips[EnemyShipList.enemyAircraftCarrier2.ordinal()] = enemyAircraftCarrier2;
         
         return enemyShips;
+    }
+
+   public static void createUpgrades() {
+        
+        Upgrade[] upgrades = new Upgrade[UpgradeList.values().length];
+        Ship[] ships = PacificBattleship.getCurrentGame().getShip();
+        
+        Upgrade battleshipAttack = new Upgrade();
+        battleshipAttack.setShipType("Battleship");
+        battleshipAttack.setName("Guns");
+        battleshipAttack.setCurrentAllocation(0);
+        battleshipAttack.setMaxAllocation(5);
+        upgrades[UpgradeList.battleshipAttack.ordinal()] = battleshipAttack;
+        ships[ShipList.battleship.ordinal()].setUpgradeAttack(battleshipAttack);
+        
+        Upgrade transportAttack = new Upgrade();
+        transportAttack.setShipType("Transport");
+        transportAttack.setName("Infantry Strength");
+        transportAttack.setCurrentAllocation(0);
+        transportAttack.setMaxAllocation(5);
+        upgrades[UpgradeList.transportAttack.ordinal()] = transportAttack;
+        ships[ShipList.transport.ordinal()].setUpgradeAttack(transportAttack);
+        
+        Upgrade submarineAttack = new Upgrade();
+        submarineAttack.setShipType("Submarine");
+        submarineAttack.setName("Torpedoes");
+        submarineAttack.setCurrentAllocation(0);
+        submarineAttack.setMaxAllocation(5);
+        upgrades[UpgradeList.submarineAttack.ordinal()] = submarineAttack;
+        ships[ShipList.submarine.ordinal()].setUpgradeAttack(submarineAttack);
+        
+        Upgrade aircraftCarrierAttack = new Upgrade();
+        aircraftCarrierAttack.setShipType("Aircraft Carrier");
+        aircraftCarrierAttack.setName("Planes");
+        aircraftCarrierAttack.setCurrentAllocation(0);
+        aircraftCarrierAttack.setMaxAllocation(5);
+        upgrades[UpgradeList.aircraftCarrierAttack.ordinal()] = aircraftCarrierAttack;
+        ships[ShipList.aircraftCarrier.ordinal()].setUpgradeAttack(aircraftCarrierAttack);
+        
+        Upgrade destroyerAttack = new Upgrade();
+        destroyerAttack.setShipType("Destroyer");
+        destroyerAttack.setName("Heavy Guns");
+        destroyerAttack.setCurrentAllocation(0);
+        destroyerAttack.setMaxAllocation(5);
+        upgrades[UpgradeList.destroyerAttack.ordinal()] = destroyerAttack;
+        ships[ShipList.destroyer.ordinal()].setUpgradeAttack(destroyerAttack);
+        
+        Upgrade battleshipSpecial = new Upgrade();
+        battleshipSpecial.setShipType("Battleship");
+        battleshipSpecial.setName("Radar");
+        battleshipSpecial.setCurrentAllocation(0);
+        battleshipSpecial.setMaxAllocation(5);
+        upgrades[UpgradeList.battleshipAttack.ordinal()] = battleshipAttack;
+        ships[ShipList.battleship.ordinal()].setUpgradeSpecial(battleshipSpecial);
+        
+        Upgrade transportSpecial = new Upgrade();
+        transportSpecial.setShipType("Transport");
+        transportSpecial.setName("Troops on Board");
+        transportSpecial.setCurrentAllocation(0);
+        transportSpecial.setMaxAllocation(5);
+        upgrades[UpgradeList.transportSpecial.ordinal()] = transportSpecial;
+        ships[ShipList.transport.ordinal()].setUpgradeSpecial(transportSpecial);
+        
+        Upgrade submarineSpecial = new Upgrade();
+        submarineSpecial.setShipType("Submarine");
+        submarineSpecial.setName("Sink Level");
+        submarineSpecial.setCurrentAllocation(0);
+        submarineSpecial.setMaxAllocation(5);
+        upgrades[UpgradeList.submarineSpecial.ordinal()] = submarineSpecial;
+        ships[ShipList.submarine.ordinal()].setUpgradeSpecial(submarineSpecial);
+        
+        Upgrade aircraftCarrierSpecial = new Upgrade();
+        aircraftCarrierSpecial.setShipType("Aircraft Carrier");
+        aircraftCarrierSpecial.setName("Range");
+        aircraftCarrierSpecial.setCurrentAllocation(0);
+        aircraftCarrierSpecial.setMaxAllocation(5);
+        upgrades[UpgradeList.aircraftCarrierSpecial.ordinal()] = aircraftCarrierSpecial;
+        ships[ShipList.aircraftCarrier.ordinal()].setUpgradeSpecial(aircraftCarrierSpecial);
+        
+        Upgrade destroyerSpecial = new Upgrade();
+        destroyerSpecial.setShipType("Destroyer");
+        destroyerSpecial.setName("Massive Artillery");
+        destroyerSpecial.setCurrentAllocation(0);
+        destroyerSpecial.setMaxAllocation(5);
+        upgrades[UpgradeList.destroyerSpecial.ordinal()] = destroyerSpecial;
+        ships[ShipList.destroyer.ordinal()].setUpgradeSpecial(destroyerSpecial);
     }
     
 }
