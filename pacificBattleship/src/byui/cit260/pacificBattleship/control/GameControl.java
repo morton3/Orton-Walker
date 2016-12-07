@@ -258,27 +258,27 @@ public class GameControl {
         destroyer.setLocation(locations[9][1]);
         
         // Enemy Ships
-        locations[0][0].setShip(enemyBattleship1);
-        locations[0][0].setShip(enemyBattleship2);
-        locations[0][0].setShip(enemyBattlecruisers1);
-        locations[0][0].setShip(enemyBattlecruisers2);
-        locations[0][0].setShip(enemySubmarine1);
-        locations[0][0].setShip(enemySubmarine2);
-        locations[0][0].setShip(enemyAircraftCarrier1);
-        locations[0][0].setShip(enemyAircraftCarrier2);
-        locations[0][0].setShip(enemyDestroyer1);
-        locations[0][0].setShip(enemyDestroyer2);
+        locations[6][8].setShip(enemyBattleship1);
+        locations[8][4].setShip(enemyBattleship2);
+        locations[2][6].setShip(enemyBattlecruisers1);
+        locations[6][4].setShip(enemyBattlecruisers2);
+        locations[9][6].setShip(enemySubmarine1);
+        locations[9][1].setShip(enemySubmarine2);
+        locations[7][2].setShip(enemyAircraftCarrier1);
+        locations[5][0].setShip(enemyAircraftCarrier2);
+        locations[2][3].setShip(enemyDestroyer1);
+        locations[2][0].setShip(enemyDestroyer2);
         
-        enemyBattleship1.setLocation(locations[0][0]);
-        enemyBattleship2.setLocation(locations[0][0]);
-        enemyBattlecruisers1.setLocation(locations[0][0]);
-        enemyBattlecruisers2.setLocation(locations[0][0]);
-        enemySubmarine1.setLocation(locations[0][0]);
-        enemySubmarine2.setLocation(locations[0][0]);
-        enemyAircraftCarrier1.setLocation(locations[0][0]);
-        enemyAircraftCarrier2.setLocation(locations[0][0]);
-        enemyDestroyer1.setLocation(locations[0][0]);
-        enemyDestroyer2.setLocation(locations[0][0]);
+        enemyBattleship1.setLocation(locations[6][8]);
+        enemyBattleship2.setLocation(locations[8][4]);
+        enemyBattlecruisers1.setLocation(locations[2][6]);
+        enemyBattlecruisers2.setLocation(locations[6][4]);
+        enemySubmarine1.setLocation(locations[9][6]);
+        enemySubmarine2.setLocation(locations[9][1]);
+        enemyAircraftCarrier1.setLocation(locations[7][2]);
+        enemyAircraftCarrier2.setLocation(locations[5][0]);
+        enemyDestroyer1.setLocation(locations[2][3]);
+        enemyDestroyer2.setLocation(locations[2][0]);
     
     }
 
