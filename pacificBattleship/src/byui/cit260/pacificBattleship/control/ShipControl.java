@@ -25,7 +25,18 @@ public class ShipControl {
         
         Ship battleship = new Ship();
         battleship.setShipName("USS Tennessee");
-        battleship.setDescription("The description......");
+        battleship.setDescription(
+                  "\n***********************************************************************************************************"
+                + "\n* USS Tennessee (BB-43), the lead ship of her class of battleship, was the third ship of the United States*"
+                + "\n* Navy named in honor of the 16th US state. During World War II in the Pacific Theater, she was damaged   *"
+                + "\n* during the attack on Pearl Harbor in December 1941 but was repaired and modernized. She participated    *"
+                + "\n* in shore bombardments at the Aleutian Islands, Tarawa, the Marshall Islands, the Marianas, the          *"
+                + "\n* Philippines, Iwo Jima, Okinawa among others. She was also involved in the Battle of Surigao Strait, the *"
+                + "\n* final battleship vs. battleship conflict ever. After the end of World War II, Tennessee was placed on   *"
+                + "\n* reserve in the \"mothball fleet\" for nearly 15 years before finally being scrapped in 1959.            *"     
+                + "\n***********************************************************************************************************"
+        );
+                
         battleship.setType("Battleship");
         battleship.setDefense(1);
         battleship.setAccuracy(80);
@@ -126,7 +137,7 @@ public class ShipControl {
         enemyShips[EnemyShipList.enemyBattleship1.ordinal()] = enemyBattleship1;
         
         Ship enemyBattleship2 = new Ship();
-        enemyBattleship2.setShipName("Yamato");
+        enemyBattleship2.setShipName("Yamato2");
         enemyBattleship2.setType("Battleship");
         enemyBattleship2.setDefense(0);
         enemyBattleship2.setAccuracy(60);
@@ -141,7 +152,7 @@ public class ShipControl {
         
         Ship enemyBattlecruisers1 = new Ship();
         enemyBattlecruisers1.setShipName("Kongō");
-        enemyBattlecruisers1.setType("Battlecruisers");
+        enemyBattlecruisers1.setType("Battlecruiser");
         enemyBattlecruisers1.setDefense(0);
         enemyBattlecruisers1.setAccuracy(60);
         enemyBattlecruisers1.setUserControl(false);
@@ -154,8 +165,8 @@ public class ShipControl {
         enemyShips[EnemyShipList.enemyBattlecruisers1.ordinal()] = enemyBattlecruisers1;
         
         Ship enemyBattlecruisers2 = new Ship();
-        enemyBattlecruisers2.setShipName("Kongō");
-        enemyBattlecruisers2.setType("Battlecruisers");
+        enemyBattlecruisers2.setShipName("Kongō2");
+        enemyBattlecruisers2.setType("Battlecruiser");
         enemyBattlecruisers2.setDefense(0);
         enemyBattlecruisers2.setAccuracy(60);
         enemyBattlecruisers2.setUserControl(false);
@@ -167,7 +178,7 @@ public class ShipControl {
         enemyBattlecruisers2.setSymbol(enemyBattlecruisers2.getShipClass().getSymbol());
         enemyShips[EnemyShipList.enemyBattlecruisers2.ordinal()] = enemyBattlecruisers2;
         
-         Ship enemySubmarine1 = new Ship();
+        Ship enemySubmarine1 = new Ship();
         enemySubmarine1.setShipName("I-506");
         enemySubmarine1.setType("submarine");
         enemySubmarine1.setDefense(0);
@@ -182,7 +193,7 @@ public class ShipControl {
         enemyShips[EnemyShipList.enemySubmarine1.ordinal()] = enemySubmarine1;
         
         Ship enemySubmarine2 = new Ship();
-        enemySubmarine2.setShipName("I-506");
+        enemySubmarine2.setShipName("I-506-2");
         enemySubmarine2.setType("submarine");
         enemySubmarine2.setDefense(0);
         enemySubmarine2.setAccuracy(60);
@@ -224,7 +235,7 @@ public class ShipControl {
         enemyShips[EnemyShipList.enemyDestroyer2.ordinal()] = enemyDestroyer2;
         
         Ship enemyAircraftCarrier1 = new Ship();
-        enemyAircraftCarrier1.setShipName("Shōkaku2");
+        enemyAircraftCarrier1.setShipName("Shōkaku");
         enemyAircraftCarrier1.setType("Aircraft Carrier");
         enemyAircraftCarrier1.setDefense(0);
         enemyAircraftCarrier1.setAccuracy(60);
