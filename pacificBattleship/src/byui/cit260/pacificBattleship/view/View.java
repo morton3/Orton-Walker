@@ -6,7 +6,13 @@
 package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.model.ViewInterface;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import pacificbattleship.PacificBattleship;
 
 /**
  *
@@ -15,7 +21,8 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     protected String displayMessage;
-    
+        protected final BufferedReader keyboard = PacificBattleship.getInFile();
+        protected final PrintWriter console = PacificBattleship.getOutFile();
     public View() {
     }
     
@@ -25,10 +32,10 @@ public abstract class View implements ViewInterface {
     
     @Override
     public void display() {
-        
+        String value;
         boolean done = false;
         do{
-            String value = this.getInput();
+                value = this.getInput();
             if (value.toUpperCase().equals("Q")) 
                 return;
             done = this.doAction(value);
@@ -37,14 +44,14 @@ public abstract class View implements ViewInterface {
     
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
+        
         boolean valid = false;
         String value = null;
-        
+        try{
         while (!valid) {
             System.out.println("\n" + this.displayMessage);
             
-            value = keyboard.nextLine();
+            value = this.keyboard.readLine();
             value = value.trim();
                     
             
@@ -54,7 +61,11 @@ public abstract class View implements ViewInterface {
             }
             break;
         }
-        return value;
-    }
-      
+        
+        
+    }   catch (Exception e) {
+            System.out.println("Error reading input:" + e.getMessage());
+        }
+      return value;
+}
 }
