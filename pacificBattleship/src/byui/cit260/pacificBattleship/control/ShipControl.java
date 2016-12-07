@@ -9,6 +9,9 @@ import byui.cit260.pacificBattleship.model.EnemyShipList;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.ShipList;
+import byui.cit260.pacificBattleship.model.Upgrade;
+import byui.cit260.pacificBattleship.model.UpgradeList;
+import pacificbattleship.PacificBattleship;
 
 /**
  *
@@ -100,6 +103,7 @@ public class ShipControl {
         destroyer.setSymbol(destroyer.getShipClass().getSymbol());
         ships[ShipList.destroyer.ordinal()] = destroyer;
         
+        
         return ships;
     }
 
@@ -117,7 +121,6 @@ public class ShipControl {
         enemyBattleship1.setHull(12);
         enemyBattleship1.setMaxHull(12);
         enemyBattleship1.setDescription("");
-        enemyBattleship1.setLocation(null);
         enemyBattleship1.setShipClass(ShipClass.battleship1);
         enemyBattleship1.setSymbol(enemyBattleship1.getShipClass().getSymbol());
         enemyShips[EnemyShipList.enemyBattleship1.ordinal()] = enemyBattleship1;
@@ -132,7 +135,6 @@ public class ShipControl {
         enemyBattleship2.setHull(12);
         enemyBattleship2.setMaxHull(12);
         enemyBattleship2.setDescription("");
-        enemyBattleship2.setLocation(null);
         enemyBattleship2.setShipClass(ShipClass.battleship1);
         enemyBattleship2.setSymbol(enemyBattleship2.getShipClass().getSymbol());
         enemyShips[EnemyShipList.enemyBattleship2.ordinal()] = enemyBattleship2;
@@ -147,7 +149,6 @@ public class ShipControl {
         enemyBattlecruisers1.setHull(12);
         enemyBattlecruisers1.setMaxHull(12);
         enemyBattlecruisers1.setDescription("");
-        enemyBattlecruisers1.setLocation(null);
         enemyBattlecruisers1.setShipClass(ShipClass.battleship1);
         enemyBattlecruisers1.setSymbol(enemyBattlecruisers1.getShipClass().getSymbol());
         enemyShips[EnemyShipList.enemyBattlecruisers1.ordinal()] = enemyBattlecruisers1;
@@ -162,7 +163,6 @@ public class ShipControl {
         enemyBattlecruisers2.setHull(12);
         enemyBattlecruisers2.setMaxHull(12);
         enemyBattlecruisers2.setDescription("");
-        enemyBattlecruisers2.setLocation(null);
         enemyBattlecruisers2.setShipClass(ShipClass.battleship1);
         enemyBattlecruisers2.setSymbol(enemyBattlecruisers2.getShipClass().getSymbol());
         enemyShips[EnemyShipList.enemyBattlecruisers2.ordinal()] = enemyBattlecruisers2;
@@ -177,7 +177,6 @@ public class ShipControl {
         enemySubmarine1.setHull(12);
         enemySubmarine1.setMaxHull(12);
         enemySubmarine1.setDescription("");
-        enemySubmarine1.setLocation(null);
         enemySubmarine1.setShipClass(ShipClass.battleship1);
         enemySubmarine1.setSymbol(enemySubmarine1.getShipClass().getSymbol());
         enemyShips[EnemyShipList.enemySubmarine1.ordinal()] = enemySubmarine1;
@@ -192,7 +191,6 @@ public class ShipControl {
         enemySubmarine2.setHull(12);
         enemySubmarine2.setMaxHull(12);
         enemySubmarine2.setDescription("");
-        enemySubmarine2.setLocation(null);
         enemySubmarine2.setShipClass(ShipClass.battleship1);
         enemySubmarine2.setSymbol(enemySubmarine2.getShipClass().getSymbol());
         enemyShips[EnemyShipList.enemySubmarine2.ordinal()] = enemySubmarine2;
@@ -207,7 +205,6 @@ public class ShipControl {
         enemyDestroyer1.setHull(12);
         enemyDestroyer1.setMaxHull(12);
         enemyDestroyer1.setDescription("");
-        enemyDestroyer1.setLocation(null);
         enemyDestroyer1.setShipClass(ShipClass.battleship1);
         enemyDestroyer1.setSymbol(enemyDestroyer1.getShipClass().getSymbol());
         enemyShips[EnemyShipList.enemyDestroyer1.ordinal()] = enemyDestroyer1;
@@ -215,14 +212,13 @@ public class ShipControl {
         Ship enemyDestroyer2 = new Ship();
         enemyDestroyer2.setShipName("Yūgumo2");
         enemyDestroyer2.setType("Destroyer");
-        enemyDestroyer2.setDefense(0);
+        enemyDestroyer2.setDefense(2);
         enemyDestroyer2.setAccuracy(60);
         enemyDestroyer2.setUserControl(false);
         enemyDestroyer2.setAttack(10);
         enemyDestroyer2.setHull(12);
         enemyDestroyer2.setMaxHull(12);
         enemyDestroyer2.setDescription("");
-        enemyDestroyer2.setLocation(null);
         enemyDestroyer2.setShipClass(ShipClass.battleship1);
         enemyDestroyer2.setSymbol(enemyDestroyer2.getShipClass().getSymbol());
         enemyShips[EnemyShipList.enemyDestroyer2.ordinal()] = enemyDestroyer2;
@@ -237,14 +233,13 @@ public class ShipControl {
         enemyAircraftCarrier1.setHull(12);
         enemyAircraftCarrier1.setMaxHull(12);
         enemyAircraftCarrier1.setDescription("");
-        enemyAircraftCarrier1.setLocation(null);
         enemyAircraftCarrier1.setShipClass(ShipClass.battleship1);
         enemyAircraftCarrier1.setSymbol(enemyAircraftCarrier1.getShipClass().getSymbol());
         enemyShips[EnemyShipList.enemyAircraftCarrier1.ordinal()] = enemyAircraftCarrier1;
         
         Ship enemyAircraftCarrier2 = new Ship();
         enemyAircraftCarrier2.setShipName("Shōkaku2");
-        enemyAircraftCarrier2.setType("enemyAircraft Carrier");
+        enemyAircraftCarrier2.setType("Aircraft Carrier");
         enemyAircraftCarrier2.setDefense(0);
         enemyAircraftCarrier2.setAccuracy(60);
         enemyAircraftCarrier2.setUserControl(false);
@@ -252,12 +247,97 @@ public class ShipControl {
         enemyAircraftCarrier2.setHull(12);
         enemyAircraftCarrier2.setMaxHull(12);
         enemyAircraftCarrier2.setDescription("");
-        enemyAircraftCarrier2.setLocation(null);
         enemyAircraftCarrier2.setShipClass(ShipClass.battleship1);
         enemyAircraftCarrier2.setSymbol(enemyAircraftCarrier2.getShipClass().getSymbol());
         enemyShips[EnemyShipList.enemyAircraftCarrier2.ordinal()] = enemyAircraftCarrier2;
         
         return enemyShips;
+    }
+
+   public static void createUpgrades() {
+        
+        Upgrade[] upgrades = new Upgrade[UpgradeList.values().length];
+        Ship[] ships = PacificBattleship.getCurrentGame().getShip();
+        
+        Upgrade battleshipAttack = new Upgrade();
+        battleshipAttack.setShipType("Battleship");
+        battleshipAttack.setName("Guns");
+        battleshipAttack.setCurrentAllocation(0);
+        battleshipAttack.setMaxAllocation(5);
+        upgrades[UpgradeList.battleshipAttack.ordinal()] = battleshipAttack;
+        ships[ShipList.battleship.ordinal()].setUpgradeAttack(battleshipAttack);
+        
+        Upgrade transportAttack = new Upgrade();
+        transportAttack.setShipType("Transport");
+        transportAttack.setName("Infantry Strength");
+        transportAttack.setCurrentAllocation(0);
+        transportAttack.setMaxAllocation(5);
+        upgrades[UpgradeList.transportAttack.ordinal()] = transportAttack;
+        ships[ShipList.transport.ordinal()].setUpgradeAttack(transportAttack);
+        
+        Upgrade submarineAttack = new Upgrade();
+        submarineAttack.setShipType("Submarine");
+        submarineAttack.setName("Torpedoes");
+        submarineAttack.setCurrentAllocation(0);
+        submarineAttack.setMaxAllocation(5);
+        upgrades[UpgradeList.submarineAttack.ordinal()] = submarineAttack;
+        ships[ShipList.submarine.ordinal()].setUpgradeAttack(submarineAttack);
+        
+        Upgrade aircraftCarrierAttack = new Upgrade();
+        aircraftCarrierAttack.setShipType("Aircraft Carrier");
+        aircraftCarrierAttack.setName("Planes");
+        aircraftCarrierAttack.setCurrentAllocation(0);
+        aircraftCarrierAttack.setMaxAllocation(5);
+        upgrades[UpgradeList.aircraftCarrierAttack.ordinal()] = aircraftCarrierAttack;
+        ships[ShipList.aircraftCarrier.ordinal()].setUpgradeAttack(aircraftCarrierAttack);
+        
+        Upgrade destroyerAttack = new Upgrade();
+        destroyerAttack.setShipType("Destroyer");
+        destroyerAttack.setName("Heavy Guns");
+        destroyerAttack.setCurrentAllocation(0);
+        destroyerAttack.setMaxAllocation(5);
+        upgrades[UpgradeList.destroyerAttack.ordinal()] = destroyerAttack;
+        ships[ShipList.destroyer.ordinal()].setUpgradeAttack(destroyerAttack);
+        
+        Upgrade battleshipSpecial = new Upgrade();
+        battleshipSpecial.setShipType("Battleship");
+        battleshipSpecial.setName("Radar");
+        battleshipSpecial.setCurrentAllocation(0);
+        battleshipSpecial.setMaxAllocation(5);
+        upgrades[UpgradeList.battleshipAttack.ordinal()] = battleshipAttack;
+        ships[ShipList.battleship.ordinal()].setUpgradeSpecial(battleshipSpecial);
+        
+        Upgrade transportSpecial = new Upgrade();
+        transportSpecial.setShipType("Transport");
+        transportSpecial.setName("Troops on Board");
+        transportSpecial.setCurrentAllocation(0);
+        transportSpecial.setMaxAllocation(5);
+        upgrades[UpgradeList.transportSpecial.ordinal()] = transportSpecial;
+        ships[ShipList.transport.ordinal()].setUpgradeSpecial(transportSpecial);
+        
+        Upgrade submarineSpecial = new Upgrade();
+        submarineSpecial.setShipType("Submarine");
+        submarineSpecial.setName("Sink Level");
+        submarineSpecial.setCurrentAllocation(0);
+        submarineSpecial.setMaxAllocation(5);
+        upgrades[UpgradeList.submarineSpecial.ordinal()] = submarineSpecial;
+        ships[ShipList.submarine.ordinal()].setUpgradeSpecial(submarineSpecial);
+        
+        Upgrade aircraftCarrierSpecial = new Upgrade();
+        aircraftCarrierSpecial.setShipType("Aircraft Carrier");
+        aircraftCarrierSpecial.setName("Range");
+        aircraftCarrierSpecial.setCurrentAllocation(0);
+        aircraftCarrierSpecial.setMaxAllocation(5);
+        upgrades[UpgradeList.aircraftCarrierSpecial.ordinal()] = aircraftCarrierSpecial;
+        ships[ShipList.aircraftCarrier.ordinal()].setUpgradeSpecial(aircraftCarrierSpecial);
+        
+        Upgrade destroyerSpecial = new Upgrade();
+        destroyerSpecial.setShipType("Destroyer");
+        destroyerSpecial.setName("Massive Artillery");
+        destroyerSpecial.setCurrentAllocation(0);
+        destroyerSpecial.setMaxAllocation(5);
+        upgrades[UpgradeList.destroyerSpecial.ordinal()] = destroyerSpecial;
+        ships[ShipList.destroyer.ordinal()].setUpgradeSpecial(destroyerSpecial);
     }
     
 }

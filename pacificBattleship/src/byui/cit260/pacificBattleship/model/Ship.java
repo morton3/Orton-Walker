@@ -26,6 +26,8 @@ public class Ship {
     private Location location;
     private String symbol;
     private ShipClass shipClass;
+    private Upgrade upgradeAttack;
+    private Upgrade upgradeSpecial;
 
     public Ship(){
         
@@ -126,6 +128,22 @@ public class Ship {
 
     public void setShipClass(ShipClass shipClass) {
         this.shipClass = shipClass;
+    }
+
+    public Upgrade getUpgradeAttack() {
+        return upgradeAttack;
+    }
+
+    public void setUpgradeAttack(Upgrade upgradeAttack) {
+        this.upgradeAttack = upgradeAttack;
+    }
+
+    public Upgrade getUpgradeSpecial() {
+        return upgradeSpecial;
+    }
+
+    public void setUpgradeSpecial(Upgrade upgradeSpecial) {
+        this.upgradeSpecial = upgradeSpecial;
     }
 
 }

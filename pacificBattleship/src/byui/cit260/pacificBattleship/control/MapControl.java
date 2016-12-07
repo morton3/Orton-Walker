@@ -59,7 +59,7 @@ public class MapControl {
         String[] landSymMid = {"++", "++"};
         String landSymBot = "+++++++";
         land.setDescription("Islands in the Pacific Ocean");
-        land.setActive(true);
+        land.setActive(false);
         land.setSymTop(landSymTop);
         land.setSymMid(landSymMid);
         land.setSymBot(landSymBot);

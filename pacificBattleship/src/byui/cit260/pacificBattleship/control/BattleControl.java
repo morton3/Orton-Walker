@@ -6,9 +6,11 @@
 package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.exceptions.BattleControlException;
+import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.Upgrade;
 import java.util.Random;
+import pacificbattleship.PacificBattleship;
 
 /**
  *
@@ -16,7 +18,7 @@ import java.util.Random;
  */
 public class BattleControl {
 
-    public static int attackUnit(Ship uShip, Ship eShip, Upgrade uShipUpgrade)
+    public static void attackUnit(Ship uShip, Ship eShip, Upgrade uShipUpgradeAttack, Upgrade uShipUpgradeSpecial)
                     throws BattleControlException{
         
         boolean hit = hitOrMiss(uShip);
@@ -24,12 +26,10 @@ public class BattleControl {
         if(hit){
             
             try{  
-                atkPower = CalTotalAttackPower(uShip, uShipUpgrade);
+                atkPower = CalTotalAttackPower(uShip, uShipUpgradeAttack, uShipUpgradeSpecial);
             } catch (BattleControlException me) {
                 System.out.println(me.getMessage());
             }
-            
-                atkPower = CalTotalAttackPower(uShip, uShipUpgrade);
             
             int atkBonus = calculateAttackBonus(atkPower, uShip, eShip);
             
@@ -37,11 +37,16 @@ public class BattleControl {
             
             eShip.setHull(shipRemainingHull);
             
-            return 0;
+            if(shipRemainingHull == 0)
+                BattleControl.sunkShip(eShip);
+            else
+                System.out.println("You hit " + eShip.getShipName() + " for " + atkBonus);
         }
-        
         else
-            return 0;
+            System.out.println("You missed!");
+        
+        
+        
     }
     
     public static int shipRemainingHull(int damage, Ship eShip)
@@ -50,32 +55,64 @@ public class BattleControl {
         if(eShip == null)
             throw new BattleControlException("There is no enemy ship to calculate");
         
-        if(damage < 0)
-            return 0;
         
         int oldHull = eShip.getHull();
+        int defense = eShip.getDefense();
         
-        int newHull = oldHull - damage;
+        if(damage - defense < 0)
+            return oldHull;
+        
+        int newHull = oldHull - (damage - defense);
+        
+        if(newHull < 0)
+            return 0;
         
         return newHull;
     }
     
     /* NATHAN ---- TotalAttack */
    
-    public static int CalTotalAttackPower(Ship uShip,Upgrade uShipUpgrade)
+    public static int CalTotalAttackPower(Ship uShip,Upgrade uShipUpgradeAttack, Upgrade uShipUpgradeSpecial)
                 throws BattleControlException{
         
-    int attack = uShip.getAttack();
-      int upgradeCurrentLevel = uShipUpgrade.getCurrentAllocation();
+        int attack = uShip.getAttack();
+        int upgradeCurrentLevel = uShipUpgradeAttack.getCurrentAllocation();
    
-    if(attack < 0 || attack >5){
-			throw new BattleControlException("Attack is not within bounds");
-                                }
-	
-    if(upgradeCurrentLevel < 0 || upgradeCurrentLevel > 5){
-			throw new BattleControlException("Upgrade is not within bounds");
-                                }
-             return attack + upgradeCurrentLevel;
+        if(upgradeCurrentLevel < 0 || upgradeCurrentLevel > 5){
+            throw new BattleControlException("Upgrade is not within bounds");
+        }
+        
+        if(uShipUpgradeSpecial.getShipType() == "Destroyer") {
+            
+            int level = uShipUpgradeSpecial.getCurrentAllocation();
+            Integer atk = new Integer(attack);
+            Integer upgrdCrrntLvl = new Integer(upgradeCurrentLevel);
+            Double power;
+            
+            switch(level){
+                case 1:
+                    power = 1.5;
+                    break;
+                case 2:
+                    power = 2.0;
+                    break;
+                case 3:
+                    power = 2.5;
+                    break;
+                case 4:
+                    power = 2.75;
+                    break;
+                case 5:
+                    power = 3.0;
+                    break;
+                default:
+                    power = 1.0;
+            }
+            Double attackWithBonus = new Double((atk.doubleValue() + upgrdCrrntLvl.doubleValue()) * power);
+            return attackWithBonus.intValue();
+        }
+        
+        return attack + upgradeCurrentLevel;
     }
 
    
@@ -109,7 +146,7 @@ public class BattleControl {
             return -3;
         }
 
-	int attack = totalAttack * 2;
+	double attack = totalAttack * 2;
         
 
 	if (uShip.getType().equals("Destroyer") &&
@@ -127,15 +164,54 @@ public class BattleControl {
                 eShip.getType().equals("Aircraft Carrier") &&
                 uShip.getType().equals("Destroyer"))
 		attack *= 0.5;
+        
+        Integer convert = (int) attack / 2;
+        convert -= eShip.getDefense();
+        
+        if(convert < 0)
+            convert = 0;
 
-        return attack;
+        return convert;
     }
     
-    public static String checkForEnemy(int row, int column) {
+    public static String checkForEnemy(int row, int column) 
+            throws BattleControlException {
         
-        String message = "checkForEnemy(int row, int column)";
+        Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
+        String message;
+        
+        if (locations[row][column].getShip() == null){
+            message = "No enemy ship here...";
+            return message;
+        }
+        
+        Ship activeShip = PacificBattleship.getCurrentGame().getActiveShip();
+        Upgrade upgradeAttack = activeShip.getUpgradeAttack();
+        Upgrade upgradeSpecial = activeShip.getUpgradeSpecial();
+        
+        Ship enemyShip = locations[row][column].getShip();
+        
+        BattleControl.attackUnit(activeShip, enemyShip, upgradeAttack, upgradeSpecial);
+        
+        message = "Fired on the " + enemyShip.getShipName() + ", a "
+                + enemyShip.getShipClass().getName() + " class "
+                + enemyShip.getType();
         
         return message;
+    }
+
+    private static void sunkShip(Ship eShip) {
+        Location location = eShip.getLocation();
+        
+        Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
+        
+        int row = location.getRow();
+        int column = location.getColumn();
+        
+        locations[row][column].setShip(null);
+        eShip.setLocation(null);
+        
+        System.out.println("You sunk the " + eShip.getShipName() + "!\n");
     }
     
 }

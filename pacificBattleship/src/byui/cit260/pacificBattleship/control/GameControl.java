@@ -7,6 +7,7 @@ package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.model.Collectable;
 import byui.cit260.pacificBattleship.model.CollectableType;
+import byui.cit260.pacificBattleship.model.EnemyShipList;
 import byui.cit260.pacificBattleship.model.Game;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Map;
@@ -59,8 +60,11 @@ public class GameControl {
         Map map = MapControl.createMap();
         game.setMap(map);
         
-        Ship[] ships = ShipControl.createShips();        
+        Ship[] ships = ShipControl.createShips();
+        
         game.setShip(ships);
+        
+        ShipControl.createUpgrades();
         
         Ship[] enemyShips = ShipControl.createEnemyShips();
         game.setEnemyShips(enemyShips);
@@ -219,15 +223,28 @@ public class GameControl {
         
         Map map = PacificBattleship.getCurrentGame().getMap();
         Ship[] ships = PacificBattleship.getCurrentGame().getShip();
+        Ship[] enemyShips = PacificBattleship.getCurrentGame().getEnemyShips();
         
         Ship battleship = ships[ShipList.battleship.ordinal()];
         Ship transport = ships[ShipList.transport.ordinal()];
         Ship submarine = ships[ShipList.submarine.ordinal()];
         Ship aircraftCarrier = ships[ShipList.aircraftCarrier.ordinal()];
         Ship destroyer = ships[ShipList.destroyer.ordinal()];
+        
+        Ship enemyBattleship1 = enemyShips[EnemyShipList.enemyBattleship1.ordinal()];
+        Ship enemyBattleship2 = enemyShips[EnemyShipList.enemyBattleship2.ordinal()];
+        Ship enemyBattlecruisers1 = enemyShips[EnemyShipList.enemyBattlecruisers1.ordinal()];
+        Ship enemyBattlecruisers2 = enemyShips[EnemyShipList.enemyBattlecruisers2.ordinal()];
+        Ship enemySubmarine1 = enemyShips[EnemyShipList.enemySubmarine1.ordinal()];
+        Ship enemySubmarine2 = enemyShips[EnemyShipList.enemySubmarine2.ordinal()];
+        Ship enemyAircraftCarrier1 = enemyShips[EnemyShipList.enemyAircraftCarrier1.ordinal()];
+        Ship enemyAircraftCarrier2 = enemyShips[EnemyShipList.enemyAircraftCarrier2.ordinal()];
+        Ship enemyDestroyer1 = enemyShips[EnemyShipList.enemyDestroyer1.ordinal()];
+        Ship enemyDestroyer2 = enemyShips[EnemyShipList.enemyDestroyer2.ordinal()];
     
         Location[][] locations = map.getLocations();
         
+        // Player Ships
         locations[2][9].setShip(battleship);
         locations[0][6].setShip(transport);
         locations[9][9].setShip(submarine);
@@ -240,7 +257,28 @@ public class GameControl {
         aircraftCarrier.setLocation(locations[9][3]);
         destroyer.setLocation(locations[9][1]);
         
+        // Enemy Ships
+        locations[6][8].setShip(enemyBattleship1);
+        locations[8][4].setShip(enemyBattleship2);
+        locations[2][6].setShip(enemyBattlecruisers1);
+        locations[6][4].setShip(enemyBattlecruisers2);
+        locations[9][6].setShip(enemySubmarine1);
+        locations[9][1].setShip(enemySubmarine2);
+        locations[7][2].setShip(enemyAircraftCarrier1);
+        locations[5][0].setShip(enemyAircraftCarrier2);
+        locations[2][3].setShip(enemyDestroyer1);
+        locations[2][0].setShip(enemyDestroyer2);
         
+        enemyBattleship1.setLocation(locations[6][8]);
+        enemyBattleship2.setLocation(locations[8][4]);
+        enemyBattlecruisers1.setLocation(locations[2][6]);
+        enemyBattlecruisers2.setLocation(locations[6][4]);
+        enemySubmarine1.setLocation(locations[9][6]);
+        enemySubmarine2.setLocation(locations[9][1]);
+        enemyAircraftCarrier1.setLocation(locations[7][2]);
+        enemyAircraftCarrier2.setLocation(locations[5][0]);
+        enemyDestroyer1.setLocation(locations[2][3]);
+        enemyDestroyer2.setLocation(locations[2][0]);
     
     }
 

@@ -30,11 +30,12 @@ public class BattleControlTest {
          ********************************/
         Ship uShip = new Ship();
         Upgrade uShipUpgrade = new Upgrade(); 
+        Upgrade uShipUpgrade2 = new Upgrade(); 
         uShip.setAttack(3);
         uShipUpgrade.setCurrentAllocation(1);
         int expResult = 4;
          BattleControl instance = new BattleControl();
-         int result = instance.CalTotalAttackPower(uShip,uShipUpgrade);
+         int result = instance.CalTotalAttackPower(uShip,uShipUpgrade,uShipUpgrade2);
          assertEquals(expResult, result);
     
       
@@ -45,7 +46,7 @@ public class BattleControlTest {
         uShipUpgrade.setCurrentAllocation(2);
         expResult = -1;
         
-          result = instance.CalTotalAttackPower(uShip,uShipUpgrade);
+          result = instance.CalTotalAttackPower(uShip,uShipUpgrade,uShipUpgrade2);
          assertEquals(expResult, result);
     
               /*********************************
@@ -55,7 +56,7 @@ public class BattleControlTest {
         uShipUpgrade.setCurrentAllocation(3);
         expResult = -1;
         
-          result = instance.CalTotalAttackPower(uShip,uShipUpgrade);
+          result = instance.CalTotalAttackPower(uShip,uShipUpgrade,uShipUpgrade2);
          assertEquals(expResult, result);
     
                   /*********************************
@@ -65,7 +66,7 @@ public class BattleControlTest {
         uShipUpgrade.setCurrentAllocation(6);
         expResult = -1;
         
-          result = instance.CalTotalAttackPower(uShip,uShipUpgrade);
+          result = instance.CalTotalAttackPower(uShip,uShipUpgrade,uShipUpgrade2);
          assertEquals(expResult, result);
     
              /*********************************
@@ -75,7 +76,7 @@ public class BattleControlTest {
         uShipUpgrade.setCurrentAllocation(-10);
         expResult = -1;
         
-          result = instance.CalTotalAttackPower(uShip,uShipUpgrade);
+          result = instance.CalTotalAttackPower(uShip,uShipUpgrade,uShipUpgrade2);
          assertEquals(expResult, result);
     }
     /**

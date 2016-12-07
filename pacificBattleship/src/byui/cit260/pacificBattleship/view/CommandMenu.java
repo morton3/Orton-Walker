@@ -8,6 +8,7 @@ import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.model.Game;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Map;
+import byui.cit260.pacificBattleship.model.Scene;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.ShipList;
@@ -432,6 +433,14 @@ public class CommandMenu extends View{
         if (!(location.getCollectable() == null)) {
             this.pickupCollectable(location);
             return true;
+        }
+        
+        Scene scene = location.getScene();
+        
+        if (!scene.isActive()) {
+            System.out.println("You can't go on land!"
+                    + "\n    You'll need the transport to assault islands.\n");
+            return false;
         }
         
         Ship ship = location.getShip();
