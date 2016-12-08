@@ -36,7 +36,6 @@ public class ShipControl {
                 + "\n* reserve in the \"mothball fleet\" for nearly 15 years before finally being scrapped in 1959.            *"     
                 + "\n***********************************************************************************************************"
         );
-                
         battleship.setType("Battleship");
         battleship.setDefense(1);
         battleship.setAccuracy(80);
@@ -52,7 +51,12 @@ public class ShipControl {
         
         Ship transport = new Ship();
         transport.setShipName("USS President Jackson");
-        transport.setDescription("The description......");
+        transport.setDescription(
+                  "\n***********************************************************************************************************"
+                + "\n* USS President Jackson (APA-18) was a President Jackson-class attack transport that saw service          *"
+                + "\n* with the US Navy in World War II and the Korean War. She was the lead ship in her class.                *"
+                + "\n***********************************************************************************************************"
+        );
         transport.setType("Transport");
         transport.setDefense(0);
         transport.setAccuracy(100);
@@ -67,8 +71,18 @@ public class ShipControl {
         ships[ShipList.transport.ordinal()] = transport;
         
         Ship submarine = new Ship();
-        submarine.setShipName("USS submarine name");
-        submarine.setDescription("The description......");
+        submarine.setShipName("USS Silversides");
+        submarine.setDescription(
+                  "\n*************************************************************************************************************"
+                + "\n* USS Silversides (SS/AGSS-236) is a Gato-class submarine, the first ship of the United States Navy to be   *"
+                + "\n* named for the silversides, a small fish marked with a silvery stripe along each side of its body. Her keel*"
+                + "\n* was laid down on 4 November 1940 by the Mare Island Navy Yard in Vallejo, California. She was             *"
+                + "\n* launched on 26 August 1941 (sponsored by Mrs. Elizabeth H. Hogan), and commissioned on 15                 *"
+                + "\n* December 1941, with Lieutenant Commander Creed C. Burlingame (Class of 1927) in command. The USS          *"
+                + "\n* Silversides was the top scoring surviving U.S. Submarine of WWII. Currently resides in Muskegon, MI at    *"
+                + "\n* the Great Lakes Naval Memorial & Museum.                                                                  *"     
+                + "\n*************************************************************************************************************"
+        );
         submarine.setType("Submarine");
         submarine.setDefense(0);
         submarine.setAccuracy(70);
@@ -83,8 +97,21 @@ public class ShipControl {
         ships[ShipList.submarine.ordinal()] = submarine;
         
         Ship aircraftCarrier = new Ship();
-        aircraftCarrier.setShipName("USS arircraft carrier");
-        aircraftCarrier.setDescription("The description......");
+        aircraftCarrier.setShipName("USS Enterprise");
+        aircraftCarrier.setDescription(
+                  "\n***************************************************************************************************************"
+                + "\n* USS Enterprise (CV-6), was the seventh U.S. Navy vessel to bear the name. Colloquially called \"the Big E\",*"
+                + "\n* she was the sixth aircraft carrier of the United States Navy. A Yorktown-class carrier, she was launched    *"
+                + "\n* in 1936 and was one of only three American carriers commissioned before World War II to survive the         *"
+                + "\n* war (the others being Saratoga and Ranger). She participated in more major actions of the war against       *"
+                + "\n* Japan than any other United States ship. These actions included the Battle of Midway, the Battle of the     *"
+                + "\n* Eastern Solomon’s, the Battle of the Santa Cruz Islands, various other air-sea engagements during the        *"
+                + "\n* Guadalcanal Campaign, the Battle of the Philippine Sea, and the Battle of Leyte Gulf. On three occasions    *" 
+                + "\n* during the Pacific War, the Japanese announced that she had been sunk in battle, a fact that gave her       *"
+                + "\n* the name \"The Grey Ghost\". Enterprise earned 20 battle stars, the most for any U.S. warship in World      *"
+                + "\n* War II, and became the most decorated U.S. ship of World War II.                                            *"         
+                + "\n***************************************************************************************************************"
+        );
         aircraftCarrier.setType("Aircraft Carrier");
         aircraftCarrier.setDefense(0);
         aircraftCarrier.setAccuracy(65);
