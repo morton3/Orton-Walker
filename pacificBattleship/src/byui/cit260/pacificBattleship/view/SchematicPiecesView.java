@@ -38,7 +38,7 @@ public class SchematicPiecesView extends View{
                 this.listPieces();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
 
@@ -64,6 +64,6 @@ public class SchematicPiecesView extends View{
         if (empty)
             message = "No schematics left!\n";
         
-        System.out.println(message);
+        this.console.println(message);
     }
 }

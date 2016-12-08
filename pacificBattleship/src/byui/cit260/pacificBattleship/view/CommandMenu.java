@@ -70,7 +70,7 @@ public class CommandMenu extends View{
               this.schematicPiecesView();
               break;
           default:
-              System.out.println("\n*** Invalid selection *** Try again");
+              this.console.println("\n*** Invalid selection *** Try again");
               break;
       }
       
@@ -233,7 +233,7 @@ public class CommandMenu extends View{
         
         wholeMap += "\n└--┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┴-------┘";
         
-        System.out.println(wholeMap);
+        this.console.println(wholeMap);
     
     }
     
@@ -377,7 +377,7 @@ public class CommandMenu extends View{
     }
 
     private void countNukePieces() {
-        System.out.println("*** countNukePieces() function called ***");
+        this.console.println("*** countNukePieces() function called ***");
     }
 
     private void schematicPiecesView() {
@@ -396,7 +396,7 @@ public class CommandMenu extends View{
         
         // check if coordinates are on the map
         if (row + y > 9 || row + y < 0 || column + x > 9 || column + x < 0){
-            System.out.println("Going off the chart!!!!\nTurn Around!!!!");
+            this.console.println("Going off the chart!!!!\nTurn Around!!!!");
             return;
         }
         
@@ -438,7 +438,7 @@ public class CommandMenu extends View{
         Scene scene = location.getScene();
         
         if (!scene.isActive()) {
-            System.out.println("You can't go on land!"
+            this.console.println("You can't go on land!"
                     + "\n    You'll need the transport to assault islands.\n");
             return false;
         }
@@ -446,20 +446,20 @@ public class CommandMenu extends View{
         Ship ship = location.getShip();
         
         if (ship.isUserControl()) {
-            System.out.println("You're about to run into your own ship!"
+            this.console.println("You're about to run into your own ship!"
                            + "\n    Turn around!!!!");
             return false;
         }
         else {
-            System.out.println("Looks like there's an enemy Ship here!"
+            this.console.println("Looks like there's an enemy Ship here!"
                            + "\nWe can either attack it, or go around...");
             return false;
         }
     }
 
     private void pickupCollectable(Location location) {
-        System.out.println("You found something!");
-        System.out.println("******* function pickupCollectable() reached *****");
+        this.console.println("You found something!");
+        this.console.println("******* function pickupCollectable() reached *****");
     }
             
             

@@ -20,7 +20,7 @@ import pacificbattleship.PacificBattleship;
  */
 public abstract class View implements ViewInterface {
     
-    protected String displayMessage;
+    private String displayMessage;
         protected final BufferedReader keyboard = PacificBattleship.getInFile();
         protected final PrintWriter console = PacificBattleship.getOutFile();
     public View() {
@@ -35,6 +35,7 @@ public abstract class View implements ViewInterface {
         String value;
         boolean done = false;
         do{
+            this.console.println(this.displayMessage);
                 value = this.getInput();
             if (value.toUpperCase().equals("Q")) 
                 return;
@@ -49,14 +50,14 @@ public abstract class View implements ViewInterface {
         String value = null;
         try{
         while (!valid) {
-            System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
             
             value = this.keyboard.readLine();
             value = value.trim();
                     
             
             if (value.length() < 1) {
-                System.out.println("\nInvalid value: value can not be blank");
+                this.console.println("\nInvalid value: value can not be blank");
                 continue;
             }
             break;
@@ -64,7 +65,7 @@ public abstract class View implements ViewInterface {
         
         
     }   catch (Exception e) {
-            System.out.println("Error reading input:" + e.getMessage());
+            this.console.println("Error reading input:" + e.getMessage());
         }
       return value;
 }

@@ -30,10 +30,10 @@ public class BattleResultView extends View{
               this.attackView();
               return true;
           default:
-              System.out.println("\n*** Invalid selection *** Try again");
+              this.console.println("\n*** Invalid selection *** Try again");
               break;
       }
-      System.out.println("\n*** Battle results *** Displayed");
+      this.console.println("\n*** Battle results *** Displayed");
        return false;
     }
 

@@ -71,7 +71,7 @@ public class AttackMenuView extends View{
               row = 10;
               break;
           default:
-              System.out.println("\n*** Invalid Row! *** Try again");
+              this.console.println("\n*** Invalid Row! *** Try again");
               return false;
       }
       
@@ -80,11 +80,11 @@ public class AttackMenuView extends View{
       try{
       column = Integer.parseInt(strColumn);
       } catch (NumberFormatException nf){
-          System.out.println("\n*** Invalid Column! *** Try again");
+          this.console.println("\n*** Invalid Column! *** Try again");
       }
       
       if (column < 1 || column > 10) {
-          System.out.println("\n*** Invalid Column! *** Try again");
+          this.console.println("\n*** Invalid Column! *** Try again");
           return false;
       }
       
@@ -134,7 +134,7 @@ public class AttackMenuView extends View{
                 break;
         }
         
-        System.out.println("\nAttack made at:"
+        this.console.println("\nAttack made at:"
                 + "\n\trow: " + rowLetter
                 + "\n\tcolumn: " + column);
         
@@ -144,10 +144,10 @@ public class AttackMenuView extends View{
         try {
             message = BattleControl.checkForEnemy(column - 1, row - 1);
             } catch (BattleControlException me) {
-                System.out.println(me.getMessage());
+                this.console.println(me.getMessage());
         }
         
-        System.out.println(message);
+        this.console.println(message);
         
     }
     

@@ -42,10 +42,10 @@ public class LaunchNuke extends View{
           
          
           default:
-              System.out.println("\n*** Invalid selection *** Try again");
+              this.console.println("\n*** Invalid selection *** Try again");
               break;
       }
-         System.out.println("\n*** Nuke is launch");
+         this.console.println("\n*** Nuke is launch");
      
       
       return false;

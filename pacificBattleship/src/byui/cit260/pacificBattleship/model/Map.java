@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.pacificBattleship.model;
+import byui.cit260.pacificBattleship.view.ErrorView;
 import java.io.Serializable;
 
 /**
@@ -20,7 +21,7 @@ import java.io.Serializable;
     public Map(int rowCount, int columnCount) {
         
         if (rowCount < 1 || columnCount< 1){
-            System.out.println("The number of rows and columns must be greater than zero");
+            ErrorView.display(this.getClass().getName(),"The number of rows and columns must be greater than zero");
             return;
         }
         

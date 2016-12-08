@@ -9,6 +9,8 @@ import byui.cit260.pacificBattleship.exceptions.BattleControlException;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.Upgrade;
+import byui.cit260.pacificBattleship.view.ErrorView;
+import byui.cit260.pacificBattleship.view.View;
 import java.util.Random;
 import pacificbattleship.PacificBattleship;
 
@@ -28,7 +30,7 @@ public class BattleControl {
             try{  
                 atkPower = CalTotalAttackPower(uShip, uShipUpgradeAttack, uShipUpgradeSpecial);
             } catch (BattleControlException me) {
-                System.out.println(me.getMessage());
+                ErrorView.display("Battle Control", me.getMessage());
             }
             
             int atkBonus = calculateAttackBonus(atkPower, uShip, eShip);
@@ -211,7 +213,8 @@ public class BattleControl {
         locations[row][column].setShip(null);
         eShip.setLocation(null);
         
-        System.out.println("You sunk the " + eShip.getShipName() + "!\n");
+         System.out.println("You sunk the " + eShip.getShipName() + "!\n");
+       
     }
     
 }

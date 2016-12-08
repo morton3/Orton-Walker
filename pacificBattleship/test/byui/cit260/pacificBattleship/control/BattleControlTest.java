@@ -24,7 +24,7 @@ public class BattleControlTest {
     @Test
     public void testCalTotalAttackPower() 
                     throws BattleControlException{
-        System.out.println("CalTotalAttackPower");
+        this.console.println("CalTotalAttackPower");
          /*********************************
          * Test case #1 Nathan
          ********************************/
@@ -84,12 +84,12 @@ public class BattleControlTest {
      */
     @Test
     public void testHitOrMiss() {
-        System.out.println("hitOrMiss");
+        this.console.println("hitOrMiss");
         
         /*********************************
          * Test case #1
          ********************************/
-        System.out.println("\tTest case #1");
+        this.console.println("\tTest case #1");
                 
         Ship uShip = new Ship();
         
@@ -106,7 +106,7 @@ public class BattleControlTest {
         /*********************************
          * Test case #2
          ********************************/
-        System.out.println("\tTest case #2");
+        this.console.println("\tTest case #2");
         
         uShip.setAccuracy(-1);
         
@@ -123,12 +123,12 @@ public class BattleControlTest {
      */
     @Test
     public void testCalculateAttackBonus() {
-        System.out.println("calculateAttackBonus");
+        this.console.println("calculateAttackBonus");
         
         /*********************************
          * Test case #1
          ********************************/
-        System.out.println("\tTest case #1");
+        this.console.println("\tTest case #1");
         
         // input values for test case 1
         int totalAttack = 1;
@@ -154,7 +154,7 @@ public class BattleControlTest {
          * Test case #2
          ********************************/
 
-        System.out.println("\tTest case #2");
+        this.console.println("\tTest case #2");
         
         // input values for test case 1
         totalAttack = 1;
@@ -175,7 +175,7 @@ public class BattleControlTest {
          * Test case #3
          ********************************/
 
-        System.out.println("\tTest case #3");
+        this.console.println("\tTest case #3");
         
         // input values for test case 1
         totalAttack = 1;
@@ -196,7 +196,7 @@ public class BattleControlTest {
          * Test case #4
          ********************************/
 
-        System.out.println("\tTest case #4");
+        this.console.println("\tTest case #4");
         
         // input values for test case 1
         totalAttack = -2;
@@ -217,7 +217,7 @@ public class BattleControlTest {
          * Test case #5
          ********************************/
 
-        System.out.println("\tTest case #5");
+        this.console.println("\tTest case #5");
         
         // input values for test case 1
         totalAttack = 35;

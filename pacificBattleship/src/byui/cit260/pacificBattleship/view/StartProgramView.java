@@ -27,7 +27,7 @@ public class StartProgramView extends View {
      }
 
     private void displayBanner() {
-        System.out.println(
+        this.console.println(
                   "\n*********************************************************************************************************"
                 + "\n* Its December 7, 1941 and the Japanese have just bombed Pearl Harbor, the United States Naval          *"
                 + "\n* base in the Pacific. Causing the United States to be forced into the global conflict of World War 2.  *"
@@ -46,14 +46,14 @@ public class StartProgramView extends View {
     public boolean doAction(String playersName) {
        
         if (playersName.length() < 2) {
-            System.out.println("\nInvalid players name: "
+            this.console.println("\nInvalid players name: "
                     + "The name must be greater than one character in length");
             return false;
         }
         Player player = GameControl.createPlayer(playersName);
         
         if (player == null) {
-            System.out.println("\nError creating the player.");
+            this.console.println("\nError creating the player.");
             return false;
         }
 
@@ -64,7 +64,7 @@ public class StartProgramView extends View {
    
 
     private void displayNextView(Player player) {
-        System.out.println(
+        this.console.println(
                   "\n===================================================="
                 + "\n Welcome to the game " + player.getUserName()
                 + "\n We hope you have fun!"

@@ -8,6 +8,7 @@ package pacificbattleship;
 
 import byui.cit260.pacificBattleship.model.Game;
 import byui.cit260.pacificBattleship.model.Player;
+import byui.cit260.pacificBattleship.view.ErrorView;
 import byui.cit260.pacificBattleship.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -83,7 +84,7 @@ public class PacificBattleship {
             PacificBattleship.logFile = new PrintWriter(filePath);
              startProgramView.display();
         }catch (Throwable te) {
-            System.out.println(te.getMessage());
+            ErrorView.display("PacificBattleship", te.getMessage());
             te.printStackTrace();
             startProgramView.display();
         }
@@ -96,7 +97,7 @@ public class PacificBattleship {
               if  (PacificBattleship.logFile != null)
                   PacificBattleship.logFile.close();
             } catch (IOException ex) {
-               System.out.println("Error closing files");
+               ErrorView.display("PacificBattleship", ex.getMessage());
                return;
             }
            

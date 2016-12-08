@@ -45,7 +45,7 @@ public class HelpMenuView extends View{
               this.nuke();
               break;
           default:
-              System.out.println("\n*** Invalid selection *** Try again");
+              this.console.println("\n*** Invalid selection *** Try again");
               break;
       }
       
@@ -53,18 +53,18 @@ public class HelpMenuView extends View{
     }
 
     private void gameGoal() {
-           System.out.println("\n*** gameGoal stub function called ***");
+           this.console.println("\n*** gameGoal stub function called ***");
     }
 
     private void move() {
-          System.out.println("\n*** move stub function called ***");
+          this.console.println("\n*** move stub function called ***");
     }
 
     private void pow() {
-          System.out.println("\n*** POW stub function called ***");
+          this.console.println("\n*** POW stub function called ***");
     }
 
     private void nuke() {
-           System.out.println("\n*** nuke stub function called ***");
+           this.console.println("\n*** nuke stub function called ***");
     }
 }

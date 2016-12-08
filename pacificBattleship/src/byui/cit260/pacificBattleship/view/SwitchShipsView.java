@@ -49,28 +49,28 @@ public class SwitchShipsView extends View{
       switch (value){
           case "B":
               PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.battleship.ordinal()]);
-              System.out.println(PacificBattleship.getCurrentGame().getActiveShip().getShipName());
-              System.out.println(PacificBattleship.getCurrentGame().getActiveShip().getDescription());
+              this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getShipName());
+              this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getDescription());
               break;
           case "T":
               PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.transport.ordinal()]);
-              System.out.println(PacificBattleship.getCurrentGame().getActiveShip().getShipName());
-              System.out.println(PacificBattleship.getCurrentGame().getActiveShip().getDescription());
+              this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getShipName());
+              this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getDescription());
               break;
           case "S":
               PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.submarine.ordinal()]);
-              System.out.println(PacificBattleship.getCurrentGame().getActiveShip().getShipName());
-              System.out.println(PacificBattleship.getCurrentGame().getActiveShip().getDescription());
+              this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getShipName());
+              this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getDescription());
               break;
           case "A":
               PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.aircraftCarrier.ordinal()]);
-              System.out.println(PacificBattleship.getCurrentGame().getActiveShip().getShipName());
-              System.out.println(PacificBattleship.getCurrentGame().getActiveShip().getDescription());
+              this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getShipName());
+              this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getDescription());
               break;
           case "D":
               PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.destroyer.ordinal()]);
-              System.out.println(PacificBattleship.getCurrentGame().getActiveShip().getShipName());
-              System.out.println(PacificBattleship.getCurrentGame().getActiveShip().getDescription());
+              this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getShipName());
+              this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getDescription());
               break;
           default: {
               PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.battleship.ordinal()]);

@@ -5,6 +5,7 @@
  */
 package byui.cit260.pacificBattleship.control;
 
+import byui.cit260.pacificBattleship.exceptions.GameControlException;
 import byui.cit260.pacificBattleship.model.Collectable;
 import byui.cit260.pacificBattleship.model.CollectableType;
 import byui.cit260.pacificBattleship.model.EnemyShipList;
@@ -17,6 +18,10 @@ import byui.cit260.pacificBattleship.model.Scene;
 import byui.cit260.pacificBattleship.model.SceneType;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipList;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashSet;
 import java.util.Set;
 import pacificbattleship.PacificBattleship;
@@ -306,6 +311,34 @@ public class GameControl {
         locations[2][8].setCollectable(collectables[CollectableType.schematicDestroyer2.ordinal()]);
         locations[2][9].setCollectable(collectables[CollectableType.schematicDestroyer3.ordinal()]);
         
+    }
+public static  void saveGame(Game game, String filepath)
+        throws GameControlException {
+    
+    try(FileOutputStream fops = new FileOutputStream(filepath)){
+        ObjectOutputStream output = new ObjectOutputStream(fops);
+        
+        output.writeObject(game);
+    }
+    catch(Exception e){
+        throw new GameControlException(e.getMessage());
+    }
+}
+
+    public static void getSavedGame(String filepath) 
+
+    throws GameControlException {
+        Game game = null;
+    
+    try(FileInputStream fips = new FileInputStream(filepath)){
+        ObjectInputStream input = new ObjectInputStream(fips);
+        
+        game = (Game) input.readObject();
+    }
+    catch(Exception e){
+        throw new GameControlException(e.getMessage());
+    }
+    PacificBattleship.setCurrentGame(game);
     }
 
 
