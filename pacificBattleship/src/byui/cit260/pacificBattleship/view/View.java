@@ -50,7 +50,7 @@ public abstract class View implements ViewInterface {
         String value = null;
         try{
         while (!valid) {
-            this.console.println("\n" + this.displayMessage);
+           
             
             value = this.keyboard.readLine();
             value = value.trim();
@@ -65,7 +65,7 @@ public abstract class View implements ViewInterface {
         
         
     }   catch (Exception e) {
-            this.console.println("Error reading input:" + e.getMessage());
+            System.out.println("Error reading input:" + e.getMessage());
         }
       return value;
 }

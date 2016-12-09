@@ -74,7 +74,7 @@ public class PacificBattleship {
 
     public static void main(String[] args) {
         
-        StartProgramView startProgramView = new StartProgramView();
+        StartProgramView startProgramView = null;
         
         try{
             PacificBattleship.inFile =
@@ -82,6 +82,9 @@ public class PacificBattleship {
             PacificBattleship.outFile = new PrintWriter(System.out, true);
             String filePath = "log.txt";
             PacificBattleship.logFile = new PrintWriter(filePath);
+            
+             startProgramView = new StartProgramView();
+            
              startProgramView.display();
         }catch (Throwable te) {
             ErrorView.display("PacificBattleship", te.getMessage());
