@@ -1,0 +1,16 @@
+
+
+               Upgrades Report                   
+
+Name of Ship                                         UpgradeCurrentMaximum
+------------                                         ---------------------
+USS Tennessee                                           Guns      0      5
+USS Tennessee                                          Radar      0      5
+USS President Jackson                      Infantry Strength      0      5
+USS President Jackson                        Troops on Board      0      5
+USS Silversides                                    Torpedoes      0      5
+USS Silversides                                   Sink Level      0      5
+USS Enterprise                                        Planes      0      5
+USS Enterprise                                         Range      0      5
+USS destroyer                                     Heavy Guns      0      5
+USS destroyer                              Massive Artillery      0      5
