@@ -26,7 +26,7 @@ public class StartProgramView extends View {
        
      }
 
-    private void displayBanner() {
+  private void displayBanner() {
         this.console.println(
                   "\n*********************************************************************************************************"
                 + "\n* Its December 7, 1941 and the Japanese have just bombed Pearl Harbor, the United States Naval          *"
@@ -36,8 +36,8 @@ public class StartProgramView extends View {
                 + "\n* have surrendered. Based on your knowledge of past events you will pick and choose what forces         *"
                 + "\n* are needed for what battle. But watch out and don’t make the wrong move or make the wrong             *"
                 + "\n* guess of the intent of the Japanese military’s next move. It may lead your forces into defeat and     *"
-                + "\n* you will be decommissioned thus losing the game.                                                     *"
-                + "\n********************************************************************************************************"
+                + "\n* you will be decommissioned thus losing the game.                                                      *"
+                + "\n*********************************************************************************************************"
         );
                 
     }

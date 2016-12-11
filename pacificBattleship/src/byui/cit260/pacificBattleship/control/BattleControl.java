@@ -121,7 +121,7 @@ public class BattleControl {
 
    
     
-    /* Calculate wheether or not the attack will hit */
+    /* Calculate whether or not the attack will hit */
     
     public static boolean hitOrMiss(Ship uShip){
         Random rn = new Random();
