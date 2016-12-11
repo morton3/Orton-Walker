@@ -302,6 +302,7 @@ public class ShipControl {
         battleshipAttack.setName("Guns");
         battleshipAttack.setCurrentAllocation(0);
         battleshipAttack.setMaxAllocation(5);
+        battleshipAttack.setUpgradeType("attack");
         upgrades[UpgradeList.battleshipAttack.ordinal()] = battleshipAttack;
         ships[ShipList.battleship.ordinal()].setUpgradeAttack(battleshipAttack);
         
@@ -310,6 +311,7 @@ public class ShipControl {
         transportAttack.setName("Infantry Strength");
         transportAttack.setCurrentAllocation(0);
         transportAttack.setMaxAllocation(5);
+        transportAttack.setUpgradeType("attack");
         upgrades[UpgradeList.transportAttack.ordinal()] = transportAttack;
         ships[ShipList.transport.ordinal()].setUpgradeAttack(transportAttack);
         
@@ -318,6 +320,7 @@ public class ShipControl {
         submarineAttack.setName("Torpedoes");
         submarineAttack.setCurrentAllocation(0);
         submarineAttack.setMaxAllocation(5);
+        submarineAttack.setUpgradeType("attack");
         upgrades[UpgradeList.submarineAttack.ordinal()] = submarineAttack;
         ships[ShipList.submarine.ordinal()].setUpgradeAttack(submarineAttack);
         
@@ -326,6 +329,7 @@ public class ShipControl {
         aircraftCarrierAttack.setName("Planes");
         aircraftCarrierAttack.setCurrentAllocation(0);
         aircraftCarrierAttack.setMaxAllocation(5);
+        aircraftCarrierAttack.setUpgradeType("attack");
         upgrades[UpgradeList.aircraftCarrierAttack.ordinal()] = aircraftCarrierAttack;
         ships[ShipList.aircraftCarrier.ordinal()].setUpgradeAttack(aircraftCarrierAttack);
         
@@ -334,6 +338,7 @@ public class ShipControl {
         destroyerAttack.setName("Heavy Guns");
         destroyerAttack.setCurrentAllocation(0);
         destroyerAttack.setMaxAllocation(5);
+        destroyerAttack.setUpgradeType("attack");
         upgrades[UpgradeList.destroyerAttack.ordinal()] = destroyerAttack;
         ships[ShipList.destroyer.ordinal()].setUpgradeAttack(destroyerAttack);
         
@@ -342,6 +347,7 @@ public class ShipControl {
         battleshipSpecial.setName("Radar");
         battleshipSpecial.setCurrentAllocation(0);
         battleshipSpecial.setMaxAllocation(5);
+        battleshipSpecial.setUpgradeType("special");
         upgrades[UpgradeList.battleshipAttack.ordinal()] = battleshipAttack;
         ships[ShipList.battleship.ordinal()].setUpgradeSpecial(battleshipSpecial);
         
@@ -350,6 +356,7 @@ public class ShipControl {
         transportSpecial.setName("Troops on Board");
         transportSpecial.setCurrentAllocation(0);
         transportSpecial.setMaxAllocation(5);
+        transportSpecial.setUpgradeType("special");
         upgrades[UpgradeList.transportSpecial.ordinal()] = transportSpecial;
         ships[ShipList.transport.ordinal()].setUpgradeSpecial(transportSpecial);
         
@@ -358,6 +365,7 @@ public class ShipControl {
         submarineSpecial.setName("Sink Level");
         submarineSpecial.setCurrentAllocation(0);
         submarineSpecial.setMaxAllocation(5);
+        submarineSpecial.setUpgradeType("special");
         upgrades[UpgradeList.submarineSpecial.ordinal()] = submarineSpecial;
         ships[ShipList.submarine.ordinal()].setUpgradeSpecial(submarineSpecial);
         
@@ -366,6 +374,7 @@ public class ShipControl {
         aircraftCarrierSpecial.setName("Range");
         aircraftCarrierSpecial.setCurrentAllocation(0);
         aircraftCarrierSpecial.setMaxAllocation(5);
+        aircraftCarrierSpecial.setUpgradeType("special");
         upgrades[UpgradeList.aircraftCarrierSpecial.ordinal()] = aircraftCarrierSpecial;
         ships[ShipList.aircraftCarrier.ordinal()].setUpgradeSpecial(aircraftCarrierSpecial);
         
@@ -374,6 +383,7 @@ public class ShipControl {
         destroyerSpecial.setName("Massive Artillery");
         destroyerSpecial.setCurrentAllocation(0);
         destroyerSpecial.setMaxAllocation(5);
+        destroyerSpecial.setUpgradeType("special");
         upgrades[UpgradeList.destroyerSpecial.ordinal()] = destroyerSpecial;
         ships[ShipList.destroyer.ordinal()].setUpgradeSpecial(destroyerSpecial);
     }

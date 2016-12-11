@@ -7,8 +7,12 @@ package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.BattleControl;
 import byui.cit260.pacificBattleship.exceptions.BattleControlException;
+import byui.cit260.pacificBattleship.model.Location;
+import byui.cit260.pacificBattleship.model.Ship;
+import byui.cit260.pacificBattleship.model.Upgrade;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import pacificbattleship.PacificBattleship;
 
 
 /**
@@ -142,13 +146,37 @@ public class AttackMenuView extends View{
         String message = "";
         
         try {
-            message = BattleControl.checkForEnemy(column - 1, row - 1);
+            message = this.checkForEnemy(column - 1, row - 1);
+            
             } catch (BattleControlException me) {
                 this.console.println(me.getMessage());
         }
         
         this.console.println(message);
         
+    }
+    
+        public static String checkForEnemy(int row, int column) 
+            throws BattleControlException {
+        
+        Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
+        String message;
+        
+        if (locations[row][column].getShip() == null){
+            message = "No enemy ship here...";
+            return message;
+        }
+        
+        Ship activeShip = PacificBattleship.getCurrentGame().getActiveShip();
+        Upgrade upgradeAttack = activeShip.getUpgradeAttack();
+        Upgrade upgradeSpecial = activeShip.getUpgradeSpecial();
+        
+        Ship enemyShip = locations[row][column].getShip();
+        
+        message = BattleControl.attackUnit(activeShip, enemyShip, upgradeAttack, upgradeSpecial);
+        
+        
+        return message;
     }
     
 }

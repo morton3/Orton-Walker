@@ -6,6 +6,10 @@
 package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.GameControl;
+import byui.cit260.pacificBattleship.control.UpgradeControl;
+import byui.cit260.pacificBattleship.model.Ship;
+import byui.cit260.pacificBattleship.model.Upgrade;
+import pacificbattleship.PacificBattleship;
 
 /**
  *
@@ -40,22 +44,31 @@ public class UpgradeMenu extends View{
     @Override
     public boolean doAction(String value) {
       value = value.toUpperCase();
-        String upgrade = "";
+        
+      Ship ship = PacificBattleship.getCurrentGame().getActiveShip();
+      Upgrade upgrade = null;
         
         
       switch (value){
           case "A":
-              upgrade = "Attack power";
+              upgrade = ship.getUpgradeAttack();
               break;
           case "S":
-              upgrade = "Special abilty";
+              upgrade = ship.getUpgradeSpecial();
               break;
          
           default:
               this.console.println("\n*** Invalid selection *** Try again");
-              break;
+              return false;
       }
-      GameControl.upgradeView(upgrade);
+      
+      if(UpgradeControl.checkUpgradeMax(upgrade)) {
+          UpgradeControl.increaseValue(upgrade);
+          this.console.println("You increased the " + ship.getShipName() + " " + upgrade.getName() + " to level " + upgrade.getCurrentAllocation());
+      }
+      else
+          this.console.println("You cannot upgrade this ship any further");
+      
       
       return false;
     }
