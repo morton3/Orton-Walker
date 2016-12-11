@@ -32,9 +32,11 @@ import pacificbattleship.PacificBattleship;
  */
 public class GameControl {
 
-    public static Player createPlayer(String name) {
+    public static Player createPlayer(String name) 
+            throws GameControlException
+    {
         if (name == null) {
-            return null;
+           throw new GameControlException("Player name can not be null.");
         }
         Player player = new Player();
         player.setUserName(name);

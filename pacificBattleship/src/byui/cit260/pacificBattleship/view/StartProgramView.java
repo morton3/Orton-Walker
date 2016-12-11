@@ -6,6 +6,7 @@
 package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.GameControl;
+import byui.cit260.pacificBattleship.exceptions.GameControlException;
 import byui.cit260.pacificBattleship.model.Game;
 import byui.cit260.pacificBattleship.model.Player;
 import byui.cit260.pacificBattleship.model.Ship;
@@ -43,14 +44,21 @@ public class StartProgramView extends View {
     }
 
     @Override
-    public boolean doAction(String playersName) {
+    public boolean doAction(String playersName) 
+            
+    
+    { Player player = null;
        
         if (playersName.length() < 2) {
             this.console.println("\nInvalid players name: "
                     + "The name must be greater than one character in length");
             return false;
         }
-        Player player = GameControl.createPlayer(playersName);
+        try {
+         player = GameControl.createPlayer(playersName);
+        } catch (GameControlException pl){
+            ErrorView.display("GameControl", pl.getMessage());
+        }
         
         if (player == null) {
             this.console.println("\nError creating the player.");
