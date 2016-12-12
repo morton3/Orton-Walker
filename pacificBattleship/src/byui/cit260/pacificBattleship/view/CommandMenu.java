@@ -5,9 +5,11 @@
  */
 package byui.cit260.pacificBattleship.view;
 import byui.cit260.pacificBattleship.control.GameControl;
+import byui.cit260.pacificBattleship.model.Collectable;
 import byui.cit260.pacificBattleship.model.Game;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Map;
+import byui.cit260.pacificBattleship.model.NukeParts;
 import byui.cit260.pacificBattleship.model.Scene;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
@@ -390,6 +392,8 @@ public class CommandMenu extends View{
         Ship ship = PacificBattleship.getCurrentGame().getActiveShip();
         Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
         
+        Ship battleship = PacificBattleship.getCurrentGame().getShip()[ShipList.battleship.ordinal()];
+        
         Location shipLocation = ship.getLocation();
         int row = shipLocation.getRow();
         int column = shipLocation.getColumn();
@@ -416,8 +420,10 @@ public class CommandMenu extends View{
         locations[y + row][x + column].setHidden(false);                        
         
         // Don't Hide Pearl Harbor!
-        if (!(row == 2 && column == 9))                                         
-            locations[row][column].setHidden(true);
+        if (!(row == 2 && column == 9)) {
+            if (battleship.getUpgradeSpecial().getCurrentAllocation() < 1)
+                locations[row][column].setHidden(true);
+        }
         
 
         
@@ -426,21 +432,17 @@ public class CommandMenu extends View{
 
     private boolean checkArea(Location location) {
         
-        if (location.getShip() == null) {
-            return true;
-        }
+        boolean water = location.getScene().isActive();
         
-        if (!(location.getCollectable() == null)) {
-            this.pickupCollectable(location);
-            return true;
-        }
         
-        Scene scene = location.getScene();
-        
-        if (!scene.isActive()) {
+        if (!water) {
             this.console.println("You can't go on land!"
                     + "\n    You'll need the transport to assault islands.\n");
             return false;
+        }
+        
+        if (location.getShip() == null) {
+            return true;
         }
         
         Ship ship = location.getShip();
@@ -450,16 +452,42 @@ public class CommandMenu extends View{
                            + "\n    Turn around!!!!");
             return false;
         }
-        else {
+        
+        if (!ship.isUserControl()) {
             this.console.println("Looks like there's an enemy Ship here!"
                            + "\nWe can either attack it, or go around...");
             return false;
         }
+        
+        if (!(location.getCollectable() == null)) {
+            this.pickupCollectable(location);
+        }
+        
+        if (!(location.getNukePart() == null)) {
+            this.pickupNukePart(location);
+        }
+        
+        return true;
     }
 
     private void pickupCollectable(Location location) {
-        this.console.println("You found something!");
-        this.console.println("******* function pickupCollectable() reached *****");
+        this.console.println("You found a schematic!\n"
+                + location.getCollectable().getName());
+        
+        Collectable collectable = location.getCollectable();
+        
+        location.setCollectable(null);
+        
+        collectable.setActive(false);
+        
+        
+        
+    }
+
+    private void pickupNukePart(Location location) {
+        this.console.println("You found a Nuke Part!");
+        
+        NukeParts nukePart = location.getNukePart();
     }
             
             

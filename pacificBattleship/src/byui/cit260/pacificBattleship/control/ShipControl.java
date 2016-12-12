@@ -60,7 +60,7 @@ public class ShipControl {
         transport.setType("Transport");
         transport.setDefense(0);
         transport.setAccuracy(100);
-        transport.setUserControl(false);
+        transport.setUserControl(true);
         transport.setAttack(10);
         transport.setHull(6);
         transport.setMaxHull(6);
@@ -86,7 +86,7 @@ public class ShipControl {
         submarine.setType("Submarine");
         submarine.setDefense(0);
         submarine.setAccuracy(70);
-        submarine.setUserControl(false);
+        submarine.setUserControl(true);
         submarine.setAttack(10);
         submarine.setHull(8);
         submarine.setMaxHull(8);
@@ -115,7 +115,7 @@ public class ShipControl {
         aircraftCarrier.setType("Aircraft Carrier");
         aircraftCarrier.setDefense(0);
         aircraftCarrier.setAccuracy(65);
-        aircraftCarrier.setUserControl(false);
+        aircraftCarrier.setUserControl(true);
         aircraftCarrier.setAttack(10);
         aircraftCarrier.setHull(14);
         aircraftCarrier.setMaxHull(14);
@@ -131,7 +131,7 @@ public class ShipControl {
         destroyer.setType("Destroyer");
         destroyer.setDefense(0);
         destroyer.setAccuracy(60);
-        destroyer.setUserControl(false);
+        destroyer.setUserControl(true);
         destroyer.setAttack(10);
         destroyer.setHull(12);
         destroyer.setMaxHull(12);

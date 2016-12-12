@@ -32,6 +32,8 @@ public class MapControl {
         Scene[] scenes = createScenes();
 
         Collectable[] collectables = createCollectables();
+        
+        PacificBattleship.getCurrentGame().setCollectables(collectables);
 
         GameControl.assignScenesToLocations(map, scenes);
 

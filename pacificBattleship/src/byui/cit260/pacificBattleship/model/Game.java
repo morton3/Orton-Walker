@@ -24,6 +24,7 @@ public class Game implements Serializable {
     private Ship[] ship;
     private Ship[] enemyShips;
     private Ship activeShip;
+    private Collectable[] collectables;
     
     public Game() {
     }
@@ -99,6 +100,14 @@ public class Game implements Serializable {
 
     public void setEnemyShips(Ship[] enemyShips) {
         this.enemyShips = enemyShips;
+    }
+
+    public Collectable[] getCollectables() {
+        return collectables;
+    }
+
+    public void setCollectables(Collectable[] collectables) {
+        this.collectables = collectables;
     }
 
     
