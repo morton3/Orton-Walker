@@ -9,6 +9,10 @@ import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.control.UpgradeControl;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.Upgrade;
+import byui.cit260.pacificBattleship.model.UpgradeList;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import pacificbattleship.PacificBattleship;
 
 /**
@@ -33,6 +37,7 @@ public class UpgradeMenu extends View{
                    +"\n--------------------------------------------------"
                    +"\nA - Upgrade attack power"
                    +"\nS - Special ability"
+                   +"\nR - See Upgrade Report"
                    +"\nQ - Quit"
                    +"\n--------------------------------------------------");
               }
@@ -56,7 +61,9 @@ public class UpgradeMenu extends View{
           case "S":
               upgrade = ship.getUpgradeSpecial();
               break;
-         
+          case "R":
+              this.printUpgradesReport();
+              return false;
           default:
               this.console.println("\n*** Invalid selection *** Try again");
               return false;
@@ -71,6 +78,32 @@ public class UpgradeMenu extends View{
       
       
       return false;
+    }
+    
+    public void printUpgradesReport() {
+        
+        String fileLocation = "C:\\Users\\ort09\\OneDrive\\Documents\\CIT-260\\upgrades.txt";
+        Ship[] ships = PacificBattleship.getCurrentGame().getShip();
+        
+        try (PrintWriter out = new PrintWriter(fileLocation)) {
+            
+            out.println("\n\n                    Ship Upgrades Report                         ");
+            out.printf("%n%-25s%20s%10s%10s", "Name of Ship", "Upgrade", "Current", "Maximum");
+            out.printf("%n%-25s%20s%10s%10s", "------------", "-------", "-------", "-------");
+            
+            for (Ship ship : ships) {
+                out.printf("%n%-25s%20s%7d%7d" , ship.getShipName()
+                                              , ship.getUpgradeAttack().getName()
+                                              , ship.getUpgradeAttack().getCurrentAllocation()
+                                              , ship.getUpgradeAttack().getMaxAllocation());
+                out.printf("%n%-25s%20s%7d%7d" , ship.getShipName()
+                                              , ship.getUpgradeSpecial().getName()
+                                              , ship.getUpgradeSpecial().getCurrentAllocation()
+                                              , ship.getUpgradeSpecial().getMaxAllocation());
+            }
+        }   catch (IOException ex) {
+                this.console.println("I/O Error: " + ex.getMessage());
+        }
     }
 }
     /*
