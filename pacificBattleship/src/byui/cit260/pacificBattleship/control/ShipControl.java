@@ -126,8 +126,18 @@ public class ShipControl {
         ships[ShipList.aircraftCarrier.ordinal()] = aircraftCarrier;
         
         Ship destroyer = new Ship();
-        destroyer.setShipName("USS destroyer");
-        destroyer.setDescription("The description......");
+        destroyer.setShipName("USS Walker");
+        destroyer.setDescription(
+                  "\n***************************************************************************************************************"
+                + "\n* Walker transited the Panama Canal on 1 November 1943 and proceeded to join the forces engaged in            *"
+                + "\n* the conquest of Tarawa. After a month of operations in that area, the destroyer took part in the            *"
+                + "\n* Marshall Islands campaign from 29 January through 8 February 1944. She joined forces at Funafuti for        *"
+                + "\n* the invasion of Kwajalein; and, as part of a heavy cruiser bombardment unit, she participated in            *"
+                + "\n* numerous neutralization bombardments at Wotje and Taroa. The only Japanese resistance encountered           *"
+                + "\n* came from shore batteries which failed to hit their mark.                                                   *"
+                + "\n***************************************************************************************************************"
+        );
+        
         destroyer.setType("Destroyer");
         destroyer.setDefense(0);
         destroyer.setAccuracy(60);

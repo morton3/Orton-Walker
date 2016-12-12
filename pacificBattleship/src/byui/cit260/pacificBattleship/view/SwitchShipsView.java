@@ -9,6 +9,8 @@ import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.ShipList;
+import java.io.IOException;
+import java.io.PrintWriter;
 import pacificbattleship.PacificBattleship;
 import java.util.Scanner;
 
@@ -81,8 +83,27 @@ public class SwitchShipsView extends View{
       
       return done;
     }
-
+public void printShipsReport(Ship[] ships,
+                              String outputLocation){
+    
+    try (PrintWriter out = new PrintWriter(outputLocation)){
+        
+        out.println("\n\n           Ship List           ");
+        out.printf("%n%-20s%10s%", "Name", "Type", "Class");
+        out.printf("%n%-20s%10s%", "------", "------", "-----");
+        
+        for (Ship ship : ships){
+            out.printf("%n%-20s%7d%13.2f", ship.getShipName()
+                                         , ship.getType() 
+                                         , ship.getShipClass().getName()); 
+        }
+    } catch (IOException ex){
+                this.console.println("I/0 Error: " + ex.getMessage());
+        }
+    }
 
 }
+
+
 
 
