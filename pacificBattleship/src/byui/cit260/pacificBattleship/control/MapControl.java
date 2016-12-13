@@ -17,6 +17,7 @@ import byui.cit260.pacificBattleship.model.Ship;
 import java.util.Random;
 
 import byui.cit260.pacificBattleship.model.ShipClass;
+import byui.cit260.pacificBattleship.model.ShipList;
 
 import pacificbattleship.PacificBattleship;
 
@@ -158,72 +159,82 @@ public class MapControl {
         Collectable schematicBattleship2 = new Collectable();
         schematicBattleship2.setCollectableType("schematicPiece");
         schematicBattleship2.setName("Battleship Class 2 Collectable");
+        schematicBattleship2.setShip(PacificBattleship.getCurrentGame().getShip()[ShipList.battleship.ordinal()]);
         schematicBattleship2.setShipClass(ShipClass.battleship2);
         collectables[CollectableType.schematicBattleship2.ordinal()] = schematicBattleship2;
-        schematicBattleship2.setActive(true);
+        schematicBattleship2.setActive(false);
 
         Collectable schematicBattleship3 = new Collectable();
         schematicBattleship3.setCollectableType("schematicPiece");
         schematicBattleship3.setName("Battleship Class 3 Collectable");
+        schematicBattleship3.setShip(PacificBattleship.getCurrentGame().getShip()[ShipList.battleship.ordinal()]);
         schematicBattleship3.setShipClass(ShipClass.battleship3);
         collectables[CollectableType.schematicBattleship3.ordinal()] = schematicBattleship3;
-        schematicBattleship3.setActive(true);
+        schematicBattleship3.setActive(false);
 
         Collectable schematicTransport2 = new Collectable();
         schematicTransport2.setCollectableType("schematicPiece");
         schematicTransport2.setName("Transport Class 2 Collectable");
+        schematicTransport2.setShip(PacificBattleship.getCurrentGame().getShip()[ShipList.transport.ordinal()]);
         schematicTransport2.setShipClass(ShipClass.transport2);
         collectables[CollectableType.schematicTransport2.ordinal()] = schematicTransport2;
-        schematicTransport2.setActive(true);
+        schematicTransport2.setActive(false);
 
         Collectable schematicTransport3 = new Collectable();
         schematicTransport3.setCollectableType("schematicPiece");
         schematicTransport3.setName("Transport Class 3 Collectable");
+        schematicTransport3.setShip(PacificBattleship.getCurrentGame().getShip()[ShipList.transport.ordinal()]);
         schematicTransport3.setShipClass(ShipClass.transport3);
         collectables[CollectableType.schematicTransport3.ordinal()] = schematicTransport3;
-        schematicTransport3.setActive(true);
+        schematicTransport3.setActive(false);
 
         Collectable schematicSubmarine2 = new Collectable();
         schematicSubmarine2.setCollectableType("schematicPiece");
         schematicSubmarine2.setName("Submarine Class 2 Collectable");
+        schematicSubmarine2.setShip(PacificBattleship.getCurrentGame().getShip()[ShipList.submarine.ordinal()]);
         schematicSubmarine2.setShipClass(ShipClass.submarine2);
         collectables[CollectableType.schematicSubmarine2.ordinal()] = schematicSubmarine2;
-        schematicSubmarine2.setActive(true);
+        schematicSubmarine2.setActive(false);
 
         Collectable schematicSubmarine3 = new Collectable();
         schematicSubmarine3.setCollectableType("schematicPiece");
         schematicSubmarine3.setName("Submarine Class 3 Collectable");
+        schematicSubmarine3.setShip(PacificBattleship.getCurrentGame().getShip()[ShipList.submarine.ordinal()]);
         schematicSubmarine3.setShipClass(ShipClass.submarine3);
         collectables[CollectableType.schematicSubmarine3.ordinal()] = schematicSubmarine3;
-        schematicSubmarine3.setActive(true);
+        schematicSubmarine3.setActive(false);
 
         Collectable schematicAircraftCarrier2 = new Collectable();
         schematicAircraftCarrier2.setCollectableType("schematicPiece");
         schematicAircraftCarrier2.setName("Aircraft Carrier Class 2 Collectable");
+        schematicAircraftCarrier2.setShip(PacificBattleship.getCurrentGame().getShip()[ShipList.aircraftCarrier.ordinal()]);
         schematicAircraftCarrier2.setShipClass(ShipClass.aircraftCarrier2);
         collectables[CollectableType.schematicAircraftCarrier2.ordinal()] = schematicAircraftCarrier2;
-        schematicAircraftCarrier2.setActive(true);
+        schematicAircraftCarrier2.setActive(false);
 
         Collectable schematicAircraftCarrier3 = new Collectable();
         schematicAircraftCarrier3.setCollectableType("schematicPiece");
         schematicAircraftCarrier3.setName("Aircraft Carrier Class 3 Collectable");
+        schematicAircraftCarrier3.setShip(PacificBattleship.getCurrentGame().getShip()[ShipList.aircraftCarrier.ordinal()]);
         schematicAircraftCarrier3.setShipClass(ShipClass.aircraftCarrier3);
         collectables[CollectableType.schematicAircraftCarrier3.ordinal()] = schematicAircraftCarrier3;
-        schematicAircraftCarrier3.setActive(true);
+        schematicAircraftCarrier3.setActive(false);
 
         Collectable schematicDestroyer2 = new Collectable();
         schematicDestroyer2.setCollectableType("schematicPiece");
         schematicDestroyer2.setName("Destroyer Class 2 Collectable");
+        schematicDestroyer2.setShip(PacificBattleship.getCurrentGame().getShip()[ShipList.destroyer.ordinal()]);
         schematicDestroyer2.setShipClass(ShipClass.destroyer2);
         collectables[CollectableType.schematicDestroyer2.ordinal()] = schematicDestroyer2;
-        schematicDestroyer2.setActive(true);
+        schematicDestroyer2.setActive(false);
 
         Collectable schematicDestroyer3 = new Collectable();
         schematicDestroyer3.setCollectableType("schematicPiece");
         schematicDestroyer3.setName("Destroyer Class 3 Collectable");
+        schematicDestroyer3.setShip(PacificBattleship.getCurrentGame().getShip()[ShipList.destroyer.ordinal()]);
         schematicDestroyer3.setShipClass(ShipClass.destroyer3);
         collectables[CollectableType.schematicDestroyer3.ordinal()] = schematicDestroyer3;
-        schematicDestroyer3.setActive(true);
+        schematicDestroyer3.setActive(false);
 
         return collectables;
     }

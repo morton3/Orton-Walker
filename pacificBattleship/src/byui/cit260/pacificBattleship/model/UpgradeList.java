@@ -5,11 +5,13 @@
  */
 package byui.cit260.pacificBattleship.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ort09
  */
-public enum UpgradeList {
+public enum UpgradeList implements Serializable{
     
     battleshipAttack,
     transportAttack,

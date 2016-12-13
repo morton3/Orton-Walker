@@ -211,7 +211,7 @@ public class GameControl {
             
             for (Location[] row : locations){
                 for (Location location : row){
-                    location.setHidden(true);
+                    location.setHidden(false);
                 }
             }
             

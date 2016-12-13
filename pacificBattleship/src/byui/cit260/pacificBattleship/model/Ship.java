@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author ort09
  */
-public class Ship {
+public class Ship implements Serializable{
       
     private String shipName;
     private String type;

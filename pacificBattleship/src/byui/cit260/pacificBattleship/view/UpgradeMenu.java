@@ -8,6 +8,7 @@ package byui.cit260.pacificBattleship.view;
 import byui.cit260.pacificBattleship.control.GameControl;
 import byui.cit260.pacificBattleship.control.UpgradeControl;
 import byui.cit260.pacificBattleship.model.Ship;
+import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.Upgrade;
 import byui.cit260.pacificBattleship.model.UpgradeList;
 import java.io.IOException;
@@ -37,6 +38,7 @@ public class UpgradeMenu extends View{
                    +"\n--------------------------------------------------"
                    +"\nA - Upgrade attack power"
                    +"\nS - Special ability"
+                   +"\nC - Upgrade Ship Class"
                    +"\nR - See Upgrade Report"
                    +"\nQ - Quit"
                    +"\n--------------------------------------------------");
@@ -61,6 +63,11 @@ public class UpgradeMenu extends View{
           case "S":
               upgrade = ship.getUpgradeSpecial();
               break;
+          case "C":
+              ShipClass shipClass = ship.getShipClass();
+              String message = UpgradeControl.upgradeClass(ship, shipClass);
+              this.console.println(message);
+              return false;
           case "R":
               this.printUpgradesReport();
               return false;
@@ -104,6 +111,8 @@ public class UpgradeMenu extends View{
         }   catch (IOException ex) {
                 this.console.println("I/O Error: " + ex.getMessage());
         }
+        
+        this.console.println("Report saved to Documents as upgrades.txt");
     }
 }
     /*

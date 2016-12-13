@@ -5,11 +5,13 @@
  */
 package byui.cit260.pacificBattleship.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Nathan
  */
-public enum NukeParts {
+public enum NukeParts implements Serializable{
     nukePart1("First Nuclear Bomb Part"),
     nukePart2("Second Nuclear Bomb Part"),
     nukePart3("Third Nuclear Bomb Part"),

@@ -11,6 +11,7 @@ import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Map;
 import byui.cit260.pacificBattleship.model.NukeParts;
 import byui.cit260.pacificBattleship.model.Scene;
+import byui.cit260.pacificBattleship.model.SceneType;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.ShipList;
@@ -433,6 +434,9 @@ public class CommandMenu extends View{
     private boolean checkArea(Location location) {
         
         boolean water = location.getScene().isActive();
+        Ship activeShip = PacificBattleship.getCurrentGame().getActiveShip();
+        ShipClass shipClass = activeShip.getShipClass();
+        Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
         
         
         if (!water) {
@@ -441,23 +445,24 @@ public class CommandMenu extends View{
             return false;
         }
         
-        if (location.getShip() == null) {
-            return true;
+        
+        if (!(location.getShip() == null)) {
+            
+            Ship ship = location.getShip();
+            
+            if (ship.isUserControl()) {
+                this.console.println("You're about to run into your own ship!"
+                        + "\n    Turn around!!!!");
+                return false;
+            }
+            
+            if (!ship.isUserControl()) {
+                this.console.println("Looks like there's an enemy Ship here!"
+                        + "\nWe can either attack it, or go around...");
+                return false;
+            }
         }
         
-        Ship ship = location.getShip();
-        
-        if (ship.isUserControl()) {
-            this.console.println("You're about to run into your own ship!"
-                           + "\n    Turn around!!!!");
-            return false;
-        }
-        
-        if (!ship.isUserControl()) {
-            this.console.println("Looks like there's an enemy Ship here!"
-                           + "\nWe can either attack it, or go around...");
-            return false;
-        }
         
         if (!(location.getCollectable() == null)) {
             this.pickupCollectable(location);
@@ -467,20 +472,26 @@ public class CommandMenu extends View{
             this.pickupNukePart(location);
         }
         
+        if (location == locations[2][9]) {
+            activeShip.setHull(activeShip.getMaxHull() + activeShip.getShipClass().getBonusHull());
+            this.console.println("Welsome to Pearl Harbor!"
+                    + "\n   Your ship's hull has been restored to full!");
+        }
+            
+        
         return true;
     }
 
     private void pickupCollectable(Location location) {
-        this.console.println("You found a schematic!\n"
-                + location.getCollectable().getName());
         
         Collectable collectable = location.getCollectable();
         
+        this.console.println("You found a schematic for the "
+                + collectable.getShip().getType() + "!");
+        
         location.setCollectable(null);
         
-        collectable.setActive(false);
-        
-        
+        collectable.setActive(true);
         
     }
 
@@ -489,6 +500,8 @@ public class CommandMenu extends View{
         
         NukeParts nukePart = location.getNukePart();
     }
+
+
             
             
             

@@ -5,11 +5,13 @@
  */
 package byui.cit260.pacificBattleship.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Nathan
  */
-public enum SceneType {
+public enum SceneType implements Serializable{
     water,
     land,
     shoreTop,

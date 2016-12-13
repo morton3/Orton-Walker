@@ -5,11 +5,13 @@
  */
 package byui.cit260.pacificBattleship.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ort09
  */
-public enum EnemyShipList {
+public enum EnemyShipList implements Serializable{
     enemyBattleship1("Yamato"),
     enemyBattleship2("Yamato"),
     enemyBattlecruisers1("Kongō1"),
