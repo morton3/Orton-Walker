@@ -62,14 +62,11 @@ public class GameControl {
         game.setNuclearParts(nuclearParts);
         game.setNumOfUsedPOW(numOfUsedPOW);
         
-        
+        Ship[] ships = ShipControl.createShips();
+        game.setShip(ships);
         
         Map map = MapControl.createMap();
         game.setMap(map);
-        
-        Ship[] ships = ShipControl.createShips();
-        
-        game.setShip(ships);
         
         ShipControl.createUpgrades();
         
@@ -270,7 +267,7 @@ public class GameControl {
         locations[2][6].setShip(enemyBattlecruisers1);
         locations[6][4].setShip(enemyBattlecruisers2);
         locations[9][6].setShip(enemySubmarine1);
-        locations[9][1].setShip(enemySubmarine2);
+        locations[8][1].setShip(enemySubmarine2);
         locations[7][2].setShip(enemyAircraftCarrier1);
         locations[5][0].setShip(enemyAircraftCarrier2);
         locations[2][3].setShip(enemyDestroyer1);
@@ -281,7 +278,7 @@ public class GameControl {
         enemyBattlecruisers1.setLocation(locations[2][6]);
         enemyBattlecruisers2.setLocation(locations[6][4]);
         enemySubmarine1.setLocation(locations[9][6]);
-        enemySubmarine2.setLocation(locations[9][1]);
+        enemySubmarine2.setLocation(locations[8][1]);
         enemyAircraftCarrier1.setLocation(locations[7][2]);
         enemyAircraftCarrier2.setLocation(locations[5][0]);
         enemyDestroyer1.setLocation(locations[2][3]);
@@ -302,16 +299,16 @@ public class GameControl {
         
 
         
-        locations[2][0].setCollectable(collectables[CollectableType.schematicBattleship2.ordinal()]);
-        locations[2][1].setCollectable(collectables[CollectableType.schematicBattleship3.ordinal()]);
-        locations[2][2].setCollectable(collectables[CollectableType.schematicTransport2.ordinal()]);
-        locations[2][3].setCollectable(collectables[CollectableType.schematicTransport3.ordinal()]);
-        locations[2][4].setCollectable(collectables[CollectableType.schematicSubmarine2.ordinal()]);
-        locations[2][5].setCollectable(collectables[CollectableType.schematicSubmarine3.ordinal()]);
-        locations[2][6].setCollectable(collectables[CollectableType.schematicAircraftCarrier2.ordinal()]);
-        locations[2][7].setCollectable(collectables[CollectableType.schematicAircraftCarrier3.ordinal()]);
-        locations[2][8].setCollectable(collectables[CollectableType.schematicDestroyer2.ordinal()]);
-        locations[2][9].setCollectable(collectables[CollectableType.schematicDestroyer3.ordinal()]);
+        locations[6][8].setCollectable(collectables[CollectableType.schematicBattleship2.ordinal()]);
+        locations[8][4].setCollectable(collectables[CollectableType.schematicBattleship3.ordinal()]);
+        locations[2][6].setCollectable(collectables[CollectableType.schematicTransport2.ordinal()]);
+        locations[6][4].setCollectable(collectables[CollectableType.schematicTransport3.ordinal()]);
+        locations[9][6].setCollectable(collectables[CollectableType.schematicSubmarine2.ordinal()]);
+        locations[8][1].setCollectable(collectables[CollectableType.schematicSubmarine3.ordinal()]);
+        locations[7][2].setCollectable(collectables[CollectableType.schematicAircraftCarrier2.ordinal()]);
+        locations[5][0].setCollectable(collectables[CollectableType.schematicAircraftCarrier3.ordinal()]);
+        locations[2][3].setCollectable(collectables[CollectableType.schematicDestroyer2.ordinal()]);
+        locations[2][0].setCollectable(collectables[CollectableType.schematicDestroyer3.ordinal()]);
         
     }
 public static  void saveGame(Game game, String filepath)
