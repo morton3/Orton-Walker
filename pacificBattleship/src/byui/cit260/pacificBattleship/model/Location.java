@@ -25,6 +25,15 @@ public class Location implements Serializable{
     private Collectable collectable;
     private Ship ship;
     private Scene scene;
+    private Base base;
+
+    public Base getBase() {
+        return base;
+    }
+
+    public void setBase(Base base) {
+        this.base = base;
+    }
 
     public Location() {
     }

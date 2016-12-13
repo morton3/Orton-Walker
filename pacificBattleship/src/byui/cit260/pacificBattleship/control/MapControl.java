@@ -5,6 +5,7 @@
  */
 package byui.cit260.pacificBattleship.control;
 
+import byui.cit260.pacificBattleship.model.Base;
 import byui.cit260.pacificBattleship.model.NukeParts;
 import byui.cit260.pacificBattleship.model.Collectable;
 import byui.cit260.pacificBattleship.model.CollectableType;
@@ -20,6 +21,8 @@ import byui.cit260.pacificBattleship.model.ShipClass;
 import byui.cit260.pacificBattleship.model.ShipList;
 
 import pacificbattleship.PacificBattleship;
+import byui.cit260.pacificBattleship.model.Base;
+import byui.cit260.pacificBattleship.model.BaseList;
 
 /**
  *
@@ -261,5 +264,61 @@ public class MapControl {
         }
 
     }
+
+    static void assignBaseToLocation() {
+        Base[] base = new Base[BaseList.values().length];
+        Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
+        
+        Base pearlHarbor = new Base();
+        pearlHarbor.setDescription("Pearl Harbor Naval Base");
+        base[BaseList.base1.ordinal()] = pearlHarbor;
+        locations[2][9].setBase(base[BaseList.base1.ordinal()]);
+        
+        Base base2 = new Base();
+        base2.setDescription("Base2");
+        base[BaseList.base2.ordinal()] = base2;
+        //locations[2][9].setBase(base[BaseList.base1.ordinal()]);
+        
+        Base base3 = new Base();
+        base2.setDescription("Base3");
+        base[BaseList.base3.ordinal()] = base3;
+        
+        Base base4 = new Base();
+        base2.setDescription("Base4");
+        base[BaseList.base4.ordinal()] = base4;
+        
+        Base base5 = new Base();
+        base2.setDescription("Base5");
+        base[BaseList.base5.ordinal()] = base5;
+        
+        Base base6 = new Base();
+        base2.setDescription("Base6");
+        base[BaseList.base6.ordinal()] = base6;
+        
+        Base base7 = new Base();
+        base2.setDescription("Base7");
+        base[BaseList.base7.ordinal()] = base7;
+        
+        Base base8 = new Base();
+        base2.setDescription("Base8");
+        base[BaseList.base8.ordinal()] = base8;
+        
+        Base base9 = new Base();
+        base2.setDescription("Base9");
+        base[BaseList.base9.ordinal()] = base9;
+        
+        Base base10 = new Base();
+        base2.setDescription("Base10");
+        base[BaseList.base10.ordinal()] = base10;
+        
+        Base base11 = new Base();
+        base2.setDescription("Base11");
+        base[BaseList.base11.ordinal()] = base11;
+        
+        Base base12 = new Base();
+        base2.setDescription("Base12");
+        base[BaseList.base12.ordinal()] = base12;
+        
+        }
 
 }

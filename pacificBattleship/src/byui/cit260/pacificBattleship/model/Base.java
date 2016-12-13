@@ -13,6 +13,16 @@ public class Base extends Scene implements Serializable{
     private int defense;
     private int attack;
     private int power;
+    private int POW;
+
+    public int getPOW() {
+        return POW;
+    }
+
+    public void setPOW(int POW) {
+        this.POW = POW;
+    }
+    
     
     
 

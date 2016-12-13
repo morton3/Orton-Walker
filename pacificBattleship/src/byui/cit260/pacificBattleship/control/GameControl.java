@@ -80,6 +80,8 @@ public class GameControl {
         Location [][] locationObjects = game.getMap().getLocations();
         MapControl.assignNukesPartsToLocation(locationObjects);
         
+        MapControl.assignBaseToLocation();
+        
 
     }
 
