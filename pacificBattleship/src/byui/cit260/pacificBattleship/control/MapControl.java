@@ -275,49 +275,59 @@ public class MapControl {
         locations[2][9].setBase(base[BaseList.base1.ordinal()]);
         
         Base base2 = new Base();
-        base2.setDescription("Base2");
+        base2.setDescription("Midway");
         base[BaseList.base2.ordinal()] = base2;
-        //locations[2][9].setBase(base[BaseList.base1.ordinal()]);
+        locations[8][0].setBase(base[BaseList.base1.ordinal()]);
         
         Base base3 = new Base();
-        base2.setDescription("Base3");
+        base2.setDescription("Wake Island");
         base[BaseList.base3.ordinal()] = base3;
+        locations[3][4].setBase(base[BaseList.base1.ordinal()]);
         
         Base base4 = new Base();
-        base2.setDescription("Base4");
+        base2.setDescription("Tarawa");
         base[BaseList.base4.ordinal()] = base4;
+        locations[7][6].setBase(base[BaseList.base1.ordinal()]);
         
         Base base5 = new Base();
-        base2.setDescription("Base5");
+        base2.setDescription("Guadalcanal");
         base[BaseList.base5.ordinal()] = base5;
+        locations[9][5].setBase(base[BaseList.base1.ordinal()]);
         
         Base base6 = new Base();
-        base2.setDescription("Base6");
+        base2.setDescription("Sipan");
         base[BaseList.base6.ordinal()] = base6;
+        locations[7][3].setBase(base[BaseList.base1.ordinal()]);
         
         Base base7 = new Base();
-        base2.setDescription("Base7");
+        base2.setDescription("Philippines1");
         base[BaseList.base7.ordinal()] = base7;
+        locations[9][5].setBase(base[BaseList.base1.ordinal()]);
         
         Base base8 = new Base();
-        base2.setDescription("Base8");
+        base2.setDescription("Philippines2");
         base[BaseList.base8.ordinal()] = base8;
+        locations[9][2].setBase(base[BaseList.base1.ordinal()]);
         
         Base base9 = new Base();
-        base2.setDescription("Base9");
+        base2.setDescription("Philippines3");
         base[BaseList.base9.ordinal()] = base9;
+        locations[9][0].setBase(base[BaseList.base1.ordinal()]);
         
         Base base10 = new Base();
-        base2.setDescription("Base10");
+            base2.setDescription("Okinawa");
         base[BaseList.base10.ordinal()] = base10;
+        locations[3][0].setBase(base[BaseList.base1.ordinal()]);
         
         Base base11 = new Base();
-        base2.setDescription("Base11");
+        base2.setDescription("Iwa Jima");
         base[BaseList.base11.ordinal()] = base11;
+        locations[0][2].setBase(base[BaseList.base1.ordinal()]);
         
         Base base12 = new Base();
-        base2.setDescription("Base12");
+        base2.setDescription("Enamy Base Japan");
         base[BaseList.base12.ordinal()] = base12;
+        locations[0][0].setBase(base[BaseList.base1.ordinal()]);
         
         }
 
