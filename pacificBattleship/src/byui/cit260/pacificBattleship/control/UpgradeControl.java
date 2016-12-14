@@ -81,7 +81,7 @@ public class UpgradeControl {
             change = true;
         }
         
-        if (collectables[CollectableType.schematicBattleship3.ordinal()].isActive()) {
+        if (collectables[CollectableType.schematicBattleship3.ordinal()].isActive() && ship.getShipClass() == ShipClass.battleship2) {
             ship.setShipClass(ShipClass.battleship3);
             collectables[CollectableType.schematicBattleship3.ordinal()].setActive(false);
             change = true;
@@ -111,7 +111,7 @@ public class UpgradeControl {
             change = true;
         }
         
-        if (collectables[CollectableType.schematicTransport3.ordinal()].isActive()) {
+        if (collectables[CollectableType.schematicTransport3.ordinal()].isActive() && ship.getShipClass() == ShipClass.transport2) {
             ship.setShipClass(ShipClass.transport3);
             collectables[CollectableType.schematicTransport3.ordinal()].setActive(false);
             change = true;
@@ -141,7 +141,7 @@ public class UpgradeControl {
             change = true;
         }
         
-        if (collectables[CollectableType.schematicSubmarine3.ordinal()].isActive()) {
+        if (collectables[CollectableType.schematicSubmarine3.ordinal()].isActive() && ship.getShipClass() == ShipClass.submarine2) {
             ship.setShipClass(ShipClass.submarine3);
             collectables[CollectableType.schematicSubmarine3.ordinal()].setActive(false);
             change = true;
@@ -171,7 +171,7 @@ public class UpgradeControl {
             change = true;
         }
         
-        if (collectables[CollectableType.schematicAircraftCarrier3.ordinal()].isActive()) {
+        if (collectables[CollectableType.schematicAircraftCarrier3.ordinal()].isActive() && ship.getShipClass() == ShipClass.aircraftCarrier2) {
             ship.setShipClass(ShipClass.aircraftCarrier3);
             collectables[CollectableType.schematicAircraftCarrier3.ordinal()].setActive(false);
             change = true;
@@ -201,7 +201,7 @@ public class UpgradeControl {
             change = true;
         }
         
-        if (collectables[CollectableType.schematicDestroyer3.ordinal()].isActive()) {
+        if (collectables[CollectableType.schematicDestroyer3.ordinal()].isActive() && ship.getShipClass() == ShipClass.destroyer2) {
             ship.setShipClass(ShipClass.destroyer3);
             collectables[CollectableType.schematicDestroyer3.ordinal()].setActive(false);
             change = true;

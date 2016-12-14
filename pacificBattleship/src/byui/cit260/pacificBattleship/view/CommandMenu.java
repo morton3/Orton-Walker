@@ -498,7 +498,9 @@ public class CommandMenu extends View{
     private void pickupNukePart(Location location) {
         this.console.println("You found a Nuke Part!");
         
-        NukeParts nukePart = location.getNukePart();
+        location.setNukePart(null);
+        
+        PacificBattleship.getCurrentGame().setNuclearParts(PacificBattleship.getCurrentGame().getNuclearParts() + 1);
     }
 
 

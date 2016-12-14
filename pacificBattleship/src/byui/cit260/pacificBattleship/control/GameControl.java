@@ -342,6 +342,26 @@ public static  void saveGame(Game game, String filepath)
     PacificBattleship.setCurrentGame(game);
     }
 
+    public static String launchNuke() {
+        
+        String message = "";
+        
+        int numberOfNukeParts = PacificBattleship.getCurrentGame().getNuclearParts();
+        
+        if (numberOfNukeParts < 15){
+            message = "You dont have enough Nuke Parts yet.";
+        }
+        else {
+            message = "You dropped a nuke right on Hiroshima."
+                    + "\n after more fighting, a second nuke was"
+                    + "\ndropped on Nagasaki, ending the war in"
+                    + "\the Pacific!";
+        }
+            
+        
+        return message;
+    }
+
 
     
 

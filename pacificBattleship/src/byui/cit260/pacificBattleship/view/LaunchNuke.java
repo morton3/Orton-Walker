@@ -37,7 +37,7 @@ public class LaunchNuke extends View{
         
       switch (value){
           case "Y":
-              launch = "launch";
+              this.checkNuke();
               break;
           
          
@@ -52,6 +52,10 @@ public class LaunchNuke extends View{
     }
     
     public int numOfNukeParts;
+
+    private void checkNuke() {
+        this.console.println(GameControl.launchNuke());
+    }
         
     
     

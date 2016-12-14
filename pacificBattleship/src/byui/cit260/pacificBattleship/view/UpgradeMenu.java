@@ -23,26 +23,16 @@ import pacificbattleship.PacificBattleship;
 public class UpgradeMenu extends View{
        
         
-        private int upgradeAttackMax = 5;
-        private int upgradeAttackCurrent = 2;
-        private int upgradeSpecialMax = 5;
-        private int upgradeSpecialCurrent = 1;
-        
+  
         
         
     public UpgradeMenu() {
         
-        super(      "\n"
-                   + "\n-------------------------------------------------"
-                   +"\n| Upgrade Menu                                      |"
-                   +"\n--------------------------------------------------"
-                   +"\nA - Upgrade attack power"
-                   +"\nS - Special ability"
-                   +"\nC - Upgrade Ship Class"
-                   +"\nR - See Upgrade Report"
-                   +"\nQ - Quit"
-                   +"\n--------------------------------------------------");
-              }
+        super(      "");
+        
+        this.displayMenu();
+    
+    }
 
  
 
@@ -67,7 +57,7 @@ public class UpgradeMenu extends View{
               ShipClass shipClass = ship.getShipClass();
               String message = UpgradeControl.upgradeClass(ship, shipClass);
               this.console.println(message);
-              return false;
+              break;
           case "R":
               this.printUpgradesReport();
               return false;
@@ -76,13 +66,16 @@ public class UpgradeMenu extends View{
               return false;
       }
       
+      if (upgrade != null){
       if(UpgradeControl.checkUpgradeMax(upgrade)) {
           UpgradeControl.increaseValue(upgrade);
           this.console.println("You increased the " + ship.getShipName() + " " + upgrade.getName() + " to level " + upgrade.getCurrentAllocation());
       }
       else
           this.console.println("You cannot upgrade this ship any further");
+      }
       
+      this.displayMenu();
       
       return false;
     }
@@ -114,17 +107,36 @@ public class UpgradeMenu extends View{
         
         this.console.println("Report saved to Documents as upgrades.txt");
     }
-}
-    /*
-      this.topHull(upgradeAttackMax)+"\n"
-                   + this.MidTopHull(upgradeAttackCurrent, upgradeAttackMax)+"\n"
-                   + this.BotHull(upgradeAttackMax)
-                   
-                   + this.topHull(upgradeSpecialMax)+"\n"
-                   + this.MidTopHull(upgradeSpecialCurrent, upgradeSpecialMax)+"\n"
-                   + this.BotHull(upgradeSpecialMax)
+    
+    private void displayMenu() {
+        
+        int upgradeAttackMax = 5;
+        int upgradeAttackCurrent = PacificBattleship.getCurrentGame().getActiveShip().getUpgradeAttack().getCurrentAllocation();
+        int upgradeSpecialMax = 5;
+        int upgradeSpecialCurrent = PacificBattleship.getCurrentGame().getActiveShip().getUpgradeSpecial().getCurrentAllocation();
       
-  private String topHull(int uaMax){
+        
+        this.console.println("\n"
+                   + "\n-------------------------------------------------"
+                   +"\n| Upgrade Menu                                      |"
+                   +"\n--------------------------------------------------"
+                   +"\n|                    " + this.topBar(upgradeAttackMax)
+                   +"\n| A - Upgrade Attack " + this.midTopBar(upgradeAttackCurrent, upgradeAttackMax)
+                   +"\n|                    " + this.botBar(upgradeAttackMax)
+                   +"\n|                    " + this.topBar(upgradeSpecialMax)
+                   +"\n| S - Upgrade Special" + this.midTopBar(upgradeSpecialCurrent, upgradeSpecialMax)
+                   +"\n|                    " + this.botBar(upgradeSpecialMax)
+                   +"\n| C - Upgrade Ship Class"
+                   +"\n|      Current - " + PacificBattleship.getCurrentGame().getActiveShip().getShipClass().getName()
+                   +"\n| "
+                   +"\n| R - See Upgrade Report"
+                   +"\n| Q - Quit"
+                   +"\n--------------------------------------------------");
+        
+        
+    }
+      
+    private String topBar(int uaMax){
         
         String line = "┌";
         int x = 1;
@@ -136,7 +148,8 @@ public class UpgradeMenu extends View{
         
         return line += "─┐";
     }
-  private String MidTopHull(int uaCurrent, int uaMax) {
+    
+    private String midTopBar(int uaCurrent, int uaMax) {
         
         String line = "│";
         int x = 0;
@@ -155,7 +168,8 @@ public class UpgradeMenu extends View{
         
         return line;
     }
-    private String BotHull(int uaMax) {
+    
+    private String botBar(int uaMax) {
          
        String line = "└";
         int x = 1;
@@ -167,8 +181,6 @@ public class UpgradeMenu extends View{
         
         return line += "─┘";
     }
+}
 
-    }
 
-
-*/
