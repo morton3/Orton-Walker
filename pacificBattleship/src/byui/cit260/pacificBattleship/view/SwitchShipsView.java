@@ -32,6 +32,7 @@ public class SwitchShipsView extends View{
                 + "\n│ S - Submarine                               │"
                 + "\n│ A - Aircraft Carrier                        │"
                 + "\n│ D - Destroyer                               │"
+                + "\n│ P - Print Report                            │"
                 + "\n│ Q - Quit                                    │"
                 + "\n└---------------------------------------------┘");
               }
@@ -74,6 +75,9 @@ public class SwitchShipsView extends View{
               this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getShipName());
               this.console.println(PacificBattleship.getCurrentGame().getActiveShip().getDescription());
               break;
+           case "P":
+              this.printShipsReport();
+              break;
           default: {
               PacificBattleship.getCurrentGame().setActiveShip(ships[ShipList.battleship.ordinal()]);
               done = false;
@@ -83,10 +87,11 @@ public class SwitchShipsView extends View{
       
       return done;
     }
-public void printShipsReport(Ship[] ships,
-                              String outputLocation){
+public void printShipsReport(){
+        String fileLocation = "PacificBattleshipReport\\Nathan\\Nate37127";
+                    Ship[] ships = PacificBattleship.getCurrentGame().getShip();
     
-    try (PrintWriter out = new PrintWriter(outputLocation)){
+    try (PrintWriter out = new PrintWriter(fileLocation)) {
         
         out.println("\n\n           Ship List           ");
         out.printf("%n%-20s%10s%", "Name", "Type", "Class");
