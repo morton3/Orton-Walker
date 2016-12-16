@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author ort09
- */
+ 
 public class BattleControlTest {
     
     public BattleControlTest() {
@@ -27,7 +27,7 @@ public class BattleControlTest {
         System.out.println("CalTotalAttackPower");
          /*********************************
          * Test case #1 Nathan
-         ********************************/
+         ********************************
         Ship uShip = new Ship();
         Upgrade uShipUpgrade = new Upgrade(); 
         Upgrade uShipUpgrade2 = new Upgrade(); 
@@ -41,7 +41,7 @@ public class BattleControlTest {
       
          /*********************************
          * Test case #2 Nathan
-         ********************************/
+         ********************************
         uShip.setAttack(-10);
         uShipUpgrade.setCurrentAllocation(2);
         expResult = -1;
@@ -51,7 +51,7 @@ public class BattleControlTest {
     
               /*********************************
          * Test case #3 Nathan
-         ********************************/
+         ********************************
         uShip.setAttack(11);
         uShipUpgrade.setCurrentAllocation(3);
         expResult = -1;
@@ -61,7 +61,7 @@ public class BattleControlTest {
     
                   /*********************************
          * Test case #4 Nathan
-         ********************************/
+         ********************************
         uShip.setAttack(5);
         uShipUpgrade.setCurrentAllocation(6);
         expResult = -1;
@@ -71,7 +71,7 @@ public class BattleControlTest {
     
              /*********************************
          * Test case #5 Nathan
-         ********************************/
+         ********************************
         uShip.setAttack(7);
         uShipUpgrade.setCurrentAllocation(-10);
         expResult = -1;
@@ -81,14 +81,14 @@ public class BattleControlTest {
     }
     /**
      * Test of hitOrMiss method, of class BattleControl.
-     */
+     *
     @Test
     public void testHitOrMiss() {
         System.out.println("hitOrMiss");
         
         /*********************************
          * Test case #1
-         ********************************/
+         ********************************
         System.out.println("\tTest case #1");
                 
         Ship uShip = new Ship();
@@ -105,7 +105,7 @@ public class BattleControlTest {
     
         /*********************************
          * Test case #2
-         ********************************/
+         ********************************
         System.out.println("\tTest case #2");
         
         uShip.setAccuracy(-1);
@@ -120,14 +120,14 @@ public class BattleControlTest {
 
     /**
      * Test of calculateAttackBonus method, of class BattleControl.
-     */
+     *
     @Test
     public void testCalculateAttackBonus() {
         System.out.println("calculateAttackBonus");
         
         /*********************************
          * Test case #1
-         ********************************/
+         ********************************
         System.out.println("\tTest case #1");
         
         // input values for test case 1
@@ -152,7 +152,7 @@ public class BattleControlTest {
 
         /*********************************
          * Test case #2
-         ********************************/
+         ********************************
 
         System.out.println("\tTest case #2");
         
@@ -173,7 +173,7 @@ public class BattleControlTest {
         
         /*********************************
          * Test case #3
-         ********************************/
+         ********************************
 
         System.out.println("\tTest case #3");
         
@@ -194,7 +194,7 @@ public class BattleControlTest {
         
         /*********************************
          * Test case #4
-         ********************************/
+         ********************************
 
         System.out.println("\tTest case #4");
         
@@ -215,7 +215,7 @@ public class BattleControlTest {
         
         /*********************************
          * Test case #5
-         ********************************/
+         ********************************
 
         System.out.println("\tTest case #5");
         
@@ -238,9 +238,10 @@ public class BattleControlTest {
 
     /**
      * Test of hitOrMiss method, of class BattleControl.
-     */
+     *
     
     
     
     
 }
+*/

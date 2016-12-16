@@ -6,6 +6,7 @@
 package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.exceptions.GameControlException;
+import byui.cit260.pacificBattleship.model.Base;
 import byui.cit260.pacificBattleship.model.Collectable;
 import byui.cit260.pacificBattleship.model.CollectableType;
 import byui.cit260.pacificBattleship.model.EnemyShipList;
@@ -67,6 +68,9 @@ public class GameControl {
         
         Map map = MapControl.createMap();
         game.setMap(map);
+        
+        Base[] bases = MapControl.assignBaseToLocation();
+        game.setBases(bases);
         
         ShipControl.createUpgrades();
         
@@ -353,9 +357,9 @@ public static  void saveGame(Game game, String filepath)
         }
         else {
             message = "You dropped a nuke right on Hiroshima."
-                    + "\n after more fighting, a second nuke was"
-                    + "\ndropped on Nagasaki, ending the war in"
-                    + "\the Pacific!";
+                    + "\n    after more fighting, a second nuke was"
+                    + "\n    dropped on Nagasaki, ending the war in"
+                    + "\n    the Pacific!";
         }
             
         

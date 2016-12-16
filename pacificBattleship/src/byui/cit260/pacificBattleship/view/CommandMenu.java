@@ -99,14 +99,14 @@ public class CommandMenu extends View{
         String shipClass = ship.getShipClass().getName();
         String shipType = ship.getType();
         String shipName = ship.getShipName();
-        int shipAttack = ship.getAttack();
+        int shipAttack = ship.getAttack() + ship.getUpgradeAttack().getCurrentAllocation();
         int shipAccuracy = ship.getAccuracy() + ship.getShipClass().getBonusAccuracy();
         int defense = ship.getDefense() + ship.getShipClass().getBonusDefense();
         int hull = ship.getHull();
         int maxHull = ship.getMaxHull() + ship.getShipClass().getBonusHull();
         int currentPart = PacificBattleship.getCurrentGame().getNuclearParts();
         int POWs = PacificBattleship.getCurrentGame().getNumOfPOW() - PacificBattleship.getCurrentGame().getNumOfUsedPOW();
-        String shipSymbol = "<" + ship.getSymbol() + ">";
+        String shipSymbol = ">" + ship.getSymbol() + "<";
         
         sideMenu[0] =  " " + rank;
         sideMenu[1] =  " " + userName;
@@ -192,10 +192,20 @@ public class CommandMenu extends View{
             // Middle of each row
             for (Location location : row){
                 
-                if (location.getShip() == null)
-                    symbol = "   ";
+                if (location.getShip() != null || location.getBase() != null) {
+                    if (location.getBase() != null)
+                        symbol = " " + location.getBase().getSymbol() + " ";
+                    
+                    if (location.getShip() != null) {
+                        if (location.getShip() == ship)
+                            symbol = shipSymbol;
+                        else
+                            symbol = " " + location.getShip().getSymbol() + " ";
+                    }
+                }
                 else
-                    symbol = " " + location.getShip().getSymbol() + " ";
+                    symbol = "   ";
+                
                 
                 String symMid[] = location.getScene().getSymMid();
 

@@ -6,12 +6,16 @@
 package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.exceptions.BattleControlException;
+import byui.cit260.pacificBattleship.model.Base;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
+import byui.cit260.pacificBattleship.model.ShipList;
 import byui.cit260.pacificBattleship.model.Upgrade;
 import byui.cit260.pacificBattleship.view.ErrorView;
 import byui.cit260.pacificBattleship.view.View;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pacificbattleship.PacificBattleship;
 
 /**
@@ -25,12 +29,16 @@ public class BattleControl {
         
         String message = "";
         
+        int upgradeAttack = uShipUpgradeAttack.getCurrentAllocation();
+        int upgradeSpecial = uShipUpgradeAttack.getCurrentAllocation();
+        String shipType = uShipUpgradeSpecial.getShipType();
+        
         boolean hit = hitOrMiss(uShip);
         int atkPower = 0;
         if(hit){
             
             try{  
-                atkPower = CalTotalAttackPower(uShip, uShipUpgradeAttack, uShipUpgradeSpecial);
+                atkPower = CalTotalAttackPower(uShip, upgradeAttack, upgradeSpecial, shipType);
             } catch (BattleControlException me) {
                 ErrorView.display("Battle Control", me.getMessage());
             }
@@ -48,6 +56,8 @@ public class BattleControl {
         }
         else
             message = "You missed!";
+        
+        
         
         
         return message;
@@ -76,21 +86,21 @@ public class BattleControl {
     
     /* NATHAN ---- TotalAttack */
    
-    public static int CalTotalAttackPower(Ship uShip,Upgrade uShipUpgradeAttack, Upgrade uShipUpgradeSpecial)
+    public static int CalTotalAttackPower(Ship uShip,int uShipUpgradeAttack, int uShipUpgradeSpecial, String uShipType)
                 throws BattleControlException{
         
         int attack = uShip.getAttack();
-        int upgradeCurrentLevel = uShipUpgradeAttack.getCurrentAllocation();
+        int upgradeCurrentLevel = uShipUpgradeAttack;
    
         if(upgradeCurrentLevel < 0 || upgradeCurrentLevel > 5){
             throw new BattleControlException("Upgrade is not within bounds");
         }
         
-        if(uShipUpgradeSpecial.getShipType() == "Destroyer") {
+        if(uShipType.equals("Destroyer")) {
             
-            int level = uShipUpgradeSpecial.getCurrentAllocation();
-            Integer atk = new Integer(attack);
-            Integer upgrdCrrntLvl = new Integer(upgradeCurrentLevel);
+            int level = uShipUpgradeSpecial;
+            Integer atk = attack;
+            Integer upgrdCrrntLvl = upgradeCurrentLevel;
             Double power;
             
             switch(level){
@@ -112,7 +122,7 @@ public class BattleControl {
                 default:
                     power = 1.0;
             }
-            Double attackWithBonus = new Double((atk.doubleValue() + upgrdCrrntLvl.doubleValue()) * power);
+            Double attackWithBonus = (atk.doubleValue() + upgrdCrrntLvl.doubleValue()) * power;
             return attackWithBonus.intValue();
         }
         
@@ -145,10 +155,6 @@ public class BattleControl {
 	if(eShip == null) {
 		return -2;
 	}
-        
-        if(totalAttack < 0 || totalAttack > 30) {
-            return -3;
-        }
 
 	double attack = totalAttack * 2;
         
@@ -199,4 +205,70 @@ public class BattleControl {
        
     }
     
+    public static String counter(Ship activeShip, Ship enemyShip) {
+        
+        Ship battleship = PacificBattleship.getCurrentGame().getShip()[ShipList.battleship.ordinal()];
+        
+        String message = "";
+        
+        int shipStartHull = activeShip.getHull();
+        
+        boolean hit = hitOrMiss(enemyShip);
+        int upgradeAttack = 0;
+        int atkPower = 0;
+        if(hit){
+            
+            try{  
+                atkPower = CalTotalAttackPower(enemyShip, upgradeAttack, 0, enemyShip.getType());
+            } catch (BattleControlException me) {
+                ErrorView.display("Battle Control", me.getMessage());
+            }
+            
+            int atkBonus = calculateAttackBonus(atkPower, enemyShip, activeShip);
+            
+            int shipRemainingHull = PacificBattleship.getCurrentGame().getActiveShip().getHull();
+            
+            try {
+                shipRemainingHull = shipRemainingHull(atkBonus, activeShip);
+            } catch (BattleControlException ex) {
+                ErrorView.display("Battle Control", ex.getMessage());
+            }
+            
+            activeShip.setHull(shipRemainingHull);
+            
+            if(shipRemainingHull == 0) {
+                message = "You lost the " + activeShip.getShipName() + "...";
+                if (activeShip != battleship)
+                    PacificBattleship.getCurrentGame().setActiveShip(battleship);
+                else
+                    message = "You have lost...";
+            }
+            else
+                message = "\nYou were hit by the " + enemyShip.getShipName() + " for " + (shipStartHull - shipRemainingHull);
+        }
+        else
+            message = "\nThe " + enemyShip.getShipName() + "tried to attack you"
+                    + "\n    but it missed!";
+        
+        
+        
+        
+        return message;
+        
+    }
+
+    public static String attackBase(Base enemyBase, Ship activeShip) {
+        String message = "You assaulted " + enemyBase.getDescription() + " with " + (activeShip.getUpgradeSpecial().getCurrentAllocation() + 1) + " vessels!"
+                + "\n    Your troops damaged the base " + ((activeShip.getAttack() + activeShip.getUpgradeAttack().getCurrentAllocation()) * activeShip.getUpgradeSpecial().getCurrentAllocation())
+                + " points!";
+        
+        return message;
+    }
+    
+    public static String baseCounter(Base enemyBase, Ship activeShip) {
+        
+        String message = "";
+        
+        return message;
+    }
 }

@@ -9,7 +9,7 @@
  * @author Nathan
  */
 public enum BaseList {
-    base1("Parl Harbor"),
+    base1("Hiroshima"),
     base2("Midway"),
     base3("Wake Island"),
     base4("Tarawa"),

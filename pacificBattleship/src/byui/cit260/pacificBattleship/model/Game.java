@@ -25,6 +25,7 @@ public class Game implements Serializable {
     private Ship[] enemyShips;
     private Ship activeShip;
     private Collectable[] collectables;
+    private Base[] bases;
     
     public Game() {
     }
@@ -108,6 +109,14 @@ public class Game implements Serializable {
 
     public void setCollectables(Collectable[] collectables) {
         this.collectables = collectables;
+    }
+
+    public Base[] getBases() {
+        return bases;
+    }
+
+    public void setBases(Base[] bases) {
+        this.bases = bases;
     }
 
     

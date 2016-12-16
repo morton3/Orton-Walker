@@ -7,6 +7,7 @@ package byui.cit260.pacificBattleship.view;
 
 import byui.cit260.pacificBattleship.control.BattleControl;
 import byui.cit260.pacificBattleship.exceptions.BattleControlException;
+import byui.cit260.pacificBattleship.model.Base;
 import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.Upgrade;
@@ -145,6 +146,12 @@ public class AttackMenuView extends View{
         
         String message = "";
         
+        if (!PacificBattleship.getCurrentGame().getActiveShip().getType().equals("Transport")) {
+            message = this.checkForEnemyBase(column - 1, row - 1);
+            this.console.println(message);
+            return;
+        }
+        
         try {
             message = this.checkForEnemy(column - 1, row - 1);
             
@@ -175,7 +182,36 @@ public class AttackMenuView extends View{
         
         message = BattleControl.attackUnit(activeShip, enemyShip, upgradeAttack, upgradeSpecial);
         
+        if (locations[row][column].getShip() != null)
+            message += BattleControl.counter(activeShip, enemyShip);
         
+        
+        return message;
+    }
+
+    private String checkForEnemyBase(int row, int column) {
+        
+        Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
+        String message = "";
+        
+        if (locations[row][column].getScene().isActive()){
+            message = "You need to assault an island with the Transport";
+            return message;
+        }
+        
+        Ship activeShip = PacificBattleship.getCurrentGame().getActiveShip();
+        Upgrade upgradeAttack = activeShip.getUpgradeAttack();
+        Upgrade upgradeSpecial = activeShip.getUpgradeSpecial();
+        
+        Base enemyBase = locations[row][column].getBase();
+        
+        if (locations[row][column].getBase().isActive()) {
+            message = BattleControl.attackBase(enemyBase, activeShip);
+            
+            if (locations[row][column].getBase() != null)
+                message += BattleControl.baseCounter(enemyBase, activeShip);
+        
+        }
         return message;
     }
     

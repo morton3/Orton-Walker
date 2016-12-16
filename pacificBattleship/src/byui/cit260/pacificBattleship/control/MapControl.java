@@ -244,6 +244,14 @@ public class MapControl {
 
     static void assignNukesPartsToLocation(Location[][] mapLocations) {
         //for all Nuke parts
+        /*
+        
+        // Nate, I'm commenting this part out.  It will take too much time to
+        // fix.  I would need to set a condition to not put parts on land and to
+        // not put the same part on top of another.  I will set the parts
+        // manually below.  If you can handle these errors, go ahead and put
+        // this code back in.
+        
         NukeParts[] parts = NukeParts.values();
         {
             Random randomRow = new Random();
@@ -262,72 +270,210 @@ public class MapControl {
             }
 
         }
+*/
+        mapLocations[1][9].setNukePart(NukeParts.nukePart1);
+        mapLocations[3][6].setNukePart(NukeParts.nukePart2);
+        mapLocations[6][9].setNukePart(NukeParts.nukePart3);
+        mapLocations[9][7].setNukePart(NukeParts.nukePart4);
+        mapLocations[5][5].setNukePart(NukeParts.nukePart5);
+        mapLocations[9][4].setNukePart(NukeParts.nukePart6);
+        mapLocations[4][0].setNukePart(NukeParts.nukePart7);
+        mapLocations[7][0].setNukePart(NukeParts.nukePart8);
+        mapLocations[4][2].setNukePart(NukeParts.nukePart9);
+        mapLocations[0][5].setNukePart(NukeParts.nukePart10);
+        mapLocations[6][2].setNukePart(NukeParts.nukePart11);
+        mapLocations[5][4].setNukePart(NukeParts.nukePart12);
+        mapLocations[7][5].setNukePart(NukeParts.nukePart13);
+        mapLocations[0][1].setNukePart(NukeParts.nukePart14);
+        mapLocations[2][0].setNukePart(NukeParts.nukePart15);
 
     }
 
-    static void assignBaseToLocation() {
+    public static Base[] assignBaseToLocation() {
         Base[] base = new Base[BaseList.values().length];
         Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
-        
-        Base pearlHarbor = new Base();
-        pearlHarbor.setDescription("Pearl Harbor Naval Base");
-        base[BaseList.base1.ordinal()] = pearlHarbor;
-        locations[2][9].setBase(base[BaseList.base1.ordinal()]);
         
         Base base2 = new Base();
         base2.setDescription("Midway");
         base[BaseList.base2.ordinal()] = base2;
-        locations[8][0].setBase(base[BaseList.base1.ordinal()]);
+        locations[1][7].setBase(base[BaseList.base2.ordinal()]);
+        base2.setLocation(locations[1][7]);
+        base2.setActive(true);
+	base2.setPOW(5);
+	base2.setSymbol("#");
+	base2.setHull(3);
+	base2.setAttack(2);
+	base2.setDefense(0);
+	base2.setMaxHull(3);
+	base2.setUserControl(false);
+        base2.setType("Base");
         
         Base base3 = new Base();
-        base2.setDescription("Wake Island");
+        base3.setDescription("Wake Island");
         base[BaseList.base3.ordinal()] = base3;
-        locations[3][4].setBase(base[BaseList.base1.ordinal()]);
+        locations[3][4].setBase(base[BaseList.base3.ordinal()]);
+        base3.setLocation(locations[3][4]);
+	base3.setActive(true);
+	base3.setPOW(3);
+        base3.setSymbol("#");
+        base3.setHull(5);
+        base3.setAttack(3);
+        base3.setDefense(0);
+        base3.setMaxHull(5);
+        base3.setUserControl(false);
+        base3.setType("Base");
         
         Base base4 = new Base();
-        base2.setDescription("Tarawa");
+        base4.setDescription("Tarawa");
         base[BaseList.base4.ordinal()] = base4;
-        locations[7][6].setBase(base[BaseList.base1.ordinal()]);
+        locations[7][6].setBase(base[BaseList.base4.ordinal()]);
+        base4.setLocation(locations[7][6]);
+        base4.setActive(true);
+	base4.setPOW(4);
+        base4.setSymbol("#");
+        base4.setHull(7);
+        base4.setAttack(4);
+        base4.setDefense(0);
+        base4.setMaxHull(7);
+        base4.setUserControl(false);
+        base4.setType("Base");
         
         Base base5 = new Base();
-        base2.setDescription("Guadalcanal");
+        base5.setDescription("Guadalcanal");
         base[BaseList.base5.ordinal()] = base5;
-        locations[9][5].setBase(base[BaseList.base1.ordinal()]);
+        locations[8][0].setBase(base[BaseList.base5.ordinal()]);
+        base5.setLocation(locations[8][0]);
+	base5.setActive(true);
+	base5.setPOW(6);
+        base5.setSymbol("#");
+        base5.setHull(9);
+        base5.setAttack(5);
+        base5.setDefense(0);
+        base5.setMaxHull(9);
+        base5.setUserControl(false);
+        base5.setType("Base");
         
         Base base6 = new Base();
-        base2.setDescription("Sipan");
+        base6.setDescription("Sipan");
         base[BaseList.base6.ordinal()] = base6;
-        locations[7][3].setBase(base[BaseList.base1.ordinal()]);
+        locations[7][3].setBase(base[BaseList.base6.ordinal()]);
+        base6.setLocation(locations[7][3]);
+	base6.setActive(true);
+	base6.setPOW(5);
+        base6.setSymbol("#");
+        base6.setHull(11);
+        base6.setAttack(6);
+        base6.setDefense(0);
+        base6.setMaxHull(11);
+        base6.setUserControl(false);
+        base6.setType("Base");
         
         Base base7 = new Base();
-        base2.setDescription("Philippines1");
+        base7.setDescription("Philippines1");
         base[BaseList.base7.ordinal()] = base7;
-        locations[9][5].setBase(base[BaseList.base1.ordinal()]);
+        locations[9][5].setBase(base[BaseList.base7.ordinal()]);
+        base7.setLocation(locations[9][5]);
+	base7.setActive(true);
+	base7.setPOW(4);
+        base7.setSymbol("#");
+        base7.setHull(13);
+        base7.setAttack(7);
+        base7.setDefense(0);
+        base7.setMaxHull(13);
+        base7.setUserControl(false);
+        base7.setType("Base");
         
         Base base8 = new Base();
-        base2.setDescription("Philippines2");
+        base8.setDescription("Philippines2");
         base[BaseList.base8.ordinal()] = base8;
-        locations[9][2].setBase(base[BaseList.base1.ordinal()]);
+        locations[9][2].setBase(base[BaseList.base8.ordinal()]);
+        base8.setLocation(locations[9][2]);
+	base8.setActive(true);
+	base8.setPOW(3);
+        base8.setSymbol("#");
+        base8.setHull(15);
+        base8.setAttack(8);
+        base8.setDefense(0);
+        base8.setMaxHull(15);
+        base8.setUserControl(false);
+        base8.setType("Base");
         
         Base base9 = new Base();
-        base2.setDescription("Philippines3");
+        base9.setDescription("Philippines3");
         base[BaseList.base9.ordinal()] = base9;
-        locations[9][0].setBase(base[BaseList.base1.ordinal()]);
+        locations[9][0].setBase(base[BaseList.base9.ordinal()]);
+        base9.setLocation(locations[9][0]);
+	base9.setActive(true);
+	base9.setPOW(5);
+        base9.setSymbol("#");
+        base9.setHull(17);
+        base9.setAttack(9);
+        base9.setDefense(0);
+        base9.setMaxHull(17);
+        base9.setUserControl(false);
+        base9.setType("Base");
         
         Base base10 = new Base();
-            base2.setDescription("Okinawa");
+        base10.setDescription("Okinawa");
         base[BaseList.base10.ordinal()] = base10;
-        locations[3][0].setBase(base[BaseList.base1.ordinal()]);
+        locations[3][0].setBase(base[BaseList.base10.ordinal()]);
+        base10.setLocation(locations[3][0]);
+	base10.setActive(true);
+	base10.setPOW(4);
+        base10.setSymbol("#");
+        base10.setHull(19);
+        base10.setAttack(10);
+        base10.setDefense(0);
+        base10.setMaxHull(19);
+        base10.setUserControl(false);
+        base10.setType("Base");
         
         Base base11 = new Base();
-        base2.setDescription("Iwa Jima");
+        base11.setDescription("Iwa Jima");
         base[BaseList.base11.ordinal()] = base11;
-        locations[0][2].setBase(base[BaseList.base1.ordinal()]);
+        locations[0][2].setBase(base[BaseList.base11.ordinal()]);
+        base11.setLocation(locations[0][2]);
+	base11.setActive(true);
+	base11.setPOW(5);
+        base11.setSymbol("#");
+        base11.setHull(21);
+        base11.setAttack(11);
+        base11.setDefense(0);
+        base11.setMaxHull(21);
+        base11.setUserControl(false);
+        base11.setType("Base");
         
         Base base12 = new Base();
-        base2.setDescription("Enamy Base Japan");
+        base12.setDescription("Enemy Base Japan");
         base[BaseList.base12.ordinal()] = base12;
-        locations[0][0].setBase(base[BaseList.base1.ordinal()]);
+        locations[0][0].setBase(base[BaseList.base12.ordinal()]);
+        base12.setLocation(locations[0][0]);
+	base12.setActive(true);
+	base12.setPOW(6);
+        base12.setSymbol("#");
+        base12.setHull(25);
+        base12.setAttack(12);
+        base12.setDefense(0);
+        base12.setMaxHull(25);
+        base12.setUserControl(false);
+        base12.setType("Base");
+        
+        Base base1 = new Base();
+        base1.setDescription("Hiroshima");
+        base[BaseList.base1.ordinal()] = base1;
+        locations[1][0].setBase(base[BaseList.base1.ordinal()]);
+        base1.setLocation(locations[1][0]);
+	base1.setActive(true);
+	base1.setPOW(6);
+        base1.setSymbol("#");
+        base1.setHull(40);
+        base1.setAttack(15);
+        base1.setDefense(0);
+        base1.setMaxHull(40);
+        base1.setUserControl(false);
+        base1.setType("Base");
+        
+        return base;
         
         }
 

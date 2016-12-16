@@ -170,7 +170,7 @@ public class ShipControl {
         enemyBattleship1.setMaxHull(12);
         enemyBattleship1.setDescription("");
         enemyBattleship1.setShipClass(ShipClass.battleship1);
-        enemyBattleship1.setSymbol(enemyBattleship1.getShipClass().getSymbol());
+        enemyBattleship1.setSymbol("E");
         enemyShips[EnemyShipList.enemyBattleship1.ordinal()] = enemyBattleship1;
         
         Ship enemyBattleship2 = new Ship();
@@ -184,7 +184,7 @@ public class ShipControl {
         enemyBattleship2.setMaxHull(12);
         enemyBattleship2.setDescription("");
         enemyBattleship2.setShipClass(ShipClass.battleship1);
-        enemyBattleship2.setSymbol(enemyBattleship2.getShipClass().getSymbol());
+        enemyBattleship2.setSymbol("E");
         enemyShips[EnemyShipList.enemyBattleship2.ordinal()] = enemyBattleship2;
         
         Ship enemyBattlecruisers1 = new Ship();
@@ -198,7 +198,7 @@ public class ShipControl {
         enemyBattlecruisers1.setMaxHull(12);
         enemyBattlecruisers1.setDescription("");
         enemyBattlecruisers1.setShipClass(ShipClass.battleship1);
-        enemyBattlecruisers1.setSymbol(enemyBattlecruisers1.getShipClass().getSymbol());
+        enemyBattlecruisers1.setSymbol("E");
         enemyShips[EnemyShipList.enemyBattlecruisers1.ordinal()] = enemyBattlecruisers1;
         
         Ship enemyBattlecruisers2 = new Ship();
@@ -212,7 +212,7 @@ public class ShipControl {
         enemyBattlecruisers2.setMaxHull(12);
         enemyBattlecruisers2.setDescription("");
         enemyBattlecruisers2.setShipClass(ShipClass.battleship1);
-        enemyBattlecruisers2.setSymbol(enemyBattlecruisers2.getShipClass().getSymbol());
+        enemyBattlecruisers2.setSymbol("E");
         enemyShips[EnemyShipList.enemyBattlecruisers2.ordinal()] = enemyBattlecruisers2;
         
         Ship enemySubmarine1 = new Ship();
@@ -226,7 +226,7 @@ public class ShipControl {
         enemySubmarine1.setMaxHull(12);
         enemySubmarine1.setDescription("");
         enemySubmarine1.setShipClass(ShipClass.battleship1);
-        enemySubmarine1.setSymbol(enemySubmarine1.getShipClass().getSymbol());
+        enemySubmarine1.setSymbol("E");
         enemyShips[EnemyShipList.enemySubmarine1.ordinal()] = enemySubmarine1;
         
         Ship enemySubmarine2 = new Ship();
@@ -240,7 +240,7 @@ public class ShipControl {
         enemySubmarine2.setMaxHull(12);
         enemySubmarine2.setDescription("");
         enemySubmarine2.setShipClass(ShipClass.battleship1);
-        enemySubmarine2.setSymbol(enemySubmarine2.getShipClass().getSymbol());
+        enemySubmarine2.setSymbol("E");
         enemyShips[EnemyShipList.enemySubmarine2.ordinal()] = enemySubmarine2;
         
         Ship enemyDestroyer1 = new Ship();
@@ -254,7 +254,7 @@ public class ShipControl {
         enemyDestroyer1.setMaxHull(12);
         enemyDestroyer1.setDescription("");
         enemyDestroyer1.setShipClass(ShipClass.battleship1);
-        enemyDestroyer1.setSymbol(enemyDestroyer1.getShipClass().getSymbol());
+        enemyDestroyer1.setSymbol("E");
         enemyShips[EnemyShipList.enemyDestroyer1.ordinal()] = enemyDestroyer1;
         
         Ship enemyDestroyer2 = new Ship();
@@ -268,7 +268,7 @@ public class ShipControl {
         enemyDestroyer2.setMaxHull(12);
         enemyDestroyer2.setDescription("");
         enemyDestroyer2.setShipClass(ShipClass.battleship1);
-        enemyDestroyer2.setSymbol(enemyDestroyer2.getShipClass().getSymbol());
+        enemyDestroyer2.setSymbol("E");
         enemyShips[EnemyShipList.enemyDestroyer2.ordinal()] = enemyDestroyer2;
         
         Ship enemyAircraftCarrier1 = new Ship();
@@ -282,7 +282,7 @@ public class ShipControl {
         enemyAircraftCarrier1.setMaxHull(12);
         enemyAircraftCarrier1.setDescription("");
         enemyAircraftCarrier1.setShipClass(ShipClass.battleship1);
-        enemyAircraftCarrier1.setSymbol(enemyAircraftCarrier1.getShipClass().getSymbol());
+        enemyAircraftCarrier1.setSymbol("E");
         enemyShips[EnemyShipList.enemyAircraftCarrier1.ordinal()] = enemyAircraftCarrier1;
         
         Ship enemyAircraftCarrier2 = new Ship();
@@ -296,7 +296,7 @@ public class ShipControl {
         enemyAircraftCarrier2.setMaxHull(12);
         enemyAircraftCarrier2.setDescription("");
         enemyAircraftCarrier2.setShipClass(ShipClass.battleship1);
-        enemyAircraftCarrier2.setSymbol(enemyAircraftCarrier2.getShipClass().getSymbol());
+        enemyAircraftCarrier2.setSymbol("E");
         enemyShips[EnemyShipList.enemyAircraftCarrier2.ordinal()] = enemyAircraftCarrier2;
         
         return enemyShips;

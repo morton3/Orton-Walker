@@ -32,7 +32,6 @@ public class LaunchNuke extends View{
     @Override
     public boolean doAction(String value) {
       value = value.toUpperCase();
-        String launch = "";
         
         
       switch (value){
@@ -45,7 +44,6 @@ public class LaunchNuke extends View{
               this.console.println("\n*** Invalid selection *** Try again");
               break;
       }
-         this.console.println("\n*** Nuke is launch");
      
       
       return false;
