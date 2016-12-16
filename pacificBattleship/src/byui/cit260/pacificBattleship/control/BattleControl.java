@@ -138,7 +138,13 @@ public class BattleControl {
         
         int hitMissRatio = rn.nextInt(100) + 1;
         
-        if (uShip.getAccuracy() + hitMissRatio < 100){
+        int accuracy = uShip.getAccuracy();
+        
+        if (uShip.getType().equals("Submarine")) {
+            accuracy -= (uShip.getUpgradeSpecial().getCurrentAllocation() * 5);
+        }
+        
+        if (accuracy + hitMissRatio < 100){
             return false;
         }
         else
@@ -208,6 +214,7 @@ public class BattleControl {
     public static String counter(Ship activeShip, Ship enemyShip) {
         
         Ship battleship = PacificBattleship.getCurrentGame().getShip()[ShipList.battleship.ordinal()];
+        Location location = activeShip.getLocation();
         
         String message = "";
         
@@ -238,8 +245,11 @@ public class BattleControl {
             
             if(shipRemainingHull == 0) {
                 message = "You lost the " + activeShip.getShipName() + "...";
-                if (activeShip != battleship)
+                if (activeShip != battleship){
+                    activeShip.setLocation(null);
+                    location.setShip(null);
                     PacificBattleship.getCurrentGame().setActiveShip(battleship);
+                }
                 else
                     message = "You have lost...";
             }
@@ -257,10 +267,31 @@ public class BattleControl {
         
     }
 
-    public static String attackBase(Base enemyBase, Ship activeShip) {
+    public static String attackBase(Base enemyBase, Ship activeShip, int row, int column) {
+        
+        int damage = (activeShip.getAttack() + activeShip.getUpgradeAttack().getCurrentAllocation()) * (activeShip.getUpgradeSpecial().getCurrentAllocation() + 1);
+        
         String message = "You assaulted " + enemyBase.getDescription() + " with " + (activeShip.getUpgradeSpecial().getCurrentAllocation() + 1) + " vessels!"
-                + "\n    Your troops damaged the base " + ((activeShip.getAttack() + activeShip.getUpgradeAttack().getCurrentAllocation()) * activeShip.getUpgradeSpecial().getCurrentAllocation())
+                + "\n    Your troops damaged the base for " + damage
                 + " points!";
+        
+        int hullRemaining = enemyBase.getHull() - damage;
+        
+        if (hullRemaining < 0)
+            hullRemaining = 0;
+        
+        enemyBase.setHull(hullRemaining);
+        int currentPOWs = PacificBattleship.getCurrentGame().getNumOfPOW();
+        
+        if(enemyBase.getHull() == 0) {
+            message += "\n    " + enemyBase.getDescription() + " has been destroyed!"
+                    + "\n    " + enemyBase.getPOW() + " POW's have been liberated!";
+            PacificBattleship.getCurrentGame().setNumOfPOW(currentPOWs + enemyBase.getPOW());
+            enemyBase.setLocation(null);
+            enemyBase.setSymbol("-");
+            PacificBattleship.getCurrentGame().getMap().getLocations()[row][column].getBase().setActive(false);
+        }
+        
         
         return message;
     }

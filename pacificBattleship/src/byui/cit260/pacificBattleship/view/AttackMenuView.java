@@ -146,14 +146,16 @@ public class AttackMenuView extends View{
         
         String message = "";
         
-        if (!PacificBattleship.getCurrentGame().getActiveShip().getType().equals("Transport")) {
+        String shipType = PacificBattleship.getCurrentGame().getActiveShip().getType();
+        
+        if (shipType.equals("Transport")) {
             message = this.checkForEnemyBase(column - 1, row - 1);
             this.console.println(message);
             return;
         }
         
         try {
-            message = this.checkForEnemy(column - 1, row - 1);
+            message = AttackMenuView.checkForEnemy(column - 1, row - 1);
             
             } catch (BattleControlException me) {
                 this.console.println(me.getMessage());
@@ -195,7 +197,7 @@ public class AttackMenuView extends View{
         String message = "";
         
         if (locations[row][column].getScene().isActive()){
-            message = "You need to assault an island with the Transport";
+            message = "You can't attack ships with the transport";
             return message;
         }
         
@@ -205,8 +207,14 @@ public class AttackMenuView extends View{
         
         Base enemyBase = locations[row][column].getBase();
         
+        if (!enemyBase.isActive()) {
+            message = "This base has already been destroyed and the POW's have"
+                    + "been liberated.  Look for another base!";
+            return message;
+        }
+        
         if (locations[row][column].getBase().isActive()) {
-            message = BattleControl.attackBase(enemyBase, activeShip);
+            message = BattleControl.attackBase(enemyBase, activeShip, row, column);
             
             if (locations[row][column].getBase() != null)
                 message += BattleControl.baseCounter(enemyBase, activeShip);

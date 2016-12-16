@@ -105,7 +105,7 @@ public class CommandMenu extends View{
         int hull = ship.getHull();
         int maxHull = ship.getMaxHull() + ship.getShipClass().getBonusHull();
         int currentPart = PacificBattleship.getCurrentGame().getNuclearParts();
-        int POWs = PacificBattleship.getCurrentGame().getNumOfPOW() - PacificBattleship.getCurrentGame().getNumOfUsedPOW();
+        int POWs = PacificBattleship.getCurrentGame().getNumOfPOW();
         String shipSymbol = ">" + ship.getSymbol() + "<";
         
         sideMenu[0] =  " " + rank;

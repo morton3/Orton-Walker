@@ -7,8 +7,10 @@ package byui.cit260.pacificBattleship.control;
 
 import byui.cit260.pacificBattleship.model.Collectable;
 import byui.cit260.pacificBattleship.model.CollectableType;
+import byui.cit260.pacificBattleship.model.Location;
 import byui.cit260.pacificBattleship.model.Ship;
 import byui.cit260.pacificBattleship.model.ShipClass;
+import byui.cit260.pacificBattleship.model.ShipList;
 import byui.cit260.pacificBattleship.model.Upgrade;
 import pacificbattleship.PacificBattleship;
 
@@ -30,6 +32,8 @@ public class UpgradeControl {
 
     public static void increaseValue(Upgrade upgrade) {
         
+        Location[][] locations = PacificBattleship.getCurrentGame().getMap().getLocations();
+        
         if (upgrade.getUpgradeType().equals("attack")) {
             int current = PacificBattleship.getCurrentGame().getActiveShip().getUpgradeAttack().getCurrentAllocation();
             PacificBattleship.getCurrentGame().getActiveShip().getUpgradeAttack().setCurrentAllocation(current + 1);
@@ -38,6 +42,38 @@ public class UpgradeControl {
             int current = PacificBattleship.getCurrentGame().getActiveShip().getUpgradeSpecial().getCurrentAllocation();
             PacificBattleship.getCurrentGame().getActiveShip().getUpgradeSpecial().setCurrentAllocation(current + 1);
         }
+        
+        if (PacificBattleship.getCurrentGame().getShip()[ShipList.battleship.ordinal()].getUpgradeSpecial().getCurrentAllocation() == 2)
+            for (Location[] row : locations){
+                for (Location location : row){
+                    if (location.getBase() != null)
+                        location.setHidden(false);
+                }
+            }
+        
+        if (PacificBattleship.getCurrentGame().getShip()[ShipList.battleship.ordinal()].getUpgradeSpecial().getCurrentAllocation() == 3)
+            for (Location[] row : locations){
+                for (Location location : row){
+                    if (location.getShip() != null)
+                        location.setHidden(false);
+                }
+            }
+        
+        
+        if (PacificBattleship.getCurrentGame().getShip()[ShipList.battleship.ordinal()].getUpgradeSpecial().getCurrentAllocation() == 4)
+            for (Location[] row : locations){
+                for (Location location : row){
+                    if (location.getNukePart() != null)
+                        location.setHidden(false);
+                }
+            }
+        
+        if (PacificBattleship.getCurrentGame().getShip()[ShipList.battleship.ordinal()].getUpgradeSpecial().getCurrentAllocation() == 5)
+            for (Location[] row : locations){
+                for (Location location : row){
+                    location.setHidden(false);
+                }
+            }
     }
 
     public static String upgradeClass(Ship ship, ShipClass shipClass) {

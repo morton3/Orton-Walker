@@ -363,7 +363,7 @@ public class ShipControl {
         
         Upgrade transportSpecial = new Upgrade();
         transportSpecial.setShipType("Transport");
-        transportSpecial.setName("Troops on Board");
+        transportSpecial.setName("Vessels on Board");
         transportSpecial.setCurrentAllocation(0);
         transportSpecial.setMaxAllocation(5);
         transportSpecial.setUpgradeType("special");

@@ -66,14 +66,23 @@ public class UpgradeMenu extends View{
               return false;
       }
       
+      int usedPOW = PacificBattleship.getCurrentGame().getNumOfUsedPOW();
+      int POW = PacificBattleship.getCurrentGame().getNumOfPOW();
+      
       if (upgrade != null){
-      if(UpgradeControl.checkUpgradeMax(upgrade)) {
-          UpgradeControl.increaseValue(upgrade);
-          this.console.println("You increased the " + ship.getShipName() + " " + upgrade.getName() + " to level " + upgrade.getCurrentAllocation());
-      }
-      else
-          this.console.println("You cannot upgrade this ship any further");
-      }
+          if(PacificBattleship.getCurrentGame().getNumOfPOW() > 0){
+              if(UpgradeControl.checkUpgradeMax(upgrade)) {
+                  UpgradeControl.increaseValue(upgrade);
+                  this.console.println("You increased the " + ship.getShipName() + " " + upgrade.getName() + " to level " + upgrade.getCurrentAllocation());
+                  PacificBattleship.getCurrentGame().setNumOfPOW(POW - 1);
+                  PacificBattleship.getCurrentGame().setNumOfUsedPOW(usedPOW + 1);
+              }
+              else
+                  this.console.println("You cannot upgrade this ship any further");
+          }
+          else
+              this.console.println("You do not have enough POW's to upgrade this ship!");
+      }    
       
       this.displayMenu();
       
@@ -114,18 +123,36 @@ public class UpgradeMenu extends View{
         int upgradeAttackCurrent = PacificBattleship.getCurrentGame().getActiveShip().getUpgradeAttack().getCurrentAllocation();
         int upgradeSpecialMax = 5;
         int upgradeSpecialCurrent = PacificBattleship.getCurrentGame().getActiveShip().getUpgradeSpecial().getCurrentAllocation();
+        
+        String upgradeSpecial = PacificBattleship.getCurrentGame().getActiveShip().getUpgradeSpecial().getName();
+        int nameULength = PacificBattleship.getCurrentGame().getActiveShip().getUpgradeSpecial().getName().length();
+        
+        String upgradeAttack = PacificBattleship.getCurrentGame().getActiveShip().getUpgradeAttack().getName();
+        int nameALength = PacificBattleship.getCurrentGame().getActiveShip().getUpgradeAttack().getName().length();
+        
+        String spacesA = "";
+        
+        for (int i = nameALength; i > 0; i--) {
+            spacesA += " ";
+        }
+        
+        String spacesU = "";
+        
+        for (int i = nameULength; i > 0; i--) {
+            spacesU += " ";
+        }
       
         
         this.console.println("\n"
                    + "\n-------------------------------------------------"
                    +"\n| Upgrade Menu                                      |"
                    +"\n--------------------------------------------------"
-                   +"\n|                    " + this.topBar(upgradeAttackMax)
-                   +"\n| A - Upgrade Attack " + this.midTopBar(upgradeAttackCurrent, upgradeAttackMax)
-                   +"\n|                    " + this.botBar(upgradeAttackMax)
-                   +"\n|                    " + this.topBar(upgradeSpecialMax)
-                   +"\n| S - Upgrade Special" + this.midTopBar(upgradeSpecialCurrent, upgradeSpecialMax)
-                   +"\n|                    " + this.botBar(upgradeSpecialMax)
+                   +"\n|      " + spacesA + this.topBar(upgradeAttackMax)
+                   +"\n| A - " + upgradeAttack + " " + this.midTopBar(upgradeAttackCurrent, upgradeAttackMax)
+                   +"\n|      " + spacesA + this.botBar(upgradeAttackMax)
+                   +"\n|      " + spacesU + this.topBar(upgradeSpecialMax)
+                   +"\n| S - " + upgradeSpecial + " " + this.midTopBar(upgradeSpecialCurrent, upgradeSpecialMax)
+                   +"\n|      " + spacesU + this.botBar(upgradeSpecialMax)
                    +"\n| C - Upgrade Ship Class"
                    +"\n|      Current - " + PacificBattleship.getCurrentGame().getActiveShip().getShipClass().getName()
                    +"\n| "
