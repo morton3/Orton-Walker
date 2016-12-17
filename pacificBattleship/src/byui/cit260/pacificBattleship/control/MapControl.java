@@ -244,9 +244,9 @@ public class MapControl {
 
     static void assignNukesPartsToLocation(Location[][] mapLocations) {
         //for all Nuke parts
-        /*
         
-        // Nate, I'm commenting this part out.  It will take too much time to
+        
+        /* Nate, I'm commenting this part out.  It will take too much time to
         // fix.  I would need to set a condition to not put parts on land and to
         // not put the same part on top of another.  I will set the parts
         // manually below.  If you can handle these errors, go ahead and put
